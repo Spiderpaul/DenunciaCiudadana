@@ -1,0 +1,188 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body{
+    width: 100%;
+    min-height: 100vh;
+}
+
+/*                                  Estilo de menú del sitio                              */
+.contenedor-menu{
+    width: 100%;
+    height: 40px;
+    display: flex;
+
+}
+
+.menu1{
+    flex-grow: 2;
+}
+
+nav.barra-menu1{
+    background: #6A1C32;
+    width: 100%;
+    height: 40px;
+}
+
+nav ul.izquierdo{
+    float: left;
+    padding-left: 20px;
+}
+
+nav ul.izquierdo li{
+    display: inline-block;
+    line-height: 40px;
+    margin: 0 5px;
+    
+}
+
+nav ul.izquierdo li a{
+    color: white;
+    font-size: medium;
+    border-radius: 2px;
+}
+
+li a.activo, li a:hover{
+    background: #4d4d4d;
+    transition: .1s;
+}
+
+.checkbtn{
+    color: white;
+    font-size: 30px;
+    float: left;
+    margin-left: 20px;
+    cursor: pointer;
+    display: none;
+}
+
+#check{
+    display: none;
+}
+
+/*                           Estilo de hipervinculos de registro e inicio de sesión                         */
+
+div.menu2{
+    flex-grow: 1;
+    background: green;
+    width: 30%;
+    height: 40px;
+    color: white;
+}
+
+nav.barra-menu2{
+    background: #6A1C32;
+    width: 100%;
+    height: 40px;
+}
+
+nav ul.derecho{
+    float: right;
+    padding-left: 20px;
+}
+
+nav ul.derecho li{
+    display: inline-block;
+    line-height: 40px;
+    margin: 0 5px;
+    
+}
+
+nav ul.derecho li a{
+    color: white;
+    font-size: medium;
+    border-radius: 2px;
+}
+
+    /*                                             Cuerpo                                         */
+.contenedor-cuerpo{
+    width: 100%;
+    min-height: calc(100vh - 130px);
+}
+
+    /*                                              Pie                                            */
+.pie{
+    background: #6A1C32;
+    width: 100%;
+    height: 90px;
+    color: white;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pie .correo{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.pie .telefono{
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+}
+
+.pie .direccion{
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+}
+
+.pie span{
+    font-size: small;
+    margin: 5px;
+}
+
+
+    /*                             Menú interactivo y responsivo                            */
+
+@media (max-width: 800px){
+    .checkbtn{
+        display: block;
+    }
+
+    nav ul.izquierdo{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #4d4d4d;
+        top: 40px;
+        left: -110%;
+        text-align: center;
+        transition: all .5s;
+        padding-left: 0;
+    }
+
+    nav ul.izquierdo li{
+        display: block;
+        margin: 20px 0;
+        line-height: 30px;
+    }
+
+
+    ul.izquierdo li a:hover, li.activo{
+        background: #6A1C32;
+    }
+
+    #check:checked ~ ul{
+        left: 0;
+    }
+
+    div.menu2{
+        flex-grow: 1;
+        background: green;
+        width: 60%;
+        height: 40px;
+        color: white;
+        min-width: 250px;
+    }
+}
+
