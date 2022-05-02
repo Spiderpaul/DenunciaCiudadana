@@ -106,6 +106,31 @@ nav ul.derecho li a{
     min-height: calc(100vh - 130px);
 }
 
+
+div.contenido{
+    background: orange;
+    margin: auto;
+    width: 80%;
+    height: 60vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /*                                              Pie                                            */
 .pie{
     background: #6A1C32;
