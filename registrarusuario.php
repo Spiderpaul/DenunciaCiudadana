@@ -1,6 +1,6 @@
 <?php require('./vistas/cabecera.php')?>
 
-    <div class="div-formulario">
+<div class="div-formulario">
     <div class="div-titulo">
         <p>Datos personales</p>
     </div>
@@ -35,26 +35,34 @@
                 </div>
                 <div class="control3-p">
                     <div class="control3-p-hijo">
-                            <p>Dirección</p>
-                            <input type="text" class="form-control" name="direccion" id="form-direccion" required>
+                        <p>Dirección</p>
+                        <input type="text" class="form-control" name="direccion" id="form-direccion" required>
                     </div>
                 </div>
             </div>
         </div>
 
     <div class="div-titulo-d">
-        <p>Datos de denuncia</p>
+        <p>Datos laborales</p>
     </div>
 
     <div class="div-form-d">
         <div class="control-form">
             <div class="control1">
-                <p>Asunto</p>
-                <input type="text" class="form-control" name="asunto" id="form-asunto" required>
+                <p>Identificativo</p>
+                <input type="text" class="form-control" name="identificativo" id="form-identificativo" required>
             </div>
             <div class="control2">
-                <p>Descripción</p>
-                <input type="text" class="form-control" name="descripcion" id="form-descripcion" required>    
+                <p>Área de trabajo</p>
+                <input type="text" class="form-control" name="area" id="form-area" required>    
+            </div>
+            <div class="control2">
+                <p>Contraseña</p>
+                <input type="text" class="form-control" name="clave" id="form-clave" required>    
+            </div>
+            <div class="control2">
+                <p>Reafirmar contraseña</p>
+                <input type="text" class="form-control" name="reafirmar" id="form-reafirmar" required>    
             </div>
         </div>
     </div>

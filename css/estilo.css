@@ -70,7 +70,6 @@ li a.activo, li a:hover{
 
 div.menu2{
     flex-grow: 1;
-    background: green;
     width: 30%;
     height: 40px;
     color: white;
@@ -100,7 +99,7 @@ nav ul.derecho li a{
     border-radius: 2px;
 }
 
-    /*                                             Cuerpo                                         */
+    /*                         Contenedores de cuerpo                          */
 .contenedor-cuerpo{
     width: 100%;
     height: 130vh;
@@ -145,6 +144,7 @@ div.contenido{
     height: 250px;
 }
 
+
 .div-form-d{
     border: 1px solid #4d4d4d;
     margin-left: 40px;
@@ -164,6 +164,37 @@ div.contenido{
     height: 35px;
     border: 1px solid #4d4d4d;
     background: #d1d1d1;
+}
+
+/*    Contenedores de inicio de sesión   */
+.div-formulario-i{
+    width: 60%;
+    height: 450px;
+    margin: auto;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.div-form-i{
+    border: 1px solid #4d4d4d;
+    margin: auto;
+    width: 60%;
+    height: 340px;
+}
+
+.div-form-i .control-form-i{
+    width: 80%;
+    height: 340px;
+    margin: auto;
+    margin-top: 15%;
+}
+
+.div-titulo-i{
+    width: 60%;
+    margin: auto;
+    margin-top: 10%;
+    margin-bottom: 0;
 }
 
 /*    Componentes de información personal de denuncia ciudadana   */
@@ -279,6 +310,21 @@ div.contenido{
 
 
     /*                             Comportamiento responsivo                            */
+@media (max-width: 1050px){
+
+    .boton-registrar{
+        width: 95%;
+    }
+
+    .div-form-i .control-form-i{
+        margin-top: 40px;
+    }
+
+    .div-formulario-i{
+        width: 80%;
+        margin-top: 40px;
+    }
+}
 
 @media (max-width: 800px){
     .checkbtn{
@@ -329,10 +375,6 @@ div.contenido{
 
     .control2{
         margin:auto;
-        width: 95%;
-    }
-
-    .boton-registrar{
         width: 95%;
     }
 }

@@ -27,8 +27,8 @@
         <div class="menu2">
             <nav class="barra-menu2">
                 <ul class="derecho">
-                    <li><a href="#">Iniciar sesión</a></li>
-                    <li><a href="#">Crear cuenta</a></li>
+                    <li><a href="registrarusuario.php">Crear cuenta</a></li>
+                    <li><a href="iniciarsesion.php">Iniciar sesión</a></li>
                 </ul>
             </nav>
         </div>
