@@ -11,11 +11,13 @@
             <div class="control-form">
                 <div class="control1">
                     <p>Asunto</p>
-                    <input type="text" class="form-control" name="asunto" id="form-asunto" required>
+                    <input type="text" class="form-control" name="asunto" id="form-asunto" 
+                    placeholder="   Escriba el asunto que desea denunciar" required>
                 </div>
                 <div class="control2">
                     <p>Descripción</p>
-                    <input type="text" class="form-control" name="descripcion" id="form-descripcion" required>
+                    <textarea rows="10" cols="40" class="form-control" name="descripcion" id="form-descripcion" required>
+                    </textarea>  
                 </div>
             </div>
         </div>

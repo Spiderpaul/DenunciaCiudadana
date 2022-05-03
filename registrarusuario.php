@@ -12,7 +12,8 @@
                 <div class="control1-p">
                     <div class="div-nombre">
                         <p>Nombre</p>
-                        <input type="text" class="form-control" name="nombre" id="form_nombre" required>
+                        <input type="text" class="form-control" name="nombre" id="form_nombre" 
+                        placehorder="Ingrese su nombre completo" required>
                     </div>
                     <div class="div-edad">
                         <p>Edad</p>
@@ -21,9 +22,9 @@
                     <div class="div-sexo">
                         <p>Sexo</p>
                         <select class="form-select" name="sexo" id="form_select">
+                            <option value="I">Indefinido</option>
                             <option value="F">Femenino</option>
                             <option value="M">Masculino</option>
-                            <option value="I">Indefinido</option>
                         </select>
                     </div>
                 </div>
@@ -62,11 +63,11 @@
             </div>
             <div class="control2">
                 <p>Contraseña</p>
-                <input type="text" class="form-control" name="clave" id="form_clave" required>    
+                <input type="password" class="form-control" name="clave" id="form_clave" required>    
             </div>
             <div class="control2">
                 <p>Confirmar contraseña</p>
-                <input type="text" class="form-control" name="confirmar" id="form_confirmar" required>    
+                <input type="password" class="form-control" name="confirmar" id="form_confirmar" required>    
             </div>
         </div>
     </div>

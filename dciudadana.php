@@ -12,36 +12,40 @@
                 <div class="control1-p">
                     <div class="div-nombre">
                         <p>Nombre</p>
-                        <input type="text" class="form-control" name="nombre" id="form-nombre" required>
+                        <input type="text" class="form-control" name="nombre" id="form-nombre" 
+                        placeholder="   Ingrese su nombre completo" required>
                     </div>
                     <div class="div-edad">
                         <p>Edad</p>
-                        <input type="text" class="form-control" name="edad" id="form-edad" required>
+                        <input type="text" class="form-control" name="edad" id="form-edad" 
+                        placeholder="   Ingrese su edad" required>
                     </div>
                     <div class="div-sexo">
                         <p>Sexo</p>
-                        <p>Sexo</p>
                         <select class="form-select" name="sexo" id="form-select">
+                            <option value="I">Indefinido</option>
                             <option value="F">Femenino</option>
                             <option value="M">Masculino</option>
-                            <option value="I">Indefinido</option>
                         </select>
                     </div>
                 </div>
                 <div class="control2-p">
                     <div class="control2-p-hijo">
                         <p>Teléfono</p>
-                        <input type="text" class="form-control" name="telefono" id="form-telefono" required>
+                        <input type="text" class="form-control" name="telefono" id="form-telefono" 
+                        placeholder="   000-000-00-00" required>
                     </div>
                     <div class="control2-p-hijo">
                         <p>Correo electrónico</p>
-                        <input type="text" class="form-control" name="correo" id="form-correo" required>
+                        <input type="text" class="form-control" name="correo" id="form-correo" 
+                        placeholder="   ejemplo@mail.com" required>
                     </div>
                 </div>
                 <div class="control3-p">
                     <div class="control3-p-hijo">
                             <p>Dirección</p>
-                            <input type="text" class="form-control" name="direccion" id="form-direccion" required>
+                            <input type="text" class="form-control" name="direccion" id="form-direccion" 
+                            placeholder="   Escriba su dirección de domicilio" required>
                     </div>
                 </div>
             </div>
@@ -55,11 +59,13 @@
         <div class="control-form">
             <div class="control1">
                 <p>Asunto</p>
-                <input type="text" class="form-control" name="asunto" id="form-asunto" required>
+                <input type="text" class="form-control" name="asunto" id="form-asunto" 
+                placeholder="   Escriba el asunto que desea denunciar" required>
             </div>
             <div class="control2">
                 <p>Descripción</p>
-                <input type="text" class="form-control" name="descripcion" id="form-descripcion" required>    
+                <textarea rows="10" cols="40" class="form-control" name="descripcion" id="form-descripcion" required>
+                </textarea>  
             </div>
         </div>
     </div>
