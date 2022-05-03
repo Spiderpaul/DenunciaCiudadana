@@ -103,18 +103,16 @@ nav ul.derecho li a{
     /*                                             Cuerpo                                         */
 .contenedor-cuerpo{
     width: 100%;
-    min-height: calc(100vh - 130px);
+    height: 130vh;
 }
 
-
 div.contenido{
-    background: #4d4d4d;
+    background: #d1d1d1;
     margin: auto;
     margin-top: 50px;
     width: 80%;
     height: 60vh;
     font-size: 20px;
-    color: white;
     padding: 20px;
 }
 
@@ -127,38 +125,101 @@ div.contenido{
     flex-direction: column;
 }
 
+.div-titulo-d{
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 20px;
+}
+
 .div-titulo{
     margin-left: 40px;
     margin-right: 40px;
     margin-top: 20px;
 }
 
-.div-formulario .div-form{
-    margin-left: 40px;
-    border: 1px solid black;
-    border-color: #4d4d4d;
+.div-form-p{
+    border: 1px solid #4d4d4d;
     margin-left: 40px;
     margin-right: 40px;
+    margin-bottom: 20px;
+    height: 250px;
+}
+
+.div-form-d{
+    border: 1px solid #4d4d4d;
+    margin-left: 40px;
+    margin-right: 40px;
+    height: 340px;
+}
+
+.div-form{
+    border: 1px solid #4d4d4d;
+    margin-left: 40px;
+    margin-right: 40px;
+    height: 340px;
 }
 
 .form-control{
     width: 100%;
+    height: 35px;
+    border: 1px solid #4d4d4d;
+    background: #d1d1d1;
 }
 
-.control1{
+/*    Componentes de información personal de denuncia ciudadana   */
+.control1-p{
+    margin: auto;
     margin-top: 20px;
-    margin-left: 40px;
-    margin-right: 40px;
+    width: 90%;
+    display: flex;
+    gap: 20px;
+}
+
+.control1-p .div-nombre{
+    flex-grow: 5;
+}
+
+.control1-p .div-edad{
+    flex-grow: 1;
+}
+
+.control1-p .div-sexo{
+    flex-grow: 1;
+}
+
+.control2-p{
+    margin: auto;
+    margin-top: 20px;
+    width: 90%;
+    display: flex;
+    gap: 20px;
+}
+
+.control2-p-hijo{
+    flex-grow: 1;
+}
+
+.control3-p{
+    margin: auto;
+    margin-top: 20px;
+    width: 90%;
+}
+
+/*    Componentes de denuncia anonima   */
+.control1{
+    margin: auto;
+    margin-top: 20px;
+    width: 90%;
 }
 
 .control2{
+    margin: auto;
     margin-top: 20px;
-    margin-left: 40px;
-    margin-right: 40px;
+    width: 90%;
 }
 
 #form-descripcion{
-    height: 200px;
+    height: 30vh;
 }
 
 .boton-form{
@@ -175,14 +236,6 @@ div.contenido{
     margin-top: 30px;
     border-style: none;
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -225,7 +278,7 @@ div.contenido{
 }
 
 
-    /*                             Menú interactivo y responsivo                            */
+    /*                             Comportamiento responsivo                            */
 
 @media (max-width: 800px){
     .checkbtn{
@@ -266,6 +319,21 @@ div.contenido{
         height: 40px;
         color: white;
         min-width: 250px;
+    }
+
+    /*    Comportamiento responsivo de componentes   */
+    .control1{
+        margin:auto;
+        width: 95%;
+    }
+
+    .control2{
+        margin:auto;
+        width: 95%;
+    }
+
+    .boton-registrar{
+        width: 95%;
     }
 }
 
