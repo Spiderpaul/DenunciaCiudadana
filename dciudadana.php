@@ -20,7 +20,12 @@
                     </div>
                     <div class="div-sexo">
                         <p>Sexo</p>
-                        <input type="text" class="form-control" name="sexo" id="form-asunto" required>
+                        <p>Sexo</p>
+                        <select class="form-select" name="sexo" id="form-select">
+                            <option value="F">Femenino</option>
+                            <option value="M">Masculino</option>
+                            <option value="I">Indefinido</option>
+                        </select>
                     </div>
                 </div>
                 <div class="control2-p">
