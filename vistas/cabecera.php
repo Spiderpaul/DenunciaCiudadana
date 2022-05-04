@@ -55,7 +55,7 @@
                         <li><a href="seguimiento.php">Seguimiento</a></li>
                         <li><a href="reportes.php">Reportes</a></li>
                         <li><a href="estadisticas.php">Estadísticas</a></li>
-                        <li><a href="estadisticas.php">Usuarios</a></li>
+                        <li><a href="usuarios.php">Usuarios</a></li>
                     <?php 
                         }
                     ?>
