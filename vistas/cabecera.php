@@ -25,7 +25,7 @@
                     <li><a href="index.php">Inicio</a></li>
                     
                     <?php 
-                        if(!isset($_SESSION['rol_usuario'])){
+                        if(!isset($_SESSION['rol_usuario'])){ //Si no hay sesión de usuario...
                     ?>
 
                         <li><a href="dciudadana.php">Denuncia ciudadana</a></li>
@@ -33,16 +33,32 @@
                         <li><a href="estatusd.php">Estatus de denuncia</a></li>
                         
                     <?php 
-                        } else if($_SESSION['rol_usuario']=="Servidor"){  //Si no...
+                        } else if($_SESSION['rol_usuario']=="Servidor"){  //Si el usuario es "Servidor Público"...
                     ?>
                         
                         <li><a href="dciudadanas.php">Denuncia ciudadana</a></li>
                         <li><a href="estatusd.php">Estatus de denuncia</a></li>                        
 
                     <?php 
+                        } else if($_SESSION['rol_usuario']=="Asesor"){ //Si el usuario es "Asesor de denuncia"...
+                    ?>
+                        <li><a href="dciudadana.php">Denuncia ciudadana</a></li>
+                        <li><a href="danonima.php">Denuncia anónima</a></li>
+                        <li><a href="estatusd.php">Estatus</a></li>
+                        <li><a href="seguimiento.php">Seguimiento</a></li>
+                    <?php 
+                        } else if($_SESSION['rol_usuario']=="Administrador"){
+                    ?>
+                        <li><a href="dciudadana.php">Denuncia ciudadana</a></li>
+                        <li><a href="danonima.php">Denuncia anónima</a></li>
+                        <li><a href="estatusd.php">Estatus</a></li>
+                        <li><a href="seguimiento.php">Seguimiento</a></li>
+                        <li><a href="reportes.php">Reportes</a></li>
+                        <li><a href="estadisticas.php">Estadísticas</a></li>
+                        <li><a href="estadisticas.php">Usuarios</a></li>
+                    <?php 
                         }
                     ?>
-
                 </ul>
             </nav>
         </div>
@@ -63,9 +79,12 @@
                         <li><a href="servidor/cerrar.php">Cerrar sesión</a></li>
 
                     <?php 
+                        }else if(!$_SESSION['rol_usuario']=="Servidor"){
+                    ?>
+                        <li><a href="servidor/cerrar.php">Cerrar sesión</a></li>
+                    <?php 
                         }
                     ?>
-
                 </ul>
             </nav>
         </div>
