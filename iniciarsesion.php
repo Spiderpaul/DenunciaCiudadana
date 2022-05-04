@@ -6,7 +6,7 @@
         <p>Inicio de sesión</p>
     </div>
     
-    <form id="form-dciudadana-p" class="form-dciudadana-p" action="#" method="post">
+    <form id="form-dciudadana-p" class="form-dciudadana-p" action="servidor/iniciar.php" method="POST">
 
         <div class="div-form-i">
             <div class="control-form-i">
@@ -19,7 +19,7 @@
                 <div class="control2-i">
                     <div class="div-clave">
                         <p>Contraseña</p>
-                        <input type="text" class="form-control" name="clave" id="form-clave" required>
+                        <input type="password" class="form-control" name="clave" id="form-clave" required>
                     </div>
                 </div>
 

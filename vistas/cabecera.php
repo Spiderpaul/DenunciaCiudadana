@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,17 +19,48 @@
                 </label>
                 <ul class="izquierdo">
                     <li><a href="index.php">Inicio</a></li>
+
+                    <?php 
+                        if(isset($_SESSION['rol_usuario'=="Servidor"])){
+                    ?>
+                        <li><a href="dciudadanas.php">Denuncia ciudadana</a></li>
+                        <li><a href="estatusd.php">Estatus de denuncia</a></li>
+                    <?php 
+                        } else{
+                    ?>
+
                     <li><a href="dciudadana.php">Denuncia ciudadana</a></li>
                     <li><a href="danonima.php">Denuncia anónima</a></li>
                     <li><a href="estatusd.php">Estatus de denuncia</a></li>
+
+                    <?php 
+                        }
+                    ?>
+
                 </ul>
             </nav>
         </div>
         <div class="menu2">
             <nav class="barra-menu2">
                 <ul class="derecho">
+                    <?php 
+                        if(isset($_SESSION['rol_usuario'=="Servidor"])){
+                    ?>
+
+                    <li><a href="registrarusuario.php">Perfil</a></li>
+                    <li><a href="iniciarsesion.php">Cerrar sesión</a></li>
+
+                    <?php 
+                        }else{
+                    ?>
+
                     <li><a href="registrarusuario.php">Crear cuenta</a></li>
                     <li><a href="iniciarsesion.php">Iniciar sesión</a></li>
+
+                    <?php 
+                        }
+                    ?>
+
                 </ul>
             </nav>
         </div>

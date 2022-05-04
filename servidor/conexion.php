@@ -12,7 +12,7 @@
     try{ //Try-Catch de conexión. 
         $dsn = "mysql:host=$host;dbname=$dbname";
         $dbh = new PDO($dsn, $user, $password,$options);
-        echo "Conexión a base de datos exitosa";
+        //echo "Conexión a base de datos exitosa";
     }catch(PDOException $e){  
         echo $e->getMessage();
         echo "sin conexión <br><br>";
