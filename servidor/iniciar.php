@@ -21,6 +21,7 @@
 
     if($atributos['success']){*/
         if($dbh!=null){  //Si la conexión existe.
+            //Para inicio de sesion como servidor público.
             $stmt = $dbh->prepare("SELECT id_usuario, nombre, rol_usuario FROM `servidor publico` WHERE id_usuario = ? AND clave = ?");
             $stmt->bindParam(1, $idUsuario);
             $stmt->bindParam(2, $clave);
@@ -29,9 +30,37 @@
 
             $stmt->execute();
 
-            $datos = $stmt->fetch(); //Para saber si existe el id del usuario.
+            $datos = $stmt->fetch(); 
+            
+            $cont = $stmt->rowCount(); 
 
-            if($datos['id_usuario'] != null){ //Si existe. 
+                if($cont == 0){  //Para inicio de sesión como asesor.
+                    $stmt = $dbh->prepare("SELECT id_usuario, nombre, rol_usuario FROM asesor WHERE id_usuario = ? AND clave = ?");
+                    $stmt->bindParam(1, $idUsuario);
+                    $stmt->bindParam(2, $clave);
+
+                    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+                    $stmt->execute();
+
+                    $datos = $stmt->fetch(); 
+                    
+                    $cont = $stmt->rowCount(); 
+
+                    if($cont == 0){  //Para inicio de sesión como administrador.
+                        $stmt = $dbh->prepare("SELECT id_usuario, nombre, rol_usuario FROM administrador WHERE id_usuario = ? AND clave = ?");
+                        $stmt->bindParam(1, $idUsuario);
+                        $stmt->bindParam(2, $clave);
+
+                        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+                        $stmt->execute();
+
+                        $datos = $stmt->fetch(); 
+                    }
+                }
+
+            if($datos['id_usuario'] != null){ //Si existe el usuario. 
                 $_SESSION['id_usuario']=$datos['id_usuario']; //Se agregan los datos a las variables de sesion. 
                 $_SESSION['nombre_usuario']=$datos['nombre'];
                 
