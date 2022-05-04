@@ -1,4 +1,9 @@
-<?php session_start();?>
+<?php 
+if(!isset($_SESSION['rol_usuario'])){
+    session_start();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,17 +26,19 @@
                     <li><a href="index.php">Inicio</a></li>
 
                     <?php 
-                        if(isset($_SESSION['rol_usuario'=="Servidor"])){
+                        if($_SESSION['rol_usuario']=="Servidor"){
                     ?>
+
                         <li><a href="dciudadanas.php">Denuncia ciudadana</a></li>
                         <li><a href="estatusd.php">Estatus de denuncia</a></li>
+
                     <?php 
                         } else{
                     ?>
 
-                    <li><a href="dciudadana.php">Denuncia ciudadana</a></li>
-                    <li><a href="danonima.php">Denuncia anónima</a></li>
-                    <li><a href="estatusd.php">Estatus de denuncia</a></li>
+                        <li><a href="dciudadana.php">Denuncia ciudadana</a></li>
+                        <li><a href="danonima.php">Denuncia anónima</a></li>
+                        <li><a href="estatusd.php">Estatus de denuncia</a></li>
 
                     <?php 
                         }
@@ -44,18 +51,18 @@
             <nav class="barra-menu2">
                 <ul class="derecho">
                     <?php 
-                        if(isset($_SESSION['rol_usuario'=="Servidor"])){
+                        if($_SESSION['rol_usuario']=="Servidor"){
                     ?>
 
-                    <li><a href="registrarusuario.php">Perfil</a></li>
-                    <li><a href="iniciarsesion.php">Cerrar sesión</a></li>
+                        <li><a href="../perfil.php">Perfil</a></li>
+                        <li><a href="../servidor/cerrar.php">Cerrar sesión</a></li>                    
 
                     <?php 
                         }else{
                     ?>
 
-                    <li><a href="registrarusuario.php">Crear cuenta</a></li>
-                    <li><a href="iniciarsesion.php">Iniciar sesión</a></li>
+                        <li><a href="registrarusuario.php">Crear cuenta</a></li>
+                        <li><a href="iniciarsesion.php">Iniciar sesión</a></li>
 
                     <?php 
                         }

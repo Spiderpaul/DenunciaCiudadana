@@ -44,7 +44,8 @@
                 }
                 
                 //echo "<br>Bienvenido ". $_SESSION['rol_usuario'] ." ". $_SESSION['nombre_usuario'] .", ha iniciado sesión correctamente.";
-                echo '<META HTTP-EQUIV=" Refresh " CONTENT="1; ../index.php>';
+                //echo '<META HTTP-EQUIV=" Refresh " CONTENT="1; ../index.php>';
+                header("location: ../index.php");
 
             } else {
                 echo "<br>El usuario o la contraseña son incorrectos.";
