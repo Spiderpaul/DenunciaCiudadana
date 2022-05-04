@@ -1,4 +1,3 @@
-<?php session_start();?>
 <?php require('./vistas/cabecera.php')?>
 
 <div class="div-formulario">

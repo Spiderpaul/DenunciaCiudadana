@@ -1,7 +1,5 @@
 <?php 
-if(!isset($_SESSION['rol_usuario'])){
     session_start();
-}
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +13,7 @@ if(!isset($_SESSION['rol_usuario'])){
     <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
+    <!------------------Menú de inicio---------------------------->
     <div class="contenedor-menu">
         <div class="menu1">
             <nav class="barra-menu1">
@@ -24,21 +23,21 @@ if(!isset($_SESSION['rol_usuario'])){
                 </label>
                 <ul class="izquierdo">
                     <li><a href="index.php">Inicio</a></li>
-
+                    
                     <?php 
-                        if($_SESSION['rol_usuario']=="Servidor"){
-                    ?>
-
-                        <li><a href="dciudadanas.php">Denuncia ciudadana</a></li>
-                        <li><a href="estatusd.php">Estatus de denuncia</a></li>
-
-                    <?php 
-                        } else{
+                        if(!isset($_SESSION['rol_usuario'])){
                     ?>
 
                         <li><a href="dciudadana.php">Denuncia ciudadana</a></li>
                         <li><a href="danonima.php">Denuncia anónima</a></li>
                         <li><a href="estatusd.php">Estatus de denuncia</a></li>
+                        
+                    <?php 
+                        } else if($_SESSION['rol_usuario']=="Servidor"){  //Si no...
+                    ?>
+                        
+                        <li><a href="dciudadanas.php">Denuncia ciudadana</a></li>
+                        <li><a href="estatusd.php">Estatus de denuncia</a></li>                        
 
                     <?php 
                         }
@@ -51,18 +50,17 @@ if(!isset($_SESSION['rol_usuario'])){
             <nav class="barra-menu2">
                 <ul class="derecho">
                     <?php 
-                        if($_SESSION['rol_usuario']=="Servidor"){
+                        if(!isset($_SESSION['rol_usuario'])){ 
                     ?>
-
-                        <li><a href="../perfil.php">Perfil</a></li>
-                        <li><a href="../servidor/cerrar.php">Cerrar sesión</a></li>                    
+                        <li><a href="registrarusuario.php">Crear cuenta</a></li>
+                        <li><a href="iniciarsesion.php">Iniciar sesión</a></li>                
 
                     <?php 
-                        }else{
+                        }else if($_SESSION['rol_usuario']=="Servidor"){ 
                     ?>
-
-                        <li><a href="registrarusuario.php">Crear cuenta</a></li>
-                        <li><a href="iniciarsesion.php">Iniciar sesión</a></li>
+                        
+                        <li><a href="../perfil.php">Perfil</a></li>
+                        <li><a href="servidor/cerrar.php">Cerrar sesión</a></li>
 
                     <?php 
                         }
