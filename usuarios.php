@@ -5,26 +5,27 @@
     <div class="cabecera-tabla">
         <div class="herramientas">
             <ul>
-                <li><span><input type="checkbox"></span></li>
+                
                 <li>
-                    <button>
-                        <i class="material-icons">add_circle</i>
-                    </button>
+                    <a href="aregistrarusuario.php">
+                        <button >
+                            <i class="material-icons" >add_circle</i>
+                        </button>
+                    </a>
                 </li>
                 <li>
-                    <button>
-                        <i class="material-icons">edit</i>
-                    </button>
+                    <a href="servidor/crud/actualizar.php">
+                        <button>
+                            <i class="material-icons" >edit</i>
+                        </button>
+                    </a>
                 </li>
                 <li>
-                    <button>
-                        <i class="material-icons">delete</i>
-                    </button>
-                </li>
-                <li>
-                    <button>
-                        <i class="material-icons">share</i>
-                    </button>
+                    <a href="servidor/crud/eliminar.php">
+                        <button>
+                            <i class="material-icons" href="servidor/crud/eliminar.php">delete</i>
+                        </button>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -46,7 +47,7 @@
                 <th>Correo</th>
                 <th>Dirección</th>
                 <th>Área</th>
-                <th>Rol de usuario</th>
+                <th>Rol</th>
             </tr>
         </thead>
         
@@ -59,7 +60,7 @@
                     while($row = $stmt->fetch()){
             ?>
             <tr>
-                <td class="tabla-checkbox"><input type="checkbox"></td>
+                <td class="tabla-checkbox"><input type="radio" name="seleccionar"></td>
                 <td><?php echo $row->id_usuario; ?></td>
                 <td><?php echo $row->nombre; ?></td> 
                 <td><?php echo $row->edad; ?></td>

@@ -388,6 +388,10 @@ div.contenido{
         cursor: pointer;
     }
 
+    a:link, a:visited, a:active{
+        text-decoration: none;
+    }
+
     .contenedor-tabla .cabecera-tabla .herramientas ul li button:hover,
     .contenedor-tabla .pie-tabla .paginas ul li button:hover{
         background: grey;
