@@ -2,6 +2,7 @@
     </div>
 
     <footer class="pie">
+        
         <div class="correo">
             <div class="correo1">
                 <span class="material-symbols-outlined">alternate_email</span>

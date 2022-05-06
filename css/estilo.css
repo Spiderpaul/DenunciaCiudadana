@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+:root{
+    --color-primario: #6A1C32;
+    --color-secundario: white;
+    --color-remarcar: #4d4d4d;
+
+    --dt-padding: 12px;
+    --dt-padding-s: 6px;
+    --dt-padding-xs: 2px;
+
+    --dt-border-radius: 3px;
+}
+
 *{
     padding: 0;
     margin: 0;
@@ -9,7 +23,10 @@
 
 body{
     width: 100%;
+    height: auto;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /*                                  Estilo de menú del sitio                              */
@@ -102,7 +119,7 @@ nav ul.derecho li a{
     /*                         Contenedores de cuerpo                          */
 .contenedor-cuerpo{
     width: 100%;
-    height: 130vh;
+    height: auto;
 }
 
 div.contenido{
@@ -117,7 +134,7 @@ div.contenido{
 
 .div-formulario{
     width: 80%;
-    height: 450px;
+    height: auto;
     margin: auto;
     margin-top: 40px;
     display: flex;
@@ -273,8 +290,136 @@ div.contenido{
     border-style: none;
 }
 
+    /*         Tabla de usuarios          */
+
+    .material-icons{
+        font-size: 16px;
+    }
+    
+    .contenedor-tabla{
+        font-size: 'Noto Sans', sans-serif;
+        background-color: var(--color-remarcar);
+        color: white;
+        width: 90%;
+        height: 60vh;
+        margin: 0 auto;
+        font-size: 12px;
+    }
+
+    .contenedor-tabla .cabecera-tabla{
+        border-bottom: solid 1px white;
+        padding: 6px;
+        display: flex;
+        align-items: baseline;
+    }
+
+    .contenedor-tabla .cabecera-tabla .buscador .buscador-input{
+        width: 100%;
+        background-color: white;
+        display: block;
+        box-sizing: border-box;
+        border: solid 1px white;
+    }
+
+    .contenedor-tabla .cabecera-tabla .herramientas{
+        width: 70%;
+    }
+
+    .contenedor-tabla .cabecera-tabla .herramientas ul{
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: start;
+        align-items: baseline;
+    }
+
+    .contenedor-tabla .cabecera-tabla .herramientas ul li{
+        display: inline-block;
+        margin: 0 2px;
+        align-items: baseline;
+    }
+
+    .contenedor-tabla .pie-tabla{
+        padding: 12px;
+        display: flex;
+        align-items: baseline;
+    }
+
+    .contenedor-tabla .pie-tabla .lista{
+        width: 50%;
+    }
+
+    .contenedor-tabla .pie-tabla .paginas{
+        margin-left: auto;
+        margin-right: 0;
+        width: 50%;
+    }
+
+    .contenedor-tabla .pie-tabla .paginas ul{
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: baseline;
+        justify-content: flex-end;
+    }
+
+    .contenedor-tabla .pie-tabla .paginas ul li{
+        display: inline-block;
+        margin: 0 2px;
+    }
+
+    .contenedor-tabla .cabecera-tabla .herramientas ul li button,
+    .contenedor-tabla .pie-tabla .paginas ul li button{
+        font-family: 'Noto Sans', sans-serif;
+        color: white;
+        width: 100%;
+        box-sizing: border-box;
+        border: 0;
+        border-radius: 5px;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    .contenedor-tabla .cabecera-tabla .herramientas ul li button:hover,
+    .contenedor-tabla .pie-tabla .paginas ul li button:hover{
+        background: grey;
+    }
+
+    .contenedor-tabla .pie-tabla .paginas ul li span.active{
+        background: grey;
+        border-radius: 5px;
+    }
+
+    .contenedor-tabla .cabecera-tabla .herramientas ul li button,
+    .contenedor-tabla .pie-tabla .paginas ul li button,
+    .contenedor-tabla .pie-tabla .paginas ul li span{
+        padding: 6px 12px;
+    }
 
 
+    /*   Tabla  */
+
+    .contenedor-tabla .tabla-usuarios{
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .contenedor-tabla .tabla-usuarios,
+    .contenedor-tabla .tabla-usuarios th,
+    .contenedor-tabla .tabla-usuarios td{
+        padding: 12px 12px;
+    }
+
+    .contenedor-tabla .tabla-usuarios th{
+        font-weight: bolder;
+        font-size: 14px;
+        text-align: left;
+        border-bottom: solid 1px white;
+    }
+
+    .contenedor-tabla .tabla-usuarios tbody tr:nth-child(even){
+        background-color: grey;
+    }
 
     /*                                              Pie                                            */
 .pie{
@@ -283,6 +428,7 @@ div.contenido{
     height: 90px;
     color: white;
     font-size: 13px;
+    margin-top: auto;
     display: flex;
     flex-direction: column;
 }

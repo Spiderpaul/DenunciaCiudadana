@@ -45,26 +45,28 @@
                     $stmt->bindParam(9,$clave);
                     $stmt->bindParam(10,$rol);
                     $stmt->execute();
-                    echo '<META HTTP-EQUIV=" Refresh " CONTENT="1; ../index.php>';
+                    
                     $dbh=null; //Para cerrar la conexión a base de datos. 
+
+                    header("location: ../index.php");
                 }else{
                     echo "El id del usuario ya existe";
-                    echo '<META HTTP-EQUIV=" Refresh " CONTENT="1; ../registrarusuario.php>';
                     $dbh=null; //Para cerrar la conexión a base de datos. 
+                    header("location: ../registrarusuario.php");
                 }
                 
             }else{
                 echo "Error al conectar con la base de datos";
-                echo '<META HTTP-EQUIV=" Refresh " CONTENT="1; ../registrarusuario.php>';
+                header("location: ../registrarusuario.php");
             }
         }else{
             echo "La contraseña no tiene el formato adecuado<br>";
             echo "Debe contener:<br>";
             echo "    Mínimo 8 caracteres <br>    Números <br>Letras <br>    Un caracter especial";
-            echo '<META HTTP-EQUIV=" Refresh " CONTENT="1; ../registrarusuario.php>';
+            header("location: ../registrarusuario.php");
         }
     }else{
         echo "La confirmación de contraseña no coincide con la contraseña.";
-        echo '<META HTTP-EQUIV=" Refresh " CONTENT="1; ../registrarusuario.php>';
+        header("location: ../registrarusuario.php");
     }
 ?>
