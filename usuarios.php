@@ -13,20 +13,6 @@
                         </button>
                     </a>
                 </li>
-                <li>
-                    <a href="servidor/crud/actualizar.php">
-                        <button>
-                            <i class="material-icons" >edit</i>
-                        </button>
-                    </a>
-                </li>
-                <li>
-                    <a href="servidor/crud/eliminar.php">
-                        <button>
-                            <i class="material-icons" href="servidor/crud/eliminar.php">delete</i>
-                        </button>
-                    </a>
-                </li>
             </ul>
         </div>
         <div class="buscador">
@@ -38,7 +24,6 @@
         
         <thead>
             <tr>
-                <th></th>
                 <th>Identificativo</th>
                 <th>Nombre</th>
                 <th>Edad</th>
@@ -48,6 +33,7 @@
                 <th>Dirección</th>
                 <th>Área</th>
                 <th>Rol</th>
+                <th></th>
             </tr>
         </thead>
         
@@ -60,7 +46,9 @@
                     while($row = $stmt->fetch()){
             ?>
             <tr>
-                <td class="tabla-checkbox"><input type="radio" name="seleccionar"></td>
+                <!---
+                <td class="tabla-checkbox"><input type="radio" name="seleccionar" value=""></td>
+                --->
                 <td><?php echo $row->id_usuario; ?></td>
                 <td><?php echo $row->nombre; ?></td> 
                 <td><?php echo $row->edad; ?></td>
@@ -70,6 +58,26 @@
                 <td><?php echo $row->direccion; ?></td>
                 <td><?php echo $row->area; ?></td>
                 <td><?php echo $row->rol_usuario; ?></td>
+                <td>
+                    <div class="acciones-btn">
+                        <div class="editar-btn">
+                            <a href="servidor/crud/actualizar.php?id=<?php echo $row->id_usuario; ?>">
+                                <button>
+                                    <i class="material-icons">edit</i>
+                                </button>
+                            </a>
+                        </div>
+                        <div class="eliminar-btn">
+                            <a href="servidor/crud/eliminar.php?id=<?php echo $row->id_usuario; ?>">
+                                <button>
+                                    <i class="material-icons">delete</i>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    
+                </td>
             </tr>
             <?php
                     }
