@@ -408,24 +408,7 @@ div.contenido{
         padding: 6px 12px;
     }
 
-    .contenedor-tabla .tabla-usuarios tbody tr td button{
-        font-family: 'Noto Sans', sans-serif;
-        color: white;
-        width: 100%;
-        box-sizing: border-box;
-        border: 0;
-        border-radius: 5px;
-        background: transparent;
-        cursor: pointer;
-    }
-
-    .contenedor-tabla .tabla-usuarios tbody tr td button:hover{
-        background: grey;
-    }
-
-    .acciones-btn{
-        display: flex;
-    }
+    
 
     /*   Tabla  */
 
@@ -453,6 +436,27 @@ div.contenido{
 
     .contenedor-tabla .tabla-usuarios tbody tr:hover{
         background-color: #6A1C32;
+    }
+
+    .contenedor-tabla .tabla-usuarios tbody tr td button{
+        font-family: 'Noto Sans', sans-serif;
+        color: white;
+        width: 100%;
+        box-sizing: border-box;
+        border: 0;
+        border-radius: 5px;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    .contenedor-tabla .tabla-usuarios tbody tr td button:hover{
+        background: grey;
+    }
+
+    .acciones-btn{
+        display: flex;
+        align-items: baseline;
+        justify-content: flex-end;
     }
 
     /*                                              Pie                                            */

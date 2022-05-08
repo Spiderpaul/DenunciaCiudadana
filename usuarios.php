@@ -61,14 +61,14 @@
                 <td>
                     <div class="acciones-btn">
                         <div class="editar-btn">
-                            <a href="servidor/crud/actualizar.php?id=<?php echo $row->id_usuario; ?>">
+                            <a href="modificarusuario.php?id=<?php echo $row->id_usuario; ?>">
                                 <button>
                                     <i class="material-icons">edit</i>
                                 </button>
                             </a>
                         </div>
                         <div class="eliminar-btn">
-                            <a href="servidor/crud/eliminar.php?id=<?php echo $row->id_usuario; ?>">
+                            <a href="servidor/eliminar.php?id=<?php echo $row->id_usuario; ?>">
                                 <button>
                                     <i class="material-icons">delete</i>
                                 </button>
