@@ -37,7 +37,7 @@
         
                 
                 //Se realiza el registro con sentencias preparadas.
-                $stmt = $dbh-> prepare("UPDATE 'servidor publico' 
+                $stmt = $dbh-> prepare("UPDATE `servidor publico` 
                 SET nombre = ?, edad = ?, sexo = ?, telefono = ?, 
                 correo = ?, direccion = ?, area = ?, clave = ?, rol_usuario = ? 
                 WHERE id_usuario = ?");
