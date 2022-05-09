@@ -16,7 +16,14 @@
             </ul>
         </div>
         <div class="buscador">
-            <input type="text" class="buscador-input">
+            <form action="usuarios.php" method="post">
+                <input type="text" name="buscar" class="buscador-input">
+                
+                <button>
+                        <i class="material-icons" >search</i>
+                </button>
+            </form>
+            
         </div>
     </div>
     
@@ -40,9 +47,30 @@
         <tbody>
             <?php
                 if($dbh != null){
-                    $stmt = $dbh->prepare("SELECT * FROM `servidor publico`;");
-                    $stmt->execute();
-
+                    if(isset($_POST['buscar'])){
+                        $buscador = "%".$_POST['buscar']."%";
+                    }else{
+                        $buscador = "";
+                    }
+                    
+                    if($buscador == ""){
+                        $stmt = $dbh->prepare("SELECT * FROM `servidor publico`;");
+                        $stmt->execute();
+                    }else{
+                        $stmt = $dbh->prepare("SELECT * FROM `servidor publico` 
+                        WHERE id_usuario LIKE ? 
+                        OR nombre LIKE ? 
+                        OR edad LIKE ?
+                        OR area LIKE ?
+                        OR correo LIKE ?;");
+                        
+                        $stmt->bindParam(1,$buscador);
+                        $stmt->bindParam(2,$buscador);
+                        $stmt->bindParam(3,$buscador);
+                        $stmt->bindParam(4,$buscador);
+                        $stmt->bindParam(5,$buscador);
+                        $stmt->execute();
+                    }
                     while($row = $stmt->fetch()){
             ?>
             <tr>
