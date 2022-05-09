@@ -5,7 +5,6 @@
     <div class="cabecera-tabla">
         <div class="herramientas">
             <ul>
-                
                 <li>
                     <a href="aregistrarusuario.php">
                         <button >
@@ -17,13 +16,18 @@
         </div>
         <div class="buscador">
             <form action="usuarios.php" method="post">
-                <input type="text" name="buscar" class="buscador-input">
-                
-                <button>
-                        <i class="material-icons" >search</i>
-                </button>
+                <div class="buscador-hijo">
+                    <div class="buscador-hijo-1">
+                        <input type="text" name="buscar" class="buscador-input">
+                    </div>
+                    
+                    <div class="buscador-hijo-2">
+                        <button>
+                            <i class="material-icons" >search</i>
+                        </button>
+                    </div>
+                </div>
             </form>
-            
         </div>
     </div>
     
@@ -63,7 +67,7 @@
                         OR edad LIKE ?
                         OR area LIKE ?
                         OR correo LIKE ?;");
-                        
+
                         $stmt->bindParam(1,$buscador);
                         $stmt->bindParam(2,$buscador);
                         $stmt->bindParam(3,$buscador);

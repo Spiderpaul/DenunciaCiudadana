@@ -319,13 +319,38 @@ div.contenido{
         width: 30%;
     }
 
-    .contenedor-tabla .cabecera-tabla .buscador .buscador-input{
+    .contenedor-tabla .cabecera-tabla .buscador .buscador-hijo{
         width: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .contenedor-tabla .cabecera-tabla .buscador .buscador-hijo .buscador-hijo-1{
+        flex-grow: 1;
+    }
+
+    .contenedor-tabla .cabecera-tabla .buscador .buscador-hijo .buscador-hijo-2{
+        flex-basis: 20px;
+    }
+
+    .contenedor-tabla .cabecera-tabla .buscador .buscador-input{
         background-color: white;
+        width: 100%;
         margin-right: 0;
         display: block;
         box-sizing: border-box;
         border: solid 1px white;
+    }
+
+    .contenedor-tabla .cabecera-tabla .buscador button{
+        font-family: 'Noto Sans', sans-serif;
+        color: white;
+        box-sizing: border-box;
+        border: 0;
+        border-radius: 5px;
+        background: transparent;
+        cursor: pointer;
+        margin-Left: 0;
     }
 
     .contenedor-tabla .cabecera-tabla .herramientas{
