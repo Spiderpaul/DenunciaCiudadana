@@ -4,7 +4,7 @@
             <p>Datos personales</p>
         </div>
     
-        <form id="form-dciudadana-p" class="form-dciudadana-p" action="#" method="post">
+        <form id="form-dciudadana-p" class="form-dciudadana-p" action="servidor/registrardc.php" method="post">
 
             <div class="div-form-p">
                 <div class="control-form">
