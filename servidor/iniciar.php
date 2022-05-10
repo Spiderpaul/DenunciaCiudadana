@@ -66,8 +66,10 @@
                 
                 if($datos['rol_usuario']=="3"){
                     $_SESSION['rol_usuario']="Servidor";
+
                 }else if($datos['rol_usuario']=="2"){
                     $_SESSION['rol_usuario']="Asesor";
+
                 }else{
                     $_SESSION['rol_usuario']="Administrador";
                 }

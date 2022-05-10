@@ -8,7 +8,6 @@
         $idUsuario = "";
     }
 
-    echo $idUsuario;
 
     if($dbh!=null){  //Si la conexión existe.
         //Para inicio de sesion como servidor público.
