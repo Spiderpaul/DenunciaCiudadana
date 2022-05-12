@@ -10,7 +10,7 @@
         <div class="div-form-p">
             <div class="control-form">
                 <div class="control1-p">
-                    <div class="div-nombre">
+                    <div class="div-nombre" id="div-nombre">
                         <p>Nombre</p>
                         <input type="text" class="form-control" name="nombre" id="form_nombre" 
                         placehorder="Ingrese su nombre completo" required>
@@ -80,4 +80,5 @@
     
 </div>
 
+<script src="js/registrarusuario.js"></script>
 <?php require('./vistas/pie.php')?>

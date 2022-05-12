@@ -290,6 +290,18 @@ div.contenido{
     border-style: none;
 }
 
+/*         Crear usuarios          */
+
+.correcto{
+    color: green;
+    opacity: 1;
+}
+
+.incorrecto{
+    color: red;
+}
+
+
     /*         Tabla de usuarios          */
 
     .material-icons{

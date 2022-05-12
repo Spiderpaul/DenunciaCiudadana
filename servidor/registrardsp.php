@@ -3,11 +3,11 @@
     
     session_start();
 
-    if(isset($_GET['id'])){
+    /*if(isset($_GET['id'])){
         $idUsuario = $_GET['id'];
     }else{
         $idUsuario = "";
-    }
+    }*/
 
     $idUsuario = $_SESSION['id_usuario'];
     $asunto = $_POST['asunto'];
