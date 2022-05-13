@@ -14,10 +14,12 @@
                         <p>Nombre</p>
                         <input type="text" class="form-control" name="nombre" id="form_nombre" 
                         placehorder="Ingrese su nombre completo" required>
+                        <p class="alerta-nombre" id="alerta-nombre">Solo se pueden ingresar caracteres alfabéticos.</p>
                     </div>
-                    <div class="div-edad">
+                    <div class="div-edad" id="div-edad">
                         <p>Edad</p>
                         <input type="text" class="form-control" name="edad" id="form_edad" required>
+                        <p class="alerta-edad" id="alerta-edad">Ingrese un valor númerico de dos dígitos.</p>
                     </div>
                     <div class="div-sexo">
                         <p>Sexo</p>

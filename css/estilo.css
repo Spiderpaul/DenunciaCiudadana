@@ -292,13 +292,31 @@ div.contenido{
 
 /*         Crear usuarios          */
 
-.correcto{
-    color: green;
-    opacity: 1;
-}
-
 .incorrecto{
     color: red;
+}
+
+.input-incorrecto{
+    color: red;
+    border: solid 1px red;
+    background: rgb(228, 178, 178);
+}
+
+.alerta-nombre{
+    color: black;
+    font-size: 12px;
+    visibility: hidden;
+}
+
+.alerta-edad{
+    color: black;
+    font-size: 12px;
+    visibility: hidden;
+}
+
+.alerta-incorrecto{
+    color: red;
+    visibility: visible;
 }
 
 
