@@ -136,7 +136,7 @@ div.contenido{
     width: 80%;
     height: auto;
     margin: auto;
-    margin-top: 40px;
+    margin-top: 0;
     display: flex;
     flex-direction: column;
 }
@@ -158,7 +158,7 @@ div.contenido{
     margin-left: 40px;
     margin-right: 40px;
     margin-bottom: 20px;
-    height: 250px;
+    height: auto;
 }
 
 
@@ -166,7 +166,7 @@ div.contenido{
     border: 1px solid #4d4d4d;
     margin-left: 40px;
     margin-right: 40px;
-    height: 340px;
+    height: auto;
 }
 
 .div-form{
@@ -176,9 +176,9 @@ div.contenido{
     height: 340px;
 }
 
-.form-control{
+.form-control{                                            /*campos de texto*/
     width: 100%;
-    height: 35px;
+    height: 30px;
     border: 1px solid #4d4d4d;
     background: #d1d1d1;
 }
@@ -217,14 +217,14 @@ div.contenido{
 /*    Componentes de información personal de denuncia ciudadana   */
 .control1-p{
     margin: auto;
-    margin-top: 20px;
+    margin-top: 5px;
     width: 90%;
     display: flex;
     gap: 20px;
 }
 
 .control1-p .div-nombre{
-    flex-grow: 5;
+    flex-grow: 3.5;
 }
 
 .control1-p .div-edad{
@@ -237,10 +237,39 @@ div.contenido{
 
 .control2-p{
     margin: auto;
-    margin-top: 20px;
+    margin-top: 0;
     width: 90%;
     display: flex;
     gap: 20px;
+}
+
+.control2-p .div-telefono{
+    flex-grow: 1;
+}
+
+.control2-p .div-correo{
+    flex-grow: 1;
+}
+
+.control-form .control3-p{
+    margin-top: 0;
+}
+
+.control4-t,
+.control5-t{
+    width: 90%;
+    margin: auto;
+    margin-top: 5px;
+    display: flex;
+    gap: 20px;
+}
+
+.div-identificativo,
+.div-area,
+.div-clave,
+.div-confirmar{
+    margin: auto;
+    width: 50%;
 }
 
 .control2-p-hijo{
@@ -255,7 +284,7 @@ div.contenido{
 
 .form-select{
     width: 100%;
-    height: 35px;
+    height: 30px;
 }
 
 /*    Componentes de denuncia anonima   */
@@ -266,6 +295,18 @@ div.contenido{
 }
 
 .control2{
+    margin: auto;
+    margin-top: 20px;
+    width: 90%;
+}
+
+.control3{
+    margin: auto;
+    margin-top: 20px;
+    width: 90%;
+}
+
+.control4{
     margin: auto;
     margin-top: 20px;
     width: 90%;
@@ -284,9 +325,9 @@ div.contenido{
     background: #6A1C32;
     color: white;
     font-size: large;
-    width: 300px;
+    width: 50%;
     height: 40px;
-    margin-top: 30px;
+    margin-top: 5px;
     border-style: none;
 }
 
@@ -302,23 +343,48 @@ div.contenido{
     background: rgb(228, 178, 178);
 }
 
-.alerta-nombre{
+.alerta-nombre,
+.alerta-edad,
+.alerta-telefono,
+.alerta-correo,
+.alerta-direccion,
+.alerta-identificativo,
+.alerta-area,
+.alerta-clave,
+.alerta-confirmar{
     color: black;
     font-size: 12px;
     visibility: hidden;
 }
 
-.alerta-edad{
-    color: black;
-    font-size: 12px;
-    visibility: hidden;
-}
 
 .alerta-incorrecto{
     color: red;
     visibility: visible;
 }
 
+.mensaje{
+    width: 100%;
+    height: 20px;
+    align-items: center;
+    visibility: hidden;
+}
+
+.mensaje .mensaje-texto{
+    visibility: hidden;
+}
+
+.mensaje-error{
+    background: rgb(228, 178, 178);
+    color: red;
+    visibility: visible;
+}
+
+.mensaje-exito{
+    background: rgb(156, 206, 156);
+    color: green;
+    visibility: visible;
+}
 
     /*         Tabla de usuarios          */
 
