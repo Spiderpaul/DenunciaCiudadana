@@ -370,19 +370,32 @@ div.contenido{
     visibility: hidden;
 }
 
-.mensaje .mensaje-texto{
+.mensaje-texto1,
+.mensaje-texto2{
     visibility: hidden;
 }
 
-.mensaje-error{
+.mensaje-error {
     background: rgb(228, 178, 178);
     color: red;
+    font-size: 14;
+    font-weight: bold;
+    visibility: visible;
+}
+
+.mensaje-texto-error{
     visibility: visible;
 }
 
 .mensaje-exito{
     background: rgb(156, 206, 156);
     color: green;
+    font-size: 14;
+    font-weight: bold;
+    visibility: visible;
+}
+
+.mensaje-texto-exito{
     visibility: visible;
 }
 

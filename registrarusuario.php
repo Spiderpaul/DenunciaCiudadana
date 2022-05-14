@@ -87,9 +87,9 @@
     
     <div class="boton-form">
             <button class="boton-registrar" type="submit">Enviar</button>
-            <div class="mensaje">
-                <p class="mensaje-texto">Debe llenar correctamente los datos.</p>
-                <p class="mensaje-texto">Procesando registro.</p>
+            <div class="mensaje" id="mensaje">
+                <p class="mensaje-texto1" id="mensaje-texto1">Debe llenar correctamente los datos.</p>
+                <p class="mensaje-texto2" id="mensaje-texto2">Procesando registro.</p>
             </div>
     </div>
     

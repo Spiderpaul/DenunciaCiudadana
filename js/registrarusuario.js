@@ -117,16 +117,20 @@ inputs.forEach((input) => {
 });
 
 formulario.addEventListener('submit', (e) => {   //Evento de botón.
-
+    console.log(campos.nombre);
     if(campos.nombre && campos.edad && campos.telefono && campos.correo && campos.direccion && campos.identificativo && campos.area && campos.clave ){
         document.getElementById('mensaje').classList.add('mensaje-exito');
+        document.getElementById('mensaje-texto2').classList.add('mensaje-texto-exito');
         setTimeout(() => {
             document.getElementById('mensaje').classList.remove('mensaje-exito');
+            document.getElementById('mensaje-texto2').classList.remove('mensaje-texto-exito');
         }, 5000);
     } else {
         document.getElementById('mensaje').classList.add('mensaje-error');
+        document.getElementById('mensaje-texto1').classList.add('mensaje-texto-error');
         setTimeout(() => {
             document.getElementById('mensaje').classList.remove('mensaje-error');
+            document.getElementById('mensaje-texto1').classList.remove('mensaje-texto-error');
         }, 5000);
         e.preventDefault();
     }
