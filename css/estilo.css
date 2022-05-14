@@ -321,16 +321,6 @@ div.contenido{
     margin-bottom: 20px;
 }
 
-.boton-registrar{
-    background: #6A1C32;
-    color: white;
-    font-size: large;
-    width: 50%;
-    height: 40px;
-    margin-top: 5px;
-    border-style: none;
-}
-
 /*         Crear usuarios          */
 
 .incorrecto{
@@ -397,6 +387,20 @@ div.contenido{
 
 .mensaje-texto-exito{
     visibility: visible;
+}
+
+.boton-registrar{
+    background: #6A1C32;
+    color: white;
+    font-size: large;
+    width: 50%;
+    height: 40px;
+    margin-top: 5px;
+    border-style: none;
+}
+
+.deshabilitado{
+    background: #4d4d4d;
 }
 
     /*         Tabla de usuarios          */
