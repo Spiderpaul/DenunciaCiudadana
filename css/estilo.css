@@ -144,28 +144,34 @@ div.contenido{
 .div-titulo-d{
     margin-left: 40px;
     margin-right: 40px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .div-titulo{
     margin-left: 40px;
     margin-right: 40px;
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 .div-form-p{
-    border: 1px solid #4d4d4d;
+    background: #4d4d4d;
+    color: white;
+    border: none;
     margin-left: 40px;
     margin-right: 40px;
     margin-bottom: 20px;
+    border-radius: 3px;
     height: auto;
 }
 
 
 .div-form-d{
+    background: #4d4d4d;
+    color: white;
     border: 1px solid #4d4d4d;
     margin-left: 40px;
     margin-right: 40px;
+    border-radius: 3px;
     height: auto;
 }
 
@@ -324,7 +330,7 @@ div.contenido{
 /*         Crear usuarios          */
 
 .incorrecto{
-    color: red;
+    color: rgb(228, 178, 178);
 }
 
 .input-incorrecto{
@@ -349,20 +355,25 @@ div.contenido{
 
 
 .alerta-incorrecto{
-    color: red;
+    color: rgb(228, 178, 178);
     visibility: visible;
 }
 
 .mensaje{
-    width: 100%;
-    height: 20px;
-    align-items: center;
-    visibility: hidden;
+    background: grey;
+    width: 90%;
+    height: 30px;
+    margin: auto;
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 3px;
+    display: none;
 }
 
 .mensaje-texto1,
 .mensaje-texto2{
-    visibility: hidden;
+    margin: auto;
+    display: none;
 }
 
 .mensaje-error {
@@ -370,11 +381,12 @@ div.contenido{
     color: red;
     font-size: 14;
     font-weight: bold;
-    visibility: visible;
+    display: block;
 }
 
 .mensaje-texto-error{
-    visibility: visible;
+    display: block;
+    margin: auto;
 }
 
 .mensaje-exito{
@@ -382,11 +394,12 @@ div.contenido{
     color: green;
     font-size: 14;
     font-weight: bold;
-    visibility: visible;
+    display: block;
 }
 
 .mensaje-texto-exito{
-    visibility: visible;
+    display: block;
+    margin: auto;
 }
 
 .boton-registrar{
@@ -400,7 +413,7 @@ div.contenido{
 }
 
 .deshabilitado{
-    background: #4d4d4d;
+    background: #919191;
 }
 
     /*         Tabla de usuarios          */

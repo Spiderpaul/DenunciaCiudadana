@@ -1,6 +1,11 @@
 <?php require('./vistas/cabecera.php')?>
 
 <div class="div-formulario">
+    <div class="mensaje" id="mensaje">
+        <p class="mensaje-texto1" id="mensaje-texto1">Debe llenar correctamente los datos.</p>
+        <p class="mensaje-texto2" id="mensaje-texto2">Procesando registro.</p>
+    </div>
+
     <div class="div-titulo">
         <p>Datos personales</p>
     </div>
@@ -61,8 +66,8 @@
             <div class="control4-t">
                 <div class="div-identificativo" id="div-identificativo">
                     <p>Identificativo</p>
-                    <input type="text" class="form-control" name="identificativo" id="form_identificativo">
-                    <p class="alerta-identificativo" id="alerta-identificativo">Ejemplo de formato: XY-00X / XY-0000X</p>
+                    <input type="text" class="form-control" name="identificativo" id="form_identificativo" value="SP-">
+                    <p class="alerta-identificativo" id="alerta-identificativo">Ejemplo de formato: SP-00X / SP-0000X</p>
                 </div>
                 <div class="div-area" id="div-area">
                     <p>Área de trabajo</p>
@@ -87,10 +92,6 @@
     
     <div class="boton-form">
             <button class="boton-registrar" id="boton-registrar" type="submit">Enviar</button>
-            <div class="mensaje" id="mensaje">
-                <p class="mensaje-texto1" id="mensaje-texto1">Debe llenar correctamente los datos.</p>
-                <p class="mensaje-texto2" id="mensaje-texto2">Procesando registro.</p>
-            </div>
     </div>
     
     </form>

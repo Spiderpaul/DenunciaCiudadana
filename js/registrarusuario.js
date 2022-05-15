@@ -135,19 +135,18 @@ inputs.forEach((input) => {
 });
 
 const analizarCampos = () => {
-    console.log("nombre" + campos.nombre);
-    console.log("edad" +campos.edad);
-    console.log("telefono" +campos.telefono);
-    console.log("correo" +campos.correo);
-    console.log("direccion" +campos.direccion);
-    console.log("identificativo" +campos.identificativo);
-    console.log("area" +campos.area);
-    console.log("clave" +campos.clave);
-    console.log("confirmar" +campos.confirmar);
+    /*console.log("nombre " + campos.nombre);
+    console.log("edad " +campos.edad);
+    console.log("telefono " +campos.telefono);
+    console.log("correo " +campos.correo);
+    console.log("direccion " +campos.direccion);
+    console.log("identificativo " +campos.identificativo);
+    console.log("area " +campos.area);
+    console.log("clave " +campos.clave);
+    console.log("confirmar " +campos.confirmar);*/
     if(campos.nombre && campos.edad && campos.telefono && campos.correo && campos.direccion && campos.identificativo && campos.area && campos.confirmar){
         document.getElementById('boton-registrar').disabled = false;
         document.getElementById('boton-registrar').classList.remove('deshabilitado');
-        console.log("Cambiar color");
     }
 }
 
@@ -156,10 +155,20 @@ formulario.addEventListener('mouseout', (e) =>{
 })
 
 formulario.addEventListener('submit', (e) => {   //Evento de botón.
-    if(campos.nombre && campos.edad && campos.telefono && campos.correo && campos.direccion && campos.identificativo && campos.area && campos.clave ){
+    /*console.log("nombre " + campos.nombre);
+    console.log("edad " +campos.edad);
+    console.log("telefono " +campos.telefono);
+    console.log("correo " +campos.correo);
+    console.log("direccion " +campos.direccion);
+    console.log("identificativo " +campos.identificativo);
+    console.log("area " +campos.area);
+    console.log("clave " +campos.clave);
+    console.log("confirmar " +campos.confirmar);*/
+    if(campos.nombre && campos.edad && campos.telefono && campos.correo && campos.direccion && campos.identificativo && campos.area && campos.confirmar ){
         document.getElementById('mensaje').classList.add('mensaje-exito');
         document.getElementById('mensaje-texto2').classList.add('mensaje-texto-exito');
         setTimeout(() => {
+            e.preventDefault();
             document.getElementById('mensaje').classList.remove('mensaje-exito');
             document.getElementById('mensaje-texto2').classList.remove('mensaje-texto-exito');
         }, 5000);
