@@ -6,10 +6,7 @@ const expresiones = {
     edad: /^([0-9\s?\-?][\s]?){2}$/, // Limitar la edad.
     telefono: /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{2}[-\s\.]?[0-9]{2}$/,
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, //Formato de correo
-    direccion: /^([A-Za-z0-9À-ÿ\_\-\.\,\#\s]){0,200}$/,
-    identificativo: /^[a-zA-Z0-9]{2}[\_\-][a-zA-Z0-9]{2,5}$/, // Letras, numeros, guion y guion_bajo
-    area: /^([A-Za-zÀ-ÿ\_\-\.\,\#\s]){0,45}$/,
-	clave: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,45}$/ //Letras mayúsculas y minúsculas, caracteres especiales y mínimo 8 dígitos.
+    direccion: /^([A-Za-z0-9À-ÿ\_\-\.\,\#\s]){0,200}$/
 }
           
 const campos = {
@@ -18,10 +15,6 @@ const campos = {
     telefono: false,  
     correo: false,
     direccion: false,
-    identificativo: false,
-    area: false,
-    clave: false,
-    confirmar: false
 }
 
 const validarFormulario = (e) => { //Identificar y validar inputs.
@@ -40,19 +33,6 @@ const validarFormulario = (e) => { //Identificar y validar inputs.
         break;
         case "direccion":
             validarCampo(expresiones.direccion, e.target, 'direccion', 'div-direccion', 'form_direccion', 'alerta-direccion');
-        break;
-        case "identificativo":
-            validarCampo(expresiones.identificativo, e.target, 'identificativo', 'div-identificativo', 'form_identificativo', 'alerta-identificativo');
-        break;
-        case "area":
-            validarCampo(expresiones.area, e.target, 'area', 'div-area', 'form_area', 'alerta-area');
-        break;
-        case "clave":
-            validarCampo(expresiones.clave, e.target, 'clave', 'div-clave', 'form_clave', 'alerta-clave');
-            ConfirmarClave();
-        break;
-        case "confirmar":
-            RepetirClave();
         break;
     }
 }
@@ -92,40 +72,6 @@ const verificarEdad = (expresion, input, campo, ideUno, ideDos, ideTres) => {
     }
 }
 
-const ConfirmarClave = () => {
-    const inputClave1 = document.getElementById('form_clave');
-    const inputClave2 = document.getElementById('form_confirmar');
-
-    if(inputClave1.value !== inputClave2.value){
-        document.getElementById('div-confirmar').classList.add('incorrecto');
-        document.getElementById('form_confirmar').classList.add('input-incorrecto'); 
-        document.getElementById('alerta-confirmar').classList.add('alerta-incorrecto');
-        campos.clave = false;
-    } else {
-        document.getElementById('div-confirmar').classList.remove('incorrecto');
-        document.getElementById('form_confirmar').classList.remove('input-incorrecto'); 
-        document.getElementById('alerta-confirmar').classList.remove('alerta-incorrecto');
-        campos.clave = true;
-    }
-}
-
-const RepetirClave = () => {
-    const inputClave3 = document.getElementById('form_clave');
-    const inputClave4 = document.getElementById('form_confirmar');
-
-    if(inputClave3.value !== inputClave4.value){
-        document.getElementById('div-confirmar').classList.add('incorrecto');
-        document.getElementById('form_confirmar').classList.add('input-incorrecto'); 
-        document.getElementById('alerta-confirmar').classList.add('alerta-incorrecto');
-        campos.confirmar = false;
-    } else {
-        document.getElementById('div-confirmar').classList.remove('incorrecto');
-        document.getElementById('form_confirmar').classList.remove('input-incorrecto'); 
-        document.getElementById('alerta-confirmar').classList.remove('alerta-incorrecto');
-        campos.confirmar = true;
-    }
-}
-
 inputs.forEach((input) => {
     input.addEventListener('keyup', validarFormulario); //Evento soltar tecla.
     input.addEventListener('blur', validarFormulario);  //Evento click fuera de input.
@@ -141,7 +87,7 @@ const analizarCampos = () => {
     console.log("area " +campos.area);
     console.log("clave " +campos.clave);
     console.log("confirmar " +campos.confirmar);*/
-    if(campos.nombre && campos.edad && campos.telefono && campos.correo && campos.direccion && campos.identificativo && campos.area && campos.confirmar){
+    if(campos.nombre && campos.edad && campos.telefono && campos.correo && campos.direccion){
         document.getElementById('boton-registrar').disabled = false;
         document.getElementById('boton-registrar').classList.remove('deshabilitado');
     }
@@ -161,7 +107,7 @@ formulario.addEventListener('submit', (e) => {   //Evento de botón.
     console.log("area " +campos.area);
     console.log("clave " +campos.clave);
     console.log("confirmar " +campos.confirmar);*/
-    if(campos.nombre && campos.edad && campos.telefono && campos.correo && campos.direccion && campos.identificativo && campos.area && campos.confirmar ){
+    if(campos.nombre && campos.edad && campos.telefono && campos.correo && campos.direccion){
         document.getElementById('mensaje').classList.add('mensaje-exito');
         document.getElementById('mensaje-texto2').classList.add('mensaje-texto-exito');
         setTimeout(() => {

@@ -2,12 +2,12 @@
 
 <div class="div-formulario">
 
-    <div class="div-titulo">
+    <div class="div-titulo-a">
         <p>Datos de denuncia</p>
     </div>
 
     <form id="form-danonima" class="form-danonima" action="servidor/registrarda.php" method="post">
-        <div class="div-form">
+        <div class="div-form-a">
             <div class="control-form">
                 <div class="control1">
                     <p>Asunto</p>

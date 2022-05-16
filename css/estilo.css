@@ -144,7 +144,12 @@ div.contenido{
 .div-titulo-d{
     margin-left: 40px;
     margin-right: 40px;
-    margin-top: 10px;
+}
+
+.div-titulo-a{
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 20px;
 }
 
 .div-titulo{
@@ -159,7 +164,7 @@ div.contenido{
     border: none;
     margin-left: 40px;
     margin-right: 40px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     border-radius: 3px;
     height: auto;
 }
@@ -182,11 +187,22 @@ div.contenido{
     height: 340px;
 }
 
+.div-form-a{
+    background: #4d4d4d;
+    border: 1px solid #4d4d4d;
+    color: white;
+    margin-left: 40px;
+    margin-right: 40px;
+    height: auto;
+    border-radius: 3px;
+}
+
 .form-control{                                            /*campos de texto*/
     width: 100%;
     height: 30px;
     border: 1px solid #4d4d4d;
     background: #d1d1d1;
+    border-radius: 3px;
 }
 
 /*    Contenedores de inicio de sesión   */
@@ -200,27 +216,55 @@ div.contenido{
 }
 
 .div-form-i{
+    background: #4d4d4d;
     border: 1px solid #4d4d4d;
     margin: auto;
     width: 60%;
-    height: 340px;
+    height: auto;
+    border-radius: 3px;
 }
 
 .div-form-i .control-form-i{
+    color: white;
     width: 80%;
-    height: 340px;
-    margin: auto;
-    margin-top: 15%;
+    height: auto;
+    margin: 40px auto 50px auto;
 }
 
 .div-titulo-i{
     width: 60%;
+    height: 100px;
     margin: auto;
-    margin-top: 10%;
+    margin-top: 5px;
     margin-bottom: 0;
 }
 
+.div-clave-i{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.div-identificativo-i{
+    width: 100%;
+}
+
+.control2-i{
+    margin-top: 10px;
+}
+
+.boton-form-i{
+    width: 50%;
+    text-align: center;
+    margin: 10px auto 10px auto;
+    margin-bottom: 20px;
+}
+
 /*    Componentes de información personal de denuncia ciudadana   */
+
+.control-form{
+    height: auto;
+}
+
 .control1-p{
     margin: auto;
     margin-top: 5px;
@@ -257,8 +301,15 @@ div.contenido{
     flex-grow: 1;
 }
 
-.control-form .control3-p{
+.control3-p-dc{
+    margin: auto;
     margin-top: 0;
+    margin-bottom: 0px;
+    width: 90%;
+}
+
+#form-direction{
+    margin-bottom: 20px;
 }
 
 .control4-t,
@@ -318,8 +369,13 @@ div.contenido{
     width: 90%;
 }
 
+#form-direccion{
+    margin-bottom: 10px;
+}
+
 #form-descripcion{
-    height: 30vh;
+    height: 150px;
+    margin-bottom: 10px;
 }
 
 .boton-form{
@@ -410,6 +466,7 @@ div.contenido{
     height: 40px;
     margin-top: 5px;
     border-style: none;
+    border-radius: 3px;
 }
 
 .deshabilitado{
