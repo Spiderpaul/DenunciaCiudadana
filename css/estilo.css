@@ -302,14 +302,10 @@ div.contenido{
 }
 
 .control3-p-dc{
-    margin: auto;
-    margin-top: 0;
-    margin-bottom: 0px;
     width: 90%;
-}
-
-#form-direction{
-    margin-bottom: 20px;
+    height: auto;
+    margin: auto;
+    padding-bottom: 20px;
 }
 
 .control4-t,

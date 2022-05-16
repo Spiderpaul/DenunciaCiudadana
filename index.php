@@ -2,7 +2,7 @@
 
 
 <div class="contenido">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, ab, atque modi tempore incidunt laudantium quaerat ut explicabo quidem accusamus nam eum animi architecto ea quisquam error. Provident, sequi itaque!</p>
+    <h1>En Proceso</h1>
 </div>
 
 <?php require('./vistas/pie.php')?>

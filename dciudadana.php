@@ -19,11 +19,13 @@
                             <p>Nombre</p>
                             <input type="text" class="form-control" name="nombre" id="form_nombre" 
                             placeholder="   Ingrese su nombre completo">
+                            <p class="alerta-nombre" id="alerta-nombre">Escriba un nombre válido</p>
                         </div>
                         <div class="div-edad" id="div-edad">
                             <p>Edad</p>
                             <input type="text" class="form-control" name="edad" id="form_edad" 
                             placeholder="   Ingrese su edad">
+                            <p class="alerta-edad" id="alerta-edad">El rango válido de edad es entre 18 y 100 años</p>
                         </div>
                         <div class="div-sexo" id="div-sexo">
                             <p>Sexo</p>
@@ -39,18 +41,21 @@
                             <p>Teléfono</p>
                             <input type="text" class="form-control" name="telefono" id="form_telefono" 
                             placeholder="   000-000-00-00">
+                            <p class="alerta-telefono" id="alerta-telefono">Formatos válidos: 0000000000 / 000 000 00 00 / 000-000-00-00</p>
                         </div>
                         <div class="div-correo" id="div-correo">
                             <p>Correo electrónico</p>
                             <input type="text" class="form-control" name="correo" id="form_correo" 
                             placeholder="   ejemplo@mail.com">
+                            <p class="alerta-correo" id="alerta-correo">Formato de correo: ejemplo@correo.com</p>
                         </div>
                     </div>
                     <div class="control3-p-dc">
-                        <div class="div-direccion" id="div-dirección">
+                        <div class="div-direccion" id="div-direccion">
                                 <p>Dirección</p>
                                 <input type="text" class="form-control" name="direccion" id="form_direccion" 
                                 placeholder="   Escriba su dirección de domicilio">
+                                <p class="alerta-direccion" id="alerta-direccion">Ingrese su dirección de casa</p>
                         </div>
                     </div>
                 </div>
@@ -81,5 +86,6 @@
         
         </form>
     </div>
+    <script src="js/dciudadana.js"></script>
 <?php require('./vistas/pie.php')?>
 
