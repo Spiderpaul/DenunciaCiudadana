@@ -2,7 +2,7 @@
 
 <div class="div-formulario">
 
-    <div class="div-titulo">
+    <div class="div-titulo-sp">
         <p>Datos de denuncia</p>
     </div>
 

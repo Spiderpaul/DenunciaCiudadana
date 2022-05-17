@@ -158,6 +158,12 @@ div.contenido{
     margin-top: 5px;
 }
 
+.div-titulo-sp{
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 30px;
+}
+
 .div-form-p{
     background: #4d4d4d;
     color: white;
@@ -181,10 +187,13 @@ div.contenido{
 }
 
 .div-form{
+    background: #4d4d4d;
     border: 1px solid #4d4d4d;
+    color: white;
     margin-left: 40px;
     margin-right: 40px;
-    height: 340px;
+    height: auto;
+    border-radius: 3px;
 }
 
 .div-form-a{
@@ -233,9 +242,9 @@ div.contenido{
 
 .div-titulo-i{
     width: 60%;
-    height: 100px;
+    height: 20px;
     margin: auto;
-    margin-top: 5px;
+    margin-top: 30px;
     margin-bottom: 0;
 }
 
@@ -341,9 +350,11 @@ div.contenido{
 }
 
 /*    Componentes de denuncia anonima   */
+
+
 .control1{
     margin: auto;
-    margin-top: 20px;
+    margin-top: 5px;
     width: 90%;
 }
 

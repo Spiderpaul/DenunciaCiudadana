@@ -6,7 +6,7 @@ const expresiones = {
     edad: /^([0-9\s?\-?][\s]?){2}$/, // Limitar la edad.
     telefono: /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{2}[-\s\.]?[0-9]{2}$/,
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, //Formato de correo
-    direccion: /^([A-Za-z0-9À-ÿ\_\-\.\,\#\s]){0,200}$/
+    direccion: /^[!\s]+([A-Za-z0-9À-ÿ\_\-\.\,\#\s]){0,200}$/
 }
           
 const campos = {
