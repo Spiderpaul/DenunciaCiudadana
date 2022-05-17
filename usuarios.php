@@ -100,7 +100,7 @@
                             </a>
                         </div>
                         <div class="eliminar-btn">
-                            <a href="servidor/eliminar.php?id=<?php echo $row->id_usuario; ?>">
+                            <a onclick="return confirmar()" href="servidor/eliminar.php?id=<?php echo $row->id_usuario; ?>">
                                 <button>
                                     <i class="material-icons">delete</i>
                                 </button>
@@ -143,5 +143,10 @@
          </div>      
     </div>
 </div>            
-
+<script>
+    function confirmar(){
+    var confirma = confirm("¿Seguro que desea eliminar el registro?");
+    return confirma;
+}
+</script>
 <?php require('./vistas/pie.php')?>

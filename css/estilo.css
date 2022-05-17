@@ -465,12 +465,47 @@ div.contenido{
     margin: auto;
 }
 
+/*                                Registrar usuario botones                             */
+
 .boton-registrar{
     background: #6A1C32;
     color: white;
     font-size: large;
     width: 50%;
     height: 40px;
+    margin-top: 5px;
+    border-style: none;
+    border-radius: 3px;
+}
+
+/*                                Modificar usuario botones                             */
+
+.boton-form-modificar{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.btn-cancelar{
+    width: 50%;
+    margin-right: 5px;
+    text-align: right;
+}
+
+.btn-registrar{
+    width: 50%;
+    margin-left: 5px;
+    text-align: left;
+}
+
+
+#boton-cancelar,
+#boton-registrar{
+    background: #6A1C32;
+    color: white;
+    font-size: large;
+    width: 60%;
+    height: 40px;
+    margin: auto;
     margin-top: 5px;
     border-style: none;
     border-radius: 3px;
@@ -676,6 +711,8 @@ div.contenido{
         align-items: baseline;
         justify-content: flex-end;
     }
+
+    
 
     /*                                              Pie                                            */
 .pie{

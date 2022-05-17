@@ -1,5 +1,5 @@
 <?php
-    include ("../conexion.php");
+    include ("conexion.php");
     session_start();
 
     if(isset($_GET['id'])){
@@ -17,5 +17,12 @@
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
         $stmt->execute();
+    }
+
+    if($_SESSION['rol_usuario'] =="Administrador"){
+        header("location: ../usuarios.php");
+        
+    }else{
+        header("location: ../index.php");
     }
 ?>
