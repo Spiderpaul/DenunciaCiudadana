@@ -16,6 +16,19 @@
     $rol = "3";
     
 
+    //Código para validar captcha. 
+    $ip = $_SERVER['REMOTE_ADOR'];
+    $captcha = $_POST['g-recaptcha-response'];
+    //Guardamos la clave secreta en una variable
+    $secretKey = "6LdyP_ofAAAAAA2f6GpUqQRRgbeiRl0mDTwgEvCx";
+
+    $peticion = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$captcha&remoteip=$ip";
+    $respuesta = file_get_contents($peticion);
+
+    $atributos = json_decode($respuesta, TRUE);
+
+    if($atributos['success']){  //Si el captcha es correcto.
+
     //Para verificar que la contraseña se confirme.
     if($clave == $confirmar){
 
@@ -68,5 +81,6 @@
     }else{
         echo "La confirmación de contraseña no coincide con la contraseña.";
         header("location: ../registrarusuario.php");
+    }
     }
 ?>

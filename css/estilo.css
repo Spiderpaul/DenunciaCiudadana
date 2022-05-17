@@ -340,7 +340,7 @@ div.contenido{
 
 .control3-p{
     margin: auto;
-    margin-top: 20px;
+    margin-top: 0;
     width: 90%;
 }
 
@@ -712,6 +712,12 @@ div.contenido{
         justify-content: flex-end;
     }
 
+    .div-captcha{
+        background: orange;
+        width: 40%;
+        margin: auto;
+        text-align: center;
+    }
     
 
     /*                                              Pie                                            */

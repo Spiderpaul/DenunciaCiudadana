@@ -4,22 +4,19 @@
     $idUsuario = $_POST['identificativo'];
     $clave = $_POST['clave'];
 
-    /*
-    //Código agregado para validación del Captcha.
-    //Para obtener la IP.
+    //Código para validar captcha. 
     $ip = $_SERVER['REMOTE_ADOR'];
     $captcha = $_POST['g-recaptcha-response'];
     //Guardamos la clave secreta en una variable
-    $secretKey = "6LdHqwofAAAAAI2o1Pni7guI08Ag_JOUKl3DgQ2n";
+    $secretKey = "6LdyP_ofAAAAAA2f6GpUqQRRgbeiRl0mDTwgEvCx";
 
-    //Guardando los parametros POST para validación en variable para después realizar la validación. 
     $peticion = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$captcha&remoteip=$ip";
     $respuesta = file_get_contents($peticion);
 
     $atributos = json_decode($respuesta, TRUE);
     
 
-    if($atributos['success']){*/
+    if($atributos['success']){
         if($dbh!=null){  //Si la conexión existe.
             //Para inicio de sesion como servidor público.
             $stmt = $dbh->prepare("SELECT id_usuario, nombre, rol_usuario FROM `servidor publico` WHERE id_usuario = ? AND clave = ?");
@@ -83,9 +80,6 @@
                 echo '<META HTTP-EQUIV=" Refresh " CONTENT="1; ../iniciarsesion.php>';
             }
         }
-    /*}else{
-        echo "Debe verificar el Captcha";
-        echo "<br><br><a href='../iniciar.html'>atras</a>";
-    }*/
+    }
 
 ?>

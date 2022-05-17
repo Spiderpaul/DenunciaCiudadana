@@ -29,8 +29,12 @@
                         <p class="alerta-clave" id="alerta-clave">Debe contener letras, números, símbolos, mínimo 8 caracteres</p>
                     </div>
                 </div>
+                <div class="div-captcha">
+                    <div class="g-recaptcha" data-sitekey="6LdyP_ofAAAAAC6eC90cO5tBcYKO1nE1ENpPGgLJ"></div>
+                </div>
             </div>
         </div>
+        
         <div class="boton-form-i">
             <button class="boton-registrar" id="boton-registrar" type="submit">Enviar</button>
         </div>
