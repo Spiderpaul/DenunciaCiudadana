@@ -713,12 +713,15 @@ div.contenido{
     }
 
     .div-captcha{
-        background: orange;
-        width: 40%;
-        margin: auto;
-        text-align: center;
+        display: flex;
     }
     
+    .uno,
+    .dos{
+        background: orange;
+        flex-grow: 1;
+        width: 50px;
+    }
 
     /*                                              Pie                                            */
 .pie{
