@@ -51,8 +51,6 @@
                     <?php 
                         } else if($_SESSION['rol_usuario']=="Administrador"){
                     ?>
-                        <li><a href="dciudadana.php">Denuncia ciudadana</a></li>
-                        <li><a href="danonima.php">Denuncia anónima</a></li>
                         <li><a href="estatusd.php">Estatus</a></li>
                         <li><a href="seguimiento.php">Seguimiento</a></li>
                         <li><a href="reportes.php">Reportes</a></li>

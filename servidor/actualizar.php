@@ -26,8 +26,9 @@
     echo $clave;
     echo $rol;
 
+    try{
     //Código para validar captcha. 
-    $ip = $_SERVER['REMOTE_ADOR'];
+    $ip = $_SERVER['REMOTE_ADDR'];
     $captcha = $_POST['g-recaptcha-response'];
     //Guardamos la clave secreta en una variable
     $secretKey = "6LdyP_ofAAAAAA2f6GpUqQRRgbeiRl0mDTwgEvCx";
@@ -36,6 +37,16 @@
     $respuesta = file_get_contents($peticion);
 
     $atributos = json_decode($respuesta, TRUE);
+    } catch (Exception $e){
+        echo '<script language="javascript">
+                var respuesta = confirm("Hubo un problema con la validación del Captcha");
+                if(respuesta){
+                    location.href="../modificarusuario.php";
+                }else{
+                    location.href="../modificarusuario.php";
+                }
+                </script>';
+    }
 
     if($atributos['success']){  //Si el captcha es correcto.
 
@@ -70,18 +81,43 @@
 
                     header("location: ../usuarios.php");
                 } else{
-                echo "Error al conectar con la base de datos";
-                header("location: ../usuarios.php");
+                    echo '<script language="javascript">
+                    var respuesta = confirm("Error al conectar la base de datos");
+                    if(respuesta){
+                        location.href="../modificarusuario.php";
+                    }else{
+                        location.href="../modificarusuario.php";
+                    }
+                    </script>';
             }
         }else{
-            echo "La contraseña no tiene el formato adecuado<br>";
-            echo "Debe contener:<br>";
-            echo "    Mínimo 8 caracteres <br>    Números <br>Letras <br>    Un caracter especial";
-            header("location: ../usuarios.php");
+            echo '<script language="javascript">
+                var respuesta = confirm("La contraseña cumple con el formato correcto");
+                if(respuesta){
+                    location.href="../modificarusuario.php";
+                }else{
+                    location.href="../modificarusuario.php";
+                }
+                </script>';
         }
     }else{
-        echo "La confirmación de contraseña no coincide con la contraseña.";
-        header("location: ../usuarios.php");
+        echo '<script language="javascript">
+                var respuesta = confirm("La contraseña no coincide");
+                if(respuesta){
+                    location.href="../modificarusuario.php";
+                }else{
+                    location.href="../modificarusuario.php";
+                }
+                </script>';
     }
-    }
+    } else {
+        echo '<script language="javascript">
+        var respuesta = confirm("No ha verificado el captcha");
+        if(respuesta){
+            location.href="../modificarusuario.php";
+        }else{
+            location.href="../modificarusuario.php";
+        }
+        </script>';
+    }   
 ?>

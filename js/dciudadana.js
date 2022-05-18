@@ -6,7 +6,7 @@ const expresiones = {
     edad: /^([0-9\s?\-?][\s]?){2}$/, // Limitar la edad.
     telefono: /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{2}[-\s\.]?[0-9]{2}$/,
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, //Formato de correo
-    direccion: /^[!\s]+([A-Za-z0-9À-ÿ\_\-\.\,\#\s]){0,200}$/
+    direccion: /^([A-Za-z0-9À-ÿ\_\-\.\,\#\s]){0,200}$/  //Formato de dirección
 }
           
 const campos = {
@@ -78,15 +78,11 @@ inputs.forEach((input) => {
 });
 
 const analizarCampos = () => {
-    /*console.log("nombre " + campos.nombre);
+    console.log("nombre " + campos.nombre);
     console.log("edad " +campos.edad);
     console.log("telefono " +campos.telefono);
     console.log("correo " +campos.correo);
     console.log("direccion " +campos.direccion);
-    console.log("identificativo " +campos.identificativo);
-    console.log("area " +campos.area);
-    console.log("clave " +campos.clave);
-    console.log("confirmar " +campos.confirmar);*/
     if(campos.nombre && campos.edad && campos.telefono && campos.correo && campos.direccion){
         document.getElementById('boton-registrar').disabled = false;
         document.getElementById('boton-registrar').classList.remove('deshabilitado');
@@ -98,15 +94,11 @@ formulario.addEventListener('mouseout', (e) =>{
 })
 
 formulario.addEventListener('submit', (e) => {   //Evento de botón.
-    /*console.log("nombre " + campos.nombre);
+    console.log("nombre " + campos.nombre);
     console.log("edad " +campos.edad);
     console.log("telefono " +campos.telefono);
     console.log("correo " +campos.correo);
     console.log("direccion " +campos.direccion);
-    console.log("identificativo " +campos.identificativo);
-    console.log("area " +campos.area);
-    console.log("clave " +campos.clave);
-    console.log("confirmar " +campos.confirmar);*/
     if(campos.nombre && campos.edad && campos.telefono && campos.correo && campos.direccion){
         document.getElementById('mensaje').classList.add('mensaje-exito');
         document.getElementById('mensaje-texto2').classList.add('mensaje-texto-exito');

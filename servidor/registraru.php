@@ -73,9 +73,7 @@
                 header("location: ../registrarusuario.php");
             }
         }else{
-            echo "La contraseña no tiene el formato adecuado<br>";
-            echo "Debe contener:<br>";
-            echo "    Mínimo 8 caracteres <br>    Números <br>Letras <br>    Un caracter especial";
+            echo '<script language="javascript">alert("La contraseña no tiene los caracteres correctos");</script>';
             header("location: ../registrarusuario.php");
         }
     }else{

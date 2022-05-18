@@ -67,14 +67,14 @@
 
             <div class="div-form-d">
                 <div class="control-form">
-                    <div class="control1">
+                    <div class="control1" id="div-asunto">
                         <p>Asunto</p>
                         <input type="text" class="form-control" name="asunto" id="form-asunto" 
                         placeholder="   Escriba el asunto que desea denunciar" required>
                     </div>
-                    <div class="control2">
+                    <div class="control2" id="div-descripcion">
                         <p>Descripción</p>
-                        <textarea rows="10" cols="40" class="form-control" name="descripcion" id="form-descripcion" required>
+                        <textarea rows="10" cols="40" class="form-control" name="descripcion" id="form-descripcion-dc" required>
                         </textarea>  
                     </div>
                 </div>

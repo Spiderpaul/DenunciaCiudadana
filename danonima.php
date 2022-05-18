@@ -1,6 +1,6 @@
 <?php require('./vistas/cabecera.php')?>
 
-<div class="div-formulario">
+<div class="div-formulario-da">
 
     <div class="div-titulo-a">
         <p>Datos de denuncia</p>

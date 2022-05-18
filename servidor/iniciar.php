@@ -3,9 +3,10 @@
     session_start();
     $idUsuario = $_POST['identificativo'];
     $clave = $_POST['clave'];
-
+  
+    try{
     //Código para validar captcha. 
-    $ip = $_SERVER['REMOTE_ADOR'];
+    $ip = $_SERVER['REMOTE_ADDR'];
     $captcha = $_POST['g-recaptcha-response'];
     //Guardamos la clave secreta en una variable
     $secretKey = "6LdyP_ofAAAAAA2f6GpUqQRRgbeiRl0mDTwgEvCx";
@@ -14,7 +15,16 @@
     $respuesta = file_get_contents($peticion);
 
     $atributos = json_decode($respuesta, TRUE);
-    
+    } catch (Exception $e){
+        echo '<script language="javascript">
+                var respuesta = confirm("Hubo un problema con la validación del Captcha");
+                if(respuesta){
+                    location.href="../iniciarsesion.php";
+                }else{
+                    location.href="../iniciarsesion.php";
+                }
+                </script>';
+    }
 
     if($atributos['success']){
         if($dbh!=null){  //Si la conexión existe.
@@ -54,6 +64,18 @@
                         $stmt->execute();
 
                         $datos = $stmt->fetch(); 
+                        if($cont == 0){
+                                echo '<script language="javascript">
+                                var respuesta = confirm("Identificativo o Contraseña incorrectos ¿Volver a intentar?");
+                                if(respuesta){
+                                 //lo que quieres que ejecute cuando acepte.
+                                    location.href="../iniciarsesion.php";
+                                }else{
+                                //lo que quieres que haga cuando no;
+                                    location.href="../iniciarsesion.php";
+                                }
+                                </script>';
+                        }
                     }
                 }
 
@@ -70,16 +92,19 @@
                 }else{
                     $_SESSION['rol_usuario']="Administrador";
                 }
-                
-                //echo "<br>Bienvenido ". $_SESSION['rol_usuario'] ." ". $_SESSION['nombre_usuario'] .", ha iniciado sesión correctamente.";
-                //echo '<META HTTP-EQUIV=" Refresh " CONTENT="1; ../index.php>';
                 header("location: ../index.php");
 
-            } else {
-                echo "<br>El usuario o la contraseña son incorrectos.";
-                echo '<META HTTP-EQUIV=" Refresh " CONTENT="1; ../iniciarsesion.php>';
-            }
+            } 
         }
-    }
+    } else {
+        echo '<script language="javascript">
+        var respuesta = confirm("No ha verificado el captcha");
+        if(respuesta){
+            location.href="../iniciarsesion.php";
+        }else{
+            location.href="../iniciarsesion.php";
+        }
+        </script>';
+    }   
 
 ?>
