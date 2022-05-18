@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/estilo.css">
     <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <!------------------Menú de inicio---------------------------->
@@ -144,16 +145,15 @@
                     <input type="password" class="form-control" name="confirmar" id="form_confirmar">  
                     <p class="alerta-confirmar" id="alerta-confirmar">La contraseña no coincide</p>  
                 </div>
-            </div>
+            </div>  
             <div class="div-captcha">
                     <div class="uno"></div>
                     <div class="g-recaptcha" data-sitekey="6LdyP_ofAAAAAC6eC90cO5tBcYKO1nE1ENpPGgLJ"></div>
                     <div class="dos"></div>
-            </div>
-            
-            
+            </div>        
         </div>
     </div>
+            
 
     <div class="boton-form-modificar">
         <div class="btn-cancelar">
