@@ -718,9 +718,7 @@ div.contenido{
     
     .uno,
     .dos{
-        background: orange;
         flex-grow: 1;
-        width: 50px;
     }
 
     /*                                              Pie                                            */

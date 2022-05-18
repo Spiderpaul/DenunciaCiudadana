@@ -88,7 +88,9 @@
                 </div>
             </div>
             <div class="div-captcha">
-                <div class="g-recaptcha" data-sitekey="6LdyP_ofAAAAAC6eC90cO5tBcYKO1nE1ENpPGgLJ"></div>
+                    <div class="uno"></div>
+                    <div class="g-recaptcha" data-sitekey="6LdyP_ofAAAAAC6eC90cO5tBcYKO1nE1ENpPGgLJ"></div>
+                    <div class="dos"></div>
             </div>
         </div>
     </div>
