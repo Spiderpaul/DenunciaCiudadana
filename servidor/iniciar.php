@@ -17,12 +17,8 @@
     $atributos = json_decode($respuesta, TRUE);
     } catch (Exception $e){
         echo '<script language="javascript">
-                var respuesta = confirm("Hubo un problema con la validación del Captcha");
-                if(respuesta){
-                    location.href="../iniciarsesion.php";
-                }else{
-                    location.href="../iniciarsesion.php";
-                }
+                alert("Hubo un problema con la validación del Captcha");
+                window.history.back();
                 </script>';
     }
 
@@ -65,15 +61,9 @@
 
                         $datos = $stmt->fetch(); 
                         if($cont == 0){
-                                echo '<script language="javascript">
-                                var respuesta = confirm("Identificativo o Contraseña incorrectos ¿Volver a intentar?");
-                                if(respuesta){
-                                 //lo que quieres que ejecute cuando acepte.
-                                    location.href="../iniciarsesion.php";
-                                }else{
-                                //lo que quieres que haga cuando no;
-                                    location.href="../iniciarsesion.php";
-                                }
+                            echo '<script language="javascript">
+                                alert("Identificativo o Contraseña incorrectos");
+                                window.history.back();
                                 </script>';
                         }
                     }
@@ -98,13 +88,18 @@
         }
     } else {
         echo '<script language="javascript">
+        alert("No ha verificado el captcha");
+        window.history.back();
+        </script>';
+
+       /* echo '<script language="javascript">
         var respuesta = confirm("No ha verificado el captcha");
         if(respuesta){
             location.href="../iniciarsesion.php";
         }else{
             location.href="../iniciarsesion.php";
         }
-        </script>';
+        </script>';*/
     }   
 
 ?>

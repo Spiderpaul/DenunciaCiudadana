@@ -69,7 +69,7 @@
         <p>Datos personales</p>
     </div>
     
-    <form id="form-dciudadana-p" class="form-dciudadana-p" action="servidor/registraru.php" method="POST">
+    <form id="form-dciudadana-p" class="form-dciudadana-p" action="servidor/aregistraru.php" method="POST">
 
         <div class="div-form-p">
             <div class="control-form">

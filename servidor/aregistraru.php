@@ -29,9 +29,9 @@
         $atributos = json_decode($respuesta, TRUE);
     } catch (Exception $e){
         echo '<script language="javascript">
-                alert("Hubo un problema con la validación del Captcha");
-                window.history.back();
-                </script>';
+                    alert("Hubo un problema con la validación del Captcha");
+                    window.history.back();
+                    </script>';
     }
 
 
@@ -68,16 +68,26 @@
                         $dbh=null; //Para cerrar la conexión a base de datos. 
 
                         echo '<script language="javascript">
-                            alert("Registro realizado con éxito");
-                            location.href="../registrarusuario.php";
-                            </script>';
+                                alert("Registro realizado con éxito");
+                                location.href="../usuarios.php";
+                                </script>';
+                        /*echo '<script language="javascript">
+                                var respuesta = confirm("Registro realizado con éxito");
+                                if(respuesta){
+                                    location.href="../usuarios.php";
+                                }else{
+                                    location.href="../usuarios.php";
+                                }
+                                </script>';*/
 
                     }else{
                         $dbh=null; //Para cerrar la conexión a base de datos. 
+                        
                         echo '<script language="javascript">
-                            alert("El identificativo de usuario ya existe");
-                            window.history.back();
-                            </script>';
+                                alert("El identificativo de usuario ya existe");
+                                window.history.back();
+                                </script>';
+                        
                     }
                     
                 }else{
@@ -88,21 +98,20 @@
                 }
             }else{
                 echo '<script language="javascript">
-                    alert("La contraseña no contiene los caracteres correctos");
-                    window.history.back();
-                    </script>';
+                        alert("La contraseña no contiene los caracteres correctos");
+                        window.history.back();
+                        </script>';
             }
         }else{
             echo '<script language="javascript">
-                alert("La contraseña no coincide");
-                window.history.back();
-                </script>';
+                        alert("La contraseña no coincide");
+                        window.history.back();
+                        </script>';
         }
     } else {
         echo '<script language="javascript">
-                alert("No ha verificado el captcha");
-                window.history.back();
-                </script>';
+                        alert("No ha verificado el captcha");
+                        window.history.back();
+                        </script>';
     }   
-    
 ?>

@@ -31,7 +31,9 @@
             header("location: ../dciudadana.php");
                 
     }else{
-        echo "Error al conectar con la base de datos";
-        header("location: ../dciudadana.php");
+        echo '<script language="javascript">
+                alert("Error al conectar con la base de datos");
+                window.history.back();
+                </script>';
     }
 ?>
