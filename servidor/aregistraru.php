@@ -44,50 +44,78 @@
 
                 if($dbh!=null){  //Si hay una conexión esté establecida.
                     
-                    //Para evitar que se repita el identificativo de usuario usando sentencias preparadas.
-                    $stmt = $dbh->prepare("SELECT id_usuario FROM `servidor publico` WHERE id_usuario = ?");
+                    $stmt = $dbh->prepare("SELECT id_usuario FROM administrador WHERE id_usuario = ?");
                     $stmt->bindParam(1,$idUsuario);
                     $stmt->execute();
                     $cont = $stmt->rowCount(); //Cuenta el número de filas con datos. 
 
-                    if($cont == 0){ //Si no hay filas con el identificativo de usuario. 
-                        //Se realiza el registro con sentencias preparadas.
-                        $stmt = $dbh-> prepare("INSERT INTO `servidor publico` (id_usuario, nombre, edad, sexo, telefono, correo, direccion, area, clave, rol_usuario) VALUES (?,?,?,?,?,?,?,?,?,?)");
+                    if($cont == 0){
+
+                        $stmt = $dbh->prepare("SELECT id_usuario FROM asesor WHERE id_usuario = ?");
                         $stmt->bindParam(1,$idUsuario);
-                        $stmt->bindParam(2,$nombre);
-                        $stmt->bindParam(3,$edad);
-                        $stmt->bindParam(4,$sexo);
-                        $stmt->bindParam(5,$telefono);
-                        $stmt->bindParam(6,$correo);
-                        $stmt->bindParam(7,$direccion);
-                        $stmt->bindParam(8,$area);
-                        $stmt->bindParam(9,$clave);
-                        $stmt->bindParam(10,$rol);
                         $stmt->execute();
-                        
-                        $dbh=null; //Para cerrar la conexión a base de datos. 
+                        $cont = $stmt->rowCount(); //Cuenta el número de filas con datos. 
 
-                        echo '<script language="javascript">
-                                alert("Registro realizado con éxito");
-                                location.href="../usuarios.php";
-                                </script>';
-                        /*echo '<script language="javascript">
-                                var respuesta = confirm("Registro realizado con éxito");
-                                if(respuesta){
-                                    location.href="../usuarios.php";
-                                }else{
-                                    location.href="../usuarios.php";
-                                }
-                                </script>';*/
+                        if($cont == 0){
 
-                    }else{
-                        $dbh=null; //Para cerrar la conexión a base de datos. 
-                        
-                        echo '<script language="javascript">
+                            //Para evitar que se repita el identificativo de usuario usando sentencias preparadas.
+                            $stmt = $dbh->prepare("SELECT id_usuario FROM `servidor publico` WHERE id_usuario = ?");
+                            $stmt->bindParam(1,$idUsuario);
+                            $stmt->execute();
+                            $cont = $stmt->rowCount(); //Cuenta el número de filas con datos. 
+
+                            if($cont == 0){ //Si no hay filas con el identificativo de usuario. 
+                                //Se realiza el registro con sentencias preparadas.
+                                $stmt = $dbh-> prepare("INSERT INTO `servidor publico` (id_usuario, nombre, edad, sexo, telefono, correo, direccion, area, clave, rol_usuario) VALUES (?,?,?,?,?,?,?,?,?,?)");
+                                $stmt->bindParam(1,$idUsuario);
+                                $stmt->bindParam(2,$nombre);
+                                $stmt->bindParam(3,$edad);
+                                $stmt->bindParam(4,$sexo);
+                                $stmt->bindParam(5,$telefono);
+                                $stmt->bindParam(6,$correo);
+                                $stmt->bindParam(7,$direccion);
+                                $stmt->bindParam(8,$area);
+                                $stmt->bindParam(9,$clave);
+                                $stmt->bindParam(10,$rol);
+                                $stmt->execute();
+                                
+                                $dbh=null; //Para cerrar la conexión a base de datos. 
+
+                                echo '<script language="javascript">
+                                        alert("Registro realizado con éxito");
+                                        location.href="../usuarios.php";
+                                        </script>';
+                                /*echo '<script language="javascript">
+                                        var respuesta = confirm("Registro realizado con éxito");
+                                        if(respuesta){
+                                            location.href="../usuarios.php";
+                                        }else{
+                                            location.href="../usuarios.php";
+                                        }
+                                        </script>';*/
+
+                            }else{
+                                $dbh=null; //Para cerrar la conexión a base de datos. 
+                                
+                                echo '<script language="javascript">
+                                        alert("El identificativo de usuario ya existe");
+                                        window.history.back();
+                                        </script>';
+                                
+                            }
+                        } else{
+                            $dbh=null; //Para cerrar la conexión a base de datos. 
+                            echo '<script language="javascript">
                                 alert("El identificativo de usuario ya existe");
                                 window.history.back();
                                 </script>';
-                        
+                        }
+                    } else{
+                        $dbh=null; //Para cerrar la conexión a base de datos. 
+                        echo '<script language="javascript">
+                            alert("El identificativo de usuario ya existe");
+                            window.history.back();
+                            </script>';
                     }
                     
                 }else{
