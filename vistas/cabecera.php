@@ -75,7 +75,7 @@
                         }else if($_SESSION['rol_usuario'] == "Servidor"){ 
                     ?>
                         
-                        <li><a href="../perfil.php">Perfil</a></li>
+                        <li><a href="perfil.php">Perfil</a></li>
                         <li><a href="servidor/cerrar.php">Cerrar sesión</a></li>
 
                     <?php 
