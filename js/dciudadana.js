@@ -78,11 +78,11 @@ inputs.forEach((input) => {
 });
 
 const analizarCampos = () => {
-    console.log("nombre " + campos.nombre);
+    /*console.log("nombre " + campos.nombre);
     console.log("edad " +campos.edad);
     console.log("telefono " +campos.telefono);
     console.log("correo " +campos.correo);
-    console.log("direccion " +campos.direccion);
+    console.log("direccion " +campos.direccion);*/
     if(campos.nombre && campos.edad && campos.telefono && campos.correo && campos.direccion){
         document.getElementById('boton-registrar').disabled = false;
         document.getElementById('boton-registrar').classList.remove('deshabilitado');
@@ -94,11 +94,11 @@ formulario.addEventListener('mouseout', (e) =>{
 })
 
 formulario.addEventListener('submit', (e) => {   //Evento de botón.
-    console.log("nombre " + campos.nombre);
+    /*console.log("nombre " + campos.nombre);
     console.log("edad " +campos.edad);
     console.log("telefono " +campos.telefono);
     console.log("correo " +campos.correo);
-    console.log("direccion " +campos.direccion);
+    console.log("direccion " +campos.direccion);*/
     if(campos.nombre && campos.edad && campos.telefono && campos.correo && campos.direccion){
         document.getElementById('mensaje').classList.add('mensaje-exito');
         document.getElementById('mensaje-texto2').classList.add('mensaje-texto-exito');

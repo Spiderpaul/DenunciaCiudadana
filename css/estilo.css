@@ -66,7 +66,7 @@ nav ul.izquierdo li a{
 }
 
 li a.activo, li a:hover{
-    background: #4d4d4d;
+    background: #6A1C32;
     transition: .1s;
 }
 
