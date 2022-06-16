@@ -5,17 +5,19 @@
     date_default_timezone_set('America/Mazatlan');
 
     $asunto = $_POST['asunto'];
+    $tipo = $_POST['tipo'];
     $descripcion = $_POST['descripcion'];
     $fecha = date("Y-m-d H:i:s");  
-
 
     if($dbh!=null){  //Si hay una conexión esté establecida.
                 
         
-            $stmt = $dbh-> prepare("INSERT INTO `denuncia anonima` (asunto, descripcion, fecha) VALUES (?,?,?)");
+            $stmt = $dbh-> prepare("INSERT INTO `denuncia anonima` (asunto, descripcion, fecha, tipo_denuncia) 
+            VALUES (?,?,?,?)");
             $stmt->bindParam(1,$asunto);
             $stmt->bindParam(2,$descripcion);
             $stmt->bindParam(3,$fecha);
+            $stmt->bindParam(4,$tipo);
             $stmt->execute();
                     
             $dbh=null; //Para cerrar la conexión a base de datos. 
