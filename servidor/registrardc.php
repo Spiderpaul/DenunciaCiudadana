@@ -11,15 +11,15 @@
     $correo = $_POST['correo'];
     $direccion = $_POST['direccion'];
     $asunto = $_POST['asunto'];
+    $tipo = $_POST['tipo'];
     $descripcion = $_POST['descripcion'];
     $fecha = date("Y-m-d H:i:s");
-    
 
     if($dbh!=null){  //Si hay una conexión esté establecida.
                 
         
-            $stmt = $dbh-> prepare("INSERT INTO `denuncia ciudadana` (nombre, edad, sexo, telefono, correo, direccion, asunto, descripcion, fecha) 
-            VALUES (?,?,?,?,?,?,?,?,?)");
+            $stmt = $dbh-> prepare("INSERT INTO `denuncia ciudadana` (nombre, edad, sexo, telefono, correo, direccion, asunto, descripcion, fecha, tipo_denuncia) 
+            VALUES (?,?,?,?,?,?,?,?,?,?)");
             $stmt->bindParam(1,$nombre);
             $stmt->bindParam(2,$edad);
             $stmt->bindParam(3,$sexo);
@@ -29,6 +29,7 @@
             $stmt->bindParam(7,$asunto);
             $stmt->bindParam(8,$descripcion);
             $stmt->bindParam(9,$fecha);
+            $stmt->bindParam(10,$tipo);
             $stmt->execute();
                     
             $dbh=null; //Para cerrar la conexión a base de datos. 

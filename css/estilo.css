@@ -408,6 +408,21 @@ div.contenido{
     display: flex;
     flex-direction: column;
 }
+
+                                                        /*   Contenedor de asunto y tipo de denuncia   */
+.asunto-tipo{
+    background: orange;
+    height: 300px;
+    width: 400px;
+    height: auto;
+    display: flex;
+    gap: 20px;
+}
+
+.asunto-tipo .control1{
+    flex-grow: 1;
+}
+
 .control1{
     margin: auto;
     margin-top: 5px;
