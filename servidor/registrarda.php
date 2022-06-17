@@ -9,15 +9,25 @@
     $descripcion = $_POST['descripcion'];
     $fecha = date("Y-m-d H:i:s");  
 
+    //Para guardar la imagen en una variable
+    if(isset($_FILES['evidencia']['name'])){
+        $peso = $_FILES['evidencia']['size'];
+        $archivoSubido = fopen($_FILES['evidencia']['tmp_name'],'r');
+        $archivo = fread($archivoSubido, $peso);
+    } else {
+        $archivo = null;
+    }
+
     if($dbh!=null){  //Si hay una conexión esté establecida.
                 
         
-            $stmt = $dbh-> prepare("INSERT INTO `denuncia anonima` (asunto, descripcion, fecha, tipo_denuncia) 
-            VALUES (?,?,?,?)");
+            $stmt = $dbh-> prepare("INSERT INTO `denuncia anonima` (asunto, descripcion, fecha, tipo_denuncia, evidencia) 
+            VALUES (?,?,?,?,?)");
             $stmt->bindParam(1,$asunto);
             $stmt->bindParam(2,$descripcion);
             $stmt->bindParam(3,$fecha);
             $stmt->bindParam(4,$tipo);
+            $stmt->bindParam(5,$archivo);
             $stmt->execute();
                     
             $dbh=null; //Para cerrar la conexión a base de datos. 

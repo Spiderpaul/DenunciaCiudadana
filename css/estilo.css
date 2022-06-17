@@ -411,22 +411,25 @@ div.contenido{
 
                                                         /*   Contenedor de asunto y tipo de denuncia   */
 .asunto-tipo{
-    background: orange;
-    height: 300px;
-    width: 400px;
+    width: 90%;
     height: auto;
+    height: auto;
+    margin: auto;
     display: flex;
     gap: 20px;
-}
-
-.asunto-tipo .control1{
-    flex-grow: 1;
 }
 
 .control1{
     margin: auto;
     margin-top: 5px;
-    width: 90%;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.evidencia{
+    margin: auto;
+    margin-top: 20px;
+    height: 30px;
 }
 
 .control2{

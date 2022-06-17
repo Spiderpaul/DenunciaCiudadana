@@ -6,7 +6,8 @@
         <p>Datos de denuncia</p>
     </div>
 
-    <form id="form-danonima" class="form-danonima" action="servidor/registrarda.php" method="post">
+    <form id="form-danonima" class="form-danonima" action="servidor/registrarda.php" method="post" 
+    enctype="multipart/form-data">
         <div class="div-form-a">
             <div class="control-form">
                 <div class="asunto-tipo">
@@ -27,6 +28,9 @@
                             <option value="g">Solicitud de documentos o dinero adicional para la expedición de documentos</option>
                             <option value="h">Otro</option>
                         </select>
+                    </div>
+                    <div class="control1">
+                        <input type="file" class="evidencia" name="evidencia" id="evidencia">
                     </div>
                 </div>
                 <div class="control2">
