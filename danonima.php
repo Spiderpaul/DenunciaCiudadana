@@ -29,14 +29,15 @@
                             <option value="h">Otro</option>
                         </select>
                     </div>
-                    <div class="control1">
-                        <input type="file" class="evidencia" name="evidencia" id="evidencia">
-                    </div>
                 </div>
                 <div class="control2">
                     <p>Descripción</p>
                     <textarea rows="10" cols="40" class="form-control" name="descripcion" id="form-descripcion" required>
                     </textarea>  
+                </div>
+                <div class="control-archivo">
+                    <p>Adjuntar documento (opcional)</p>
+                    <input type="file" class="evidencia" name="evidencia" id="evidencia">
                 </div>
             </div>
         </div>

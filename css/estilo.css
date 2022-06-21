@@ -422,20 +422,33 @@ div.contenido{
 .control1{
     margin: auto;
     margin-top: 5px;
+    margin-bottom: 10px;
     width: 100%;
     flex-grow: 1;
 }
 
-.evidencia{
-    margin: auto;
-    margin-top: 20px;
-    height: 30px;
-}
-
 .control2{
     margin: auto;
-    margin-top: 20px;
     width: 90%;
+}
+
+.control-archivo{
+    margin: auto;
+    margin-bottom: 10px;
+    padding-top: 4px;
+    width: 90%;
+    height: auto;
+    border: solid 2px #919191;
+}
+
+.control-archivo p{
+    margin-left: 5px;
+}
+
+.evidencia{
+    width: 100%;
+    height: 100%;
+    margin: 5px;
 }
 
 .control3{

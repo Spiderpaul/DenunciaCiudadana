@@ -93,6 +93,10 @@
                         <textarea rows="10" cols="40" class="form-control" name="descripcion" id="form-descripcion-dc" required>
                         </textarea>  
                     </div>
+                    <div class="control-archivo">
+                        <p>Adjuntar documento (opcional)</p>
+                        <input type="file" class="evidencia" name="evidencia" id="evidencia">
+                    </div>
                 </div>
             </div>
             
