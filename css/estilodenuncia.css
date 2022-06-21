@@ -320,15 +320,15 @@ div.contenido{
 }
 
 .control1-p{
-    margin: auto;
-    margin-top: 5px;
     width: 90%;
+    height: 55px;
     display: flex;
     gap: 20px;
+    margin: auto;
 }
 
 .control1-p .div-nombre{
-    flex-grow: 3.5;
+    flex-grow: 3;
 }
 
 .control1-p .div-edad{
@@ -336,13 +336,14 @@ div.contenido{
 }
 
 .control1-p .div-sexo{
-    flex-grow: 1;
+    flex-grow: 3;
 }
 
 .control2-p{
     margin: auto;
     margin-top: 0;
     width: 90%;
+    height: 55px;
     display: flex;
     gap: 20px;
 }
@@ -359,7 +360,6 @@ div.contenido{
     width: 90%;
     height: auto;
     margin: auto;
-    padding-bottom: 20px;
 }
 
 .control4-t,
@@ -387,6 +387,7 @@ div.contenido{
     margin: auto;
     margin-top: 0;
     width: 90%;
+    height: 55px;
 }
 
 .form-select{

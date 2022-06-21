@@ -30,7 +30,8 @@
     if($dbh!=null){  //Si hay una conexión esté establecida.
                 
         
-            $stmt = $dbh-> prepare("INSERT INTO `denuncia anonima` (asunto, descripcion, fecha, tipo_denuncia, evidencia, nombre_evidencia) 
+            $stmt = $dbh-> prepare("INSERT INTO `denuncia anonima` 
+            (asunto, descripcion, fecha, tipo_denuncia, evidencia, nombre_evidencia) 
             VALUES (?,?,?,?,?,?)");
             $stmt->bindParam(1,$asunto);
             $stmt->bindParam(2,$descripcion);

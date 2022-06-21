@@ -6,7 +6,9 @@
         <p>Datos de denuncia</p>
     </div>
 
-    <form id="form-danonima" class="form-danonima" action="servidor/registrardsp.php" method="post">
+    <form id="form-danonima" class="form-danonima" action="servidor/registrardsp.php" method="post"
+    enctype="multipart/form-data">
+        
         <div class="div-form">
             <div class="control-form">
             <div class="asunto-tipo">
