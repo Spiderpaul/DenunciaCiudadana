@@ -44,7 +44,7 @@
                     
             $dbh=null; //Para cerrar la conexión a base de datos. 
 
-            //header("location: ../dciudadana.php");
+            header("location: ../dciudadana.php");
                 
     }else{
         echo '<script language="javascript">
