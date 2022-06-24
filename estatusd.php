@@ -19,6 +19,9 @@
             </form>
         </div>
     </div>
+    <div class="datos-estatus">
+
+    </div>
 </div>
 
 <?php require('./vistas/pie.php')?>

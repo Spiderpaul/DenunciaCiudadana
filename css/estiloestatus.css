@@ -14,7 +14,7 @@
 .cabecera-estatus{
     width: 30%;
     height: auto;
-    margin-left: 5%;
+    margin-left: 2%;
     margin-top: 10px;
 }
 
@@ -35,4 +35,10 @@
 .buscador-input-estatus{
     width: 100%;
     height: 30px;
+}
+
+.datos-estatus{
+    background: grey;
+    width: 100%;
+    height: calc(100% - 50px);
 }
