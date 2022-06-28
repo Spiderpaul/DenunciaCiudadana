@@ -9,28 +9,48 @@
         $idUsuario = "";
     }*/
 
+    //Definiendo zona horaria.
     date_default_timezone_set('America/Mazatlan');
+    
+    //Para generar contraseña aleatoria.
+    $caracteres = "abcdefghijklmnopkrstuvwxyz0123456789";
+    $id = substr(str_shuffle($caracteres), 0, 6);
 
     $idUsuario = $_SESSION['id_usuario'];
     $asunto = $_POST['asunto'];
-    $tipo = $POST['tipo'];
+    $tipo = $_POST['tipo'];
     $descripcion = $_POST['descripcion'];
     $fecha = date("Y-m-d H:i:s");
     
+    if($_FILES['evidencia']['name']!=""){
+        $nombreArchivo = $_FILES['evidencia']['name'];
+        $archivo = file_get_contents($_FILES['evidencia']['tmp_name']);
+    } else {
+        $nombreArchivo = "";
+        $archivo = null;
+    }
 
     if($dbh!=null){  //Si hay una conexión esté establecida.
                 
         
-            $stmt = $dbh-> prepare("INSERT INTO `denuncia servidor publico` (id_usuario, asunto, descripcion, fecha, tipo_denuncia) 
-            VALUES (?,?,?,?,?)");
-            $stmt->bindParam(1,$idUsuario);
-            $stmt->bindParam(2,$asunto);
-            $stmt->bindParam(3,$descripcion);
-            $stmt->bindParam(4,$fecha);
-            $stmt->bindParam(5,$tipo);
+            $stmt = $dbh-> prepare("INSERT INTO `denuncia servidor publico` 
+            (id_denuncia, id_usuario, asunto, descripcion, fecha, tipo_denuncia, evidencia, nombre_evidencia) 
+            VALUES (?,?,?,?,?,?,?,?)");
+            $stmt->bindParam(1,$id);
+            $stmt->bindParam(2,$idUsuario);
+            $stmt->bindParam(3,$asunto);
+            $stmt->bindParam(4,$descripcion);
+            $stmt->bindParam(5,$fecha);
+            $stmt->bindParam(6,$tipo);
+            $stmt->bindParam(7,$archivo);
+            $stmt->bindParam(8,$nombreArchivo);
             $stmt->execute();
                     
             $dbh=null; //Para cerrar la conexión a base de datos. 
+
+            echo '<script language="javascript">
+                alert("Su denuncia se ha registrado con éxito");
+                </script>';
 
             header("location: ../dciudadanas.php");
                 
