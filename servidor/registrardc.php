@@ -4,10 +4,6 @@
     //Para definir zona horaria. 
     date_default_timezone_set('America/Mazatlan');
 
-    //Para generar contraseña aleatoria.
-    $caracteres = "abcdefghijklmnopkrstuvwxyz0123456789";
-    $id = substr(str_shuffle($caracteres), 0, 6);
-
     $nombre = $_POST['nombre'];
     $edad = $_POST['edad'];
     $sexo = $_POST['sexo'];
@@ -29,7 +25,19 @@
 
     if($dbh!=null){  //Si hay una conexión esté establecida.
                 
-        
+        do{ 
+            //Generar identificativo de denuncia automático.
+            $caracteres = "abcdefghijklmnopkrstuvwxyz0123456789";
+            $id = substr(str_shuffle($caracteres), 0, 6);
+
+            //Consulta si existe el identificativo en la base de datos.
+            $stmt = $dbh-> prepare("SELECT id_denuncia FROM `denuncia ciudadana` WHERE id_denuncia = ?");
+            $stmt->bindParam(1,$id);
+            $stmt->execute();
+            $cont = $stmt->rowCount(); //Cuenta el número de filas con datos. 
+            
+        }while($cont!=0); //Mientras $cont sea diferente a cero, se repite.
+
             $stmt = $dbh-> prepare("INSERT INTO `denuncia ciudadana` 
             (id_denuncia, nombre, edad, sexo, telefono, correo, direccion, asunto, descripcion, fecha, tipo_denuncia, evidencia, nombre_evidencia) 
             VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");

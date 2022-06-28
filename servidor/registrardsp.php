@@ -32,6 +32,18 @@
 
     if($dbh!=null){  //Si hay una conexión esté establecida.
                 
+        do{ 
+            //Generar identificativo de denuncia automático.
+            $caracteres = "abcdefghijklmnopkrstuvwxyz0123456789";
+            $id = substr(str_shuffle($caracteres), 0, 6);
+
+            //Consulta si existe el identificativo en la base de datos.
+            $stmt = $dbh-> prepare("SELECT id_denuncia FROM `denuncia servidor publico` WHERE id_denuncia = ?");
+            $stmt->bindParam(1,$id);
+            $stmt->execute();
+            $cont = $stmt->rowCount(); //Cuenta el número de filas con datos. 
+            
+        }while($cont!=0); //Mientras $cont sea diferente a cero, se repite.
         
             $stmt = $dbh-> prepare("INSERT INTO `denuncia servidor publico` 
             (id_denuncia, id_usuario, asunto, descripcion, fecha, tipo_denuncia, evidencia, nombre_evidencia) 
