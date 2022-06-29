@@ -53,7 +53,7 @@
             
         }while($cont1!=0 && $cont2!=0 && $cont3!=0); //Mientras $cont sea diferente a cero, se repite.
 
-        
+                
         $stmt = $dbh-> prepare("INSERT INTO `denuncia anonima` 
         (id_denuncia, asunto, descripcion, fecha, tipo_denuncia, evidencia, nombre_evidencia) 
         VALUES (?,?,?,?,?,?,?)");
@@ -65,7 +65,12 @@
         $stmt->bindParam(6,$archivo);
         $stmt->bindParam(7,$nombreArchivo);
         $stmt->execute();
-                    
+
+        
+        $stmt2 = $dbh-> prepare("INSERT INTO `estatus de denuncia` (id_denuncia_a) VALUES (?)");
+        $stmt2->bindParam(1,$id);
+        $stmt2->execute();
+
         $dbh=null; //Para cerrar la conexión a base de datos. 
 
         /*echo '<script language="javascript">

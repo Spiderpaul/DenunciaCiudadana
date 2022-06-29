@@ -68,6 +68,10 @@
             $stmt->bindParam(8,$nombreArchivo);
             $stmt->execute();
                     
+            $stmt2 = $dbh-> prepare("INSERT INTO `estatus de denuncia` (id_denuncia_sp) VALUES (?)");
+            $stmt2->bindParam(1,$id);
+            $stmt2->execute();
+
             $dbh=null; //Para cerrar la conexión a base de datos. 
 
             echo '<script language="javascript">
