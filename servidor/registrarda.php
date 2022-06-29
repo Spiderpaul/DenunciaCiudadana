@@ -36,12 +36,22 @@
             $id = substr(str_shuffle($caracteres), 0, 6);
 
             //Consulta si existe el identificativo en la base de datos.
+            $stmt = $dbh-> prepare("SELECT id_denuncia FROM `denuncia ciudadana` WHERE id_denuncia = ?");
+            $stmt->bindParam(1,$id);
+            $stmt->execute();
+            $cont1 = $stmt->rowCount(); //Cuenta el número de filas con datos. 
+            
             $stmt = $dbh-> prepare("SELECT id_denuncia FROM `denuncia anonima` WHERE id_denuncia = ?");
             $stmt->bindParam(1,$id);
             $stmt->execute();
-            $cont = $stmt->rowCount(); //Cuenta el número de filas con datos. 
+            $cont2 = $stmt->rowCount(); //Cuenta el número de filas con datos. 
             
-        }while($cont!=0); //Mientras $cont sea diferente a cero, se repite.
+            $stmt = $dbh-> prepare("SELECT id_denuncia FROM `denuncia servidor publico` WHERE id_denuncia = ?");
+            $stmt->bindParam(1,$id);
+            $stmt->execute();
+            $cont3 = $stmt->rowCount(); //Cuenta el número de filas con datos. 
+            
+        }while($cont1!=0 && $cont2!=0 && $cont3!=0); //Mientras $cont sea diferente a cero, se repite.
 
         
         $stmt = $dbh-> prepare("INSERT INTO `denuncia anonima` 
@@ -58,16 +68,21 @@
                     
         $dbh=null; //Para cerrar la conexión a base de datos. 
 
-        echo '<script language="javascript">
+        /*echo '<script language="javascript">
             var respuesta = confirm("Clave para dar ver estatus de la denuncia: '.$id.'");
             if(respuesta){
                 location.href="../danonima.php";
             }else{
                 location.href="../danonima.php";
             }
-            </script>';
+            </script>';*/
 
-        //header("location: ../danonima.php");
+            echo '<script language="javascript">
+                alert("Guarde su identificativo de denuncia para darle seguimiento.\n\n     Su identificativo de denuncia es: '.$id.' ");
+                window.history.back();
+                </script>';
+
+        //header("location: ../identificativo.php");
         
     }else{
         echo '<script language="javascript">

@@ -821,6 +821,14 @@ div.contenido{
     .dos{
         flex-grow: 1;
     }
+   
+    /*         identificativo            */
+    .contenido-identificativo .id{
+        background: #4d4d4d;
+        width: 50%;
+        height: 50vh;
+    }
+
 
     /*                                              Pie                                            */
 .pie{

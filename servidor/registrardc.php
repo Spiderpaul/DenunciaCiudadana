@@ -34,9 +34,19 @@
             $stmt = $dbh-> prepare("SELECT id_denuncia FROM `denuncia ciudadana` WHERE id_denuncia = ?");
             $stmt->bindParam(1,$id);
             $stmt->execute();
-            $cont = $stmt->rowCount(); //Cuenta el número de filas con datos. 
+            $cont1 = $stmt->rowCount(); //Cuenta el número de filas con datos. 
             
-        }while($cont!=0); //Mientras $cont sea diferente a cero, se repite.
+            $stmt = $dbh-> prepare("SELECT id_denuncia FROM `denuncia anonima` WHERE id_denuncia = ?");
+            $stmt->bindParam(1,$id);
+            $stmt->execute();
+            $cont2 = $stmt->rowCount(); //Cuenta el número de filas con datos. 
+            
+            $stmt = $dbh-> prepare("SELECT id_denuncia FROM `denuncia servidor publico` WHERE id_denuncia = ?");
+            $stmt->bindParam(1,$id);
+            $stmt->execute();
+            $cont3 = $stmt->rowCount(); //Cuenta el número de filas con datos. 
+            
+        }while($cont1!=0 && $cont2!=0 && $cont3!=0); //Mientras $cont sea diferente a cero, se repite.
 
             $stmt = $dbh-> prepare("INSERT INTO `denuncia ciudadana` 
             (id_denuncia, nombre, edad, sexo, telefono, correo, direccion, asunto, descripcion, fecha, tipo_denuncia, evidencia, nombre_evidencia) 
@@ -58,16 +68,21 @@
                     
             $dbh=null; //Para cerrar la conexión a base de datos. 
 
-            echo '<script language="javascript">
+            /*echo '<script language="javascript">
             var respuesta = confirm("Clave para dar ver estatus de la denuncia: '.$id.'");
             if(respuesta){
                 location.href="../dciudadana.php";
             }else{
                 location.href="../dciudadana.php";
             }
-            </script>';
+            </script>';*/
 
             //header("location: ../dciudadana.php");
+
+            echo '<script language="javascript">
+                alert("Guarde su identificativo de denuncia para darle seguimiento.\n\n     Su identificativo de denuncia es: '.$id.' ");
+                window.history.back();
+                </script>';
                 
     }else{
         echo '<script language="javascript">
