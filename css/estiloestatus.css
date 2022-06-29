@@ -3,7 +3,7 @@
 .contenido-estatus{
     background: #4d4d4d;
     width: 80%;
-    height: 50vh;
+    height: 65vh;
     margin: auto;
 }
 
@@ -38,7 +38,61 @@
 }
 
 .datos-estatus{
-    background: grey;
+    background: #4d4d4d;
     width: 100%;
     height: calc(100% - 50px);
+    border: solid 1px white;
+    margin-top: 10px;
+    color: white;
 }
+
+.seccion1{
+    width: auto;
+    height: auto;
+    border: solid 1px white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.linea1{
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+.linea2{
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    display: flex;
+}
+
+.div-asesor{
+    margin-left: 10px;
+}
+
+.div-nombre{
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+.div-estatus{
+    margin-right: 10px;
+}
+
+.linea3,
+.linea4{
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.linea3{
+    display: flex;
+}
+
+.linea3 p{
+    margin-left: 10px;
+}
+

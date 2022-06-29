@@ -11,10 +11,6 @@
 
     //Definiendo zona horaria.
     date_default_timezone_set('America/Mazatlan');
-    
-    //Para generar contraseña aleatoria.
-    $caracteres = "abcdefghijklmnopkrstuvwxyz0123456789";
-    $id = substr(str_shuffle($caracteres), 0, 6);
 
     $idUsuario = $_SESSION['id_usuario'];
     $asunto = $_POST['asunto'];
