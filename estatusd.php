@@ -39,28 +39,31 @@
 
                 $stmt->bindParam(1,$buscador);
                 $stmt->execute();
-                $cont1 = $stmt->rowCount();
+                $cont = $stmt->rowCount();
                 $row = $stmt->fetch();
                     //Si no existe el id en denuncia anonima, entonces se busca en denuncia ciudadana
-                if($cont1 == 0){  
+                if($cont == 0){  
                     $stmt = $dbh->prepare("SELECT * FROM `denuncia ciudadana` 
                     JOIN `estatus de denuncia` JOIN asesor 
                     WHERE id_denuncia = ?;");
 
                     $stmt->bindParam(1,$buscador);
                     $stmt->execute();
-                    $cont2 = $stmt->rowCount();
+                    $cont = $stmt->rowCount();
                     $row = $stmt->fetch();
                     //Si no existe el id en denuncia ciudadana, entonces se busca en denuncia servidor público
-                } else if ($cont2 == 0){
+                } else if ($cont == 0){
                     $stmt = $dbh->prepare("SELECT * FROM `denuncia servidor publico` 
                     JOIN `estatus de denuncia` JOIN asesor 
                     WHERE id_denuncia = ?;");
 
                     $stmt->bindParam(1,$buscador);
                     $stmt->execute();
+                    $cont = $stmt->rowCount();
                     $row = $stmt->fetch();
-                }
+                } 
+
+        if($cont != 0 ){
         ?>
             <div class="seccion1">
                 <div class="linea1">
@@ -113,7 +116,43 @@
                 </div>
             </div>    
         <?php
-            }
+            }else {
+                                                      //Si el id no existe
+                    ?>
+
+                    <div class="seccion1">
+                        <div class="linea1">
+                            <div class="id-denuncia">
+                                <h4>Por favor, ingrese un identificativo de denuncia válido </h4>
+                            </div>
+                        </div>
+                        <div class="linea2">
+                            <div class="div-asesor">
+                            </div>
+                            <div class="div-nombre-estatus">
+                            </div>
+                            <div class="div-estatus">
+                            </div>
+                            <div class="div-estatus-off">
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="seccion2">
+                        <div class="linea3">
+                            <div class="div-asunto">
+                            </div>
+                            <div class="div-asunto">
+                            </div>
+                        </div>
+                        <div class="linea4">
+                            <div class="div-descripcion">
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                }
+        } 
         ?>
     </div>
 </div>
