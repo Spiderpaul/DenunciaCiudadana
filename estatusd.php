@@ -8,7 +8,8 @@
             <form action="estatusd.php" method="post">
                 <div class="buscador-hijo">
                     <div class="buscador-hijo-1">
-                        <input type="text" name="buscar" class="buscador-input-estatus">
+                        <input type="text" name="buscar" class="buscador-input-estatus" 
+                        placeholder="Identificativo de denuncia">
                     </div>
                     
                     <div class="buscador-hijo-2">
@@ -35,9 +36,10 @@
                     //Se buscan los datos en las tablas de denuncia anónima, estatus de denuncia y asesor
                 $stmt = $dbh->prepare("SELECT * FROM `denuncia anonima` 
                 JOIN `estatus de denuncia` JOIN asesor 
-                WHERE id_denuncia = ?;");
+                WHERE id_denuncia = ? and id_denuncia_a = ?;");
 
                 $stmt->bindParam(1,$buscador);
+                $stmt->bindParam(2,$buscador);
                 $stmt->execute();
                 $cont = $stmt->rowCount();
                 $row = $stmt->fetch();
@@ -45,9 +47,10 @@
                 if($cont == 0){  
                     $stmt = $dbh->prepare("SELECT * FROM `denuncia ciudadana` 
                     JOIN `estatus de denuncia` JOIN asesor 
-                    WHERE id_denuncia = ?;");
+                    WHERE id_denuncia = ? and id_denuncia_c = ?;");
 
                     $stmt->bindParam(1,$buscador);
+                    $stmt->bindParam(2,$buscador);
                     $stmt->execute();
                     $cont = $stmt->rowCount();
                     $row = $stmt->fetch();
@@ -55,9 +58,10 @@
                 } else if ($cont == 0){
                     $stmt = $dbh->prepare("SELECT * FROM `denuncia servidor publico` 
                     JOIN `estatus de denuncia` JOIN asesor 
-                    WHERE id_denuncia = ?;");
+                    WHERE id_denuncia = ? and id_denuncia_sp = ?;");
 
                     $stmt->bindParam(1,$buscador);
+                    $stmt->bindParam(2,$buscador);
                     $stmt->execute();
                     $cont = $stmt->rowCount();
                     $row = $stmt->fetch();
@@ -85,16 +89,28 @@
                         //Para cambiar el color de texto de estatus
                     if($row->estatus=="En espera"){
                     ?>
+                        <div class="div-estatus-off">
+                    <?php
+                    } else if($row->estatus=="En proceso"){
+                    ?>
                         <div class="div-estatus-on">
                     <?php
-                    } else {
+                    }else {
                     ?>
-                        <div class="div-estatus-off">
+                        <div class="div-estatus-end">
                     <?php
                     }
                         //Aquí termina cambiar color al texto
                     ?>
                         <h4> <?php echo $row->estatus; ?> </h4>
+                    </div>
+                </div>
+                <div class="linea3">
+                    <div class="div-observacion">
+                        <h4>Observacion: </h4>
+                    </div>
+                    <div class="div-observacion">
+                        <p> <?php echo $row->nota; ?> </p>
                     </div>
                 </div>
             </div>
@@ -105,7 +121,7 @@
                         <h4>Asunto: </h4>
                     </div>
                     <div class="div-asunto">
-                        <p><?php echo $row->asunto; ?></p>
+                        <p> <?php echo $row->asunto; ?> </p>
                     </div>
                 </div>
                 <div class="linea4">

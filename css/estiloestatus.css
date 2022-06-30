@@ -87,9 +87,15 @@
     color: rgb(156, 206, 156);
 }
 
+.div-estatus-end{
+    margin-left: 10px;
+    margin-right: 10px;
+    color: rgb(139, 188, 235);
+}
+
 .seccion2{
     background: white;
-    height: 80%;
+    height: 73%;
     color: #4d4d4d;
     border: solid 1px #4d4d4d;
 }
