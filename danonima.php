@@ -19,14 +19,14 @@
                     <div class="control1" id="div-denuncia">
                         <p>Tipo de denuncia</p>
                         <select class="form-select" name="tipo" id="form_select">
-                            <option value="a">Abuso de autoridad</option>
-                            <option value="b">Acoso y Hostigamiento</option>
-                            <option value="c">Soborno para algún trámite o servicio</option>
-                            <option value="d">Incumplimiento o mal uso de un programa o acción social</option>
-                            <option value="e">Trato irrespetuoso y mala conducta</option>
-                            <option value="f">Servidor público autorisa, solicita o realiza actos para su beneficio</option>
-                            <option value="g">Solicitud de documentos o dinero adicional para la expedición de documentos</option>
-                            <option value="h">Otro</option>
+                            <option value="Abuso de autoridad">Abuso de autoridad</option>
+                            <option value="Acoso y Hostigamiento">Acoso y Hostigamiento</option>
+                            <option value="Soborno para algún trámite o servicio">Soborno para algún trámite o servicio</option>
+                            <option value="Incumplimiento o mal uso de un programa o acción social">Incumplimiento o mal uso de un programa o acción social</option>
+                            <option value="Trato irrespetuoso y mala conducta">Trato irrespetuoso y mala conducta</option>
+                            <option value="Servidor público autorisa, solicita o realiza actos para su beneficio">Servidor público autorisa, solicita o realiza actos para su beneficio</option>
+                            <option value="Solicitud de documentos o dinero adicional para la expedición de documentos">Solicitud de documentos o dinero adicional para la expedición de documentos</option>
+                            <option value="Otro">Otro</option>
                         </select>
                     </div>
                 </div>

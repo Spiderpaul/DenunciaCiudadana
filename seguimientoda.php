@@ -69,50 +69,25 @@
                     }
 
                     if($buscador == ""){
-                        $stmt = $dbh->prepare("SELECT * FROM `denuncia anonima`;");
+                        $stmt = $dbh->prepare("SELECT * FROM `denuncia anonima` JOIN `estatus de denuncia` 
+                        WHERE `denuncia anonima`.id_denuncia = `estatus de denuncia`.id_denuncia_a;");
                         $stmt->execute();
                     }else{
-                        $stmt = $dbh->prepare("SELECT * FROM `denuncia anonima`
-                        WHERE id_denuncia LIKE ? 
-                        OR asunto LIKE ?;");
-
+                        $stmt = $dbh->prepare("SELECT * FROM `denuncia anonima` JOIN `estatus de denuncia`
+                        WHERE `denuncia anonima`.id_denuncia = `estatus de denuncia`.id_denuncia_a
+                        AND `denuncia anonima`.id_denuncia LIKE ?;");
+                        /*Está pendiente arreglar la sentencia para que el usuario haga búsquedas por id de asesor
+                        y algunas otras columnas*/
                         $stmt->bindParam(1,$buscador);
-                        $stmt->bindParam(2,$buscador);
+                        //$stmt->bindParam(2,$buscador);
                         $stmt->execute();
                     }
                     while($row = $stmt->fetch()){
-                        $tipo = $row->tipo_denuncia;
-                        switch($tipo){
-                            case "a":
-                                $tipoDenuncia = "Abuso de autoridad";
-                                break;
-                            case "b":
-                                $tipoDenuncia = "Acoso y hostigamiento";
-                                break;
-                            case "c":
-                                $tipoDenuncia = "Soborno en tramite o servicio";
-                                break;
-                            case "d":
-                                $tipoDenuncia = "Mal uso de programa social";
-                                break;
-                            case "e":
-                                $tipoDenuncia = "Trato irrespetuoso o mala conducta";
-                                break;
-                            case "f":
-                                $tipoDenuncia = "Servidor público autorista";
-                                break;
-                            case "g":
-                                $tipoDenuncia = "Solicitud de documentos o dinero adicional";
-                                break;
-                            case "h":
-                                $tipoDenuncia = "Otro";
-                                break;
-                        } 
-                        ?>
+                    ?>
                         <tr>
                             <td><?php echo $row->id_denuncia; ?></td>
                             <td><?php echo $row->asunto; ?></td> 
-                            <td><?php echo $tipoDenuncia; ?></td>
+                            <td><?php echo $row->tipo_denuncia; ?></td>
                             <td><?php echo $row->descripcion; ?></td>
                             <td><?php echo $row->nombre_evidencia; ?></td>
                             <td>
