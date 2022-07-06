@@ -89,7 +89,11 @@
                             <td><?php echo $row->asunto; ?></td> 
                             <td><?php echo $row->tipo_denuncia; ?></td>
                             <td><?php echo $row->descripcion; ?></td>
-                            <td><a target="_blank" href="vista.php?id=<?php echo $row->id_denuncia; ?>"><?php echo $row->nombre_evidencia; ?></a></td>
+                            <td>
+                                <a class="evidencia" target="_blank" href="vista.php?id=<?php echo $row->id_denuncia; ?>">
+                                    <?php echo $row->nombre_evidencia; ?>
+                                </a>
+                            </td>
                             <td>
                                 <div class="acciones-btn">
                                     <div class="editar-btn">

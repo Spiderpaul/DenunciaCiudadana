@@ -116,3 +116,15 @@
     margin-left: 10px;
 }
 
+.evidencia{
+    outline: none;
+    text-decoration: none;
+}
+
+.evidencia:link {
+    color: white;
+}
+  
+.evidencia:visited {
+    color: white;
+}
