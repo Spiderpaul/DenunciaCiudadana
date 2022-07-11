@@ -184,7 +184,9 @@ formulario.addEventListener('submit', (e) => {   //Evento de botón.
             e.preventDefault();
         }
     } else {
-        alert("Debe verificar el Captcha");
+        alert("Es necesario verificar el Captcha");
+        analizarCampos();      
+        e.preventDefault();
     }
 
     

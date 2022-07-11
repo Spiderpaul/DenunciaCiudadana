@@ -61,24 +61,33 @@ formulario.addEventListener('submit', (e) => {   //Evento de botón.
     /*console.log("identificativo " +campos.identificativo);
     console.log("clave " +campos.clave);*/
         
-    if(campos.identificativo && campos.clave){
-        document.getElementById('mensaje').classList.add('mensaje-exito');
-        document.getElementById('mensaje-texto2').classList.add('mensaje-texto-exito');
-        setTimeout(() => {
+    var verificacion = grecaptcha.getResponse();
+    if(verificacion != 0){
+        if(campos.identificativo && campos.clave){
+            document.getElementById('mensaje').classList.add('mensaje-exito');
+            document.getElementById('mensaje-texto2').classList.add('mensaje-texto-exito');
+            setTimeout(() => {
+                e.preventDefault();
+                document.getElementById('mensaje').classList.remove('mensaje-exito');
+                document.getElementById('mensaje-texto2').classList.remove('mensaje-texto-exito');
+            }, 5000);
+        } else {
+            document.getElementById('boton-registrar').classList.add('deshabilitado');
+            document.getElementById('boton-registrar').disabled = true;
+            document.getElementById('mensaje').classList.add('mensaje-error');
+            document.getElementById('mensaje-texto1').classList.add('mensaje-texto-error');
+            setTimeout(() => {
+                document.getElementById('mensaje').classList.remove('mensaje-error');
+                document.getElementById('mensaje-texto1').classList.remove('mensaje-texto-error');
+            }, 5000);
             e.preventDefault();
-            document.getElementById('mensaje').classList.remove('mensaje-exito');
-            document.getElementById('mensaje-texto2').classList.remove('mensaje-texto-exito');
-        }, 5000);
-    } else {
-        document.getElementById('boton-registrar').classList.add('deshabilitado');
-        document.getElementById('boton-registrar').disabled = true;
-        document.getElementById('mensaje').classList.add('mensaje-error');
-        document.getElementById('mensaje-texto1').classList.add('mensaje-texto-error');
-        setTimeout(() => {
-            document.getElementById('mensaje').classList.remove('mensaje-error');
-            document.getElementById('mensaje-texto1').classList.remove('mensaje-texto-error');
-        }, 5000);
+        }
+    }else{
+        alert("Es necesario verificar el Captcha");
+        analizarCampos();      
         e.preventDefault();
     }
+    
 
 })
+

@@ -31,23 +31,17 @@
                 </div>
                 <div class="div-captcha">
                     <div class="uno"></div>
-                    <div class="g-recaptcha"  data-sitekey="6LdyP_ofAAAAAC6eC90cO5tBcYKO1nE1ENpPGgLJ" data-callback="enabledSubmit"></div>
+                    <div class="g-recaptcha"  data-sitekey="6LdyP_ofAAAAAC6eC90cO5tBcYKO1nE1ENpPGgLJ"></div>
                     <div class="dos"></div>
                 </div>
             </div>
         </div>
         
         <div class="boton-form-i">
-            <button class="boton-registrar" id="boton-registrar" name="enviar" type="submit" disabled>Enviar</button>
+            <button class="boton-registrar" id="boton-registrar" type="submit" disabled>Enviar</button>
         </div>
     </form>
     
 </div>
-<script src="https://www.google.com/recaptcha/api.js"></script>
-<script>
-    function enabledSubmit(response) {
-    document.getElemenstByName('enviar')[0].disabled = false;
-    }
-</script>
 <script src="js/iniciarsesion.js"></script>
 <?php require('./vistas/pie.php')?>
