@@ -20,13 +20,13 @@
                             <p>Nombre</p>
                             <input type="text" class="form-control" name="nombre" id="form_nombre" 
                             placeholder="   Ingrese su nombre completo">
-                            <p class="alerta-nombre" id="alerta-nombre">Escriba un nombre válido</p>
+                            <p class="alerta-nombre" id="alerta-nombre">Ejemplo: Luis Herrera López</p>
                         </div>
                         <div class="div-edad" id="div-edad">
                             <p>Edad</p>
                             <input type="text" class="form-control" name="edad" id="form_edad" 
                             placeholder="   Ingrese su edad">
-                            <p class="alerta-edad" id="alerta-edad">El rango válido de edad es entre 18 y 100 años</p>
+                            <p class="alerta-edad" id="alerta-edad">Debe ser mayor de 18 años y menor que 100 años</p>
                         </div>
                         <div class="div-sexo" id="div-sexo">
                             <p>Sexo</p>
@@ -56,7 +56,9 @@
                                 <p>Dirección</p>
                                 <input type="text" class="form-control" name="direccion" id="form_direccion" 
                                 placeholder="   Escriba su dirección de domicilio">
-                                <p class="alerta-direccion" id="alerta-direccion">Ingrese su dirección de casa</p>
+                                <p class="alerta-direccion" id="alerta-direccion">
+                                    Escriba su calle, número de casa y colonia, con un máximo de 200 caracteres
+                                </p>
                         </div>
                     </div>
                 </div>
@@ -69,10 +71,13 @@
             <div class="div-form-d">
                 <div class="control-form">
                     <div class="asunto-tipo">
-                        <div class="control1" id="div-asunto">
+                        <div class="div-asunto" id="div-asunto">
                             <p>Asunto</p>
                             <input type="text" class="form-control" name="asunto" id="form-asunto" 
-                            placeholder="   Escriba el asunto que desea denunciar" required>
+                            placeholder="   Escriba el asunto que desea denunciar">
+                            <p class="alerta-asunto" id="alerta-asunto">
+                                Escriba el título de la denuncia, máximo 60 caracteres.
+                            </p>
                         </div>
                         <div class="control1" id="div-denuncia">
                             <p>Tipo de denuncia</p>
@@ -89,10 +94,13 @@
                         </div>
                     </div>
                     
-                    <div class="control2" id="div-descripcion">
+                    <div class="div-descripcion" id="div-descripcion">
                         <p>Descripción</p>
-                        <textarea rows="10" cols="40" class="form-control" name="descripcion" id="form-descripcion-dc" required>
-                        </textarea>  
+                        <textarea rows="10" cols="40" class="form-control" name="descripcion" id="form-descripcion-dc">
+                        </textarea> 
+                        <p class="alerta-descripcion" id="alerta-descripcion">
+                            Describa el problema a denunciar, máximo 500 caracteres.
+                        </p> 
                     </div>
                     <div class="control-archivo">
                         <p>Adjuntar documento (opcional)</p>

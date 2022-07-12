@@ -6,7 +6,9 @@ const expresiones = {
     edad: /^([0-9\s?\-?][\s]?){2}$/, // Limitar la edad.
     telefono: /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{2}[-\s\.]?[0-9]{2}$/,
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, //Formato de correo
-    direccion: /^([A-Za-z0-9À-ÿ\_\-\.\,\#\s]){0,200}$/  //Formato de dirección
+    direccion: /^([A-Za-z0-9À-ÿ\_\-\.\,\#\s]){0,200}$/,  //Formato de dirección
+    asunto: /^([A-Za-z0-9À-ÿ\_\-\.\,\#\s]){0,60}$/,
+    descripcion: /^([A-Za-z0-9À-ÿ\_\-\.\,\#\s]){0,500}$/
 }
           
 const campos = {
@@ -15,6 +17,8 @@ const campos = {
     telefono: false,  
     correo: false,
     direccion: false,
+    asunto: false,
+    descripcion: false
 }
 
 const validarFormulario = (e) => { //Identificar y validar inputs.
@@ -33,6 +37,12 @@ const validarFormulario = (e) => { //Identificar y validar inputs.
         break;
         case "direccion":
             validarCampo(expresiones.direccion, e.target, 'direccion', 'div-direccion', 'form_direccion', 'alerta-direccion');
+        break;
+        case "asunto":
+            validarCampo(expresiones.asunto, e.target, 'asunto', 'div-asunto', 'form_asunto', 'alerta-asunto');
+        break;
+        case "descripcion":
+            validarCampo(expresiones.descripcion, e.target, 'descripcion', 'div-descripcion', 'form_descripcion-dc', 'alerta-descripcion');
         break;
     }
 }
@@ -83,7 +93,7 @@ const analizarCampos = () => {
     console.log("telefono " +campos.telefono);
     console.log("correo " +campos.correo);
     console.log("direccion " +campos.direccion);*/
-    if(campos.nombre && campos.edad && campos.telefono && campos.correo && campos.direccion){
+    if(campos.nombre && campos.edad && campos.telefono && campos.correo && campos.direccion && campos.asunto && campos.descripcion){
         document.getElementById('boton-registrar').disabled = false;
         document.getElementById('boton-registrar').classList.remove('deshabilitado');
     }
@@ -99,7 +109,7 @@ formulario.addEventListener('submit', (e) => {   //Evento de botón.
     console.log("telefono " +campos.telefono);
     console.log("correo " +campos.correo);
     console.log("direccion " +campos.direccion);*/
-    if(campos.nombre && campos.edad && campos.telefono && campos.correo && campos.direccion){
+    if(campos.nombre && campos.edad && campos.telefono && campos.correo && campos.direccion && campos.asunto && campos.descripcion){
         document.getElementById('mensaje').classList.add('mensaje-exito');
         document.getElementById('mensaje-texto2').classList.add('mensaje-texto-exito');
         setTimeout(() => {

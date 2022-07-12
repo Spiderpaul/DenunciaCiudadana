@@ -221,7 +221,6 @@ div.contenido{
     border: none;
     margin-left: 40px;
     margin-right: 40px;
-    margin-bottom: 5px;
     border-radius: 3px;
     height: auto;
 }
@@ -362,7 +361,7 @@ div.contenido{
     width: 90%;
     height: auto;
     margin: auto;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
 .control4-t,
@@ -382,6 +381,8 @@ div.contenido{
     width: 50%;
 }
 
+
+
 .control2-p-hijo{
     flex-grow: 1;
 }
@@ -400,7 +401,6 @@ div.contenido{
 
 #form-descripcion-dc{
     height: 100px;
-    margin-bottom: 10px;
 }
 
 /*    Componentes de denuncia anonima   */
@@ -416,8 +416,7 @@ div.contenido{
                                                         /*   Contenedor de asunto y tipo de denuncia   */
 .asunto-tipo{
     width: 90%;
-    height: auto;
-    height: auto;
+    height: 65px;
     margin: auto;
     display: flex;
     gap: 20px;
@@ -427,11 +426,24 @@ div.contenido{
     margin: auto;
     margin-top: 5px;
     margin-bottom: 10px;
-    width: 100%;
+    width: 30px;
+    flex-grow: 1;
+}
+
+.div-asunto{
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 30px;
     flex-grow: 1;
 }
 
 .control2{
+    margin: auto;
+    width: 90%;
+}
+
+.div-descripcion{
     margin: auto;
     width: 90%;
 }
@@ -509,7 +521,9 @@ div.contenido{
 .alerta-identificativo,
 .alerta-area,
 .alerta-clave,
-.alerta-confirmar{
+.alerta-confirmar,
+.alerta-asunto,
+.alerta-descripcion{
     color: black;
     font-size: 12px;
     visibility: hidden;
