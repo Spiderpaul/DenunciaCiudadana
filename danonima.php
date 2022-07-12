@@ -2,6 +2,11 @@
 
 <div class="div-formulario-da">
 
+    <div class="mensaje" id="mensaje">
+        <p class="mensaje-texto1" id="mensaje-texto1">Debe llenar correctamente los datos.</p>
+        <p class="mensaje-texto2" id="mensaje-texto2">Procesando registro.</p>
+    </div>
+
     <div class="div-titulo-a">
         <p>Datos de denuncia</p>
     </div>
@@ -11,11 +16,16 @@
         <div class="div-form-a">
             <div class="control-form">
                 <div class="asunto-tipo">
+                    <!---                     Asunto                        --->
                     <div class="control1" id="div-asunto">
                         <p>Asunto</p>
                         <input type="text" class="form-control" name="asunto" id="form-asunto" 
-                        placeholder="   Escriba el asunto que desea denunciar" required>
+                        placeholder="   Escriba el asunto que desea denunciar">
+                        <p class="alerta-asunto" id="alerta-asunto">
+                            Escriba el título de la denuncia, máximo 60 caracteres.
+                        </p>
                     </div>
+                    <!---                     Tipo de denuncia                        --->
                     <div class="control1" id="div-denuncia">
                         <p>Tipo de denuncia</p>
                         <select class="form-select" name="tipo" id="form_select">
@@ -30,11 +40,16 @@
                         </select>
                     </div>
                 </div>
-                <div class="control2">
+                <!---                     Descripción                        --->
+                <div class="control2" id="div-descripcion">
                     <p>Descripción</p>
-                    <textarea rows="10" cols="40" class="form-control" name="descripcion" id="form-descripcion" required>
+                    <textarea rows="10" cols="40" class="form-control" name="descripcion" id="form-descripcion">
                     </textarea>  
+                    <p class="alerta-descripcion" id="alerta-descripcion">
+                        Describa el problema a denunciar, máximo 500 caracteres.
+                    </p> 
                 </div>
+                <!---                     Adjunto                        --->
                 <div class="control-archivo">
                     <p>Adjuntar documento (opcional)</p>
                     <input type="file" class="evidencia" name="evidencia" id="evidencia">
@@ -48,5 +63,5 @@
     </form>
 
 </div>
-
+<script src="js/danonima.js"></script>
 <?php require('./vistas/pie.php')?>

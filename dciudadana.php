@@ -16,18 +16,21 @@
             <div class="div-form-p">
                 <div class="control-form">
                     <div class="control1-p">
+                        <!---                     Nombre                        --->
                         <div class="div-nombre" id="div-nombre">
                             <p>Nombre</p>
                             <input type="text" class="form-control" name="nombre" id="form_nombre" 
                             placeholder="   Ingrese su nombre completo">
                             <p class="alerta-nombre" id="alerta-nombre">Ejemplo: Luis Herrera López</p>
                         </div>
+                        <!---                     Edad                        --->
                         <div class="div-edad" id="div-edad">
                             <p>Edad</p>
                             <input type="text" class="form-control" name="edad" id="form_edad" 
                             placeholder="   Ingrese su edad">
                             <p class="alerta-edad" id="alerta-edad">Debe ser mayor de 18 años y menor que 100 años</p>
                         </div>
+                        <!---                     Sexo                        --->
                         <div class="div-sexo" id="div-sexo">
                             <p>Sexo</p>
                             <select class="form-select" name="sexo" id="form-select">
@@ -38,12 +41,14 @@
                         </div>
                     </div>
                     <div class="control2-p">
+                        <!---                     Teléfono                        --->
                         <div class="div-telefono" id="div-telefono">
                             <p>Teléfono</p>
                             <input type="text" class="form-control" name="telefono" id="form_telefono" 
                             placeholder="   000-000-00-00">
                             <p class="alerta-telefono" id="alerta-telefono">Formatos válidos: 0000000000 / 000 000 00 00 / 000-000-00-00</p>
                         </div>
+                        <!---                     Correo                        --->
                         <div class="div-correo" id="div-correo">
                             <p>Correo electrónico</p>
                             <input type="text" class="form-control" name="correo" id="form_correo" 
@@ -52,6 +57,7 @@
                         </div>
                     </div>
                     <div class="control3-p-dc">
+                        <!---                     Dirección                        --->
                         <div class="div-direccion" id="div-direccion">
                                 <p>Dirección</p>
                                 <input type="text" class="form-control" name="direccion" id="form_direccion" 
@@ -71,6 +77,7 @@
             <div class="div-form-d">
                 <div class="control-form">
                     <div class="asunto-tipo">
+                        <!---                     Asunto                        --->
                         <div class="div-asunto" id="div-asunto">
                             <p>Asunto</p>
                             <input type="text" class="form-control" name="asunto" id="form-asunto" 
@@ -79,6 +86,7 @@
                                 Escriba el título de la denuncia, máximo 60 caracteres.
                             </p>
                         </div>
+                        <!---                     Tipo denuncia                        --->
                         <div class="control1" id="div-denuncia">
                             <p>Tipo de denuncia</p>
                             <select class="form-select" name="tipo" id="form_select">
@@ -93,7 +101,7 @@
                             </select>
                         </div>
                     </div>
-                    
+                    <!---                     Descripción                        --->
                     <div class="div-descripcion" id="div-descripcion">
                         <p>Descripción</p>
                         <textarea rows="10" cols="40" class="form-control" name="descripcion" id="form-descripcion-dc">
@@ -102,13 +110,14 @@
                             Describa el problema a denunciar, máximo 500 caracteres.
                         </p> 
                     </div>
+                    <!---                     Adjunto                        --->
                     <div class="control-archivo">
                         <p>Adjuntar documento (opcional)</p>
                         <input type="file" class="evidencia" name="evidencia" id="evidencia">
                     </div>
                 </div>
             </div>
-            
+            <!---                     Botón                        --->
             <div class="boton-form">
                     <button class="boton-registrar" id="boton-registrar" type="submit">Enviar</button>
             </div>
