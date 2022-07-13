@@ -8,7 +8,7 @@
 
     <form id="form-danonima" class="form-danonima" action="servidor/registrarqueja.php" method="post" 
     enctype="multipart/form-data">
-        <div class="div-form-a">
+        <div class="div-form-q">
             <div class="control-form">
                 <div class="asunto-tipo">
                     <div class="control1" id="div-asunto">
@@ -20,9 +20,9 @@
                         
                     </div>
                 </div>
-                <div class="control2">
+                <div class="control2-q">
                     <p>Descripción</p>
-                    <textarea rows="10" cols="40" class="form-control" name="descripcion" id="form-descripcion" required>
+                    <textarea rows="10" cols="40" class="form-control" name="descripcion" id="form_descripcion" required>
                     </textarea>  
                 </div>
             </div>

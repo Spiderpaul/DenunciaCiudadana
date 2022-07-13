@@ -1,5 +1,5 @@
-const formulario = document.getElementById('form-dciudadana-p'); //Acceder a formulario
-const inputs = document.querySelectorAll('#form-dciudadana-p input'); //Acceder a inputs
+const formulario = document.getElementById('form-danonima'); //Acceder a formulario
+const inputs = document.querySelectorAll('#form-danonima input'); //Acceder a inputs
 
 const expresiones = {
     asunto: /^([A-Za-z0-9À-ÿ\_\-\.\,\#\s]){0,60}$/,
@@ -14,10 +14,16 @@ const campos = {
 const validarFormulario = (e) => { //Identificar y validar inputs.
     switch (e.target.name){
         case "asunto":
+            console.log(expresiones.descripcion);
+            console.log(e.target);
+            console.log("Se ha entrado en el case asunto");
             validarCampo(expresiones.asunto, e.target, 'asunto', 'div-asunto', 'form_asunto', 'alerta-asunto');
         break;
         case "descripcion":
-            validarCampo(expresiones.descripcion, e.target, 'descripcion', 'div-descripcion', 'form_descripcion-dc', 'alerta-descripcion');
+            console.log(expresiones.descripcion);
+            console.log(e.target);
+            console.log("Se ha entrado en el case descripcion");
+            validarCampo(expresiones.descripcion, e.target, 'descripcion', 'div-descripcion', 'form_descripcion', 'alerta-descripcion');
         break;
     }
 }

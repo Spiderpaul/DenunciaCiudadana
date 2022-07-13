@@ -17,12 +17,12 @@
             <div class="control-form">
                 <div class="asunto-tipo">
                     <!---                     Asunto                        --->
-                    <div class="control1" id="div-asunto">
+                    <div class="div-asunto" id="div-asunto">
                         <p>Asunto</p>
-                        <input type="text" class="form-control" name="asunto" id="form-asunto" 
+                        <input type="text" class="form-control" name="asunto" id="form_asunto" 
                         placeholder="   Escriba el asunto que desea denunciar">
                         <p class="alerta-asunto" id="alerta-asunto">
-                            Escriba el título de la denuncia, máximo 60 caracteres.
+                            Título de denuncia, máximo 60 caracteres.
                         </p>
                     </div>
                     <!---                     Tipo de denuncia                        --->
@@ -41,9 +41,9 @@
                     </div>
                 </div>
                 <!---                     Descripción                        --->
-                <div class="control2" id="div-descripcion">
+                <div class="div-descripcion" id="div-descripcion">
                     <p>Descripción</p>
-                    <textarea rows="10" cols="40" class="form-control" name="descripcion" id="form-descripcion">
+                    <textarea rows="10" cols="40" class="form-control" name="descripcion" id="form_descripcion">
                     </textarea>  
                     <p class="alerta-descripcion" id="alerta-descripcion">
                         Describa el problema a denunciar, máximo 500 caracteres.

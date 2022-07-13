@@ -42,7 +42,7 @@ const validarFormulario = (e) => { //Identificar y validar inputs.
             validarCampo(expresiones.asunto, e.target, 'asunto', 'div-asunto', 'form_asunto', 'alerta-asunto');
         break;
         case "descripcion":
-            validarCampo(expresiones.descripcion, e.target, 'descripcion', 'div-descripcion', 'form_descripcion-dc', 'alerta-descripcion');
+            validarCampo(expresiones.descripcion, e.target, 'descripcion', 'div-descripcion', 'form_descripcion_dc', 'alerta-descripcion');
         break;
     }
 }

@@ -256,6 +256,16 @@ div.contenido{
     border-radius: 3px;
 }
 
+.div-form-q{
+    background: #4d4d4d;
+    border: 1px solid #4d4d4d;
+    color: white;
+    margin-left: 40px;
+    margin-right: 40px;
+    height: auto;
+    border-radius: 3px;
+}
+
 .form-control{                                            /*campos de texto*/
     width: 100%;
     height: 30px;
@@ -359,7 +369,7 @@ div.contenido{
 
 .control3-p-dc{
     width: 90%;
-    height: auto;
+    height: 70px;
     margin: auto;
     margin-bottom: 8px;
 }
@@ -399,7 +409,7 @@ div.contenido{
     height: 30px;
 }
 
-#form-descripcion-dc{
+#form_descripcion_dc{
     height: 100px;
 }
 
@@ -411,6 +421,10 @@ div.contenido{
     margin: auto;
     display: flex;
     flex-direction: column;
+}
+
+#form_descripcion{
+    height: 200px;
 }
 
                                                         /*   Contenedor de asunto y tipo de denuncia   */
@@ -441,6 +455,12 @@ div.contenido{
 .control2{
     margin: auto;
     width: 90%;
+}
+
+.control2-q{
+    margin: auto;
+    width: 90%;
+    height: 240px;
 }
 
 .div-descripcion{
@@ -526,13 +546,15 @@ div.contenido{
 .alerta-descripcion{
     color: black;
     font-size: 12px;
-    visibility: hidden;
+    display: none;
 }
 
 
 .alerta-incorrecto{
     color: rgb(228, 178, 178);
-    visibility: visible;
+    width: auto;
+    height: auto;
+    display: block;
 }
 
 .mensaje{
