@@ -97,14 +97,14 @@
                             <td>
                                 <div class="acciones-btn">
                                     <div class="editar-btn">
-                                        <a href="modificarusuario.php?id=<?php echo $row->id_usuario; ?>">
+                                        <a href="#">
                                             <button>
                                                 <i class="material-icons">edit</i>
                                             </button>
                                         </a>
                                     </div>
                                     <div class="eliminar-btn">
-                                        <a onclick="return confirmar()" href="servidor/eliminar.php?id=<?php echo $row->id_usuario; ?>">
+                                        <a onclick="return confirmar()" href="#">
                                             <button>
                                                 <i class="material-icons">delete</i>
                                             </button>

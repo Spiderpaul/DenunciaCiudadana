@@ -411,6 +411,7 @@ div.contenido{
 
 #form_descripcion_dc{
     height: 100px;
+    resize: none;
 }
 
 /*    Componentes de denuncia anonima   */
@@ -425,6 +426,7 @@ div.contenido{
 
 #form_descripcion{
     height: 200px;
+    resize: none;
 }
 
                                                         /*   Contenedor de asunto y tipo de denuncia   */
