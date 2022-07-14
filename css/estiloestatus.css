@@ -7,15 +7,16 @@
     margin: auto;
 }
 
-.buscador-estatus{
-    color: white;
-}
-
 .cabecera-estatus{
-    width: 30%;
+    width: auto;
     height: auto;
     margin-left: 2%;
     margin-top: 10px;
+}
+
+.buscador-estatus{
+    width: 100%;
+    color: white;
 }
 
 .cabecera-estatus .buscador-hijo{
@@ -30,6 +31,29 @@
 
 .cabecera-estatus .buscador-hijo .buscador-hijo-2{
     flex-basis: 20px;
+}
+
+.form-estatus{
+    width: 100%;
+}
+
+.form-estatus .buscador-hijo{
+    display: flex;
+    width: 50%;
+}
+
+.form-estatus .buscador-hijo .buscador-hijo-1 {
+    width: 200px;
+}
+
+.form-estatus .buscador-hijo .buscador-hijo-2 button{
+    width: 20px;
+    height: 20px;
+    margin: 3px auto auto 3px;
+    border-style: none;
+    color: white;
+    background: transparent;
+    cursor: pointer;
 }
 
 .buscador-input-estatus{

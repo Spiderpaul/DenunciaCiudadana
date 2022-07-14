@@ -5,7 +5,7 @@
     <div class="cabecera-estatus">
         <div class="buscador-estatus">
             <h4>Ingrese el identificativo de la denuncia</h4>
-            <form action="estatusd.php" method="post">
+            <form class="form-estatus" action="estatusd.php" method="post">
                 <div class="buscador-hijo">
                     <div class="buscador-hijo-1">
                         <input type="text" name="buscar" class="buscador-input-estatus" 

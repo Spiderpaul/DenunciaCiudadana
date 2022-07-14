@@ -43,8 +43,7 @@
                 <!---                     Descripción                        --->
                 <div class="div-descripcion" id="div-descripcion">
                     <p>Descripción</p>
-                    <textarea rows="10" cols="40" class="form-control" name="descripcion" id="form_descripcion">
-                    </textarea>  
+                    <textarea rows="10" cols="40" class="form-control" name="descripcion" id="form_descripcion"></textarea>
                     <p class="alerta-descripcion" id="alerta-descripcion">
                         Describa el problema a denunciar, máximo 500 caracteres.
                     </p> 

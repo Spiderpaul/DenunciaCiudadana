@@ -1,5 +1,6 @@
 const formulario = document.getElementById('form-dciudadana-p'); //Acceder a formulario
 const inputs = document.querySelectorAll('#form-dciudadana-p input'); //Acceder a inputs
+const textareas = document.querySelectorAll('#form-dciudadana-p textarea'); //Acceder a textarea
 
 const expresiones = {
     nombre: /^[a-zA-ZÀ-ÿ\s]{0,60}$/, // Letras y espacios, pueden llevar acentos.
@@ -42,13 +43,27 @@ const validarFormulario = (e) => { //Identificar y validar inputs.
             validarCampo(expresiones.asunto, e.target, 'asunto', 'div-asunto', 'form_asunto', 'alerta-asunto');
         break;
         case "descripcion":
-            validarCampo(expresiones.descripcion, e.target, 'descripcion', 'div-descripcion', 'form_descripcion_dc', 'alerta-descripcion');
+            validarTextarea(expresiones.descripcion, e.target, 'descripcion', 'div-descripcion', 'form_descripcion_dc', 'alerta-descripcion');
         break;
     }
 }
 
 const validarCampo = (expresion, input, campo, ideUno, ideDos, ideTres) => {
     if(expresion.test(input.value)){
+        document.getElementById(ideUno).classList.remove('incorrecto');
+        document.getElementById(ideDos).classList.remove('input-incorrecto'); 
+        document.getElementById(ideTres).classList.remove('alerta-incorrecto');
+        campos[campo] = true;
+    } else {
+        document.getElementById(ideUno).classList.add('incorrecto');
+        document.getElementById(ideDos).classList.add('input-incorrecto');
+        document.getElementById(ideTres).classList.add('alerta-incorrecto');
+        campos[campo] = false;
+    }
+}
+
+const validarTextarea = (expresion, textarea, campo, ideUno, ideDos, ideTres) => {
+    if(expresion.test(textarea.value)){
         document.getElementById(ideUno).classList.remove('incorrecto');
         document.getElementById(ideDos).classList.remove('input-incorrecto'); 
         document.getElementById(ideTres).classList.remove('alerta-incorrecto');
@@ -85,6 +100,11 @@ const verificarEdad = (expresion, input, campo, ideUno, ideDos, ideTres) => {
 inputs.forEach((input) => {
     input.addEventListener('keyup', validarFormulario); //Evento soltar tecla.
     input.addEventListener('blur', validarFormulario);  //Evento click fuera de input.
+});
+
+textareas.forEach((textarea) => {
+    textarea.addEventListener('keyup', validarFormulario); //Evento soltar tecla.
+    textarea.addEventListener('blur', validarFormulario);  //Evento click fuera de input.
 });
 
 const analizarCampos = () => {
