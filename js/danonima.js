@@ -4,7 +4,7 @@ const textareas = document.querySelectorAll('#form-danonima textarea'); //Accede
 
 const expresiones = {
     asunto: /^([A-Za-z0-9À-ÿ\_\-\.\,\#\s]){0,60}$/,
-    descripcion: /^([A-Za-z0-9À-ÿ\_\-\.\,\#\s]){0,500}$/
+    descripcion: /^([A-Za-z0-9À-ÿ\_\-\.\,\#\s]){0,1000}$/
 }
           
 const campos = {

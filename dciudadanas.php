@@ -6,16 +6,19 @@
         <p>Datos de denuncia</p>
     </div>
 
-    <form id="form-danonima" class="form-danonima" action="servidor/registrardsp.php" method="post"
+    <form id="form-servidorp" class="form-servidorp" action="servidor/registrardsp.php" method="post"
     enctype="multipart/form-data">
         
         <div class="div-form">
             <div class="control-form">
             <div class="asunto-tipo">
-                    <div class="control1" id="div-asunto">
+                    <div class="div-asunto" id="div-asunto">
                         <p>Asunto</p>
-                        <input type="text" class="form-control" name="asunto" id="form-asunto" 
-                        placeholder="   Escriba el asunto que desea denunciar" required>
+                        <input type="text" class="form-control" name="asunto" id="form_asunto" 
+                        placeholder="   Escriba el asunto que desea denunciar">
+                        <p class="alerta-asunto" id="alerta-asunto">
+                            Título de denuncia, máximo 60 caracteres.
+                        </p>
                     </div>
                     <div class="control1" id="div-denuncia">
                         <p>Tipo de denuncia</p>
@@ -31,10 +34,12 @@
                         </select>
                     </div>
                 </div>
-                <div class="control2">
+                <div class="div-descripcion" id="div-descripcion">
                     <p>Descripción</p>
-                    <textarea rows="10" cols="40" class="form-control" name="descripcion" id="form-descripcion" required>
-                    </textarea>  
+                    <textarea rows="10" cols="40" class="form-control" name="descripcion" id="form_descripcion"></textarea>  
+                    <p class="alerta-descripcion" id="alerta-descripcion">
+                        Describa el problema a denunciar, máximo 1000 caracteres.
+                    </p> 
                 </div>
                 <div class="control-archivo">
                     <p>Adjuntar documento (opcional)</p>
@@ -50,4 +55,5 @@
 
 </div>
 
+<script src="js/dservidorp.js"></script>
 <?php require('./vistas/pie.php')?>
