@@ -4,7 +4,10 @@
     //Para definir zona horaria. 
     date_default_timezone_set('America/Mazatlan');
 
-    $nombre = $_POST['nombre'];
+    $nombreCapturado = $_POST['nombre'];
+    $nombreMinusculas = strtolower($nombreCapturado); //Convertir string en minúsculas.
+    $nombre = ucwords($nombreMinusculas);              //Agregar inicial en mayúscula.
+
     $edad = $_POST['edad'];
     $sexo = $_POST['sexo'];
     $telefono = $_POST['telefono'];
