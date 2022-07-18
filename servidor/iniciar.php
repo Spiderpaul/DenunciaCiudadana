@@ -59,7 +59,10 @@
 
                         $stmt->execute();
 
-                        $datos = $stmt->fetch(); 
+                        $datos = $stmt->fetch();
+                        
+                        $cont = $stmt->rowCount(); 
+                        
                         if($cont == 0){
                             echo '<script language="javascript">
                                 alert("Identificativo o Contraseña incorrectos");

@@ -30,7 +30,7 @@
             </ul>
         </div>
         <div class="buscador">
-            <form action="seguimiento.php" method="post">
+            <form action="seguimientosp.php" method="post">
                 <div class="buscador-hijo">
                     <div class="buscador-hijo-1">
                         <input type="text" name="buscar" class="buscador-input">
@@ -51,14 +51,10 @@
         <thead>
             <tr>
                 <th>Identificativo</th>
-                <th>Nombre</th>
-                <th>Edad</th>
-                <th>Sexo</th>
-                <th>Teléfono</th>
-                <th>Correo</th>
-                <th>Dirección</th>
-                <th>Área</th>
-                <th>Rol</th>
+                <th>Asunto</th>
+                <th>Tipo de denuncia</th>
+                <th>Descripción</th>
+                <th>Adjunto</th>
                 <th></th>
             </tr>
         </thead>
@@ -73,51 +69,44 @@
                     }
 
                     if($buscador == ""){
-                        $stmt = $dbh->prepare("SELECT * FROM `servidor publico`;");
+                        $stmt = $dbh->prepare("SELECT * FROM `denuncia servidor publico` JOIN `estatus de denuncia` 
+                        WHERE `denuncia servidor publico`.id_denuncia = `estatus de denuncia`.id_denuncia_sp;");
                         $stmt->execute();
                     }else{
-                        $stmt = $dbh->prepare("SELECT * FROM `servidor publico` 
-                        WHERE id_usuario LIKE ? 
-                        OR nombre LIKE ? 
-                        OR edad LIKE ?
-                        OR area LIKE ?
-                        OR correo LIKE ?;");
-
+                        $stmt = $dbh->prepare("SELECT * FROM `denuncia ciudadana` JOIN `estatus de denuncia`
+                        WHERE `denuncia servidor publico`.id_denuncia = `estatus de denuncia`.id_denuncia_sp
+                        AND `denuncia servidor publico`.id_denuncia LIKE ?;");
+                        /*Está pendiente arreglar la sentencia para que el usuario haga búsquedas por id de asesor
+                        y algunas otras columnas*/
                         $stmt->bindParam(1,$buscador);
-                        $stmt->bindParam(2,$buscador);
-                        $stmt->bindParam(3,$buscador);
-                        $stmt->bindParam(4,$buscador);
-                        $stmt->bindParam(5,$buscador);
+                        //$stmt->bindParam(2,$buscador);
                         $stmt->execute();
                     }
                     while($row = $stmt->fetch()){
-                        ?>
+                    ?>
                         <tr>
-                            <!---
-                            <td class="tabla-checkbox"><input type="radio" name="seleccionar" value=""></td>
-                            --->
-                            <td><?php echo $row->id_usuario; ?></td>
-                            <td><?php echo $row->nombre; ?></td> 
-                            <td><?php echo $row->edad; ?></td>
-                            <td><?php echo $row->sexo; ?></td>
-                            <td><?php echo $row->telefono; ?></td>
-                            <td><?php echo $row->correo; ?></td>
-                            <td><?php echo $row->direccion; ?></td>
-                            <td><?php echo $row->area; ?></td>
-                            <td><?php echo $row->rol_usuario; ?></td>
+                            <td><?php echo $row->id_denuncia; ?></td>
+                            <td><?php echo $row->asunto; ?></td> 
+                            <td><?php echo $row->tipo_denuncia; ?></td>
+                            <td><?php echo $row->descripcion; ?></td>
+                            <td>
+                                <a class="evidencia" target="_blank" href="vista.php?id=<?php echo $row->id_denuncia; ?>">
+                                    <?php echo $row->nombre_evidencia; ?>
+                                </a>
+                            </td>
                             <td>
                                 <div class="acciones-btn">
                                     <div class="editar-btn">
                                         <a href="#">
                                             <button>
-                                                <i class="material-icons">edit</i>
+                                                <i class="material-icons">visibility</i>
                                             </button>
                                         </a>
                                     </div>
                                     <div class="eliminar-btn">
                                         <a onclick="return confirmar()" href="#">
                                             <button>
-                                                <i class="material-icons">delete</i>
+                                                <i class="material-icons">disabled_by_default</i>
                                             </button>
                                         </a>
                                     </div>
