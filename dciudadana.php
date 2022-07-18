@@ -21,14 +21,14 @@
                             <p>Nombre</p>
                             <input type="text" class="form-control" name="nombre" id="form_nombre" 
                             placeholder="   Ingrese su nombre completo">
-                            <p class="alerta-nombre" id="alerta-nombre">Ejemplo: Luis Herrera López</p>
+                            <p class="alerta-nombre" id="alerta-nombre">Escriba su nombre(s) y apellidos</p>
                         </div>
                         <!---                     Edad                        --->
                         <div class="div-edad" id="div-edad">
                             <p>Edad</p>
                             <input type="text" class="form-control" name="edad" id="form_edad" 
                             placeholder="   Ingrese su edad">
-                            <p class="alerta-edad" id="alerta-edad">Debe ser mayor de 18 años y menor que 100 años</p>
+                            <p class="alerta-edad" id="alerta-edad">Debe ingresar un número entre 18 y 100</p>
                         </div>
                         <!---                     Sexo                        --->
                         <div class="div-sexo" id="div-sexo">

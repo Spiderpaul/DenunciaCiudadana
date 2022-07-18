@@ -286,17 +286,18 @@ div.contenido{
 .div-form-i{
     background: #4d4d4d;
     border: 1px solid #4d4d4d;
-    margin: auto;
     width: 60%;
     height: auto;
     border-radius: 3px;
+    margin: auto;
 }
 
 .div-form-i .control-form-i{
     color: white;
     width: 80%;
-    height: auto;
-    margin: 0 auto 30px auto;
+    min-height: 250px;
+    margin: auto;
+    margin-top: 50px;
 }
 
 .div-titulo-i{
@@ -853,6 +854,7 @@ div.contenido{
         width: 100%;
         height: auto;
         display: flex;
+        margin-top: 10px;
     }
     
     .uno,
@@ -958,24 +960,52 @@ div.contenido{
 
     /*    Comportamiento responsivo de componentes   */
 
+    .contenedor-cuerpo{
+        height: auto;
+    }
+
+    .div-form-a{
+        width: 95%;
+    }
+
     .contenedor-textos{
         width: 80%;
     }
-
-
 
     .control1-p,
     .control2-p,
     .control4-t,
     .control5-t{
         flex-direction: column;
+        height: auto;
         gap: 0;
+        margin: auto;
     }
 
+    .control2-p{
+        margin-top: 0;
+    }
+
+    .control1-p .div-nombre,
+    .control1-p .div-edad,
+    .control1-p .div-sexo{
+        height: 55px;
+    }
+
+    .control2-p .div-telefono,
+    .control2-p .div-correo{
+        height: 55px;
+    }
 
     .form-control{
         margin-top: 0;
         margin-top: 0;
+    }
+
+    .asunto-tipo{
+        height: auto;
+        flex-direction: column;
+        margin-bottom: 20px;
     }
 
     .div-identificativo,
@@ -983,8 +1013,15 @@ div.contenido{
     .div-area,
     .div-clave,
     .div-clave-i,
-    .div-confirmar{
+    .div-confirmar,
+    .div-asunto,
+    .control1{
         width: 100%;
+    }
+
+    .div-asunto,
+    .control1{
+        margin: 0;
     }
 
     .control2-p{
@@ -1006,7 +1043,8 @@ div.contenido{
     .div-form-i,
     .div-form-d,
     .div-form-a{
-        width: 100%;
+        width: 95%;
+        min-height: 300px;
         margin: auto;
     }
 
@@ -1020,6 +1058,10 @@ div.contenido{
 
     .boton-form-i{
         width: 100%;
+    }
+
+    .control-form .asunto-tipo{
+        margin-bottom: 0;
     }
 }
 

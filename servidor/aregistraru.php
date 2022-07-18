@@ -2,11 +2,19 @@
     include 'conexion.php';
     
     
-    $nombre = $_POST['nombre'];
+    $nombreCapturado = $_POST['nombre'];
+    $nombreMinusculas = strtolower($nombreCapturado); //Para dar formato al nombre.
+    $nombre = ucwords($nombreMinusculas);
+
+
     $edad = $_POST['edad'];
     $sexo = $_POST['sexo'];
     $telefono = $_POST['telefono'];
-    $correo = $_POST['correo'];
+
+    $correoCapturado = $_POST['correo'];
+    $correoMinusculas = strtolower($correoCapturado); //Para dar formato a correo.
+    $correo = ucwords($correoMinusculas);
+
     $direccion = $_POST['direccion'];
     
     $idUsuario = $_POST['identificativo'];

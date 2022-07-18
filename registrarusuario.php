@@ -19,7 +19,7 @@
                         <p>Nombre</p>
                         <input type="text" class="form-control" name="nombre" id="form_nombre" 
                         placehorder="Ingrese su nombre completo">
-                        <p class="alerta-nombre" id="alerta-nombre">Escriba un nombre válido</p>
+                        <p class="alerta-nombre" id="alerta-nombre">Escriba su nombre(s) y apellidos</p>
                     </div>
                     <div class="div-edad" id="div-edad">
                         <p>Edad</p>

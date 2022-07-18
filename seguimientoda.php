@@ -99,14 +99,14 @@
                                     <div class="editar-btn">
                                         <a href="#">
                                             <button>
-                                                <i class="material-icons">edit</i>
+                                                <i class="material-icons">visibility</i>
                                             </button>
                                         </a>
                                     </div>
                                     <div class="eliminar-btn">
                                         <a onclick="return confirmar()" href="#">
                                             <button>
-                                                <i class="material-icons">delete</i>
+                                                <i class="material-icons">disabled_by_default</i>
                                             </button>
                                         </a>
                                     </div>
