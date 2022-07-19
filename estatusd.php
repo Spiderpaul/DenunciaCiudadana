@@ -68,6 +68,7 @@
                 } 
 
         if($cont != 0 ){
+            
         ?>
             <div class="seccion1">
                 <div class="linea1">
@@ -80,14 +81,25 @@
                         <h4>Asesor de denuncia: </h4>
                     </div>
                     <div class="div-nombre-estatus">
+                    <?php
+                    if($row->id_asesor==""){
+
+                    ?>
+                        <p> <?php echo ""; ?> </p>
+                    <?php
+                    }else{
+                    ?>
                         <p> <?php echo $row->nombre; ?> </p>
+                    <?php
+                    }
+                    ?>
                     </div>
                     <div class="div-estatus">
                         <h4>Estatus: </h4>
                     </div>
                     <?php 
                         //Para cambiar el color de texto de estatus
-                    if($row->estatus=="En espera"){
+                    if($row->estatus=="En espera" || $row->estatus==""){
                     ?>
                         <div class="div-estatus-off">
                     <?php
@@ -101,8 +113,17 @@
                     <?php
                     }
                         //Aquí termina cambiar color al texto
+                        if($row->estatus==""){
+                            $estatus = "En espera";
+                    ?>
+                        <h4> <?php echo $estatus; ?> </h4>
+                    <?php
+                    } else {
                     ?>
                         <h4> <?php echo $row->estatus; ?> </h4>
+                    <?php
+                    }
+                    ?>
                     </div>
                 </div>
                 <div class="linea3">
@@ -117,15 +138,15 @@
             
             <div class="seccion2">
                 <div class="linea3">
-                    <div class="div-asunto">
+                    <div class="div-asunto1">
                         <h4>Asunto: </h4>
                     </div>
-                    <div class="div-asunto">
+                    <div class="div-asunto2">
                         <p> <?php echo $row->asunto; ?> </p>
                     </div>
                 </div>
                 <div class="linea4">
-                    <div class="div-descripcion">
+                    <div class="div-descripcion-status">
                         <h4>Descripción</h4>
                         <p> <?php echo $row->descripcion; ?> </p>
                     </div>

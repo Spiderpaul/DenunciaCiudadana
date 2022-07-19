@@ -99,6 +99,18 @@
     margin-left: 10px;
 }
 
+.div-asunto1{
+    width: auto;
+}
+
+.div-asunto2{
+    width: 100%;
+}
+
+.div-descripcion-estatus{
+    width: 100%;
+}
+
 .div-estatus-off{
     margin-left: 10px;
     margin-right: 10px;
