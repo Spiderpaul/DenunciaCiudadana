@@ -127,7 +127,7 @@ nav ul.derecho li a{
 
 .imagen-fondo{
     width: 100%;
-    height: calc(100vh - 130px);
+    min-height: calc(100vh - 120px);
     background-image: url(./img/raramuris.jpg);
     background-position: center center;
     display: flex;
@@ -326,7 +326,7 @@ div.contenido{
 /*    Componentes de información personal de denuncia ciudadana   */
 
 .control-form{
-    height: auto;
+    height:  auto;
 }
 
 .control1-p{
@@ -1006,6 +1006,11 @@ div.contenido{
         height: auto;
         flex-direction: column;
         margin-bottom: 20px;
+    }
+
+    .div-form-q{
+        width: 95%;
+        margin: auto;
     }
 
     .div-identificativo,

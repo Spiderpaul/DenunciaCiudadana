@@ -29,6 +29,7 @@
                     <div class="control1" id="div-denuncia">
                         <p>Tipo de denuncia</p>
                         <select class="form-select" name="tipo" id="form_select">
+                            <option disabled="" selected="">Selecciona una opción</option>
                             <option value="Abuso de autoridad">Abuso de autoridad</option>
                             <option value="Acoso y Hostigamiento">Acoso y Hostigamiento</option>
                             <option value="Soborno para algún trámite o servicio">Soborno para algún trámite o servicio</option>

@@ -1,5 +1,6 @@
 const formulario = document.getElementById('form-dciudadana-p'); //Acceder a formulario
 const inputs = document.querySelectorAll('#form-dciudadana-p input'); //Acceder a inputs
+//const select = document.querySelectorAll('#form-dciudadana-p select'); //Acceder a selects
 
 const expresiones = {
     nombre: /^[a-zA-ZÀ-ÿ\s]{0,60}$/, // Letras y espacios, pueden llevar acentos.
@@ -8,7 +9,7 @@ const expresiones = {
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, //Formato de correo
     direccion: /^([A-Za-z0-9À-ÿ\_\-\.\,\#\s]){0,200}$/,
     identificativo: /^[a-zA-Z0-9]{2}[\_\-][a-zA-Z0-9]{2,5}$/, // Letras, numeros, guion y guion_bajo
-    area: /^([A-Za-zÀ-ÿ\_\-\.\,\#\s]){0,45}$/,
+    //area: /^([A-Za-zÀ-ÿ\_\-\.\,\#\s]){0,45}$/,
 	clave: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,45}$/ //Letras mayúsculas y minúsculas, caracteres especiales y mínimo 8 dígitos.
 }
           
@@ -70,6 +71,22 @@ const validarCampo = (expresion, input, campo, ideUno, ideDos, ideTres) => {
         campos[campo] = false;
     }
 }
+
+/*const validarSelect = (expresion, select, campo, ideUno, ideDos, ideTres) => {
+    if(expresion.test(select.value)){
+        document.getElementById(ideUno).classList.remove('incorrecto');
+        document.getElementById(ideDos).classList.remove('input-incorrecto'); 
+        document.getElementById(ideTres).classList.remove('alerta-incorrecto');
+        console.log("Select correcto");
+        campos[campo] = true;
+    } else {
+        document.getElementById(ideUno).classList.add('incorrecto');
+        document.getElementById(ideDos).classList.add('input-incorrecto');
+        document.getElementById(ideTres).classList.add('alerta-incorrecto');
+        console.log("Select incorrecto");
+        campos[campo] = false;
+    }
+}*/
 
 const verificarEdad = (expresion, input, campo, ideUno, ideDos, ideTres) => {
     

@@ -88,9 +88,10 @@
                     <div class="div-sexo" id="div-sexo">
                         <p>Sexo</p>
                         <select class="form-select" name="sexo" id="form_select">
-                            <option value="I">Indefinido</option>
+                            <option disabled="" selected="">Seleccione una opción</option>
                             <option value="F">Femenino</option>
                             <option value="M">Masculino</option>
+                            <option value="I">Indefinido</option>
                         </select>
                     </div>
                 </div>
@@ -130,7 +131,12 @@
                 </div>
                 <div class="div-area" id="div-area">
                     <p>Área de trabajo</p>
-                    <input type="text" class="form-control" name="area" id="form_area">  
+                        <select class="form-select" name="area" id="form_area">
+                            <option disabled="" selected="">Seleccione una opción</option>
+                            <option value="Informática">Informática</option>
+                            <option value="Recaudación">Recaudación</option>
+                            <option value="Recepción">Recepción</option>
+                        </select> 
                     <p class="alerta-area" id="alerta-area">Solo texto con un máximo de 45 caracteres</p>  
                 </div>
             </div>
