@@ -28,12 +28,13 @@
                     </div>
                     <div class="div-sexo" id="div-sexo">
                         <p>Sexo</p>
-                        <select class="form-select" name="sexo" id="form_select">
-                            <option disabled="" selected="">Seleccione una opción</option>
+                        <select class="form-select" name="sexo" id="form_sexo">
+                            <option value="" disabled="" selected="">Seleccione una opción</option>
                             <option value="F">Femenino</option>
                             <option value="M">Masculino</option>
                             <option value="I">Indefinido</option>
                         </select>
+                        <p class="alerta-sexo" id="alerta-sexo">Debe seleccionar una opción</p>
                     </div>
                 </div>
                 <div class="control2-p" >
@@ -72,7 +73,7 @@
                 </div>
                 <div class="div-area" id="div-area">
                     <p>Área de trabajo</p>
-                    <select class="form-select" name="area" id="form_area">
+                        <select class="form-select" name="area" id="form_area" required>
                             <option disabled="" selected="">Seleccione una opción</option>
                             <option value="Informática">Informática</option>
                             <option value="Recaudación">Recaudación</option>

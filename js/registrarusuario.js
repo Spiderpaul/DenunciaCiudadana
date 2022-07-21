@@ -16,6 +16,7 @@ const expresiones = {
 const campos = {
     nombre: false,
     edad: false,
+    sexo: false,
     telefono: false,  
     correo: false,
     direccion: false,
@@ -33,6 +34,9 @@ const validarFormulario = (e) => { //Identificar y validar inputs.
         case "edad":  
             verificarEdad(expresiones.edad, e.target, 'edad', 'div-edad', 'form_edad', 'alerta-edad');            
         break;
+        case "sexo":
+            validarSexo('sexo', 'div-sexo', 'form_sexo', 'alerta-sexo');           
+        break;
         case "telefono":
             validarCampo(expresiones.telefono, e.target, 'telefono', 'div-telefono', 'form_telefono', 'alerta-telefono');
         break;
@@ -45,9 +49,9 @@ const validarFormulario = (e) => { //Identificar y validar inputs.
         case "identificativo":
             validarCampo(expresiones.identificativo, e.target, 'identificativo', 'div-identificativo', 'form_identificativo', 'alerta-identificativo');
         break;
-        case "area":
+        /*case "area":
             validarCampo(expresiones.area, e.target, 'area', 'div-area', 'form_area', 'alerta-area');
-        break;
+        break;*/
         case "clave":
             validarCampo(expresiones.clave, e.target, 'clave', 'div-clave', 'form_clave', 'alerta-clave');
             ConfirmarClave();
@@ -65,6 +69,25 @@ const validarCampo = (expresion, input, campo, ideUno, ideDos, ideTres) => {
         document.getElementById(ideTres).classList.remove('alerta-incorrecto');
         campos[campo] = true;
     } else {
+        document.getElementById(ideUno).classList.add('incorrecto');
+        document.getElementById(ideDos).classList.add('input-incorrecto');
+        document.getElementById(ideTres).classList.add('alerta-incorrecto');
+        campos[campo] = false;
+    }
+}
+
+function validarSexo(campo, ideUno, ideDos, ideTres){
+    let divSexo = document.getElementById("form_sexo");
+    let sexo = divSexo.value;
+
+    if(sexo == "F" || sexo == "M" || sexo == "I"){
+        console.log("Se ha seleccionado una opción de sexo");
+        document.getElementById(ideUno).classList.remove('incorrecto');
+        document.getElementById(ideDos).classList.remove('input-incorrecto'); 
+        document.getElementById('alerta-sexo').classList.remove('alerta-incorrecto');
+        campos[campo] = true;
+    } else {
+        console.log("Sin seleccionar opción de sexo");
         document.getElementById(ideUno).classList.add('incorrecto');
         document.getElementById(ideDos).classList.add('input-incorrecto');
         document.getElementById(ideTres).classList.add('alerta-incorrecto');
@@ -166,6 +189,7 @@ const analizarCampos = () => {
 
 formulario.addEventListener('mouseout', (e) =>{
     analizarCampos();
+    validarSexo('sexo', 'div-sexo', 'form_sexo', 'alerta-sexo');
 })
 
 formulario.addEventListener('submit', (e) => {   //Evento de botón.
@@ -178,7 +202,7 @@ formulario.addEventListener('submit', (e) => {   //Evento de botón.
     console.log("area " +campos.area);
     console.log("clave " +campos.clave);
     console.log("confirmar " +campos.confirmar);*/
-
+    validarSexo('sexo', 'div-sexo', 'form_sexo', 'alerta-sexo');
     var verificacion = grecaptcha.getResponse();
     if(verificacion != 0){
         if(campos.nombre && campos.edad && campos.telefono && campos.correo && campos.direccion && campos.identificativo && campos.area && campos.confirmar ){

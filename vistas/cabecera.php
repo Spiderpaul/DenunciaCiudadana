@@ -11,7 +11,7 @@
     <title>Denuncia Ciudadana</title>
     <link rel="shortcut icon" href="assets/favicon.png">
     <link rel="stylesheet" href="css/resetearvalores.css">
-    <link rel="stylesheet" href="css/estilodenuncia.css?v2">
+    <link rel="stylesheet" href="css/estilodenuncia.css?v3">
     <link rel="stylesheet" href="css/estiloestatus.css?v6">
     <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
