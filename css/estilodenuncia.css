@@ -637,8 +637,8 @@ div.contenido{
 }
 
 
-#boton-cancelar,
-#boton-registrar{
+.boton-cancelar,
+.boton-registrar{
     background: #6A1C32;
     color: white;
     font-size: large;

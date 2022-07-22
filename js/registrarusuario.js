@@ -34,9 +34,9 @@ const validarFormulario = (e) => { //Identificar y validar inputs.
         case "edad":  
             verificarEdad(expresiones.edad, e.target, 'edad', 'div-edad', 'form_edad', 'alerta-edad');            
         break;
-        case "sexo":
+        /*case "sexo":
             validarSexo('sexo', 'div-sexo', 'form_sexo', 'alerta-sexo');           
-        break;
+        break;*/
         case "telefono":
             validarCampo(expresiones.telefono, e.target, 'telefono', 'div-telefono', 'form_telefono', 'alerta-telefono');
         break;
@@ -79,6 +79,8 @@ const validarCampo = (expresion, input, campo, ideUno, ideDos, ideTres) => {
 function validarSexo(campo, ideUno, ideDos, ideTres){
     let divSexo = document.getElementById("form_sexo");
     let sexo = divSexo.value;
+    console.log(sexo);
+    
 
     if(sexo == "F" || sexo == "M" || sexo == "I"){
         console.log("Se ha seleccionado una opción de sexo");
@@ -181,7 +183,8 @@ const analizarCampos = () => {
     console.log("area " +campos.area);
     console.log("clave " +campos.clave);
     console.log("confirmar " +campos.confirmar);*/
-    if(campos.nombre && campos.edad && campos.telefono && campos.correo && campos.direccion && campos.identificativo && campos.area && campos.confirmar){
+    validarSexo('sexo', 'div-sexo', 'form_sexo', 'alerta-sexo');
+    if(campos.nombre && campos.edad && campos.sexo && campos.telefono && campos.correo && campos.direccion && campos.identificativo && campos.area && campos.confirmar){
         document.getElementById('boton-registrar').disabled = false;
         document.getElementById('boton-registrar').classList.remove('deshabilitado');
     }
@@ -189,7 +192,6 @@ const analizarCampos = () => {
 
 formulario.addEventListener('mouseout', (e) =>{
     analizarCampos();
-    validarSexo('sexo', 'div-sexo', 'form_sexo', 'alerta-sexo');
 })
 
 formulario.addEventListener('submit', (e) => {   //Evento de botón.
