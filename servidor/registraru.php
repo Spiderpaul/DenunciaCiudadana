@@ -20,7 +20,8 @@
     $clave = $_POST['clave'];
     $confirmar = $_POST['confirmar'];
     $rol = "3";
-    
+
+    echo $idUsuario;
 
     try{
         //Código para validar captcha. 
@@ -57,7 +58,7 @@
 
                     if($cont == 0){
 
-                        $stmt = $dbh->prepare("SELECT id_usuario FROM asesor WHERE id_usuario = ?");
+                        $stmt = $dbh->prepare("SELECT id_asesor FROM asesor WHERE id_asesor = ?");
                         $stmt->bindParam(1,$idUsuario);
                         $stmt->execute();
                         $cont = $stmt->rowCount(); //Cuenta el número de filas con datos. 

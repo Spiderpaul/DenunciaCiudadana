@@ -73,13 +73,13 @@
                 </div>
                 <div class="div-area" id="div-area">
                     <p>Área de trabajo</p>
-                        <select class="form-select" name="area" id="form_area" required>
-                            <option disabled="" selected="">Seleccione una opción</option>
+                        <select class="form-select" name="area" id="form_area">
+                            <option value="" disabled="" selected="">Seleccione una opción</option>
                             <option value="Informática">Informática</option>
                             <option value="Recaudación">Recaudación</option>
                             <option value="Recepción">Recepción</option>
                         </select>
-                    <p class="alerta-area" id="alerta-area">Solo texto con un máximo de 45 caracteres</p>  
+                    <p class="alerta-area" id="alerta-area">Debe seleccionar una opción</p>  
                 </div>
             </div>
             <div class="control5-t">
