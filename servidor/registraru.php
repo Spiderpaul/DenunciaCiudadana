@@ -21,7 +21,6 @@
     $confirmar = $_POST['confirmar'];
     $rol = "3";
 
-    echo $idUsuario;
 
     try{
         //Código para validar captcha. 

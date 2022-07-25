@@ -85,11 +85,12 @@ function validarSexo(ideUno, ideDos, ideTres){
             document.getElementById('boton-registrar').disabled = false;
             document.getElementById('boton-registrar').classList.remove('deshabilitado');
         },2000);
-        
+        return false;
     }else if(sexo == "F" || sexo == "M" || sexo == "I"){ //Si se ha seleccionado una opción. 
         document.getElementById(ideUno).classList.remove('incorrecto');
         document.getElementById(ideDos).classList.remove('input-incorrecto'); 
         document.getElementById(ideTres).classList.remove('alerta-incorrecto');
+        return true;
     }
 }
 
@@ -111,11 +112,12 @@ function validarArea(ideUno, ideDos, ideTres){
             document.getElementById('boton-registrar').disabled = false;
             document.getElementById('boton-registrar').classList.remove('deshabilitado');
         },2000);
-        
+        return false;
     }else{ //Si se ha seleccionado una opción. 
         document.getElementById(ideUno).classList.remove('incorrecto');
         document.getElementById(ideDos).classList.remove('input-incorrecto'); 
         document.getElementById(ideTres).classList.remove('alerta-incorrecto');
+        return true;
     }
 }
 
@@ -201,17 +203,21 @@ formulario.addEventListener('mouseout', (e) =>{
 })
 
 formulario.addEventListener('submit', (e) => {   //Evento de botón.
-    console.log("nombre " + campos.nombre);
+    /*console.log("nombre " + campos.nombre);
     console.log("edad " +campos.edad);
     console.log("telefono " +campos.telefono);
     console.log("correo " +campos.correo);
     console.log("direccion " +campos.direccion);
     console.log("identificativo " +campos.identificativo);
     console.log("clave " +campos.clave);
-    console.log("confirmar " +campos.confirmar);
+    console.log("confirmar " +campos.confirmar);*/
 
     validarSexo('div-sexo', 'form_sexo', 'alerta-sexo'); //Verificar los Selects.
     validarArea('div-area', 'form_area', 'alerta-area');
+
+    if(!validarSexo('div-sexo', 'form_sexo', 'alerta-sexo') || !validarArea('div-area', 'form_area', 'alerta-area')){
+        e.preventDefault();
+    }
 
     var verificacion = grecaptcha.getResponse(); //Verificar ReCaptcha en lado de servidor. 
     if(verificacion != 0){
@@ -239,6 +245,4 @@ formulario.addEventListener('submit', (e) => {   //Evento de botón.
         analizarCampos();      
         e.preventDefault();
     }
-
-    
 })
