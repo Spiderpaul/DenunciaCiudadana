@@ -92,7 +92,7 @@
                         <div class="control1" id="div-denuncia">
                             <p>Tipo de denuncia</p>
                             <select class="form-select" name="tipo" id="form_tipo">
-                                <option disabled="" selected="">Selecciona una opción</option>
+                                <option value="" disabled="" selected="">Selecciona una opción</option>
                                 <option value="Abuso de autoridad">Abuso de autoridad</option>
                                 <option value="Acoso y Hostigamiento">Acoso y Hostigamiento</option>
                                 <option value="Soborno para algún trámite o servicio">Soborno para algún trámite o servicio</option>
@@ -102,7 +102,7 @@
                                 <option value="Solicitud de documentos o dinero adicional para la expedición de documentos">Solicitud de documentos o dinero adicional para la expedición de documentos</option>
                                 <option value="Otro">Otro</option>
                             </select>
-                            <p class="alerta-asunto" id="alerta-asunto">Seleccione una opción</p>
+                            <p class="alerta-tipo" id="alerta-tipo">Seleccione una opción</p>
                         </div>
                     </div>
                     <!---                     Descripción                        --->

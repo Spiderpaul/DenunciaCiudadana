@@ -24,10 +24,14 @@
 
     if($atributos['success']){
         if($dbh!=null){  //Si la conexión existe.
-            //Para inicio de sesion como servidor público.
-            $stmt = $dbh->prepare("SELECT id_usuario, nombre, rol_usuario FROM `servidor publico` WHERE id_usuario = ? AND clave = ?");
+
+                    //Para inicio de sesion como servidor público.
+            /*$stmt = $dbh->prepare("SELECT id_usuario, nombre, clave, rol_usuario FROM `servidor publico` WHERE id_usuario = ? AND clave = ?");
             $stmt->bindParam(1, $idUsuario);
-            $stmt->bindParam(2, $clave);
+            $stmt->bindParam(2, $clave);*/
+
+            $stmt = $dbh->prepare("SELECT id_usuario, nombre, clave, rol_usuario FROM `servidor publico` WHERE id_usuario = ?");
+            $stmt->bindParam(1, $idUsuario);
 
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
@@ -36,9 +40,33 @@
             $datos = $stmt->fetch(); 
             
             $cont = $stmt->rowCount(); 
+            
+            
+                                    //Verifica si la contraseña coincide (desencripta la contreña).
+            if($cont != 0 && !password_verify($clave, $datos['clave'])){
+                $dbh=null;             //Cierra la conexión a base de datos.
+                session_destroy();     //Cierra la sesión del usuario. 
+                echo '<script language="javascript">
+                        alert("Usuario o contraseña incorrecta.");
+                        window.history.back();
+                        </script>';
+            }
+            
+            if($cont == 0){  //Para inicio de sesión como asesor.
+                $stmt = $dbh->prepare("SELECT id_asesor, nombre, rol_usuario FROM asesor WHERE id_asesor = ? AND clave = ?");
+                $stmt->bindParam(1, $idUsuario);
+                $stmt->bindParam(2, $clave);
 
-                if($cont == 0){  //Para inicio de sesión como asesor.
-                    $stmt = $dbh->prepare("SELECT id_usuario, nombre, rol_usuario FROM asesor WHERE id_usuario = ? AND clave = ?");
+                $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+                $stmt->execute();
+
+                $datos = $stmt->fetch(); 
+
+                $cont = $stmt->rowCount(); 
+
+                if($cont == 0){  //Para inicio de sesión como administrador.
+                    $stmt = $dbh->prepare("SELECT id_usuario, nombre, rol_usuario FROM administrador WHERE id_usuario = ? AND clave = ?");
                     $stmt->bindParam(1, $idUsuario);
                     $stmt->bindParam(2, $clave);
 
@@ -46,34 +74,26 @@
 
                     $stmt->execute();
 
-                    $datos = $stmt->fetch(); 
-                    
+                    $datos = $stmt->fetch();
+                        
                     $cont = $stmt->rowCount(); 
 
-                    if($cont == 0){  //Para inicio de sesión como administrador.
-                        $stmt = $dbh->prepare("SELECT id_usuario, nombre, rol_usuario FROM administrador WHERE id_usuario = ? AND clave = ?");
-                        $stmt->bindParam(1, $idUsuario);
-                        $stmt->bindParam(2, $clave);
-
-                        $stmt->setFetchMode(PDO::FETCH_ASSOC);
-
-                        $stmt->execute();
-
-                        $datos = $stmt->fetch();
-                        
-                        $cont = $stmt->rowCount(); 
-                        
-                        if($cont == 0){
-                            echo '<script language="javascript">
-                                alert("Identificativo o Contraseña incorrectos");
-                                window.history.back();
-                                </script>';
-                        }
+                    if($cont == 0){
+                        echo '<script language="javascript">
+                            alert("Identificativo o Contraseña incorrectos");
+                            window.history.back();
+                            </script>';
                     }
                 }
+            }
 
-            if($datos['id_usuario'] != null){ //Si existe el usuario. 
-                $_SESSION['id_usuario']=$datos['id_usuario']; //Se agregan los datos a las variables de sesion. 
+            if(isset($datos['id_usuario']) || isset($datos['id_asesor'])){ //Si existe el usuario. 
+                if(isset($datos['id_usuario'])){
+                    $_SESSION['id_usuario']=$datos['id_usuario']; //Se agregan los datos a las variables de sesion. 
+                }else if(isset($datos['id_asesor'])){
+                    $_SESSION['id_usuario']=$datos['id_asesor'];
+                }
+                
                 $_SESSION['nombre_usuario']=$datos['nombre'];
                 
                 if($datos['rol_usuario']=="3"){

@@ -37,6 +37,33 @@ const validarCampo = (expresion, input, campo, ideUno, ideDos, ideTres) => {
     }
 }
 
+function validarTipo(ideUno, ideDos, ideTres){
+    let divTipo = document.getElementById("form_tipo");
+    let tipo = divTipo.value;
+    console.log(tipo);
+
+    if(tipo==""){  //Si no se ha seleccionado opción de sexo. 
+        document.getElementById(ideUno).classList.add('incorrecto');
+        document.getElementById(ideDos).classList.add('input-incorrecto');
+        document.getElementById(ideTres).classList.add('alerta-incorrecto'); 
+                         //Se impide enviar datos por 2 segundos.
+        setTimeout(() => {
+            document.getElementById(ideUno).classList.remove('incorrecto');
+            document.getElementById(ideDos).classList.remove('input-incorrecto'); 
+            document.getElementById(ideTres).classList.remove('alerta-incorrecto');
+
+            document.getElementById('boton-registrar').disabled = false;
+            document.getElementById('boton-registrar').classList.remove('deshabilitado');
+        },2000);
+        return false;
+    }else { //Si se ha seleccionado una opción. 
+        document.getElementById(ideUno).classList.remove('incorrecto');
+        document.getElementById(ideDos).classList.remove('input-incorrecto'); 
+        document.getElementById(ideTres).classList.remove('alerta-incorrecto');
+        return true;
+    }
+}
+
 const validarTextarea = (expresion, textarea, campo, ideUno, ideDos, ideTres) => {
     if(expresion.test(textarea.value)){
         document.getElementById(ideUno).classList.remove('incorrecto');
@@ -83,6 +110,14 @@ formulario.addEventListener('submit', (e) => {   //Evento de botón.
     console.log("telefono " +campos.telefono);
     console.log("correo " +campos.correo);
     console.log("direccion " +campos.direccion);*/
+
+    //Verificar los Selects.
+    validarTipo('div-tipo', 'form_tipo', 'alerta-tipo');
+
+    if(!validarTipo('div-tipo', 'form_tipo', 'alerta-tipo')){
+        e.preventDefault();
+    }
+
     if(campos.asunto && campos.descripcion){
         document.getElementById('mensaje').classList.add('mensaje-exito');
         document.getElementById('mensaje-texto2').classList.add('mensaje-texto-exito');

@@ -48,6 +48,8 @@
             //Si la contraseña contiene mayusculas, minusculas, numeros, caracteres especiales y minimo 8 digitos. 
             if((preg_match("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/", $clave))){
 
+                $claveEncriptada = password_hash($clave, PASSWORD_DEFAULT); //Encriptar contraseña.
+
                 if($dbh!=null){  //Si hay una conexión esté establecida.
                     
                     $stmt = $dbh->prepare("SELECT id_usuario FROM administrador WHERE id_usuario = ?");
@@ -81,7 +83,7 @@
                                 $stmt->bindParam(6,$correo);
                                 $stmt->bindParam(7,$direccion);
                                 $stmt->bindParam(8,$area);
-                                $stmt->bindParam(9,$clave);
+                                $stmt->bindParam(9,$claveEncriptada);
                                 $stmt->bindParam(10,$rol);
                                 $stmt->execute();
                                 

@@ -52,6 +52,8 @@
 
                 if($dbh!=null){  //Si hay una conexión esté establecida.
                     
+                    $claveEncriptada = password_hash($clave, PASSWORD_DEFAULT); //Encriptar contraseña.
+
                     $stmt = $dbh->prepare("SELECT id_usuario FROM administrador WHERE id_usuario = ?");
                     $stmt->bindParam(1,$idUsuario);
                     $stmt->execute();
@@ -83,7 +85,7 @@
                                 $stmt->bindParam(6,$correo);
                                 $stmt->bindParam(7,$direccion);
                                 $stmt->bindParam(8,$area);
-                                $stmt->bindParam(9,$clave);
+                                $stmt->bindParam(9,$claveEncriptada);
                                 $stmt->bindParam(10,$rol);
                                 $stmt->execute();
                                 

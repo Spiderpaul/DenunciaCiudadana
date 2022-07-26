@@ -65,7 +65,7 @@ const validarCampo = (expresion, input, campo, ideUno, ideDos, ideTres) => {
 function validarSexo(ideUno, ideDos, ideTres){
     let divSexo = document.getElementById("form_sexo");
     let sexo = divSexo.value;
-    console.log(sexo);
+
     if(sexo==""){  //Si no se ha seleccionado opción de sexo. 
         document.getElementById(ideUno).classList.add('incorrecto');
         document.getElementById(ideDos).classList.add('input-incorrecto');
@@ -106,7 +106,7 @@ function validarTipo(ideUno, ideDos, ideTres){
             document.getElementById('boton-registrar').classList.remove('deshabilitado');
         },2000);
         return false;
-    }else { //Si se ha seleccionado una opción. 
+    }else if(tipo!=""){ //Si se ha seleccionado una opción. 
         document.getElementById(ideUno).classList.remove('incorrecto');
         document.getElementById(ideDos).classList.remove('input-incorrecto'); 
         document.getElementById(ideTres).classList.remove('alerta-incorrecto');

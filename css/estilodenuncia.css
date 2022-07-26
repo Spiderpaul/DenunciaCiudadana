@@ -547,6 +547,7 @@ div.contenido{
 .alerta-clave,
 .alerta-confirmar,
 .alerta-asunto,
+.alerta-tipo,
 .alerta-descripcion{
     color: black;
     font-size: 12px;
