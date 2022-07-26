@@ -33,12 +33,13 @@
                         <!---                     Sexo                        --->
                         <div class="div-sexo" id="div-sexo">
                             <p>Sexo</p>
-                            <select class="form-select" name="sexo" id="form-select">
-                                <option disabled="" selected="">Seleccione una opción</option>
+                            <select class="form-select" name="sexo" id="form_sexo">
+                                <option value="" disabled="" selected="">Seleccione una opción</option>
                                 <option value="F">Femenino</option>
                                 <option value="M">Masculino</option>
                                 <option value="I">Indefinido</option>
                             </select>
+                            <p class="alerta-sexo" id="alerta-sexo">Debe seleccionar una opción</p>
                         </div>
                     </div>
                     <div class="control2-p">
@@ -90,7 +91,7 @@
                         <!---                     Tipo denuncia                        --->
                         <div class="control1" id="div-denuncia">
                             <p>Tipo de denuncia</p>
-                            <select class="form-select" name="tipo" id="form_select">
+                            <select class="form-select" name="tipo" id="form_tipo">
                                 <option disabled="" selected="">Selecciona una opción</option>
                                 <option value="Abuso de autoridad">Abuso de autoridad</option>
                                 <option value="Acoso y Hostigamiento">Acoso y Hostigamiento</option>
@@ -101,6 +102,7 @@
                                 <option value="Solicitud de documentos o dinero adicional para la expedición de documentos">Solicitud de documentos o dinero adicional para la expedición de documentos</option>
                                 <option value="Otro">Otro</option>
                             </select>
+                            <p class="alerta-asunto" id="alerta-asunto">Seleccione una opción</p>
                         </div>
                     </div>
                     <!---                     Descripción                        --->
