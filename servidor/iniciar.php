@@ -98,12 +98,16 @@
                 
                 if($datos['rol_usuario']=="3"){
                     $_SESSION['rol_usuario']="Servidor";
+                    $_SESSION['date'] = date("Y-n-j H:i:s");
 
                 }else if($datos['rol_usuario']=="2"){
                     $_SESSION['rol_usuario']="Asesor";
+                    $_SESSION['date'] = date("Y-n-j H:i:s");
 
                 }else{
                     $_SESSION['rol_usuario']="Administrador";
+                    $_SESSION['date'] = date("Y-n-j H:i:s");
+
                 }
                 header("location: ../index.php");
 

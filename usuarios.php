@@ -1,5 +1,4 @@
 <?php require('./vistas/cabecera.php')?>
-<?php include 'servidor/conexion.php'; ?>
 
 <div class="contenedor-tabla">
     <div class="cabecera-tabla">

@@ -1,19 +1,4 @@
-<?php 
-    session_set_cookie_params(60*02);
-    //session_cache_expire(01);
-
-    //$estatus = session_status();
-    /*if($estatus == 1){
-        
-        echo '<script language="javascript">
-                alert("Su sesión ha expirado, inicie sesión de nuevo.");
-                </script>';
-        header("location: ../index.php");
-        
-    }*/
-
-    session_start();
-?>
+<?php require('./servidor/sesion.php') //Control de sesiones?> 
 
 <!DOCTYPE html>
 <html lang="es">
