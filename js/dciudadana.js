@@ -185,7 +185,7 @@ formulario.addEventListener('submit', (e) => {   //Evento de botón.
     validarSexo('div-sexo', 'form_sexo', 'alerta-sexo'); //Verificar los Selects.
     validarTipo('div-tipo', 'form_tipo', 'alerta-tipo');
 
-    if(!validarSexo('div-sexo', 'form_sexo', 'alerta-sexo') && !validarTipo('div-tipo', 'form_tipo', 'alerta-tipo')){
+    if(!validarSexo('div-sexo', 'form_sexo', 'alerta-sexo') || !validarTipo('div-tipo', 'form_tipo', 'alerta-tipo')){
         e.preventDefault();
     }
 

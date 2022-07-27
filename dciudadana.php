@@ -89,7 +89,7 @@
                             </p>
                         </div>
                         <!---                     Tipo denuncia                        --->
-                        <div class="control1" id="div-denuncia">
+                        <div class="control1" id="div-tipo">
                             <p>Tipo de denuncia</p>
                             <select class="form-select" name="tipo" id="form_tipo">
                                 <option value="" disabled="" selected="">Selecciona una opción</option>
