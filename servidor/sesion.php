@@ -22,4 +22,16 @@
             $_SESSION["date"] = $horaActual;
         }
     }
+
 ?>
+
+<html>
+    <script>
+            //Para cerrar sesión si se cierra el navegador.
+        window.onbeforeunload = function(){
+            <?php if(isset($_SESSION["id_usuario"])){
+            session_destroy(); 
+            $dbh=null;
+            }?>
+    }</script>
+</html>
