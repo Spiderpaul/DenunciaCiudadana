@@ -20,10 +20,10 @@
                             Título de denuncia, máximo 60 caracteres.
                         </p>
                     </div>
-                    <div class="control1" id="div-denuncia">
+                    <div class="control1" id="div-tipo">
                         <p>Tipo de denuncia</p>
-                        <select class="form-select" name="tipo" id="form_select">
-                            <option disabled="" selected="">Selecciona una opción</option>
+                        <select class="form-select" name="tipo" id="form_tipo">
+                            <option value="" disabled="" selected="">Selecciona una opción</option>
                             <option value="Abuso de autoridad">Abuso de autoridad</option>
                             <option value="Acoso y Hostigamiento">Acoso y Hostigamiento</option>
                             <option value="Soborno para algún trámite o servicio">Soborno para algún trámite o servicio</option>
@@ -33,6 +33,7 @@
                             <option value="Solicitud de documentos o dinero adicional para la expedición de documentos">Solicitud de documentos o dinero adicional para la expedición de documentos</option>
                             <option value="Otro">Otro</option>
                         </select>
+                        <p class="alerta-tipo" id="alerta-tipo">Seleccione una opción</p>
                     </div>
                 </div>
                 <div class="div-descripcion" id="div-descripcion">
