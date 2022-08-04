@@ -9,7 +9,7 @@
         $horaActual = date("Y-n-j H:i:s");
         $tiempoActivo = (strtotime($horaActual)-strtotime($horaInicio));
 
-        if($tiempoActivo >= 60){
+        if($tiempoActivo >= 900){
             session_destroy();
             $dbh=null;
             /*echo '<script language="javascript">

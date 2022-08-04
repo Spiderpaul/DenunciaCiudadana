@@ -9,7 +9,8 @@ const expresiones = {
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, //Formato de correo
     direccion: /^([A-Za-z0-9À-ÿ\_\-\.\,\#\s]){0,200}$/,  //Formato de dirección
     asunto: /^([A-Za-z0-9À-ÿ\_\-\.\,\#\s]){0,60}$/,
-    descripcion: /^([A-Za-z0-9À-ÿ\_\-\.\,\#\s]){0,1000}$/
+    //descripcion: /^([A-Za-z0-9À-ÿ\_\-\.\,\#\s]){0,1000}$/
+    descripcion: /^([\s\S]){0,1000}$/
 }
           
 const campos = {
