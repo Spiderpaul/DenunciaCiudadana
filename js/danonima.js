@@ -10,7 +10,8 @@ const expresiones = {
           
 const campos = {
     asunto: false,
-    descripcion: false
+    descripcion: false,
+    evidencia: false
 }
 
 const validarFormulario = (e) => { //Identificar y validar inputs.
@@ -79,6 +80,65 @@ const validarTextarea = (expresion, textarea, campo, ideUno, ideDos, ideTres) =>
     }
 }
 
+const validarEvidencia = () => {
+    var evidencia = document.getElementById('evidencia');
+    var archivo = evidencia.value;
+    var extensiones = /(.pdf|.docx|.jpg|.png|.PDF|.DOCX|.JPG|.PNG)$/i;
+
+
+    if(archivo == ""){
+        campos["evidencia"] = true;
+        return true
+
+    }else{
+        var peso = evidencia.files[0].size;
+
+                //Si se cumplen las condiciones
+        if(extensiones.exec(archivo)){  
+            if(peso < 16777216){
+                document.getElementById('alerta-evidencia').classList.remove('alerta-incorrecto');
+                document.getElementById('alerta-evidencia-peso').classList.remove('alerta-incorrecto');
+                document.getElementById('div-archivo').classList.remove('control-archivo-incorrecto');
+                campos["evidencia"] = true;
+                return true;
+
+                //Si no se cumplen las condiciones
+            }else{
+                evidencia.value = "";
+                document.getElementById('alerta-evidencia-peso').classList.add('alerta-incorrecto'); 
+                document.getElementById('div-archivo').classList.add('control-archivo-incorrecto');
+                            //Se impide enviar datos por 8 segundos.
+                setTimeout(() => { 
+                    document.getElementById('alerta-evidencia-peso').classList.remove('alerta-incorrecto'); 
+                    document.getElementById('div-archivo').classList.remove('control-archivo-incorrecto');
+
+                    document.getElementById('boton-registrar').disabled = false;
+                    document.getElementById('boton-registrar').classList.remove('deshabilitado');
+                },8000);
+
+                campos["evidencia"] = false;
+                return false;
+            }
+        }else if(!extensiones.exec(archivo)){ 
+            evidencia.value = "";
+
+            document.getElementById('alerta-evidencia').classList.add('alerta-incorrecto'); 
+            document.getElementById('div-archivo').classList.add('control-archivo-incorrecto');
+                            //Se impide enviar datos por 8 segundos.
+            setTimeout(() => { 
+                
+                document.getElementById('alerta-evidencia').classList.remove('alerta-incorrecto'); 
+                document.getElementById('div-archivo').classList.remove('control-archivo-incorrecto');
+
+                document.getElementById('boton-registrar').disabled = false;
+                document.getElementById('boton-registrar').classList.remove('deshabilitado');
+            },8000);
+            campos["evidencia"] = false;
+            return false;
+        }
+    }
+}
+
 inputs.forEach((input) => {
     input.addEventListener('keyup', validarFormulario); //Evento soltar tecla.
     input.addEventListener('blur', validarFormulario);  //Evento click fuera de input.
@@ -113,13 +173,15 @@ formulario.addEventListener('submit', (e) => {   //Evento de botón.
     console.log("direccion " +campos.direccion);*/
 
     //Verificar los Selects.
-    validarTipo('div-tipo', 'form_tipo', 'alerta-tipo');
-
     if(!validarTipo('div-tipo', 'form_tipo', 'alerta-tipo')){
         e.preventDefault();
     }
 
-    if(campos.asunto && campos.descripcion){
+    if(!validarEvidencia()){
+        e.preventDefault();
+    }
+
+    if(campos.asunto && campos.descripcion && campos.evidencia){
         document.getElementById('mensaje').classList.add('mensaje-exito');
         document.getElementById('mensaje-texto2').classList.add('mensaje-texto-exito');
         setTimeout(() => {

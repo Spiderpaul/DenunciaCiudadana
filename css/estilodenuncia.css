@@ -553,10 +553,16 @@ div.contenido{
 .alerta-confirmar,
 .alerta-asunto,
 .alerta-tipo,
-.alerta-descripcion{
+.alerta-descripcion,
+.alerta-evidencia,
+.alerta-evidencia-peso{
     color: black;
     font-size: 12px;
     display: none;
+}
+
+.control-archivo-incorrecto{
+    border: solid 1px red;
 }
 
 
@@ -565,6 +571,7 @@ div.contenido{
     width: auto;
     height: auto;
     display: block;
+    margin-bottom: 5px;
 }
 
 .mensaje{

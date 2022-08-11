@@ -51,9 +51,15 @@
                     </p> 
                 </div>
                 <!---                     Adjunto                        --->
-                <div class="control-archivo">
+                <div class="control-archivo" id="div-archivo">
                     <p>Adjuntar documento (opcional)</p>
                     <input type="file" class="evidencia" name="evidencia" id="evidencia">
+                    <p class="alerta-evidencia" id="alerta-evidencia">
+                        Solo se aceptan archivos con formato PDF, DOCX, JPG y PNG.
+                    </p> 
+                    <p class="alerta-evidencia-peso" id="alerta-evidencia-peso">
+                        El archivo no debe exceder los 16MB.
+                    </p> 
                 </div>
             </div>
         </div>

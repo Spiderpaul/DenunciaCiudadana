@@ -20,7 +20,8 @@ const campos = {
     correo: false,
     direccion: false,
     asunto: false,
-    descripcion: false
+    descripcion: false,
+    evidencia: false
 }
 
 const validarFormulario = (e) => { //Identificar y validar inputs.
@@ -92,7 +93,6 @@ function validarSexo(ideUno, ideDos, ideTres){
 function validarTipo(ideUno, ideDos, ideTres){
     let divTipo = document.getElementById("form_tipo");
     let tipo = divTipo.value;
-    console.log(tipo);
     if(tipo==""){  //Si no se ha seleccionado opción de sexo. 
         document.getElementById(ideUno).classList.add('incorrecto');
         document.getElementById(ideDos).classList.add('input-incorrecto');
@@ -150,6 +150,63 @@ const verificarEdad = (expresion, input, campo, ideUno, ideDos, ideTres) => {
     }
 }
 
+const validarEvidencia = () => {
+    var evidencia = document.getElementById('evidencia');
+    var archivo = evidencia.value;
+    var extensiones = /(.pdf|.docx|.jpg|.png|.PDF|.DOCX|.JPG|.PNG)$/i;
+
+
+    if(archivo == ""){
+        campos["evidencia"] = true;
+        return true
+
+    }else{
+        var peso = evidencia.files[0].size;
+
+                //Si se cumplen las condiciones
+        if(extensiones.exec(archivo)){  
+            if(peso < 16777216){
+                document.getElementById('alerta-evidencia-peso').classList.remove('alerta-incorrecto');
+                document.getElementById('div-archivo').classList.remove('control-archivo-incorrecto');
+                campos["evidencia"] = true;
+                return true;
+
+                //Si no se cumplen las condiciones
+            }else{
+                evidencia.value = "";
+                document.getElementById('alerta-evidencia-peso').classList.add('alerta-incorrecto'); 
+                document.getElementById('div-archivo').classList.add('control-archivo-incorrecto');
+                            //Se impide enviar datos por 8 segundos.
+                setTimeout(() => { 
+                    document.getElementById('alerta-evidencia-peso').classList.remove('alerta-incorrecto'); 
+                    document.getElementById('div-archivo').classList.remove('control-archivo-incorrecto');
+
+                    document.getElementById('boton-registrar').disabled = false;
+                    document.getElementById('boton-registrar').classList.remove('deshabilitado');
+                },8000);
+
+                campos["evidencia"] = false;
+                return false;
+            }
+        }else if(!extensiones.exec(archivo)){ 
+            evidencia.value = "";
+
+            document.getElementById('alerta-evidencia').classList.add('alerta-incorrecto'); 
+            document.getElementById('div-archivo').classList.add('control-archivo-incorrecto');
+                            //Se impide enviar datos por 8 segundos.
+            setTimeout(() => { 
+                document.getElementById('alerta-evidencia').classList.remove('alerta-incorrecto'); 
+                document.getElementById('div-archivo').classList.remove('control-archivo-incorrecto');
+
+                document.getElementById('boton-registrar').disabled = false;
+                document.getElementById('boton-registrar').classList.remove('deshabilitado');
+            },8000);
+            campos["evidencia"] = false;
+            return false;
+        }
+    }
+}
+
 inputs.forEach((input) => {
     input.addEventListener('keyup', validarFormulario); //Evento soltar tecla.
     input.addEventListener('blur', validarFormulario);  //Evento click fuera de input.
@@ -183,14 +240,16 @@ formulario.addEventListener('submit', (e) => {   //Evento de botón.
     console.log("correo " +campos.correo);
     console.log("direccion " +campos.direccion);*/
 
-    validarSexo('div-sexo', 'form_sexo', 'alerta-sexo'); //Verificar los Selects.
-    validarTipo('div-tipo', 'form_tipo', 'alerta-tipo');
-
+    
     if(!validarSexo('div-sexo', 'form_sexo', 'alerta-sexo') || !validarTipo('div-tipo', 'form_tipo', 'alerta-tipo')){
         e.preventDefault();
     }
 
-    if(campos.nombre && campos.edad && campos.telefono && campos.correo && campos.direccion && campos.asunto && campos.descripcion){
+    if(!validarEvidencia()){
+        e.preventDefault();
+    }
+
+    if(campos.nombre && campos.edad && campos.telefono && campos.correo && campos.direccion && campos.asunto && campos.descripcion && campos.evidencia){
         document.getElementById('mensaje').classList.add('mensaje-exito');
         document.getElementById('mensaje-texto2').classList.add('mensaje-texto-exito');
         setTimeout(() => {

@@ -2,6 +2,11 @@
 
 <div class="div-formulario">
 
+        <div class="mensaje" id="mensaje">
+            <p class="mensaje-texto1" id="mensaje-texto1">Debe llenar correctamente los datos.</p>
+            <p class="mensaje-texto2" id="mensaje-texto2">Procesando registro.</p>
+        </div>
+
     <div class="div-titulo-sp">
         <p>Datos de denuncia</p>
     </div>
@@ -43,15 +48,21 @@
                         Describa el problema a denunciar, máximo 1000 caracteres.
                     </p> 
                 </div>
-                <div class="control-archivo">
+                <div class="control-archivo" id="div-archivo">
                     <p>Adjuntar documento (opcional)</p>
                     <input type="file" class="evidencia" name="evidencia" id="evidencia">
+                    <p class="alerta-evidencia" id="alerta-evidencia">
+                        Solo se aceptan archivos con formato PDF, DOCX, JPG y PNG.
+                    </p> 
+                    <p class="alerta-evidencia-peso" id="alerta-evidencia-peso">
+                        El archivo no debe exceder los 16MB.
+                    </p> 
                 </div>
             </div>
         </div>
 
         <div class="boton-form">
-                <button class="boton-registrar" type="submit">Enviar</button>
+                <button class="boton-registrar" id="boton-registrar" type="submit">Enviar</button>
         </div> 
     </form>
 
