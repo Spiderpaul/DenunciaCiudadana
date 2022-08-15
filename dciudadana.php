@@ -28,7 +28,7 @@
                             <p>Edad</p>
                             <input type="text" class="form-control" name="edad" id="form_edad" 
                             placeholder="   Ingrese su edad">
-                            <p class="alerta-edad" id="alerta-edad">Debe ingresar un número entre 18 y 100</p>
+                            <p class="alerta-edad" id="alerta-edad">Debe ingresar un número entre 18 y 99</p>
                         </div>
                         <!---                     Sexo                        --->
                         <div class="div-sexo" id="div-sexo">

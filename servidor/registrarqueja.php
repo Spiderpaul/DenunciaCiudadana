@@ -10,10 +10,8 @@
 
 
     if($dbh!=null){  //Si hay una conexión esté establecida.
-        
                         
-        $stmt = $dbh-> prepare("INSERT INTO `buzon quejas` 
-        (asunto, descripcion, fecha) 
+        $stmt = $dbh-> prepare("INSERT INTO `buzon quejas` (asunto, descripcion, fecha) 
         VALUES (?,?,?)");
         $stmt->bindParam(1,$asunto);
         $stmt->bindParam(2,$descripcion);

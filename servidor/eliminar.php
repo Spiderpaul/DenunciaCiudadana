@@ -17,6 +17,11 @@
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
         $stmt->execute();
+    }else{
+        echo '<script language="javascript">
+            alert("Sin conexión a base de datos");
+            window.history.back();
+            </script>';
     }
 
     if($_SESSION['rol_usuario'] =="Administrador"){

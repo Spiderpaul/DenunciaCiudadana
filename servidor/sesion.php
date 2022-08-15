@@ -1,8 +1,6 @@
 <?php 
     include 'conexion.php';
-
     session_start();
-
 
     if(isset($_SESSION['id_usuario'])){ //Destruir sesión después de tiempo de inactividad.
         $horaInicio = $_SESSION["date"];
@@ -12,14 +10,9 @@
         if($tiempoActivo >= 900){
             session_destroy();
             $dbh=null;
-            /*echo '<script language="javascript">
-                    alert("Su sesión ha caducado, debe iniciar sesión de nuevo.");
-                    location.href="../iniciarsesion.php";
-                    </script>';*/
             
             header("Location:iniciarsesion.php");
-            
-            
+              
         }else {
             $_SESSION["date"] = $horaActual;
         }
