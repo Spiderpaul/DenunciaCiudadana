@@ -1,5 +1,6 @@
 <?php 
     include 'conexion.php';
+    
     session_start();
 
     if(isset($_SESSION['id_usuario'])){ //Destruir sesión después de tiempo de inactividad.
@@ -17,6 +18,8 @@
             $_SESSION["date"] = $horaActual;
         }
     }
+
+    
 
     /*
         

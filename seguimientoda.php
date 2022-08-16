@@ -55,6 +55,8 @@
                 <th>Tipo de denuncia</th>
                 <th>Descripción</th>
                 <th>Adjunto</th>
+                <th>Estatus</th>
+                <th>Nota</th>
                 <th></th>
             </tr>
         </thead>
@@ -94,10 +96,12 @@
                                     <?php echo $row->nombre_evidencia; ?>
                                 </a>
                             </td>
+                            <td><?php echo $row->estatus; ?></td>
+                            <td><?php echo $row->nota; ?></td>
                             <td>
                                 <div class="acciones-btn">
                                     <div class="editar-btn">
-                                        <a href="#">
+                                        <a href="modseguimientoda.php?id=<?php echo $row->id_denuncia; ?>">
                                             <button>
                                                 <i class="material-icons">visibility</i>
                                             </button>

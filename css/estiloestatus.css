@@ -165,6 +165,59 @@
     color: white;
 }
 
+.contenido-ms{
+    background: #4d4d4d;
+    color: white;
+    width: 80%;
+    height: auto;
+    margin: 10px auto;
+}
+
+.datos-denuncia{
+    margin-top: 10px;
+}
+
+.seccion2-ms{
+    background: white;
+    color: #4d4d4d;
+    min-height: 250px;
+    margin-top: 10px;
+    border: solid 1px #4d4d4d;
+}
+
+.div-nombre-estatusms,
+.div-estatusms{
+    width: auto;
+}
+
+.nombre-ms,
+.estatus-ms,
+.nota-ms{
+    width: 90%;
+}
+
+.botones-ms{
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+.btn-cancelarms,
+.btn-guardarms{
+    background: #6A1C32;
+    color: white;
+    width: 30%;
+    height: 30px;
+    margin-top: 10px;
+
+}
+
+.seccion-denuncia{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
 @media (max-width: 860px){
 
     .contenido-estatus{
