@@ -55,6 +55,7 @@
                 <th>Tipo de denuncia</th>
                 <th>Descripción</th>
                 <th>Adjunto</th>
+                <th>Asesor</th>
                 <th>Estatus</th>
                 <th>Nota</th>
                 <th></th>
@@ -75,7 +76,7 @@
                         WHERE `denuncia anonima`.id_denuncia = `estatus de denuncia`.id_denuncia_a;");
                         $stmt->execute();
                     }else{
-                        $stmt = $dbh->prepare("SELECT * FROM `denuncia anonima` JOIN `estatus de denuncia`
+                        $stmt = $dbh->prepare("SELECT * FROM `denuncia anonima` JOIN `estatus de denuncia` JOIN asesor
                         WHERE `denuncia anonima`.id_denuncia = `estatus de denuncia`.id_denuncia_a
                         AND `denuncia anonima`.id_denuncia LIKE ?;");
                         /*Está pendiente arreglar la sentencia para que el usuario haga búsquedas por id de asesor
@@ -96,6 +97,7 @@
                                     <?php echo $row->nombre_evidencia; ?>
                                 </a>
                             </td>
+                            <td><?php echo $row->id_asesor; ?></td>
                             <td><?php echo $row->estatus; ?></td>
                             <td><?php echo $row->nota; ?></td>
                             <td>

@@ -6,8 +6,6 @@
     $idDenuncia = $_POST['id'];
     $estatus = $_POST['estatus'];
     $nota = $_POST['nota'];
-    
-    echo $idDenuncia;
   
     if($dbh!=null){  //Si hay una conexión esté establecida.
          
@@ -23,10 +21,10 @@
             
         $dbh=null; //Para cerrar la conexión a base de datos. 
 
-        /*echo '<script language="javascript">
+        echo '<script language="javascript">
             alert("Se ha realizado la modificación con éxito");
-            location.href="../usuarios.php";
-            </script>';*/
+            location.href="../seguimientoda.php";
+            </script>';
         } else{
             echo '<script language="javascript">
                 alert("Error al conectar la base de datos");

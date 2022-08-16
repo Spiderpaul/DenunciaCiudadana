@@ -14,7 +14,7 @@
                 
                    
                 $stmt = $dbh->prepare("SELECT * FROM `denuncia anonima` 
-                JOIN `estatus de denuncia`
+                JOIN `estatus de denuncia` JOIN asesor
                 WHERE id_denuncia = ? and id_denuncia_a = ?;");
 
                 $stmt->bindParam(1,$id);
@@ -122,6 +122,14 @@
             <div class="seccion2-ms">
                 <div class="seccion-denuncia">
                     <h4>Datos de denuncia</h4>
+                </div>
+                <div class="linea3">
+                    <div class="div-asunto1">
+                        <h4>Id de denuncia: </h4>
+                    </div>
+                    <div class="div-asunto2">
+                        <input type="text" value="<?php echo $row->id_denuncia; ?>" disabled>  </p>
+                    </div>
                 </div>
                 <div class="linea3">
                     <div class="div-asunto1">
