@@ -185,15 +185,49 @@
     border: solid 1px #4d4d4d;
 }
 
+.linea2-ms{
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.linea3-ms{
+    width: 100%;
+    height: auto;
+}
+
+.linea2-1{
+    margin-left: 10px;
+    flex-grow: 3;
+}
+
+.linea2-2{
+    margin-right: 10px;
+    flex-grow: 1;
+}
+
+.linea3-1{
+    margin: auto 10px auto 10px;
+}
+
 .div-nombre-estatusms,
 .div-estatusms{
     width: auto;
 }
 
-.nombre-ms,
-.estatus-ms,
+.id_ms{
+    display: none;
+}
+
+.estatus-ms{
+    width: 100%;
+}
+
 .nota-ms{
-    width: 90%;
+    width: 100%;
+    margin: auto;
 }
 
 .botones-ms{
