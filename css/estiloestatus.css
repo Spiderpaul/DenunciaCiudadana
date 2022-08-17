@@ -260,15 +260,11 @@
 
 .div-id1-ms,
 .div-asunto1-ms{
-    flex-wrap: 1;
+    width: 20%;
     margin-left: 10px;
 }
 
-.div-id2-ms,
-.div-asunto2-ms{
-    flex-wrap: 2;
-    margin-left: 10px;
-}
+
 
 .input-ms{
     width: 300px;
