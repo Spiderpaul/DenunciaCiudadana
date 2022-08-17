@@ -123,26 +123,26 @@
                 <div class="seccion-denuncia">
                     <h4>Datos de denuncia</h4>
                 </div>
-                <div class="linea3">
-                    <div class="div-asunto1">
+                <div class="linea5-ms">
+                    <div class="div-id1-ms">
                         <h4>Id de denuncia: </h4>
                     </div>
-                    <div class="div-asunto2">
-                        <input type="text" value="<?php echo $row->id_denuncia; ?>" disabled>  </p>
+                    <div class="div-id2-ms">
+                        <input class="input-ms" type="text" value="<?php echo $row->id_denuncia; ?>" disabled>  </p>
                     </div>
                 </div>
-                <div class="linea3">
-                    <div class="div-asunto1">
+                <div class="linea5-ms">
+                    <div class="div-asunto1-ms">
                         <h4>Asunto: </h4>
                     </div>
-                    <div class="div-asunto2">
-                        <input type="text" value="<?php echo $row->asunto; ?>" disabled>  </p>
+                    <div class="div-asunto2-ms">
+                        <input class="input-ms" type="text" value="<?php echo $row->asunto; ?>" disabled>  </p>
                     </div>
                 </div>
-                <div class="linea4">
+                <div class="linea6-ms">
                     <div class="div-descripcion-status">
                         <h4>Descripción</h4>
-                        <textarea rows="4" cols="40" disabled><?php echo $row->descripcion; ?></textarea>
+                        <textarea class="textarea-ms" rows="5" cols="40" disabled><?php echo $row->descripcion; ?></textarea>
                     </div>
                 </div>
             </div>    

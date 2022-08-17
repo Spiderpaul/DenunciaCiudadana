@@ -104,11 +104,11 @@
 }
 
 .div-asunto2{
-    width: 100%;
+    width: 80%;
 }
 
 .div-descripcion-estatus{
-    width: 100%;
+    width: auto;
 }
 
 .div-estatus-off{
@@ -251,6 +251,41 @@
     margin: auto;
     text-align: center;
 }
+
+.linea5-ms{
+    width: auto;
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.div-id1-ms,
+.div-asunto1-ms{
+    flex-wrap: 1;
+    margin-left: 10px;
+}
+
+.div-id2-ms,
+.div-asunto2-ms{
+    flex-wrap: 2;
+    margin-left: 10px;
+}
+
+.input-ms{
+    width: 300px;
+}
+
+.linea6-ms{
+    width: calc(100% - 20px);
+    margin: auto;
+    margin-left: 10px;
+}
+
+.textarea-ms{
+    width: 100%;
+    margin: auto;
+}
+
+
 
 @media (max-width: 860px){
 
