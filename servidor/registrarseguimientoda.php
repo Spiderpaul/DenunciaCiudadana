@@ -26,7 +26,7 @@
                 alert("Se ha realizado la modificación con éxito");
                 location.href="../seguimientoda.php";
                 </script>';
-        }catch(MySQLExeption $e){
+        }catch(MySQLException $e){
             echo '<script language="javascript">
                 alert("Se ha detectado un error al conectar la base de datos");
                 window.history.back();

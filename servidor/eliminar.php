@@ -12,7 +12,7 @@
     if($dbh!=null){  //Si la conexión existe.
 
         try{
-            
+
             //Para inicio de sesion como servidor público.
             $stmt = $dbh->prepare("DELETE FROM `servidor publico` WHERE id_usuario = ?");
             $stmt->bindParam(1, $idUsuario);
@@ -21,7 +21,7 @@
 
             $stmt->execute();
 
-        }catch(MySQLExeption $e){
+        }catch(MySQLException $e){
             echo '<script language="javascript">
                         alert("Se ha detectado un error al conectar a la base de datos");
                         window.history.back();

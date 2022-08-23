@@ -92,8 +92,8 @@
                     alert("Guarde su identificativo de denuncia para darle seguimiento.\n\n     Su identificativo de denuncia es: '.$id.' ");
                     window.history.back();
                     </script>';
-                    
-        }catch(MySQLExeption $e){
+
+        }catch(MySQLException $e){
             echo '<script language="javascript">
                     alert("Se ha detectado un error al conectar a la base de datos");
                     window.history.back();

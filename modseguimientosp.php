@@ -5,23 +5,23 @@
     
     <div class="datos-denuncia">
         <?php
-                $sesionAsesor = $_SESSION['id_usuario'];
-                if(isset($_GET['id'])){
-                    $id = $_GET['id'];
-                }else{
-                    header("location: ../modseguimientosp.php");
-                }
-                
-                   
-                $stmt = $dbh->prepare("SELECT * FROM `denuncia servidor publico` 
-                JOIN `estatus de denuncia` JOIN asesor
-                WHERE id_denuncia = ? and id_denuncia_sp = ?;");
-
-                $stmt->bindParam(1,$id);
-                $stmt->bindParam(2,$id);
-                $stmt->execute();
-                $cont = $stmt->rowCount();
-                $row = $stmt->fetch();
+            
+        $sesionAsesor = $_SESSION['id_usuario'];
+        if(isset($_GET['id'])){
+            $id = $_GET['id'];
+        }else{
+            header("location: ../modseguimientosp.php");
+        }
+        
+        try{
+            $stmt = $dbh->prepare("SELECT * FROM `denuncia servidor publico` 
+        JOIN `estatus de denuncia` JOIN asesor
+        WHERE id_denuncia = ? and id_denuncia_sp = ?;");
+        $stmt->bindParam(1,$id);
+        $stmt->bindParam(2,$id);
+        $stmt->execute();
+        $cont = $stmt->rowCount();
+        $row = $stmt->fetch();
                 
 
         if($cont != 0 ){
@@ -148,6 +148,13 @@
             </div>    
         <?php
             }
+        
+        } catch(MySQLException $e){
+            echo '<script language="javascript">
+                    alert("Se ha detectado un error al conectar a la base de datos");
+                    window.history.back();
+                    </script>';
+        }
         ?>
         </form>
     </div>
