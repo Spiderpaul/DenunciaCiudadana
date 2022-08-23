@@ -281,6 +281,10 @@
     margin: auto;
 }
 
+.oculto{
+    display: none;
+}
+
 
 
 @media (max-width: 860px){

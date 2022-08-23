@@ -15,7 +15,7 @@
         try{
 
             $stmt = $dbh->prepare("SELECT * FROM `denuncia anonima` 
-            JOIN `estatus de denuncia` JOIN asesor
+            JOIN `estatus de denuncia` 
             WHERE id_denuncia = ? and id_denuncia_a = ?;");
             $stmt->bindParam(1,$id);
             $stmt->bindParam(2,$id);
@@ -46,7 +46,7 @@
                         <div class="linea2-1">
                             <h4>Asesor asignado: </h4>
                             <div class="div-idms">
-                                <h4><?php echo ""; ?> </h4>
+                                <h4><?php  echo "";?> </h4>
                             </div>
                         </div> 
             <?php
@@ -84,8 +84,8 @@
                                     ?>
                                         <option value="En espera" disabled="">En espera</option>
                                         <option value="En proceso">En proceso</option>
-                                        <option value="Finalizado">Finalizado</option>
-                                        <option value="No aplica" selected="">No aplica</option>
+                                        <option value="Finalizado" selected="">Finalizado</option>
+                                        <option value="No aplica">No aplica</option>
                                     <?php
                                         }else if($row->estatus == "No aplica"){
                                     ?>
