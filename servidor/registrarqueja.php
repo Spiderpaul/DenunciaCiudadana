@@ -28,7 +28,7 @@
 
             //header("location: ../identificativo.php");
 
-        }catch(MySQLException $e){
+        }catch(PDOException $e){
             echo '<script language="javascript">
                     alert("Se ha detectado un error al conectar a la base de datos");
                     window.history.back();
