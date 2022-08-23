@@ -10,13 +10,24 @@
 
 
     if($dbh!=null){  //Si la conexión existe.
-        //Para inicio de sesion como servidor público.
-        $stmt = $dbh->prepare("DELETE FROM `servidor publico` WHERE id_usuario = ?");
-        $stmt->bindParam(1, $idUsuario);
 
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        try{
+            
+            //Para inicio de sesion como servidor público.
+            $stmt = $dbh->prepare("DELETE FROM `servidor publico` WHERE id_usuario = ?");
+            $stmt->bindParam(1, $idUsuario);
 
-        $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+            $stmt->execute();
+
+        }catch(MySQLExeption $e){
+            echo '<script language="javascript">
+                        alert("Se ha detectado un error al conectar a la base de datos");
+                        window.history.back();
+                        </script>';
+        }
+        
     }else{
         echo '<script language="javascript">
             alert("Sin conexión a base de datos");
