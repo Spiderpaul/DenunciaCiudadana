@@ -9,20 +9,39 @@
     $descripcion = $_POST['descripcion'];
     $fecha = date("Y-m-d H:i:s");  
 
-    //Para guardar la imagen en una variable
-    /*
-    if(isset($_FILES['evidencia']['name'])){
-        $peso = $_FILES['evidencia']['size'];
-        $archivoSubido = fopen($_FILES['evidencia']['tmp_name'],'r');
-        $archivo = fread($archivoSubido, $peso);
-    } else {
-        $archivo = null;
-    }
-    */
-
-    if($_FILES['evidencia']['name']!=""){
+    if($_FILES['evidencia']['name']!=""){  //Si existe archivo
         $nombreArchivo = $_FILES['evidencia']['name'];
+        $archivoTemporal = $_FILES['evidencia']['tmp_name'];
+
+            //Se obtiene la extensión del documento
+        $tipoArchivo = explode("/", $_FILES['evidencia']['type']);
+        $extension = end($tipoArchivo);
+
+            //Se obtiene el nombre sin extensión del documento
+        $inicioNombre = explode(".", $_FILES['evidencia']['name'], 2);
+
+            //Se obtiene un número random
+        $random = rand(9999,9999999);
+
+        if(strlen($inicioNombre[0]) > 60){
+            $nombreCorto = substr($inicioNombre[0], 0, 60);
+            $nombreFinal = $nombreCorto."_".$random.".".$extension;
+            $ruta = "../documentos/".$nombreFinal;
+        }else{
+            $nombreFinal = $inicioNombre[0]."_".$random.".".$extension;
+            $ruta = "../documentos/".$nombreFinal;
+        }
+
+        /* 
+        //////Para multiples archivos.
+        echo "<pre>";
+        var_dump($_FILES['evidencia']['name']);
+        echo "</pre>";
+        
+        //////Necesario para subir el archivo a base de datos (blob)
         $archivo = file_get_contents($_FILES['evidencia']['tmp_name']);
+        */
+
     } else {
         $nombreArchivo = "";
         $archivo = null;
@@ -54,17 +73,18 @@
                 
             }while($cont1!=0 && $cont2!=0 && $cont3!=0); //Mientras $cont sea diferente a cero, se repite.
     
-                    
+            //Mover archivo temporal a carpeta
+            move_uploaded_file($archivoTemporal, $ruta);
+
             $stmt = $dbh-> prepare("INSERT INTO `denuncia anonima` 
-            (id_denuncia, asunto, descripcion, fecha, tipo_denuncia, evidencia, nombre_evidencia) 
-            VALUES (?,?,?,?,?,?,?)");
+            (id_denuncia, asunto, descripcion, fecha, tipo_denuncia, nombre_evidencia) 
+            VALUES (?,?,?,?,?,?)");
             $stmt->bindParam(1,$id);
             $stmt->bindParam(2,$asunto);
             $stmt->bindParam(3,$descripcion);
             $stmt->bindParam(4,$fecha);
             $stmt->bindParam(5,$tipo);
-            $stmt->bindParam(6,$archivo);
-            $stmt->bindParam(7,$nombreArchivo);
+            $stmt->bindParam(6,$nombreFinal);
             $stmt->execute();
     
             
@@ -83,10 +103,10 @@
                 }
                 </script>';*/
     
-                echo '<script language="javascript">
-                    alert("Guarde su identificativo de denuncia para darle seguimiento.\n\n     Su identificativo de denuncia es: '.$id.' ");
-                    window.history.back();
-                    </script>';
+            echo '<script language="javascript">
+                alert("Guarde su identificativo de denuncia para darle seguimiento.\n\n     Su identificativo de denuncia es: '.$id.' ");
+                window.history.back();
+                </script>';
     
             //header("location: ../identificativo.php");
         }catch(PDOException $e){

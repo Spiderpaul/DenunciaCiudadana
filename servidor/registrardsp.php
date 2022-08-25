@@ -20,6 +20,7 @@
     
     if($_FILES['evidencia']['name']!=""){
         $nombreArchivo = $_FILES['evidencia']['name'];
+        $tipoArchivo = $_FILES['evidencia']['type'];
         $archivo = file_get_contents($_FILES['evidencia']['tmp_name']);
     } else {
         $nombreArchivo = "";
