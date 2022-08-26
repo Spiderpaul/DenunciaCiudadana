@@ -27,7 +27,7 @@
             if($cont != 0 ){
                 
             ?>
-            <form action="servidor/registrarseguimientoda.php" class="seguimiento" method="post">
+            <form action="servidor/registrarseguimientoda.php" class="seguimiento" id="seguimiento" method="post">
                 <div class="seccion1-ms">
                     <div class="linea1">
                         <div class="id-denuncia">
@@ -97,6 +97,9 @@
                                         }
                                     ?>
                                     </select>
+                                    <p class="alerta-estatus" id="alerta-estatus">
+                                        Debe seleccionar una opción.
+                                    </p>
                                 </div>
                             </div>
                         </div>  
@@ -105,14 +108,17 @@
                             <div class="div-observacion">
                                 <h4>Observacion: </h4>
                             </div>
-                            <div class="div-observacion">
-                                <textarea rows="3" cols="40" class="nota-ms" name="nota" value="<?php echo $row->nota; ?>"></textarea>
+                            <div class="div-observacion" id="div-observacion">
+                                <textarea rows="3" cols="40" class="nota-ms" id="nota-ms" name="nota" value="<?php echo $row->nota; ?>"></textarea>
+                                <p class="alerta-nota" id="alerta-nota">
+                                    El texto debe contener máximo 200 caracteres.
+                                </p>
                             </div>
                         </div>
                     </div>
                     <div class="botones-ms">
-                        <button class="btn-cancelarms" type="submit">Cancelar</button>
-                        <button class="btn-guardarms" type="submit">Guardar</button>
+                        <button class="btn-cancelarms" id="btn-cancelarms" type="submit">Cancelar</button>
+                        <button class="btn-guardarms" id="btn-guardarms" type="submit">Guardar</button>
                     </div>
                 </div>
             </div>   
@@ -169,4 +175,5 @@
     </div>
 </div>
 
+<script src="js/modificarestatus.js"></script>
 <?php require('./vistas/pie.php')?>
