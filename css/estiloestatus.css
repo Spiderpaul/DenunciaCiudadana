@@ -264,8 +264,6 @@
     margin-left: 10px;
 }
 
-
-
 .input-ms{
     width: 300px;
 }
@@ -284,7 +282,6 @@
 .oculto{
     display: none;
 }
-
 
 
 @media (max-width: 860px){

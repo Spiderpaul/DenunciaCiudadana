@@ -835,6 +835,11 @@ div.contenido{
         border-bottom: solid 1px white;
     }
 
+    .contenedor-tabla .tabla-usuarios td{
+        max-width: 70px;
+        overflow: hidden;
+    }
+
     .contenedor-tabla .tabla-usuarios tbody tr:nth-child(even){
         background-color: grey;
     }
