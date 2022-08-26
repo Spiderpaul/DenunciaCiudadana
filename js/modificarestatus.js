@@ -81,7 +81,7 @@ const analizarCampos = () => {
     }
 }
 
-formulario.addEventListener('mouseout', (e) =>{
+formulario.addEventListener('mouseout', () =>{
     analizarCampos();
 })
 
