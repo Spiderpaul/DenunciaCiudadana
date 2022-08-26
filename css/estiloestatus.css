@@ -271,6 +271,7 @@
 .linea6-ms{
     width: calc(100% - 20px);
     margin: auto;
+    margin-top: 10px;
     margin-left: 10px;
 }
 

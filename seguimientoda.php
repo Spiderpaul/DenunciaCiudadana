@@ -111,6 +111,7 @@
                                                 </button>
                                             </a>
                                         </div>
+                                        <!----
                                         <div class="eliminar-btn">
                                             <a onclick="return confirmar()" href="#">
                                                 <button>
@@ -118,6 +119,7 @@
                                                 </button>
                                             </a>
                                         </div>
+                                        ---->
                                     </div>
                                     
                                     

@@ -139,9 +139,19 @@
                         <input class="input-ms" type="text" value="<?php echo $row->asunto; ?>" disabled>  </p>
                     </div>
                 </div>
+                <div class="linea5-ms">
+                        <div class="div-asunto1-ms">
+                            <h4>Archivo adjunto: </h4>
+                        </div>
+                        <div class="div-asunto2-ms">
+                            <a target="_blank" href="vista.php?id=<?php echo $row->id_denuncia; ?>">
+                                <p class="adjunto"><?php echo $row->nombre_evidencia;?></p>
+                            </a>
+                        </div>
+                    </div>
                 <div class="linea6-ms">
                     <div class="div-descripcion-status">
-                        <h4>Descripción</h4>
+                        <h4>Descripción:</h4>
                         <textarea class="textarea-ms" rows="5" cols="40" disabled><?php echo $row->descripcion; ?></textarea>
                     </div>
                 </div>
