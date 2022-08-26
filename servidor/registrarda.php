@@ -43,7 +43,7 @@
         */
 
     } else {
-        $nombreArchivo = "";
+        $nombreFinal = "";
         $archivo = null;
     }
 

@@ -3,12 +3,6 @@
     
     session_start();
 
-    /*if(isset($_GET['id'])){
-        $idUsuario = $_GET['id'];
-    }else{
-        $idUsuario = "";
-    }*/
-
     //Definiendo zona horaria.
     date_default_timezone_set('America/Mazatlan');
 
@@ -18,12 +12,31 @@
     $descripcion = $_POST['descripcion'];
     $fecha = date("Y-m-d H:i:s");
     
-    if($_FILES['evidencia']['name']!=""){
+    if($_FILES['evidencia']['name']!=""){  //Si existe archivo
         $nombreArchivo = $_FILES['evidencia']['name'];
-        $tipoArchivo = $_FILES['evidencia']['type'];
-        $archivo = file_get_contents($_FILES['evidencia']['tmp_name']);
+        $archivoTemporal = $_FILES['evidencia']['tmp_name'];
+
+            //Se obtiene la extensión del documento
+        $tipoArchivo = explode("/", $_FILES['evidencia']['type']);
+        $extension = end($tipoArchivo);
+
+            //Se obtiene el nombre sin extensión del documento
+        $inicioNombre = explode(".", $_FILES['evidencia']['name'], 2);
+
+            //Se obtiene un número random
+        $random = rand(9999,9999999);
+
+        if(strlen($inicioNombre[0]) > 60){
+            $nombreCorto = substr($inicioNombre[0], 0, 60);
+            $nombreFinal = $nombreCorto."_".$random.".".$extension;
+            $ruta = "../documentos/".$nombreFinal;
+        }else{
+            $nombreFinal = $inicioNombre[0]."_".$random.".".$extension;
+            $ruta = "../documentos/".$nombreFinal;
+        }
+
     } else {
-        $nombreArchivo = "";
+        $nombreFinal = "";
         $archivo = null;
     }
 
@@ -54,30 +67,32 @@
                 
             }while($cont1!=0 && $cont2!=0 && $cont3!=0); //Mientras $cont sea diferente a cero, se repite.
             
-                $stmt = $dbh-> prepare("INSERT INTO `denuncia servidor publico` 
-                (id_denuncia, id_usuario, asunto, descripcion, fecha, tipo_denuncia, evidencia, nombre_evidencia) 
-                VALUES (?,?,?,?,?,?,?,?)");
-                $stmt->bindParam(1,$id);
-                $stmt->bindParam(2,$idUsuario);
-                $stmt->bindParam(3,$asunto);
-                $stmt->bindParam(4,$descripcion);
-                $stmt->bindParam(5,$fecha);
-                $stmt->bindParam(6,$tipo);
-                $stmt->bindParam(7,$archivo);
-                $stmt->bindParam(8,$nombreArchivo);
-                $stmt->execute();
-                        
-                $stmt2 = $dbh-> prepare("INSERT INTO `estatus de denuncia` (id_denuncia_sp) VALUES (?)");
-                $stmt2->bindParam(1,$id);
-                $stmt2->execute();
-    
-                $dbh=null; //Para cerrar la conexión a base de datos. 
-    
-                echo '<script language="javascript">
-                    alert("Su denuncia se ha registrado con éxito");
-                    </script>';
-    
-                header("location: ../dciudadanas.php");
+            //Mover archivo temporal a carpeta
+            move_uploaded_file($archivoTemporal, $ruta);
+
+            $stmt = $dbh-> prepare("INSERT INTO `denuncia servidor publico` 
+            (id_denuncia, id_usuario, asunto, descripcion, fecha, tipo_denuncia, nombre_evidencia) 
+            VALUES (?,?,?,?,?,?,?)");
+            $stmt->bindParam(1,$id);
+            $stmt->bindParam(2,$idUsuario);
+            $stmt->bindParam(3,$asunto);
+            $stmt->bindParam(4,$descripcion);
+            $stmt->bindParam(5,$fecha);
+            $stmt->bindParam(6,$tipo);
+            $stmt->bindParam(7,$nombreFinal);
+            $stmt->execute();
+                    
+            $stmt2 = $dbh-> prepare("INSERT INTO `estatus de denuncia` (id_denuncia_sp) VALUES (?)");
+            $stmt2->bindParam(1,$id);
+            $stmt2->execute();
+
+            $dbh=null; //Para cerrar la conexión a base de datos. 
+
+            echo '<script language="javascript">
+                alert("Su denuncia se ha registrado con éxito");
+                </script>';
+
+            header("location: ../dciudadanas.php");
 
         }catch(PDOException $e){
             echo '<script language="javascript">

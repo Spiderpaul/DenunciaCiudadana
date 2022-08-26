@@ -18,11 +18,31 @@
     $descripcion = $_POST['descripcion'];
     $fecha = date("Y-m-d H:i:s");
 
-    if($_FILES['evidencia']['name']!=""){
+    if($_FILES['evidencia']['name']!=""){  //Si existe archivo
         $nombreArchivo = $_FILES['evidencia']['name'];
-        $archivo = file_get_contents($_FILES['evidencia']['tmp_name']);
+        $archivoTemporal = $_FILES['evidencia']['tmp_name'];
+
+            //Se obtiene la extensión del documento
+        $tipoArchivo = explode("/", $_FILES['evidencia']['type']);
+        $extension = end($tipoArchivo);
+
+            //Se obtiene el nombre sin extensión del documento
+        $inicioNombre = explode(".", $_FILES['evidencia']['name'], 2);
+
+            //Se obtiene un número random
+        $random = rand(9999,9999999);
+
+        if(strlen($inicioNombre[0]) > 60){
+            $nombreCorto = substr($inicioNombre[0], 0, 60);
+            $nombreFinal = $nombreCorto."_".$random.".".$extension;
+            $ruta = "../documentos/".$nombreFinal;
+        }else{
+            $nombreFinal = $inicioNombre[0]."_".$random.".".$extension;
+            $ruta = "../documentos/".$nombreFinal;
+        }
+
     } else {
-        $nombreArchivo = "";
+        $nombreFinal = "";
         $archivo = null;
     }
 
@@ -52,46 +72,49 @@
                 
             }while($cont1!=0 && $cont2!=0 && $cont3!=0); //Mientras $cont sea diferente a cero, se repite.
     
-                $stmt = $dbh-> prepare("INSERT INTO `denuncia ciudadana` 
-                (id_denuncia, nombre, edad, sexo, telefono, correo, direccion, asunto, descripcion, fecha, tipo_denuncia, evidencia, nombre_evidencia) 
-                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
-                $stmt->bindParam(1,$id);
-                $stmt->bindParam(2,$nombre);
-                $stmt->bindParam(3,$edad);
-                $stmt->bindParam(4,$sexo);
-                $stmt->bindParam(5,$telefono);
-                $stmt->bindParam(6,$correo);
-                $stmt->bindParam(7,$direccion);
-                $stmt->bindParam(8,$asunto);
-                $stmt->bindParam(9,$descripcion);
-                $stmt->bindParam(10,$fecha);
-                $stmt->bindParam(11,$tipo);
-                $stmt->bindParam(12,$archivo);
-                $stmt->bindParam(13,$nombreArchivo);
-                $stmt->execute();
-                     
-                
-                $stmt2 = $dbh-> prepare("INSERT INTO `estatus de denuncia` (id_denuncia_c) VALUES (?)");
-                $stmt2->bindParam(1,$id);
-                $stmt2->execute();
-    
-                $dbh=null; //Para cerrar la conexión a base de datos. 
-    
-                /*echo '<script language="javascript">
-                var respuesta = confirm("Clave para dar ver estatus de la denuncia: '.$id.'");
-                if(respuesta){
-                    location.href="../dciudadana.php";
-                }else{
-                    location.href="../dciudadana.php";
-                }
-                </script>';*/
-    
-                //header("location: ../dciudadana.php");
-    
-                echo '<script language="javascript">
-                    alert("Guarde su identificativo de denuncia para darle seguimiento.\n\n     Su identificativo de denuncia es: '.$id.' ");
-                    window.history.back();
-                    </script>';
+
+            //Mover archivo temporal a carpeta
+            move_uploaded_file($archivoTemporal, $ruta);
+
+            $stmt = $dbh-> prepare("INSERT INTO `denuncia ciudadana` 
+            (id_denuncia, nombre, edad, sexo, telefono, correo, direccion, asunto, descripcion, fecha, tipo_denuncia, nombre_evidencia) 
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+            $stmt->bindParam(1,$id);
+            $stmt->bindParam(2,$nombre);
+            $stmt->bindParam(3,$edad);
+            $stmt->bindParam(4,$sexo);
+            $stmt->bindParam(5,$telefono);
+            $stmt->bindParam(6,$correo);
+            $stmt->bindParam(7,$direccion);
+            $stmt->bindParam(8,$asunto);
+            $stmt->bindParam(9,$descripcion);
+            $stmt->bindParam(10,$fecha);
+            $stmt->bindParam(11,$tipo);
+            $stmt->bindParam(12,$nombreFinal);
+            $stmt->execute();
+                 
+            
+            $stmt2 = $dbh-> prepare("INSERT INTO `estatus de denuncia` (id_denuncia_c) VALUES (?)");
+            $stmt2->bindParam(1,$id);
+            $stmt2->execute();
+
+            $dbh=null; //Para cerrar la conexión a base de datos. 
+
+            /*echo '<script language="javascript">
+            var respuesta = confirm("Clave para dar ver estatus de la denuncia: '.$id.'");
+            if(respuesta){
+                location.href="../dciudadana.php";
+            }else{
+                location.href="../dciudadana.php";
+            }
+            </script>';*/
+
+            //header("location: ../dciudadana.php");
+
+            echo '<script language="javascript">
+                alert("Guarde su identificativo de denuncia para darle seguimiento.\n\n     Su identificativo de denuncia es: '.$id.' ");
+                window.history.back();
+                </script>';
 
         }catch(PDOException $e){
             echo '<script language="javascript">
