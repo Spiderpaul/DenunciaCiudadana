@@ -2,7 +2,7 @@ const formulario = document.getElementById('seguimiento'); //Acceder a formulari
 const textareas = document.querySelectorAll('#seguimiento textarea'); //Acceder a textarea
 
 const expresiones = {
-    observacion: /^([\s\S]){0,200}$/
+    observacion: /^([A-Za-z0-9À-ÿ\_\-\.\,\#\"\!\¡\?\¿\$\/\(\)\=\'\*\+\{\}\[\]\s]){0,200}$/
 }
           
 const campos = {
@@ -24,9 +24,9 @@ const validarFormulario = (e) => { //Identificar y validar inputs.
 }
 
 const validarTextarea = (expresion, textarea, campo, ideUno, ideDos, ideTres) => {
-    console.log(textarea.value);
+    //console.log(textarea.value);
     if(expresion.test(textarea.value)){
-        console.log("Correcto");
+        //console.log("Textarea correcto");
         document.getElementById(ideUno).classList.remove('incorrecto');
         document.getElementById(ideDos).classList.remove('input-incorrecto'); 
         document.getElementById(ideTres).classList.remove('alerta-incorrecto');
@@ -45,7 +45,8 @@ function validarEstatus(ideUno, ideDos, ideTres){
 
     console.log(estatus);
 
-    if(estatus==""){  //Si no se ha seleccionado opción de sexo. 
+    if(estatus=="En espera"){  //Si no se ha seleccionado opción de sexo. 
+        console.log("No se ha seleccionado una opción");
         document.getElementById(ideUno).classList.add('incorrecto');
         document.getElementById(ideDos).classList.add('input-incorrecto');
         document.getElementById(ideTres).classList.add('alerta-incorrecto'); 
@@ -59,7 +60,8 @@ function validarEstatus(ideUno, ideDos, ideTres){
             document.getElementById('btn-guardarms').classList.remove('deshabilitado');
         },2000);
         return false;
-    }else { //Si se ha seleccionado una opción. 
+    }else { //Si se ha seleccionado una opción.
+        console.log("Usted ha seleccionado una opción"); 
         document.getElementById(ideUno).classList.remove('incorrecto');
         document.getElementById(ideDos).classList.remove('input-incorrecto'); 
         document.getElementById(ideTres).classList.remove('alerta-incorrecto');
@@ -104,6 +106,9 @@ btnRegistrar.addEventListener('click', (e) => {   //Evento de botón.
     if(!campos.observacion){
         document.getElementById('btn-guardarms').classList.add('deshabilitado');
         document.getElementById('btn-guardarms').disabled = true;
+        document.getElementById('nota-ms').classList.add('incorrecto');
+        document.getElementById('nota-ms').classList.add('input-incorrecto');
+        document.getElementById('alerta-nota').classList.add('alerta-incorrecto');
         e.preventDefault();
     } 
 });

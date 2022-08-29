@@ -111,7 +111,7 @@
                         <div class="div-observacion" id="div-observacion">
                             <textarea rows="3" cols="40" class="nota-ms" id="nota-ms" name="nota" value="<?php echo $row->nota; ?>"></textarea>
                             <p class="alerta-nota" id="alerta-nota">
-                                El texto debe contener máximo 200 caracteres.
+                                El campo no puede enviarse vacío y debe contener máximo 200 caracteres.
                             </p>
                         </div>
                     </div>

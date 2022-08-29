@@ -557,7 +557,8 @@ div.contenido{
 .alerta-evidencia,
 .alerta-evidencia-peso,
 .alerta-estatus,
-.alerta-nota{
+.alerta-nota,
+.alerta-nota-2{
     color: black;
     font-size: 12px;
     display: none;

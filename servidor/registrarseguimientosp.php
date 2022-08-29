@@ -24,7 +24,7 @@
 
             echo '<script language="javascript">
                 alert("Se ha realizado la modificación con éxito");
-                location.href="../seguimientodc.php";
+                location.href="../seguimientosp.php";
                 </script>';
 
         } catch (PDOException $e){
