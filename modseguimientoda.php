@@ -46,7 +46,7 @@
                         <div class="linea2-1">
                             <h4>Asesor asignado: </h4>
                             <div class="div-idms">
-                                <h4><?php  echo "";?> </h4>
+                                <h4><?php  echo "Administrador";?> </h4>
                             </div>
                         </div> 
             <?php
