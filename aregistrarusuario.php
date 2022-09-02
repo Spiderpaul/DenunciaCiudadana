@@ -1,4 +1,5 @@
 <?php require('./servidor/sesion.php') //Control de sesiones?> 
+<?php include 'servidor/saregistrarusuario.php';?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,24 +33,7 @@
             <nav class="barra-menu2">
                 <ul class="derecho">
                     <?php 
-                        if(!isset($_SESSION['rol_usuario'])){ 
-                    ?>
-                        <li><a href="registrarusuario.php">Crear cuenta</a></li>
-                        <li><a href="iniciarsesion.php">Iniciar sesión</a></li>                
-
-                    <?php 
-                        }else if($_SESSION['rol_usuario'] == "Servidor"){ 
-                    ?>
-                        
-                        <li><a href="../perfil.php">Perfil</a></li>
-                        <li><a href="servidor/cerrar.php">Cerrar sesión</a></li>
-
-                    <?php 
-                        }else if($_SESSION['rol_usuario'] != "Servidor"){
-                    ?>
-                        <li><a href="servidor/cerrar.php">Cerrar sesión</a></li>
-                    <?php 
-                        }
+                        registrar($dbh);
                     ?>
                 </ul>
             </nav>

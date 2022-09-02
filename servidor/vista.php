@@ -1,5 +1,5 @@
 <?php
-include 'servidor/conexion.php';
+include 'conexion.php';
 
 //$id = isset($_GET['id'])?$_GET['id'] : "";
 
@@ -31,7 +31,7 @@ if(isset($_GET['id'])){
         $row = $stmt->fetch();
 
         header('Content-Type:'.$row->nombre_evidencia);
-        echo '<iframe class="visor-archivos" src="documentos/'.$row->nombre_evidencia.'" 
+        echo '<iframe class="visor-archivos" src="../documentos/'.$row->nombre_evidencia.'" 
         alt="Documento evidencia" width=100% height=100% align=center>Este navegador no puede visualizar el documento</iframe>';
         
     }catch(PDOException $e){
