@@ -3,9 +3,8 @@
 
 
     <div class="contenedor-tabla">
-        <div class="cabecera-tabla">
-            <div class="herramientas">
-                
+        <div class="cabecera-tabla-reportes">
+            <div class="div-modulos"> 
                 <ul>
                     <li>
                         <a href="reportesda.php">
@@ -29,6 +28,9 @@
                         </a>
                     </li>
                 </ul>
+            </div>
+            <div class="nombre-modulo">
+                <h3>Denuncia Anónima</h3>
             </div>
        </div>
         <div class="contenedor-form">

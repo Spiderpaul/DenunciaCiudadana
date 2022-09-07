@@ -754,7 +754,55 @@ div.contenido{
         align-items: baseline;
     }
 
-    /*        Filtros tabla reportes      */
+    /*                           Filtros tabla reportes                     */
+    .cabecera-tabla-reportes{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .div-modulos{
+        background: #6A1C32;
+        width: 50%;
+        height: auto;
+    }
+
+    .div-modulos button{
+        font-family: 'Noto Sans', sans-serif;
+        color: white;
+        box-sizing: border-box;
+        border: 0;
+        border-radius: 5px;
+        background: transparent;
+        cursor: pointer;
+        margin-Left: 0;
+    }
+
+    .div-modulos ul{
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: start;
+        align-items: baseline;
+    }
+
+    .div-modulos ul li{
+        display: inline-block;
+        margin: 10px 10px;     
+    }
+
+    .nombre-modulo{
+        background: #6A1C32;
+        width: 50%;
+        height: 100%;
+        text-align: center;
+    }
+
+    .nombre-modulo h3{
+        margin-top: 15px;
+    }
+
     .contenedor-form{
         background: #6A1C32;
         color: white;
@@ -813,6 +861,29 @@ div.contenido{
 
     .filtro-input{
         width: 100%;
+    }
+
+    .div-modulos ul li button{
+        font-family: 'Noto Sans', sans-serif;
+        color: white;
+        width: 100%;
+        box-sizing: border-box;
+        border: 0;
+        border-radius: 5px;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    .div-modulos a:link, a:visited, a:active{
+        text-decoration: none;
+    }
+
+    .div-modulos ul li button:hover{
+        background: grey;
+    }
+
+    .div-modulos ul li button{
+        padding: 6px 12px;
     }
 
     /*        Fin filtros tabla reportes      */
