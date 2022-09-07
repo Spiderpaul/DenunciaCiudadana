@@ -754,6 +754,69 @@ div.contenido{
         align-items: baseline;
     }
 
+    /*        Filtros tabla reportes      */
+    .contenedor-form{
+        background: #6A1C32;
+        color: white;
+        width: 100%;
+        height: 50px;
+        border-bottom: solid 1px white;
+    }
+
+    .filtros-reportes{
+        width: 98%;
+        height: auto;
+        margin: 5px auto 5px auto;
+        display: flex; 
+        flex-direction: row;
+    }
+
+    .filtros-reportes-1{
+        width: 48%;
+        height: 40px;
+        margin: auto 5px auto 0;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .filtros-reportes-2{
+        width: 48%;
+        height: 40px;
+        margin: auto 0 auto 5px;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .filtros-reportes-3{
+        flex-grow: 1;
+        height: 40px;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .reporte-id,
+    .reporte-tipo,
+    .reporte-asesor,
+    .reporte-estatus,
+    .reporte-fecha-desde,
+    .reporte-fecha-hasta{
+        width: 33%;
+    }
+
+    .reportes-boton{
+        width: auto;
+        margin: auto;
+    }
+
+    .filtro-input{
+        width: 100%;
+    }
+
+    /*        Fin filtros tabla reportes      */
+
     .contenedor-tabla .pie-tabla{
         padding: 12px;
         margin-top: auto;
