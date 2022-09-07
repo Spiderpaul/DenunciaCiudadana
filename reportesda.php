@@ -41,10 +41,14 @@
                             <h4>Id de denuncia:</h4>
                             <input type="text" name="id" class="filtro-input">
                         </div>
+                        <div class="reporte-asesor">
+                            <h4>Id de asesor:</h4>
+                            <input type="text" name="asesor" class="filtro-input">
+                        </div>
                         <div class="reporte-tipo">
                             <h4>Tipo de denuncia:</h4>
                             <select name="tipo" class="filtro-input">
-                                <option value="" selected="">Seleccione</option>
+                                <option value="" selected="">Ninguno</option>
                                 <option value="Abuso de autoridad">Abuso de autoridad</option>
                                 <option value="Acoso y Hostigamiento">Acoso y Hostigamiento</option>
                                 <option value="Soborno para algún trámite o servicio">Soborno para algún trámite o servicio</option>
@@ -55,16 +59,12 @@
                                 <option value="Otro">Otro</option>
                             </select>
                         </div>
-                        <div class="reporte-asesor">
-                            <h4>Id de asesor:</h4>
-                            <input type="text" name="asesor" class="filtro-input">
-                        </div>
                     </div>
                     <div class="filtros-reportes-2">
                         <div class="reporte-estatus">
                             <h4>Estatus:</h4>
                             <select name="estatus" class="filtro-input">
-                                <option value="" selected="">Seleccione</option>
+                                <option value="" selected="">Ninguno</option>
                                 <option value="En espera">En espera</option>
                                 <option value="En proceso">En proceso</option>
                                 <option value="Finalizado">Finalizado</option>
@@ -91,9 +91,8 @@
             </form>
         </div>
             
-        
         <table class="tabla-usuarios">
-            
+
             <thead>
                 <tr>
                     <th>Identificativo</th>
