@@ -2,27 +2,144 @@
 include 'conexion.php';
 
 function tabla($dbh){
-    
-    if(isset($_POST['buscar'])){
-        $buscador = "%".$_POST['buscar']."%";
+    // Para evitar errores por variables nulas.
+    if(isset($_POST['id'])){
+        $idDenuncia = "%".$_POST['id']."%";
     }else{
-        $buscador = "";
+        $idDenuncia = "";
     }
 
-    try{
+    if(isset($_POST['id_asesor'])){
+        $asesor = "%".$_POST['id_asesor']."%";
+    }else{
+        $asesor = "";
+    }
 
-        if($buscador == ""){
+    if(isset($_POST['tipo'])){
+        $tipo = "%".$_POST['tipo']."%";
+    }else{
+        $tipo = "";
+    }
+
+    if(isset($_POST['estatus'])){
+        $estatus = "%".$_POST['estatus']."%";
+    }else{
+        $estatus = "";
+    }
+
+    if(isset($_POST['desde'])){
+        $desde = "%".$_POST['desde']."%";
+    }else{
+        $desde = "";
+    }
+
+    if(isset($_POST['hasta'])){
+        $hasta = "%".$_POST['hasta']."%";
+    }else{
+        $hasta = "";
+    }
+
+    //Variables booleanas para ayudar en la sentencia. 
+    $id = false; $as = false; $ti = false; $es = false; $de = false; $ha = false;
+
+
+    try{
+        
+        //En caso de tener los campos vacíos.
+        if($idDenuncia == "" && $asesor == "" && $tipo == "" && $estatus == "" && $desde == "" && $hasta == ""){
             $stmt = $dbh->prepare("SELECT * FROM `denuncia ciudadana` JOIN `estatus de denuncia` 
             WHERE `denuncia ciudadana`.id_denuncia = `estatus de denuncia`.id_denuncia_c;");
+            
             $stmt->execute();
         }else{
-            $stmt = $dbh->prepare("SELECT * FROM `denuncia ciudadana` JOIN `estatus de denuncia` JOIN asesor
-            WHERE `denuncia ciudadana`.id_denuncia = `estatus de denuncia`.id_denuncia_c
-            AND `denuncia ciudadana`.id_denuncia LIKE ?;");
-            /*Está pendiente arreglar la sentencia para que el usuario haga búsquedas por id de asesor
-            y algunas otras columnas*/
-            $stmt->bindParam(1,$buscador);
-            //$stmt->bindParam(2,$buscador);
+            //Si hay información.
+            $contador = [];
+            $cont = 0;
+            $sentencia = 'SELECT * FROM `denuncia ciudadana` JOIN `estatus de denuncia`
+            WHERE `denuncia ciudadana`.id_denuncia = `estatus de denuncia`.id_denuncia_c';
+
+            if($idDenuncia != "%%"){
+                $sentencia .= ' AND `denuncia ciudadana`.id_denuncia LIKE ?';
+                array_push($contador, $cont+1);
+                $id = true;
+            }
+
+            if($asesor != "%%"){
+                $sentencia .= ' AND `estatus de denuncia`.id_asesor LIKE ?';
+                array_push($contador, $cont+1);
+                $as = true;
+            }
+
+            if($tipo != "%%"){
+                $sentencia .= ' AND `denuncia ciudadana`.tipo_denuncia LIKE ?';
+                array_push($contador, $cont+1);
+                $ti = true;
+            }
+
+            if($estatus != "%%"){
+                $sentencia .= ' AND `estatus de denuncia`.estatus LIKE ?';
+                array_push($contador, $cont+1);
+                $es = true;
+            }
+
+            if($desde != "%%" || $hasta != "%%"){
+
+                if($desde != "%%" && $hasta != "%%"){
+                    echo "Algo está mal en la fecha";
+                    $sentencia .= ' AND `denuncia ciudadana`.fecha BETWEEN ? AND ?';
+                    array_push($contador, $cont+1);
+                    $de = true;
+                    $ha = true;
+                }else if($desde != "%%" && $hasta == "%%"){
+                    $sentencia .= ' AND `denuncia ciudadana`.fecha >= ?';
+                    array_push($contador, $cont+1);
+                    $de = true;
+                }else if($desde == "%%" && $hasta != "%%"){
+                    $sentencia .= ' AND `denuncia ciudadana`.fecha <= ?';
+                    array_push($contador, $cont+1);
+                    $ha = true;
+                }
+            }
+
+
+            $sentencia .= ';';
+            $stmt = $dbh->prepare($sentencia);
+            
+            for($i = 1; $i <= count($contador); $i++){
+
+                if($id == true){
+                    echo "id: ".$i;
+                    $stmt->bindParam($i,$idDenuncia);
+                    $id = false;
+                }else if($as == true){
+                    echo "asesor: ".$i;
+                    $stmt->bindParam($i,$asesor);
+                    $as = false;
+                }else if($ti == true){
+                    echo "tipo: ".$i;
+                    $stmt->bindParam($i,$tipo);
+                    $ti = false;
+                }else if($es == true){
+                    echo "estatus: ".$i;
+                    $stmt->bindParam($i,$estatus);
+                    $es = false;
+                }else if($de == true || $ha == true){
+                    echo "fecha: ".$i;
+                    if($de == true && $ha == true){
+                        $stmt->bindParam($i,$desde);
+                        $stmt->bindParam($i+1,$hasta);
+                    }               
+                    if($de == true && $ha == false){
+                        $stmt->bindParam($i,$desde);
+                    }
+                    if($de == false && $ha == true){
+                        $stmt->bindParam($i,$hasta);
+                    }
+                    $es = false;
+                    $ha = false;
+                }
+            }
+
             $stmt->execute();
         }
         while($row = $stmt->fetch()){

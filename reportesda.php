@@ -34,7 +34,7 @@
             </div>
        </div>
         <div class="contenedor-form">
-            <form action="sreportesda.php" method="post">
+            <form action="reportesda.php" method="post">
                 <div class="filtros-reportes">
                     <div class="filtros-reportes-1">
                         <div class="reporte-id">
@@ -43,7 +43,7 @@
                         </div>
                         <div class="reporte-asesor">
                             <h4>Id de asesor:</h4>
-                            <input type="text" name="asesor" class="filtro-input">
+                            <input type="text" name="id_asesor" class="filtro-input">
                         </div>
                         <div class="reporte-tipo">
                             <h4>Tipo de denuncia:</h4>
