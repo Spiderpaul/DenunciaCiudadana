@@ -95,11 +95,11 @@ function tabla($dbh){
                     array_push($contador, $cont+1);
                     $de = true;
                     $ha = true;
-                }else if($desde != "%%" && $hasta == "%%"){
+                }else if($desde != "" && $hasta == ""){
                     $sentencia .= ' AND `denuncia anonima`.fecha >= ?';
                     array_push($contador, $cont+1);
                     $de = true;
-                }else if($desde == "%%" && $hasta != "%%"){
+                }else if($desde == "" && $hasta != ""){
                     $sentencia .= ' AND `denuncia anonima`.fecha <= ?';
                     array_push($contador, $cont+1);
                     $ha = true;
