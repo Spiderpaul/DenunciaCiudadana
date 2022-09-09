@@ -28,11 +28,8 @@ function tabla($dbh){
     }
 
     if(isset($_POST['desde'])){
-        //$desde = date("Y-m-d", strtotime("%".$_POST['desde']."%"));
-        //$desde = "%".$_POST['desde']."%";
         $desde = $_POST['desde'];
         
-        echo $desde;
     }else{
         $desde = "";
     }
@@ -40,7 +37,6 @@ function tabla($dbh){
     if(isset($_POST['hasta'])){
         $hasta = $_POST['hasta'];
 
-        echo $hasta;
     }else{
         $hasta = "";
     }
@@ -82,13 +78,13 @@ function tabla($dbh){
                 $ti = true;
             }
 
-            if($estatus != "%%"){
+            if($estatus != ""){
                 $sentencia .= ' AND `estatus de denuncia`.estatus LIKE ?';
                 array_push($contador, $cont+1);
                 $es = true;
             }
 
-            if($desde != "%%" || $hasta != "%%"){
+            if($desde != "" || $hasta != ""){
                         
                 if($desde != "" && $hasta != ""){
                     $sentencia .= ' AND `denuncia anonima`.fecha BETWEEN ? AND ?';
