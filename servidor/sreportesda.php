@@ -28,13 +28,19 @@ function tabla($dbh){
     }
 
     if(isset($_POST['desde'])){
-        $desde = "%".$_POST['desde']."%";
+        //$desde = date("Y-m-d", strtotime("%".$_POST['desde']."%"));
+        //$desde = "%".$_POST['desde']."%";
+        $desde = $_POST['desde'];
+        
+        echo $desde;
     }else{
         $desde = "";
     }
 
     if(isset($_POST['hasta'])){
-        $hasta = "%".$_POST['hasta']."%";
+        $hasta = $_POST['hasta'];
+
+        echo $hasta;
     }else{
         $hasta = "";
     }
@@ -83,9 +89,8 @@ function tabla($dbh){
             }
 
             if($desde != "%%" || $hasta != "%%"){
-
-                if($desde != "%%" && $hasta != "%%"){
-                    echo "Algo está mal en la fecha";
+                        
+                if($desde != "" && $hasta != ""){
                     $sentencia .= ' AND `denuncia anonima`.fecha BETWEEN ? AND ?';
                     array_push($contador, $cont+1);
                     $de = true;
@@ -156,7 +161,7 @@ function tabla($dbh){
             </tr>
             <?php
         }
-
+        
     }catch(PDOException $e){
         echo '<script language="javascript">
                 alert("Se ha detectado un error al conectar a la base de datos");
