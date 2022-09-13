@@ -73,7 +73,7 @@
                         </div>
                         <div class="reporte-fecha-desde">
                             <h4>Desde la fecha:</h4>
-                            <input type="date" name="desde" class="filtro-input">
+                                  <input type="date" name="desde" class="filtro-input">
                         </div>
                         <div class="reporte-fecha-hasta">
                             <h4>Hasta la fecha:</h4>

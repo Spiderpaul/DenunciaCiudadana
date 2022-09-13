@@ -34,7 +34,7 @@
             </div>
        </div>
         <div class="contenedor-form">
-            <form action="sreportesdc.php" method="post">
+            <form action="reportesdc.php" method="post">
                 <div class="filtros-reportes">
                     <div class="filtros-reportes-1">
                         <div class="reporte-id">

@@ -40,7 +40,7 @@ function tabla($dbh){
     }else{
         $hasta = "";
     }
-
+    
     //Variables booleanas para ayudar en la sentencia. 
     $id = false; $as = false; $ti = false; $es = false; $de = false; $ha = false;
 
@@ -60,19 +60,19 @@ function tabla($dbh){
             $sentencia = 'SELECT * FROM `denuncia anonima` JOIN `estatus de denuncia`
             WHERE `denuncia anonima`.id_denuncia = `estatus de denuncia`.id_denuncia_a';
 
-            if($idDenuncia != "%%"){
+            if($idDenuncia != "%%" && $idDenuncia != ""){
                 $sentencia .= ' AND `denuncia anonima`.id_denuncia LIKE ?';
                 array_push($contador, $cont+1);
                 $id = true;
             }
 
-            if($asesor != "%%"){
+            if($asesor != "%%" && $asesor != ""){
                 $sentencia .= ' AND `estatus de denuncia`.id_asesor LIKE ?';
                 array_push($contador, $cont+1);
                 $as = true;
             }
 
-            if($tipo != "%%"){
+            if($tipo != "%%" && $tipo != ""){
                 $sentencia .= ' AND `denuncia anonima`.tipo_denuncia LIKE ?';
                 array_push($contador, $cont+1);
                 $ti = true;
