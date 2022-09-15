@@ -284,6 +284,33 @@
     display: none;
 }
 
+/*                     Canvas para mostrar gráficas                           */
+.contenedor-principal{
+    width: 90%;
+    height: 70vh;
+    display: flex;
+    flex-direction: row;    
+}
+
+.contenedor-canvas-1{
+    width: 50%;
+    height: auto;
+    border: solid 1px #6A1C32;
+    margin: 10px;
+}
+
+.contenedor-canvas-2{
+    width: 50%;
+    height: auto;
+    border: solid 1px #6A1C32;
+    margin: 10px;
+}
+
+#grafica1,
+#grafica2{
+    width: 400px;
+    height: 300px;
+}
 
 @media (max-width: 860px){
 
