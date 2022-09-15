@@ -287,29 +287,50 @@
 /*                     Canvas para mostrar gráficas                           */
 .contenedor-principal{
     width: 90%;
-    height: 70vh;
+    height: auto;
     display: flex;
     flex-direction: row;    
 }
 
 .contenedor-canvas-1{
-    width: 50%;
+    width: 31%;
     height: auto;
-    border: solid 1px #6A1C32;
     margin: 10px;
 }
 
 .contenedor-canvas-2{
-    width: 50%;
+    width: 31%;
     height: auto;
-    border: solid 1px #6A1C32;
     margin: 10px;
 }
 
-#grafica1,
-#grafica2{
+.contenedor-canvas-3{
+    width: 31%;
+    height: auto;
+    margin: 10px;
+}
+
+#grafica1{
     width: 400px;
     height: 300px;
+}
+
+#grafica2{
+    width: 400px;
+    height: 200px;
+}
+
+#grafica3{
+    width: 400px;
+    height: 200px;
+}
+
+.lista-tipo{
+    margin: 10px;
+}
+
+.lista-tipo p{
+    font-size: 12px;
 }
 
 @media (max-width: 860px){
