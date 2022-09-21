@@ -1,4 +1,16 @@
-    let grafica1 = document.getElementById("grafica1").getContext("2d");
+try{
+    console.log("ha entrado al try");
+    fetch('servidor/graficatipo.php')
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .catch(error => console.log(error));
+ 
+}catch(error){
+    console.log("no ha entrado al try");
+}
+
+
+let grafica1 = document.getElementById("grafica1").getContext("2d");
 
     const meses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
 
@@ -6,7 +18,9 @@
         label:"Denuncia anónima",
         backgroundColor:"rgb(220,12,03)",
         borderColor:"rgb(0,0,0)",
-        data:[70,30,40] 
+        data:[
+            
+        ] 
     };
 
     const denunciaC = {
