@@ -11,7 +11,8 @@
     $tipo = $_POST['tipo'];
     $descripcion = $_POST['descripcion'];
     $fecha = date("Y-m-d H:i:s");
-    
+    $etiqueta = "DSP";
+
     if($_FILES['evidencia']['name']!=""){  //Si existe archivo
         $nombreArchivo = $_FILES['evidencia']['name'];
         $archivoTemporal = $_FILES['evidencia']['tmp_name'];
@@ -71,8 +72,8 @@
             move_uploaded_file($archivoTemporal, $ruta);
 
             $stmt = $dbh-> prepare("INSERT INTO `denuncia servidor publico` 
-            (id_denuncia, id_usuario, asunto, descripcion, fecha, tipo_denuncia, nombre_evidencia) 
-            VALUES (?,?,?,?,?,?,?)");
+            (id_denuncia, id_usuario, asunto, descripcion, fecha, tipo_denuncia, nombre_evidencia, etiqueta) 
+            VALUES (?,?,?,?,?,?,?,?)");
             $stmt->bindParam(1,$id);
             $stmt->bindParam(2,$idUsuario);
             $stmt->bindParam(3,$asunto);
@@ -80,6 +81,7 @@
             $stmt->bindParam(5,$fecha);
             $stmt->bindParam(6,$tipo);
             $stmt->bindParam(7,$nombreFinal);
+            $stmt->bindParam(8,$etiqueta);
             $stmt->execute();
                     
             $stmt2 = $dbh-> prepare("INSERT INTO `estatus de denuncia` (id_denuncia_sp) VALUES (?)");

@@ -17,6 +17,7 @@
     $tipo = $_POST['tipo'];
     $descripcion = $_POST['descripcion'];
     $fecha = date("Y-m-d H:i:s");
+    $etiqueta = "DC";
 
     if($_FILES['evidencia']['name']!=""){  //Si existe archivo
         $nombreArchivo = $_FILES['evidencia']['name'];
@@ -77,8 +78,8 @@
             move_uploaded_file($archivoTemporal, $ruta);
 
             $stmt = $dbh-> prepare("INSERT INTO `denuncia ciudadana` 
-            (id_denuncia, nombre, edad, sexo, telefono, correo, direccion, asunto, descripcion, fecha, tipo_denuncia, nombre_evidencia) 
-            VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+            (id_denuncia, nombre, edad, sexo, telefono, correo, direccion, asunto, descripcion, fecha, tipo_denuncia, nombre_evidencia, etiqueta) 
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
             $stmt->bindParam(1,$id);
             $stmt->bindParam(2,$nombre);
             $stmt->bindParam(3,$edad);
@@ -91,6 +92,7 @@
             $stmt->bindParam(10,$fecha);
             $stmt->bindParam(11,$tipo);
             $stmt->bindParam(12,$nombreFinal);
+            $stmt->bindParam(13,$etiqueta);
             $stmt->execute();
                  
             
