@@ -18,6 +18,7 @@
     $descripcion = $_POST['descripcion'];
     $fecha = date("Y-m-d H:i:s");
     $etiqueta = "DC";
+    $estatus = "En espera";
 
     if($_FILES['evidencia']['name']!=""){  //Si existe archivo
         $nombreArchivo = $_FILES['evidencia']['name'];
@@ -96,8 +97,9 @@
             $stmt->execute();
                  
             
-            $stmt2 = $dbh-> prepare("INSERT INTO `estatus de denuncia` (id_denuncia_c) VALUES (?)");
+            $stmt2 = $dbh-> prepare("INSERT INTO `estatus de denuncia` (id_denuncia_c, estatus) VALUES (?,?)");
             $stmt2->bindParam(1,$id);
+            $stmt2->bindParam(2,$estatus);
             $stmt2->execute();
 
             $dbh=null; //Para cerrar la conexión a base de datos. 

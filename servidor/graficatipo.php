@@ -1,7 +1,7 @@
 <?php
 include 'conexion.php';
 
-$datosDC = [];
+$datos = [];
 
 try{
 
@@ -12,200 +12,200 @@ try{
         $stmt->execute();
 
         while($row = $stmt->fetch()){
-            $datosDC[] = [
+            $datos[] = [
                 'fecha' => $row->fecha,
                 'etiqueta' => $row->etiqueta
             ];
         }
     }
 
-    $eneroDC = array_filter($datosDC, function($item){
+    $eneroDC = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-01" && $etiqueta == "DC";
     });
-    $eneroDA = array_filter($datosDC, function($item){
+    $eneroDA = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-01" && $etiqueta == "DA";
     });
-    $eneroDSP = array_filter($datosDC, function($item){
+    $eneroDSP = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-01" && $etiqueta == "DSP";
     });
     
-    $febreroDC = array_filter($datosDC, function($item){
+    $febreroDC = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-02" && $etiqueta == "DC";
     });
-    $febreroDA = array_filter($datosDC, function($item){
+    $febreroDA = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-02" && $etiqueta == "DA";
     });
-    $febreroDSP = array_filter($datosDC, function($item){
+    $febreroDSP = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-02" && $etiqueta == "DSP";
     });
 
-    $marzoDC = array_filter($datosDC, function($item){
+    $marzoDC = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-03" && $etiqueta == "DC";
     });
-    $marzoDA = array_filter($datosDC, function($item){
+    $marzoDA = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-03" && $etiqueta == "DA";
     });
-    $marzoDSP = array_filter($datosDC, function($item){
+    $marzoDSP = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-03" && $etiqueta == "DSP";
     });
     
-    $abrilDC = array_filter($datosDC, function($item){
+    $abrilDC = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-04" && $etiqueta == "DC";
     });
-    $abrilDA = array_filter($datosDC, function($item){
+    $abrilDA = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-04" && $etiqueta == "DA";
     });
-    $abrilDSP = array_filter($datosDC, function($item){
+    $abrilDSP = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-04" && $etiqueta == "DSP";
     });
     
-    $mayoDC = array_filter($datosDC, function($item){
+    $mayoDC = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-05" && $etiqueta == "DC";
     });
-    $mayoDA = array_filter($datosDC, function($item){
+    $mayoDA = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-05" && $etiqueta == "DA";
     });
-    $mayoDSP = array_filter($datosDC, function($item){
+    $mayoDSP = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-05" && $etiqueta == "DSP";
     });
     
-    $junioDC = array_filter($datosDC, function($item){
+    $junioDC = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-06" && $etiqueta == "DC";
     });
-    $junioDA = array_filter($datosDC, function($item){
+    $junioDA = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-06" && $etiqueta == "DA";
     });
-    $junioDSP = array_filter($datosDC, function($item){
+    $junioDSP = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-06" && $etiqueta == "DSP";
     });
     
-    $julioDC = array_filter($datosDC, function($item){
+    $julioDC = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-07" && $etiqueta == "DC";
     });
-    $julioDA = array_filter($datosDC, function($item){
+    $julioDA = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-07" && $etiqueta == "DA";
     });
-    $julioDSP = array_filter($datosDC, function($item){
+    $julioDSP = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-07" && $etiqueta == "DSP";
     });
     
-    $agostoDC = array_filter($datosDC, function($item){
+    $agostoDC = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-08" && $etiqueta == "DC";
     });
-    $agostoDA = array_filter($datosDC, function($item){
+    $agostoDA = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-08" && $etiqueta == "DA";
     });
-    $agostoDSP = array_filter($datosDC, function($item){
+    $agostoDSP = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-08" && $etiqueta == "DSP";
     });
     
-    $septiembreDC = array_filter($datosDC, function($item){
+    $septiembreDC = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-09" && $etiqueta == "DC";
     });
-    $septiembreDA = array_filter($datosDC, function($item){
+    $septiembreDA = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-09" && $etiqueta == "DA";
     });
-    $septiembreDSP = array_filter($datosDC, function($item){
+    $septiembreDSP = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-09" && $etiqueta == "DSP";
     });
     
-    $octubreDC = array_filter($datosDC, function($item){
+    $octubreDC = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-10" && $etiqueta == "DC";
     });
-    $octubreDA = array_filter($datosDC, function($item){
+    $octubreDA = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-10" && $etiqueta == "DA";
     });
-    $octubreDSP = array_filter($datosDC, function($item){
+    $octubreDSP = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-10" && $etiqueta == "DSP";
     });
     
-    $noviembreDC = array_filter($datosDC, function($item){
+    $noviembreDC = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-11" && $etiqueta == "DC";
     });
-    $noviembreDA = array_filter($datosDC, function($item){
+    $noviembreDA = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-11" && $etiqueta == "DA";
     });
-    $noviembreDSP = array_filter($datosDC, function($item){
+    $noviembreDSP = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-11" && $etiqueta == "DSP";
     });
     
-    $diciembreDC = array_filter($datosDC, function($item){
+    $diciembreDC = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-12" && $etiqueta == "DC";
     });
-    $diciembreDA = array_filter($datosDC, function($item){
+    $diciembreDA = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-12" && $etiqueta == "DA";
     });
-    $diciembreDSP = array_filter($datosDC, function($item){
+    $diciembreDSP = array_filter($datos, function($item){
         $fecha = substr($item['fecha'], 0, 7);
         $etiqueta = $item['etiqueta'];
         return $fecha == "2022-12" && $etiqueta == "DSP";
