@@ -21,7 +21,7 @@ let grafica1 = document.getElementById("grafica1").getContext("2d");
 
 const denunciaA = {
     label:"Denuncia anónima",
-    backgroundColor:"rgb(220,12,03)",
+    backgroundColor:"rgb(255,165,0)",
     borderColor:"rgb(0,0,0)",
     data:[
         datos['eneroDA'], datos['febreroDA'], datos['marzoDA'], datos['abrilDA'], datos['mayoDA'],
@@ -32,7 +32,7 @@ const denunciaA = {
 
 const denunciaC = {
     label:"Denuncia ciudadana",
-    backgroundColor:"rgb(255,165,0)",
+    backgroundColor:"rgb(255,87,51)",
     borderColor:"rgb(106,28,50)",
     data:[
         datos['eneroDC'], datos['febreroDC'], datos['marzoDC'], datos['abrilDC'], datos['mayoDC'],
@@ -76,7 +76,7 @@ const graficaEstatus = (datos)=>{
     
     const enEspera = {
         label:"En espera",
-        backgroundColor:"rgb(255,165,0)",
+        backgroundColor:"rgb(255,195,0)",
         borderColor:"rgb(106,28,50)",
         data:[
             datos['enero1'], datos['febrero1'], datos['marzo1'], datos['abril1'], datos['mayo1'],
@@ -98,7 +98,7 @@ const graficaEstatus = (datos)=>{
     
     const Finalizado = {
         label:"Finalizado",
-        backgroundColor:"rgb(255,165,0)",
+        backgroundColor:"rgb(255,140,0)",
         borderColor:"rgb(106,28,50)",
         data:[
             datos['enero3'], datos['febrero3'], datos['marzo3'], datos['abril3'], datos['mayo3'],
@@ -110,7 +110,7 @@ const graficaEstatus = (datos)=>{
     
     const Cancelado = {
         label:"Cancelado",
-        backgroundColor:"rgb(255,165,0)",
+        backgroundColor:"rgb(255,87,51)",
         borderColor:"rgb(106,28,50)",
         data:[
             datos['enero4'], datos['febrero4'], datos['marzo4'], datos['abril4'], datos['mayo4'],
@@ -121,7 +121,7 @@ const graficaEstatus = (datos)=>{
     
     const noAplica = {
         label:"No aplica",
-        backgroundColor:"rgb(255,165,0)",
+        backgroundColor:"rgb(180,6,52)",
         borderColor:"rgb(106,28,50)",
         data:[
             datos['enero5'], datos['febrero5'], datos['marzo5'], datos['abril5'], datos['mayo5'],
@@ -152,7 +152,7 @@ function graficaAsunto(datos){
 
     const abuso = {
         label:"Abuso de autoridad",
-        backgroundColor:"rgb(255,165,0)",
+        backgroundColor:"rgb(255,195,0)",
         borderColor:"rgb(106,28,50)",
         data:[
             datos['enero1'], datos['febrero1'], datos['marzo1'], datos['abril1'], datos['mayo1'],
@@ -174,7 +174,7 @@ function graficaAsunto(datos){
     
     const soborno = {
         label:"Soborno para algún trámite o servicio",
-        backgroundColor:"rgb(255,165,0)",
+        backgroundColor:"rgb(255,140,0)",
         borderColor:"rgb(106,28,50)",
         data:[
             datos['enero3'], datos['febrero3'], datos['marzo3'], datos['abril3'], datos['mayo3'],
@@ -186,7 +186,7 @@ function graficaAsunto(datos){
     
     const incumplimiento = {
         label:"Incumplimiento o mal uso de un programa o acción social",
-        backgroundColor:"rgb(255,165,0)",
+        backgroundColor:"rgb(255,87,51)",
         borderColor:"rgb(106,28,50)",
         data:[
             datos['enero4'], datos['febrero4'], datos['marzo4'], datos['abril4'], datos['mayo4'],
@@ -197,7 +197,7 @@ function graficaAsunto(datos){
     
     const trato = {
         label:"Trato irrespetuoso y mala conducta",
-        backgroundColor:"rgb(255,165,0)",
+        backgroundColor:"rgb(210,105,30)",
         borderColor:"rgb(106,28,50)",
         data:[
             datos['enero5'], datos['febrero5'], datos['marzo5'], datos['abril5'], datos['mayo5'],
@@ -208,7 +208,7 @@ function graficaAsunto(datos){
     
     const servidor = {
         label:"Servidor público autorisa, solicita o realiza actos para su beneficio",
-        backgroundColor:"rgb(255,165,0)",
+        backgroundColor:"rgb(180,6,52)",
         borderColor:"rgb(106,28,50)",
         data:[
             datos['enero6'], datos['febrero6'], datos['marzo6'], datos['abril6'], datos['mayo6'],
@@ -219,7 +219,7 @@ function graficaAsunto(datos){
     
     const solicitud = {
         label:"Solicitud de documentos o dinero adicional para la expedición de documentos",
-        backgroundColor:"rgb(255,165,0)",
+        backgroundColor:"rgb(144,12,63)",
         borderColor:"rgb(106,28,50)",
         data:[
             datos['enero7'], datos['febrero7'], datos['marzo7'], datos['abril7'], datos['mayo7'],
@@ -230,7 +230,7 @@ function graficaAsunto(datos){
     
     const otro = {
         label:"Otro",
-        backgroundColor:"rgb(255,165,0)",
+        backgroundColor:"rgb(88,24,69)",
         borderColor:"rgb(106,28,50)",
         data:[
             datos['enero8'], datos['febrero8'], datos['marzo8'], datos['abril8'], datos['mayo8'],
