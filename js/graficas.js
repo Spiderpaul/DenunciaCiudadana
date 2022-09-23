@@ -8,6 +8,11 @@ fetch('servidor/graficaasunto.php')
     .then(datos => graficaAsunto(datos))
     .catch(error => console.log(error));
 
+fetch('servidor/graficaestatus.php')
+    .then(res => res.json())
+    .then(datos => graficaEstatus(datos))
+    .catch(error => console.log(error));
+
 const meses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
 
 const graficaTipo = (datos) => {
@@ -63,8 +68,87 @@ var chart = new Chart(grafica1, {
 
 //                                                      Gráfica 2
 
-function graficaAsunto(datos){
+
+
+
+const graficaEstatus = (datos)=>{
     let grafica2 = document.getElementById("grafica2").getContext("2d");
+    
+    const enEspera = {
+        label:"En espera",
+        backgroundColor:"rgb(255,165,0)",
+        borderColor:"rgb(106,28,50)",
+        data:[
+            datos['enero1'], datos['febrero1'], datos['marzo1'], datos['abril1'], datos['mayo1'],
+            datos['junio1'], datos['julio1'], datos['agosto1'], datos['septiembre1'], datos['octubre1'],
+            datos['noviembre1'], datos['diciembre1'],
+        ]
+    };
+    
+    const enProceso = {
+        label:"En proceso",
+        backgroundColor:"rgb(255,165,0)",
+        borderColor:"rgb(106,28,50)",
+        data:[
+            datos['enero2'], datos['febrero2'], datos['marzo2'], datos['abril2'], datos['mayo2'],
+            datos['junio2'], datos['julio2'], datos['agosto2'], datos['septiembre2'], datos['octubre2'],
+            datos['noviembre2'], datos['diciembre2'],
+        ]
+    };
+    
+    const Finalizado = {
+        label:"Finalizado",
+        backgroundColor:"rgb(255,165,0)",
+        borderColor:"rgb(106,28,50)",
+        data:[
+            datos['enero3'], datos['febrero3'], datos['marzo3'], datos['abril3'], datos['mayo3'],
+            datos['junio3'], datos['julio3'], datos['agosto3'], datos['septiembre3'], datos['octubre3'],
+            datos['noviembre3'], datos['diciembre3'],
+        ]
+    };
+    
+    
+    const Cancelado = {
+        label:"Cancelado",
+        backgroundColor:"rgb(255,165,0)",
+        borderColor:"rgb(106,28,50)",
+        data:[
+            datos['enero4'], datos['febrero4'], datos['marzo4'], datos['abril4'], datos['mayo4'],
+            datos['junio4'], datos['julio4'], datos['agosto4'], datos['septiembre4'], datos['octubre4'],
+            datos['noviembre4'], datos['diciembre4'],
+        ]
+    };
+    
+    const noAplica = {
+        label:"No aplica",
+        backgroundColor:"rgb(255,165,0)",
+        borderColor:"rgb(106,28,50)",
+        data:[
+            datos['enero5'], datos['febrero5'], datos['marzo5'], datos['abril5'], datos['mayo5'],
+            datos['junio5'], datos['julio5'], datos['agosto5'], datos['septiembre5'], datos['octubre5'],
+            datos['noviembre5'], datos['diciembre5'],
+        ]
+    };
+
+    var chart = new Chart(grafica2, {
+        type: "bar",
+        data: {
+            labels: meses,
+            datasets:[
+                enEspera,
+                enProceso,
+                Finalizado,
+                Cancelado,
+                noAplica
+            ]
+        }
+    })
+}
+
+//                                    Gráfica 3
+
+function graficaAsunto(datos){
+    let grafica3 = document.getElementById("grafica3").getContext("2d");
 
     const abuso = {
         label:"Abuso de autoridad",
@@ -155,7 +239,7 @@ function graficaAsunto(datos){
         ]
     };
     
-    var chart = new Chart(grafica2, {
+    var chart = new Chart(grafica3, {
         type: "bar",
         data: {
             labels: meses,
@@ -172,22 +256,3 @@ function graficaAsunto(datos){
         }
     })
 }
-
-
-
-let grafica3 = document.getElementById("grafica3").getContext("2d");
-
-var chart = new Chart(grafica3, {
-    type: "bar",
-    data: {
-        labels:[1,2,3,4],
-        datasets:[
-            {
-                label:"Estatus de denuncia",
-                backgroundColor:"rgb(255,165,0)",
-                borderColor:"rgb(106,28,50)",
-                data:[23,5,16,7] 
-            }
-        ]
-    }
-})

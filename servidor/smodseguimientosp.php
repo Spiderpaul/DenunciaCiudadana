@@ -60,6 +60,7 @@ function modificarSeguimiento($dbh, $id, $sesionAsesor){
                                     <option value="En espera" disabled="" selected="">En espera</option>
                                     <option value="En proceso">En proceso</option>
                                     <option value="Finalizado">Finalizado</option>
+                                    <option value="Cancelado">Cancelado</option>
                                     <option value="No aplica">No aplica</option>
                                 <?php
                                     }else if($row->estatus == "En proceso"){
@@ -67,6 +68,7 @@ function modificarSeguimiento($dbh, $id, $sesionAsesor){
                                     <option value="En espera" disabled="">En espera</option>
                                     <option value="En proceso" selected="">En proceso</option>
                                     <option value="Finalizado">Finalizado</option>
+                                    <option value="Cancelado">Cancelado</option>
                                     <option value="No aplica">No aplica</option>
                                 <?php
                                     }else if($row->estatus == "Finalizado"){
@@ -74,13 +76,23 @@ function modificarSeguimiento($dbh, $id, $sesionAsesor){
                                     <option value="En espera" disabled="">En espera</option>
                                     <option value="En proceso">En proceso</option>
                                     <option value="Finalizado" selected="">Finalizado</option>
-                                        <option value="No aplica">No aplica</option>
+                                    <option value="Cancelado">Cancelado</option>
+                                    <option value="No aplica">No aplica</option>
+                                <?php
+                                    }else if($row->estatus == "Cancelado"){
+                                ?>
+                                    <option value="En espera" disabled="">En espera</option>
+                                    <option value="En proceso">En proceso</option>
+                                    <option value="Finalizado">Finalizado</option>
+                                    <option value="Cancelado" selected="">Cancelado</option>
+                                    <option value="No aplica">No aplica</option>
                                 <?php
                                     }else if($row->estatus == "No aplica"){
                                 ?>
                                     <option value="En espera" disabled="">En espera</option>
                                     <option value="En proceso">En proceso</option>
                                     <option value="Finalizado">Finalizado</option>
+                                    <option value="Cancelado">Cancelado</option>
                                     <option value="No aplica" selected="">No aplica</option>
                                 <?php
                                     }

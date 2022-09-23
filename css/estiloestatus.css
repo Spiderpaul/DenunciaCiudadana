@@ -296,18 +296,29 @@
     width: 50%;
     height: auto;
     margin: 10px;
+    text-align: center;
 }
 
 .contenedor-canvas-2{
     width: 50%;
     height: auto;
     margin: 10px;
+    text-align: center;
 }
 
 .contenedor-canvas-3{
-    width: 50%;
+    width: 60%;
     height: auto;
     margin: 10px;
+    text-align: center;
+
+}
+
+.contenedor-canvas-1 h3,
+.contenedor-canvas-2 h3,
+.contenedor-canvas-3 h3{
+    color: #4d4d4d;
+    margin: auto;
 }
 
 #grafica1{
