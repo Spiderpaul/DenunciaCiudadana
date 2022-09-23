@@ -1,28 +1,25 @@
 <?php require('./vistas/cabecera.php')?>
 <div class="contenedor-principal">
     <div class="contenedor-canvas-1">
+        <h3>Tipo de usuario</h3>
         <canvas id="grafica1">
         
         </canvas>
     </div>
 
     <div class="contenedor-canvas-2">
+        <h3>Estatus de denuncia</h3>
         <canvas id="grafica2">
         
         </canvas>
     </div>
 </div>
 <div class="contenedor-canvas-3">
+        <h3>Tipo de denuncia</h3>
         <canvas id="grafica3">
         
         </canvas>
-        <div class="lista-tipo">
-                <p>1 En espera</p>
-                <p>2 En proceso</p>
-                <p>3 Cancelado</p>
-                <p>4 No aplica</p>
-        </div>
-    </div>
+</div>
 
 <script src="js/graficas.js"></script>
 
