@@ -146,6 +146,4 @@
                 alert("No ha verificado el captcha");
                 window.history.back();
                 </script>';
-    }   
-    
-?>
+    }

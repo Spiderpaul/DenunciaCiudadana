@@ -42,4 +42,3 @@
                 window.history.back();
                 </script>';
     }
-?>

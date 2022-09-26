@@ -617,4 +617,3 @@ try{
 
 // var_dump($denunciaCiudadana);
 echo json_encode($denunciaCiudadana);
-?>

@@ -68,5 +68,3 @@
                 window.history.back();
                 </script>';
     }
-             
-?>

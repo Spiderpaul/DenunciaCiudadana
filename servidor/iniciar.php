@@ -132,6 +132,4 @@
             location.href="../iniciarsesion.php";
         }
         </script>';*/
-    }   
-
-?>
+    }

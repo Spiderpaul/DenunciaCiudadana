@@ -17,4 +17,3 @@
         echo $e->getMessage();
         echo "sin conexión <br><br>";
     }
-?>

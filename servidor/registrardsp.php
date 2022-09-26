@@ -113,4 +113,3 @@
                 window.history.back();
                 </script>';
     }
-?>

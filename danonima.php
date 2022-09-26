@@ -1,4 +1,4 @@
-<?php require('./vistas/cabecera.php')?>
+<?php require('./vistas/cabecera.php') ?>
 
 <div class="div-formulario-da">
 
@@ -11,16 +11,14 @@
         <p>Datos de denuncia</p>
     </div>
 
-    <form id="form-danonima" class="form-danonima" action="servidor/registrarda.php" method="post" 
-    enctype="multipart/form-data">
+    <form id="form-danonima" class="form-danonima" action="servidor/registrarda.php" method="post" enctype="multipart/form-data">
         <div class="div-form-a">
             <div class="control-form">
                 <div class="asunto-tipo">
                     <!---                     Asunto                        --->
                     <div class="div-asunto" id="div-asunto">
                         <p>Asunto</p>
-                        <input type="text" class="form-control" name="asunto" id="form_asunto" 
-                        placeholder="   Escriba el asunto que desea denunciar">
+                        <input type="text" class="form-control" name="asunto" id="form_asunto" placeholder="   Escriba el asunto que desea denunciar">
                         <p class="alerta-asunto" id="alerta-asunto">
                             Título de denuncia, máximo 60 caracteres.
                         </p>
@@ -48,7 +46,7 @@
                     <textarea rows="10" cols="40" class="form-control" name="descripcion" id="form_descripcion"></textarea>
                     <p class="alerta-descripcion" id="alerta-descripcion">
                         Describa el problema a denunciar, máximo 1000 caracteres.
-                    </p> 
+                    </p>
                 </div>
                 <!---                     Adjunto                        --->
                 <div class="control-archivo" id="div-archivo">
@@ -56,19 +54,19 @@
                     <input type="file" class="evidencia" name="evidencia" id="evidencia">
                     <p class="alerta-evidencia" id="alerta-evidencia">
                         Solo se aceptan archivos con formato PDF, DOCX, JPG y PNG.
-                    </p> 
+                    </p>
                     <p class="alerta-evidencia-peso" id="alerta-evidencia-peso">
                         El archivo no debe exceder los 16MB.
-                    </p> 
+                    </p>
                 </div>
             </div>
         </div>
 
         <div class="boton-form">
-                <button class="boton-registrar" id="boton-registrar" type="submit">Enviar</button>
-        </div> 
+            <button class="boton-registrar" id="boton-registrar" type="submit">Enviar</button>
+        </div>
     </form>
 
 </div>
 <script src="js/danonima.js"></script>
-<?php require('./vistas/pie.php')?>
+<?php require('./vistas/pie.php') ?>

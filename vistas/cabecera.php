@@ -1,7 +1,9 @@
-<?php require('./servidor/sesion.php') //Control de sesiones?> 
+<?php require('./servidor/sesion.php') //Control de sesiones
+?>
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,8 +16,9 @@
     <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.js"></script>
 </head>
+
 <body>
     <!------------------Menú de inicio---------------------------->
     <div class="contenedor-menu">
@@ -27,40 +30,40 @@
                 </label>
                 <ul class="izquierdo">
                     <li><a href="index.php">Inicio</a></li>
-                    
-                    <?php 
-                        if(!isset($_SESSION['rol_usuario'])){ //Si no hay sesión de usuario...
+
+                    <?php
+                    if (!isset($_SESSION['rol_usuario'])) { //Si no hay sesión de usuario...
                     ?>
 
                         <li><a href="dciudadana.php">Denuncia ciudadana</a></li>
                         <li><a href="danonima.php">Denuncia anónima</a></li>
                         <li><a href="estatusd.php">Estatus de denuncia</a></li>
                         <li><a href="buzonquejas.php">Buzón de quejas</a></li>
-                        
-                    <?php 
-                        } else if($_SESSION['rol_usuario']=="Servidor"){  //Si el usuario es "Servidor Público"...
-                    ?>
-                        
-                        <li><a href="dciudadanas.php">Denuncia ciudadana</a></li>
-                        <li><a href="estatusd.php">Estatus de denuncia</a></li>                        
 
-                    <?php 
-                        } else if($_SESSION['rol_usuario']=="Asesor"){ //Si el usuario es "Asesor de denuncia"...
+                    <?php
+                    } else if ($_SESSION['rol_usuario'] == "Servidor") {  //Si el usuario es "Servidor Público"...
+                    ?>
+
+                        <li><a href="dciudadanas.php">Denuncia ciudadana</a></li>
+                        <li><a href="estatusd.php">Estatus de denuncia</a></li>
+
+                    <?php
+                    } else if ($_SESSION['rol_usuario'] == "Asesor") { //Si el usuario es "Asesor de denuncia"...
                     ?>
                         <li><a href="dciudadana.php">Denuncia ciudadana</a></li>
                         <li><a href="danonima.php">Denuncia anónima</a></li>
                         <li><a href="estatusd.php">Estatus</a></li>
                         <li><a href="seguimientoda.php">Seguimiento</a></li>
-                    <?php 
-                        } else if($_SESSION['rol_usuario']=="Administrador"){
+                    <?php
+                    } else if ($_SESSION['rol_usuario'] == "Administrador") {
                     ?>
                         <li><a href="estatusd.php">Estatus</a></li>
                         <li><a href="seguimientoda.php">Seguimiento</a></li>
                         <li><a href="reportesda.php">Reportes</a></li>
                         <li><a href="estadisticas.php">Estadísticas</a></li>
                         <li><a href="usuarios.php">Usuarios</a></li>
-                    <?php 
-                        }
+                    <?php
+                    }
                     ?>
                 </ul>
             </nav>
@@ -68,30 +71,30 @@
         <div class="menu2">
             <nav class="barra-menu2">
                 <ul class="derecho">
-                    <?php 
-                        if(!isset($_SESSION['rol_usuario'])){ 
+                    <?php
+                    if (!isset($_SESSION['rol_usuario'])) {
                     ?>
                         <li><a href="registrarusuario.php">Crear cuenta</a></li>
-                        <li><a href="iniciarsesion.php">Iniciar sesión</a></li>                
+                        <li><a href="iniciarsesion.php">Iniciar sesión</a></li>
 
-                    <?php 
-                        }else if($_SESSION['rol_usuario'] == "Servidor"){ 
+                    <?php
+                    } else if ($_SESSION['rol_usuario'] == "Servidor") {
                     ?>
-                        
+
                         <li><a href="perfil.php">Perfil</a></li>
                         <li><a href="servidor/cerrar.php">Cerrar sesión</a></li>
 
-                    <?php 
-                        }else if($_SESSION['rol_usuario'] != "Servidor"){
+                    <?php
+                    } else if ($_SESSION['rol_usuario'] != "Servidor") {
                     ?>
                         <li><a href="servidor/cerrar.php">Cerrar sesión</a></li>
-                    <?php 
-                        }
+                    <?php
+                    }
                     ?>
                 </ul>
             </nav>
         </div>
     </div>
 
-    
+
     <div class="contenedor-cuerpo">

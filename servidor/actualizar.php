@@ -69,25 +69,20 @@
                         alert("Se ha realizado la modificación con éxito");
                         location.href="../usuarios.php";
                         </script>';
-                } else{
-                    echo '<script language="javascript">
-                        alert("Error al conectar la base de datos");
-                        window.history.back();
-                        </script>';
-                }
-                    
-            }catch(PDOException $e){
+
+                        
+                }catch(PDOException $e){
                 echo '<script language="javascript">
                         alert("Se ha detectado un error al conectar a la base de datos");
                         window.history.back();
                         </script>';
-            }     
-        }else{
+                }     
+            }else{
             echo '<script language="javascript">
                 alert("La contraseña cumple con el formato correcto");
                 window.history.back();
                 </script>';
-        }
+            }
     }else{
         echo '<script language="javascript">
                 alert("La contraseña no coincide");
@@ -99,5 +94,10 @@
                 alert("No ha verificado el captcha");
                 window.history.back();
                 </script>';  
-    }   
-?>
+    } 
+} else{
+    echo '<script language="javascript">
+        alert("Error al conectar la base de datos");
+        window.history.back();
+        </script>';
+}

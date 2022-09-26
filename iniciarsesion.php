@@ -1,4 +1,4 @@
-<?php require('./vistas/cabecera.php')?>
+<?php require('./vistas/cabecera.php') ?>
 
 
 <div class="div-formulario-i">
@@ -10,7 +10,7 @@
     <div class="div-titulo-i">
         <p>Inicio de sesión</p>
     </div>
-    
+
     <form id="form-dciudadana-p" class="form-dciudadana-p" action="servidor/iniciar.php" method="POST">
 
         <div class="div-form-i">
@@ -31,17 +31,17 @@
                 </div>
                 <div class="div-captcha">
                     <div class="uno"></div>
-                    <div class="g-recaptcha"  data-sitekey="6LdyP_ofAAAAAC6eC90cO5tBcYKO1nE1ENpPGgLJ"></div>
+                    <div class="g-recaptcha" data-sitekey="6LdyP_ofAAAAAC6eC90cO5tBcYKO1nE1ENpPGgLJ"></div>
                     <div class="dos"></div>
                 </div>
             </div>
         </div>
-        
+
         <div class="boton-form-i">
             <button class="boton-registrar" id="boton-registrar" type="submit" disabled>Enviar</button>
         </div>
     </form>
-    
+
 </div>
 <script src="js/iniciarsesion.js"></script>
-<?php require('./vistas/pie.php')?>
+<?php require('./vistas/pie.php') ?>

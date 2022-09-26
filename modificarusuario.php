@@ -1,4 +1,4 @@
-<?php require('./vistas/cabecera.php')?>
+<?php require('./vistas/cabecera.php') ?>
 <?php include 'servidor/conexion.php'; ?>
 <?php include 'servidor/smodificarusuario.php'; ?>
 
@@ -12,25 +12,25 @@
     <div class="div-titulo">
         <p>Datos personales</p>
     </div>
-    
+
     <form id="form-dciudadana-p" class="form-dciudadana-p" action="servidor/actualizar.php" method="POST">
 
-            <?php
+        <?php
 
-                if(isset($_GET['id'])){
-                    $idUsuario = $_GET['id'];
-                }else{
-                    $idUsuario = "";
-                }
+        if (isset($_GET['id'])) {
+            $idUsuario = $_GET['id'];
+        } else {
+            $idUsuario = "";
+        }
 
-                if($dbh != null){
+        if ($dbh != null) {
 
-                    modificar($dbh, $idUsuario);
-                }
-                
-                ?> 
+            modificar($dbh, $idUsuario);
+        }
+
+        ?>
     </form>
-    
+
 </div>
 <script src="js/modificarusuario.js"></script>
-<?php require('./vistas/pie.php')?>
+<?php require('./vistas/pie.php') ?>
