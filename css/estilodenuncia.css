@@ -627,6 +627,30 @@ div.contenido {
   border-radius: 3px;
 }
 
+/*                          Modificar y canelar perfil y usuario botones                             */
+
+.boton-cancelar-m{
+  background: #6a1c32;
+  color: white;
+  font-size: large;
+  width: 50%;
+  height: 40px;
+  margin-top: 5px;
+  border-style: none;
+  border-radius: 3px;
+}
+
+.boton-registrar-m{
+  background: #6a1c32;
+  color: white;
+  font-size: large;
+  width: 50%;
+  height: 40px;
+  margin-top: 5px;
+  border-style: none;
+  border-radius: 3px;
+}
+
 /*                                Modificar usuario botones                             */
 
 .boton-form-modificar {

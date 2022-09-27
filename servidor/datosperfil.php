@@ -14,15 +14,21 @@ function cargarDatos($dbh)
     while ($row = $stmt->fetch()) {
 
 ?>
-        <div class="control1-p">
-            <div class="div-nombre">
-                <p>Nombre: <?php echo $row->nombre; ?></p>
+        <div class="datos-usuario">
+            <div class="div-id">
+                <h3>Identificativo: <?php echo $idUsuario; ?></h3>
             </div>
-            <div class="div-edad">
-                <p>Edad: <?php echo $row->edad; ?></p>
+            <div class="dato-u">
+                <h3>Nombre: </h3>
+                <h4> <?php echo $row->nombre; ?> </h4>
             </div>
-            <div class="div-sexo">
-                <p>Sexo: <?php
+            <div class="dato-u">
+                <h3>Edad: </h3>
+                <h4> <?php echo $row->edad; ?> </h4>
+            </div>
+            <div class="dato-u">
+                <h3>Sexo: </h3>
+                <h4><?php
                             if ($row->sexo == "M") {
                                 echo "Masculino";
                             } else if ($row->sexo == "F") {
@@ -30,30 +36,26 @@ function cargarDatos($dbh)
                             } else {
                                 echo "Indefinido";
                             }
-                            ?></p>
+                            ?></h4>
             </div>
-        </div>
-        <div class="control2-p">
-            <div class="control2-p-hijo">
-                <p>Teléfono: <?php echo $row->telefono; ?></p>
+            <div class="dato-u">
+                <h3>Teléfono: </h3>
+                <h4> <?php echo $row->telefono; ?> </h4>
             </div>
-            <div class="control2-p-hijo">
-                <p>Correo electrónico: <?php echo $row->correo; ?> </p>
+            <div class="dato-u">
+                <h3>Correo electrónico: <?php echo $row->correo; ?> </h3>
+                <h4> <?php echo $row->correo; ?> </h4>
             </div>
-        </div>
-        <div class="control3-p">
-            <div class="control3-p-hijo">
-                <p>Dirección: <?php echo $row->direccion; ?> </p>
+            <div class="dato-u">
+                <h3>Dirección: </h3>
+                <h4> <?php echo $row->direccion; ?> </h4>
             </div>
-        </div>
-        <div class="div-titulo-d">
-            <p>Datos laborales</p>
-        </div>
-        <div class="control2">
-            <p>Área de trabajo: <?php echo $row->area; ?> </p>
-        </div>
+            <div class="dato-u">
+                <h3>Área de trabajo: </h3>
+                <h4> <?php echo $row->area; ?> </h4>
+            </div>
 
-<?php
+    <?php
     }
 }
-?>
+    ?>
