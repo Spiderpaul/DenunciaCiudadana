@@ -73,12 +73,14 @@ if ($atributos['success']) {
                         $datos = $stmt->fetch();
 
                         $cont = $stmt->rowCount();
-                    } else if ($cont == 0) {
-                        echo '<script language="javascript">
-                                    alert("Identificativo o Contraseña incorrectos");
-                                    window.history.back();
-                                    </script>';
-                    }
+
+                        if ($cont == 0) {
+                            echo '<script language="javascript">
+                                        alert("Identificativo o Contraseña incorrectos");
+                                        window.history.back();
+                                        </script>';
+                        }
+                    } 
                 }
                 if (isset($datos['id_usuario']) || isset($datos['id_asesor'])) { //Si existe el usuario. 
                     session_regenerate_id(true);

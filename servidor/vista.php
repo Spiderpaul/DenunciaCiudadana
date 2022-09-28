@@ -32,8 +32,8 @@ if(isset($_GET['id'])){
 
         header('Content-Type:'.$row->nombre_evidencia);
         echo '<iframe class="visor-archivos" src="../documentos/'.$row->nombre_evidencia.'" 
-        alt="Documento evidencia" width=100% height=100% align=center>Este navegador no puede visualizar el documento</iframe>';
-        
+        alt="Documento evidencia" width="100%" height="100%" align="center">Este navegador no puede visualizar el documento</iframe>';
+
     }catch(PDOException $e){
         echo '<script language="javascript">
                 alert("Se ha detectado un error al conectar la base de datos");
