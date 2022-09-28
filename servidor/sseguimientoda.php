@@ -16,7 +16,7 @@ function tabla($dbh)
             WHERE `denuncia anonima`.id_denuncia = `estatus de denuncia`.id_denuncia_a;");
             $stmt->execute();
         } else {
-            $stmt = $dbh->prepare("SELECT * FROM `denuncia anonima` JOIN `estatus de denuncia` JOIN asesor
+            $stmt = $dbh->prepare("SELECT * FROM `denuncia anonima` JOIN `estatus de denuncia`
             WHERE `denuncia anonima`.id_denuncia = `estatus de denuncia`.id_denuncia_a
             AND `denuncia anonima`.id_denuncia LIKE ?;");
             /*Está pendiente arreglar la sentencia para que el usuario haga búsquedas por id de asesor

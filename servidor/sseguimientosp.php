@@ -3,7 +3,7 @@ include 'conexion.php';
 
 function tabla($dbh)
 {
-    echo "Ha entrado a modificar usuario";
+
     if (isset($_POST['buscar'])) {
         $buscador = "%" . $_POST['buscar'] . "%";
     } else {
@@ -17,7 +17,7 @@ function tabla($dbh)
             WHERE `denuncia servidor publico`.id_denuncia = `estatus de denuncia`.id_denuncia_sp;");
             $stmt->execute();
         } else {
-            $stmt = $dbh->prepare("SELECT * FROM `denuncia ciudadana` JOIN `estatus de denuncia`
+            $stmt = $dbh->prepare("SELECT * FROM `denuncia servidor publico` JOIN `estatus de denuncia`
             WHERE `denuncia servidor publico`.id_denuncia = `estatus de denuncia`.id_denuncia_sp
             AND `denuncia servidor publico`.id_denuncia LIKE ?;");
             /*Está pendiente arreglar la sentencia para que el usuario haga búsquedas por id de asesor
