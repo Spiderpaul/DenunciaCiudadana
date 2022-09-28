@@ -81,6 +81,7 @@ if ($atributos['success']) {
                     }
                 }
                 if (isset($datos['id_usuario']) || isset($datos['id_asesor'])) { //Si existe el usuario. 
+                    session_regenerate_id(true);
                     if (isset($datos['id_usuario'])) {
                         $_SESSION['id_usuario'] = $datos['id_usuario']; //Se agregan los datos a las variables de sesion. 
                     } else if (isset($datos['id_asesor'])) {

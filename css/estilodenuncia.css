@@ -324,10 +324,6 @@ div.contenido {
 
 /*    Componentes de información personal de denuncia ciudadana   */
 
-.control-form {
-  height: auto;
-}
-
 .control1-p {
   width: 90%;
   height: 55px;
@@ -625,6 +621,7 @@ div.contenido {
   margin-top: 5px;
   border-style: none;
   border-radius: 3px;
+  cursor: pointer;
 }
 
 /*                          Modificar y canelar perfil y usuario botones                             */
@@ -638,6 +635,7 @@ div.contenido {
   margin-top: 5px;
   border-style: none;
   border-radius: 3px;
+  cursor: pointer;
 }
 
 .boton-registrar-m{
@@ -649,6 +647,7 @@ div.contenido {
   margin-top: 5px;
   border-style: none;
   border-radius: 3px;
+  cursor: pointer;
 }
 
 /*                                Modificar usuario botones                             */
@@ -681,6 +680,7 @@ div.contenido {
   margin-top: 5px;
   border-style: none;
   border-radius: 3px;
+  cursor: pointer;
 }
 
 .deshabilitado {

@@ -243,6 +243,7 @@
   width: 30%;
   height: 30px;
   margin-top: 10px;
+  cursor: pointer;
 }
 
 .seccion-denuncia {
@@ -405,6 +406,7 @@
   margin: center;
   font-size: large;
   font-weight: 600;
+  cursor: pointer;
 }
 
 @media (max-width: 860px) {
