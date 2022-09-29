@@ -1,6 +1,7 @@
 <?php
 include 'conexion.php';
 
+
 //$id = isset($_GET['id'])?$_GET['id'] : "";
 
 if(isset($_GET['id'])){
@@ -30,9 +31,13 @@ if(isset($_GET['id'])){
 
         $row = $stmt->fetch();
 
+        $documento = $row->nombre_evidencia;
+        
         header('Content-Type:'.$row->nombre_evidencia);
-        echo '<iframe class="visor-archivos" src="../documentos/'.$row->nombre_evidencia.'" 
-        alt="Documento evidencia" width="100%" height="100%" align="center">Este navegador no puede visualizar el documento</iframe>';
+        // echo '<iframe class="visor-archivos" src="../documentos/'.$row->nombre_evidencia.'" 
+        //         alt="Documento evidencia" width="100%" height="100%" align="center">Este navegador no puede 
+        //          visualizar el documento</iframe>';
+        header("Location:documento.php?documento=$documento");
 
     }catch(PDOException $e){
         echo '<script language="javascript">
@@ -44,3 +49,5 @@ if(isset($_GET['id'])){
 }else{
     header("Location:iniciarsesion.php");
 }
+
+
