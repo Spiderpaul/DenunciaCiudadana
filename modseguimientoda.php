@@ -7,7 +7,9 @@
     <div class="datos-denuncia">
         <?php
         $sesionAsesor = $_SESSION['id_usuario'];
+        
         if (isset($_GET['id'])) {
+
             $id = $_GET['id'];
 
             modificarSeguimiento($dbh, $id, $sesionAsesor);

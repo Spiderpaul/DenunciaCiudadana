@@ -3,31 +3,27 @@
     session_start();
     
     $sesionAsesor = $_SESSION['id_usuario'];
+    $cambioAsesor = null;
     $idDenuncia = $_POST['id'];
     $estatus = $_POST['estatus'];
     $nota = $_POST['nota'];
-  
+    $rol = $_SESSION['rol_usuario'];
+
     if($dbh!=null){  //Si hay una conexión esté establecida.
          
         try{
 
-
-            $stmt = $dbh->prepare("SELECT id_usuario FROM administrador WHERE id_usuario = ?");
-            $stmt->bindParam(1,$sesionAsesor);
-            $stmt->execute();
-            $cont = $stmt->rowCount(); //Cuenta el número de filas con datos.   
-
-            
-            if($cont == 0){
+            if($rol == "Asesor"){
 
                 //Se realiza el registro con sentencias preparadas.
                 $stmt = $dbh-> prepare("UPDATE `estatus de denuncia` 
-                SET id_asesor = ?, estatus = ?, nota = ? 
-                WHERE id_denuncia_a = ?");
+                SET id_asesor = ?, id_administrador = ?, estatus = ?, nota = ? 
+                WHERE id_denuncia_a = ?;");
                 $stmt->bindParam(1,$sesionAsesor);
-                $stmt->bindParam(2,$estatus);
-                $stmt->bindParam(3,$nota);
-                $stmt->bindParam(4,$idDenuncia);
+                $stmt->bindParam(2,$cambioAsesor);
+                $stmt->bindParam(3,$estatus);
+                $stmt->bindParam(4,$nota);
+                $stmt->bindParam(5,$idDenuncia);
                 $stmt->execute();
 
                 $dbh=null; //Para cerrar la conexión a base de datos. 
@@ -36,24 +32,28 @@
                     alert("Se ha realizado la modificación con éxito");
                     location.href="../seguimientoda.php";
                     </script>';
+
+            } else if($rol == "Administrador"){
+
+                //Se realiza el registro con sentencias preparadas.
+                $stmt = $dbh-> prepare("UPDATE `estatus de denuncia` 
+                SET id_asesor = ?, id_administrador = ?, estatus = ?, nota = ? 
+                WHERE id_denuncia_a = ?;");
+                $stmt->bindParam(1,$cambioAsesor);
+                $stmt->bindParam(2,$sesionAsesor);
+                $stmt->bindParam(3,$estatus);
+                $stmt->bindParam(4,$nota);
+                $stmt->bindParam(5,$idDenuncia);
+                $stmt->execute();
+                    
+                $dbh=null; //Para cerrar la conexión a base de datos. 
+    
+                echo '<script language="javascript">
+                    alert("Se ha realizado la modificación con éxito");
+                    location.href="../seguimientoda.php";
+                    </script>';
+    
             }
-
-            //Se realiza el registro con sentencias preparadas.
-            $stmt = $dbh-> prepare("UPDATE `estatus de denuncia` 
-            SET id_administrador = ?, estatus = ?, nota = ? 
-            WHERE id_denuncia_a = ?");
-            $stmt->bindParam(1,$sesionAsesor);
-            $stmt->bindParam(2,$estatus);
-            $stmt->bindParam(3,$nota);
-            $stmt->bindParam(4,$idDenuncia);
-            $stmt->execute();
-                
-            $dbh=null; //Para cerrar la conexión a base de datos. 
-
-            echo '<script language="javascript">
-                alert("Se ha realizado la modificación con éxito");
-                location.href="../seguimientoda.php";
-                </script>';
 
         }catch(PDOException $e){
             echo '<script language="javascript">

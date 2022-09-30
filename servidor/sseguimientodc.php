@@ -37,8 +37,21 @@ function tabla($dbh)
                         <?php echo $row->nombre_evidencia; ?>
                     </a>
                 </td>
-                <td><?php echo $row->id_asesor; ?></td>
-                <td><?php echo $row->estatus; ?></td>
+                <?php
+                if ($row->id_asesor != "") {
+                ?>
+                    <td><?php echo $row->id_asesor; ?></td>
+                <?php
+                } else if ($row->id_administrador != "") {
+                ?>
+                    <td><?php echo $row->id_administrador; ?></td>
+                <?php
+                } else {
+                ?>
+                    <td> </td>
+                <?php
+                }
+                ?>                <td><?php echo $row->estatus; ?></td>
                 <td><?php echo $row->nota; ?></td>
                 <td>
                     <div class="acciones-btn">

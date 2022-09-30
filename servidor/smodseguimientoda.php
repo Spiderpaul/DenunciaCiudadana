@@ -16,7 +16,6 @@ function modificarSeguimiento($dbh, $id, $sesionAsesor)
 
 
         if ($cont != 0) {
-
 ?>
             <form action="servidor/registrarseguimientoda.php" class="seguimiento" id="seguimiento" method="post">
                 <div class="seccion1-ms">
@@ -31,33 +30,37 @@ function modificarSeguimiento($dbh, $id, $sesionAsesor)
                         </div>
 
                         <?php
-                        if ($row->id_asesor == "") {
+                        if ($row->id_administrador != "") {
                         ?>
 
                             <div class="linea2-1">
                                 <h4>Asesor asignado: </h4>
                                 <div class="div-idms">
-                                    <h4><?php echo "Administrador"; ?> </h4>
+                                    <h4><?php echo $row->id_administrador; ?> </h4>
                                 </div>
                             </div>
+                            
                         <?php
                         } else {
                         ?>
+
                             <div class="linea2-1">
                                 <h4>Asesor asignado: </h4>
                                 <div class="div-idms">
                                     <h4><?php echo $row->id_asesor; ?> </h4>
                                 </div>
                             </div>
+
                         <?php
                         }
                         ?>
+
                         <div class="linea2-2">
                             <h4>Estatus: </h4>
                             <div class="div-estatusms">
                                 <select class="estatus-ms" id="estatus-ms" name="estatus">
                                     <?php
-                                    if ($row->estatus == "") {
+                                    if ($row->estatus == "En espera") {
                                     ?>
                                         <option value="En espera" disabled="" selected="">En espera</option>
                                         <option value="En proceso">En proceso</option>
