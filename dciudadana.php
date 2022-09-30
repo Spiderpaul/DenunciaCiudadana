@@ -18,7 +18,7 @@
                     <!---                     Nombre                        --->
                     <div class="div-nombre" id="div-nombre">
                         <p>Nombre</p>
-                        <input type="text" class="form-control" name="nombre" id="form_nombre" placeholder="   Ingrese su nombre completo">
+                        <input type="text" class="form-control" name="nombre" id="form_nombre" spellcheck="true" placeholder="   Ingrese su nombre completo">
                         <p class="alerta-nombre" id="alerta-nombre">Escriba su nombre(s) y apellidos</p>
                     </div>
                     <!---                     Edad                        --->
@@ -49,7 +49,7 @@
                     <!---                     Correo                        --->
                     <div class="div-correo" id="div-correo">
                         <p>Correo electrónico</p>
-                        <input type="text" class="form-control" name="correo" id="form_correo" placeholder="   ejemplo@mail.com">
+                        <input type="text" class="form-control" name="correo" id="form_correo" placeholder="">
                         <p class="alerta-correo" id="alerta-correo">Formato de correo: ejemplo@correo.com</p>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                     <!---                     Dirección                        --->
                     <div class="div-direccion" id="div-direccion">
                         <p>Dirección</p>
-                        <input type="text" class="form-control" name="direccion" id="form_direccion" placeholder="   Escriba su dirección de domicilio">
+                        <input type="text" class="form-control" name="direccion" id="form_direccion" spellcheck="true" placeholder="   Escriba su dirección de domicilio">
                         <p class="alerta-direccion" id="alerta-direccion">
                             Escriba su calle, número de casa y colonia, con un máximo de 200 caracteres
                         </p>
@@ -76,7 +76,7 @@
                     <!---                     Asunto                        --->
                     <div class="div-asunto" id="div-asunto">
                         <p>Asunto</p>
-                        <input type="text" class="form-control" name="asunto" id="form_asunto" placeholder="   Escriba el asunto que desea denunciar">
+                        <input type="text" class="form-control" name="asunto" id="form_asunto" spellcheck="true" placeholder="   Escriba el asunto que desea denunciar">
                         <p class="alerta-asunto" id="alerta-asunto">
                             Escriba el título de la denuncia, máximo 60 caracteres.
                         </p>
@@ -101,7 +101,7 @@
                 <!---                     Descripción                        --->
                 <div class="div-descripcion" id="div-descripcion">
                     <p>Descripción</p>
-                    <textarea rows="10" cols="40" class="form-control" name="descripcion" id="form_descripcion_dc"></textarea>
+                    <textarea rows="10" cols="40" class="form-control" name="descripcion" id="form_descripcion_dc" spellcheck="true"></textarea>
                     <p class="alerta-descripcion" id="alerta-descripcion">
                         Describa el problema a denunciar, máximo 1000 caracteres.
                     </p>

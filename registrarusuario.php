@@ -17,7 +17,7 @@
                 <div class="control1-p">
                     <div class="div-nombre" id="div-nombre">
                         <p>Nombre</p>
-                        <input type="text" class="form-control" name="nombre" id="form_nombre" placehorder="Ingrese su nombre completo">
+                        <input type="text" class="form-control" name="nombre" id="form_nombre" spellcheck="true" placehorder="Ingrese su nombre completo">
                         <p class="alerta-nombre" id="alerta-nombre">Escriba su nombre(s) y apellidos</p>
                     </div>
                     <div class="div-edad" id="div-edad">
@@ -51,7 +51,7 @@
                 <div class="control3-p">
                     <div class="div-direccion" id="div-direccion">
                         <p>Dirección</p>
-                        <input type="text" class="form-control" name="direccion" id="form_direccion">
+                        <input type="text" class="form-control" name="direccion" id="form_direccion" spellcheck="true">
                         <p class="alerta-direccion" id="alerta-direccion">Ingrese su dirección de casa</p>
                     </div>
                 </div>

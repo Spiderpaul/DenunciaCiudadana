@@ -12,7 +12,7 @@
                 <div class="asunto-tipo">
                     <div class="control1" id="div-asunto">
                         <p>Asunto</p>
-                        <input type="text" class="form-control" name="asunto" id="form_asunto" placeholder="   Escriba el asunto que desea denunciar">
+                        <input type="text" class="form-control" name="asunto" id="form_asunto" spellcheck="true" placeholder="   Escriba el asunto que desea denunciar">
                         <p class="alerta-asunto" id="alerta-asunto">
                             Título de denuncia, máximo 60 caracteres.
                         </p>
@@ -23,7 +23,7 @@
                 </div>
                 <div class="control2-q" id="div-descripcion">
                     <p>Descripción</p>
-                    <textarea rows="10" cols="40" class="form-control" name="descripcion" id="form_descripcion" required></textarea>
+                    <textarea rows="10" cols="40" class="form-control" name="descripcion" id="form_descripcion" spellcheck="true" required></textarea>
                     <p class="alerta-descripcion" id="alerta-descripcion">
                         Describa el problema a denunciar, máximo 1000 caracteres.
                     </p>

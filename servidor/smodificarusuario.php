@@ -16,7 +16,7 @@ function modificar($dbh, $idUsuario)
                     <div class="control1-p">
                         <div class="div-nombre" id="div-nombre">
                             <p>Nombre</p>
-                            <input type="text" class="form-control" name="nombre" id="form_nombre" value="<?php echo $row->nombre; ?>">
+                            <input type="text" class="form-control" name="nombre" id="form_nombre" spellcheck="true" value="<?php echo $row->nombre; ?>">
                             <p class="alerta-nombre" id="alerta-nombre">Escriba un nombre válido</p>
                         </div>
                         <div class="div-edad" id="div-edad">
@@ -58,7 +58,7 @@ function modificar($dbh, $idUsuario)
                     <div class="control3-p">
                         <div class="div-direccion" id="div-direccion">
                             <p>Dirección</p>
-                            <input type="text" class="form-control" name="direccion" id="form_direccion" value="<?php echo $row->direccion; ?>">
+                            <input type="text" class="form-control" name="direccion" id="form_direccion" spellchek="true" value="<?php echo $row->direccion; ?>">
                             <p class="alerta-direccion" id="alerta-direccion">Ingrese su dirección de casa</p>
                         </div>
                     </div>
@@ -79,8 +79,31 @@ function modificar($dbh, $idUsuario)
                         </div>
                         <div class="div-area" id="div-area">
                             <p>Área de trabajo</p>
-                            <input type="text" class="form-control" name="area" id="form_area" value="<?php echo $row->area; ?>">
-                            <p class="alerta-area" id="alerta-area">Solo texto con un máximo de 45 caracteres</p>
+                            <select class="form-select" name="area" id="form_area">
+                                <?php
+                                if ($row->area == "Informática") {
+                                ?>
+                                    <option value="Informática" selected="">Informática</option>
+                                    <option value="Recaudación">Recaudación</option>
+                                    <option value="Recepción">Recepción</option>
+
+                                <?php
+                                } else if ($row->area == "Recaudación") {
+                                ?>
+                                    <option value="Informática">Informática</option>
+                                    <option value="Recaudación" selected="">Recaudación</option>
+                                    <option value="Recepción">Recepción</option>
+                                <?php
+                                } else {
+                                ?>
+                                    <option value="Informática">Informática</option>
+                                    <option value="Recaudación">Recaudación</option>
+                                    <option value="Recepción" selected="">Recepción</option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                            <p class="alerta-area" id="alerta-area">Seleccione una opción</p>
                         </div>
                     </div>
                     <div class="control5-t">

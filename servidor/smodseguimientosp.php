@@ -111,7 +111,7 @@ function modificarSeguimiento($dbh, $id, $sesionAsesor)
                                 <h4>Observacion: </h4>
                             </div>
                             <div class="div-observacion" id="div-observacion">
-                                <textarea rows="3" cols="40" class="nota-ms" id="nota-ms" name="nota" value="<?php echo $row->nota; ?>"></textarea>
+                                <textarea rows="3" cols="40" class="nota-ms" id="nota-ms" name="nota"  spellcheck="true" value="<?php echo $row->nota; ?>"></textarea>
                                 <p class="alerta-nota" id="alerta-nota">
                                     El campo no puede enviarse vacío y debe contener máximo 200 caracteres.
                                 </p>
