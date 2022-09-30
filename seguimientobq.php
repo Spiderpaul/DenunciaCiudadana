@@ -1,6 +1,6 @@
 <?php require('./vistas/cabecera.php') ?>
 <?php include 'servidor/conexion.php'; ?>
-<?php include 'servidor/sseguimientoda.php'; ?>
+<?php include 'servidor/sseguimientobq.php'; ?>
 
 <div class="contenedor-tabla">
     <div class="cabecera-tabla">
@@ -38,7 +38,7 @@
             </ul>
         </div>
         <div class="buscador">
-            <form action="seguimientoda.php" method="post">
+            <form action="seguimientobq.php" method="post">
                 <div class="buscador-hijo">
                     <div class="buscador-hijo-1">
                         <input type="text" name="buscar" class="buscador-input">
@@ -58,15 +58,10 @@
 
         <thead>
             <tr>
-                <th>Identificativo</th>
+                <th>ID</th>
                 <th>Asunto</th>
-                <th>Tipo de denuncia</th>
                 <th>Descripción</th>
-                <th>Adjunto</th>
-                <th>Asesor</th>
-                <th>Estatus</th>
-                <th>Nota</th>
-                <th></th>
+                <th>Fecha</th>
             </tr>
         </thead>
 

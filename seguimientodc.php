@@ -28,6 +28,13 @@
                         </button>
                     </a>
                 </li>
+                <li>
+                    <a href="seguimientobq.php">
+                        <button class="btn-denuncia" name="btnsp">
+                            <i>Buzón de quejas</i>
+                        </button>
+                    </a>
+                </li>
             </ul>
         </div>
         <div class="buscador">
