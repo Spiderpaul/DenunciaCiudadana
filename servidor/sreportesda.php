@@ -12,8 +12,10 @@ function tabla($dbh)
 
     if (isset($_POST['id_asesor'])) {
         $asesor = "%" . $_POST['id_asesor'] . "%";
+        $administrador = "%" . $_POST['id_asesor'] . "%";
     } else {
         $asesor = "";
+        $administrador = "";
     }
 
     if (isset($_POST['tipo'])) {
@@ -43,6 +45,7 @@ function tabla($dbh)
     //Variables booleanas para ayudar en la sentencia. 
     $id = false;
     $as = false;
+    $ad = false;
     $ti = false;
     $es = false;
     $de = false;
@@ -74,6 +77,12 @@ function tabla($dbh)
                 $sentencia .= ' AND `estatus de denuncia`.id_asesor LIKE ?';
                 array_push($contador, $cont + 1);
                 $as = true;
+            }
+
+            if ($administrador != "%%" && $administrador != "") {
+                $sentencia .= ' AND `estatus de denuncia`.id_administrador LIKE ?';
+                array_push($contador, $cont + 1);
+                $ad = true;
             }
 
             if ($tipo != "%%" && $tipo != "") {
@@ -118,6 +127,9 @@ function tabla($dbh)
                 } else if ($as == true) {
                     $stmt->bindParam($i, $asesor);
                     $as = false;
+                } else if ($ad == true) {
+                    $stmt->bindParam($i, $administrador);
+                    $ad = false;
                 } else if ($ti == true) {
                     $stmt->bindParam($i, $tipo);
                     $ti = false;
@@ -154,7 +166,15 @@ function tabla($dbh)
                         <?php echo $row->nombre_evidencia; ?>
                     </a>
                 </td>
-                <td><?php echo $row->id_asesor; ?></td>
+                <td>
+                    <?php
+                    if ($row->id_asesor != "") {
+                        echo $row->id_asesor;
+                    } else {
+                        echo $row->id_administrador;
+                    }
+                    ?>
+                </td>
                 <td><?php echo $row->estatus; ?></td>
                 <td><?php echo $row->nota; ?></td>
                 <td><?php echo $row->fecha; ?></td>
@@ -168,6 +188,4 @@ function tabla($dbh)
                 </script>';
     }
 }
-
-
 ?>
