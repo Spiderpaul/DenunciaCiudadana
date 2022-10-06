@@ -110,7 +110,7 @@
     
             echo '<script language="javascript">
                 alert("Guarde su identificativo de denuncia para darle seguimiento.\n\n     Su identificativo de denuncia es: '.$id.' ");
-                window.history.back();
+                location.href="../danonima.php";
                 </script>';
     
             //header("location: ../identificativo.php");

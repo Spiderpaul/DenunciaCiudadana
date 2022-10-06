@@ -19,7 +19,7 @@
 
                 //Se realiza el registro con sentencias preparadas.
                 $stmt = $dbh-> prepare("UPDATE `estatus de denuncia` 
-                SET id_asesor = ?, id_adminitrador = ?, estatus = ?, nota = ? 
+                SET id_asesor = ?, id_administrador = ?, estatus = ?, nota = ? 
                 WHERE id_denuncia_c = ?;");
                 $stmt->bindParam(1,$sesionAsesor);
                 $stmt->bindParam(2,$cambioAsesor);
@@ -34,6 +34,7 @@
                     alert("Se ha realizado la modificación con éxito");
                     location.href="../seguimientodc.php";
                     </script>';
+
             } else if ($rol == "Administrador"){
                 
                 //Se realiza el registro con sentencias preparadas.

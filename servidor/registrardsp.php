@@ -93,10 +93,9 @@
             $dbh=null; //Para cerrar la conexión a base de datos. 
 
             echo '<script language="javascript">
-                alert("Su denuncia se ha registrado con éxito");
+                alert("Guarde su identificativo de denuncia para darle seguimiento.\n\n     Su identificativo de denuncia es: '.$id.' ");
+                location.href="../dciudadanas.php";
                 </script>';
-
-            header("location: ../dciudadanas.php");
 
         }catch(PDOException $e){
             echo '<script language="javascript">

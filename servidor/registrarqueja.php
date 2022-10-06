@@ -21,10 +21,10 @@
 
             $dbh=null; //Para cerrar la conexión a base de datos. 
 
-                echo '<script language="javascript">
-                    alert("Su queja ha sido registrada, le agradecemos su tiempo.");
-                    window.history.back();
-                    </script>';
+            echo '<script language="javascript">
+                alert("Su queja se ha registrado con éxito");
+                location.href="../buzonquejas.php";
+                </script>';
 
             //header("location: ../identificativo.php");
 

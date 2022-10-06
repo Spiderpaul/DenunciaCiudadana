@@ -43,7 +43,7 @@ function cargarDatos($dbh)
                 <h4> <?php echo $row->telefono; ?> </h4>
             </div>
             <div class="dato-u">
-                <h3>Correo electrónico: <?php echo $row->correo; ?> </h3>
+                <h3>Correo electrónico: </h3>
                 <h4> <?php echo $row->correo; ?> </h4>
             </div>
             <div class="dato-u">
