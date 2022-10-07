@@ -1,5 +1,6 @@
 const formulario = document.getElementById("form-dciudadana-p"); //Acceder a formulario
 const inputs = document.querySelectorAll("#form-dciudadana-p input"); //Acceder a inputs
+//const select = document.querySelectorAll('#form-dciudadana-p select'); //Acceder a selects
 
 const expresiones = {
   nombre: /^[a-zA-ZÀ-ÿ\s]{0,60}$/, // Letras y espacios, pueden llevar acentos.
@@ -9,7 +10,7 @@ const expresiones = {
   correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, //Formato de correo
   direccion: /^([A-Za-z0-9À-ÿ\_\-\.\,\#\s]){0,200}$/,
   identificativo: /^[a-zA-Z0-9]{2}[\_\-][a-zA-Z0-9]{2,5}$/, // Letras, numeros, guion y guion_bajo
-  area: /^([A-Za-zÀ-ÿ\_\-\.\,\#\s]){0,45}$/,
+  //area: /^([A-Za-zÀ-ÿ\_\-\.\,\#\s]){0,45}$/,
   clave: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,45}$/, //Letras mayúsculas y minúsculas, caracteres especiales y mínimo 8 dígitos.
 };
 
@@ -20,17 +21,9 @@ const campos = {
   correo: false,
   direccion: false,
   identificativo: false,
-  area: false,
   clave: false,
   confirmar: false,
 };
-
-const btnCancelar = document.getElementById("boton-cancelar");
-const btnRegistrar = document.getElementById("boton-registrar");
-
-btnCancelar.addEventListener("click", () => {
-  location.href = "usuarios.php";
-});
 
 const validarFormulario = (e) => {
   //Identificar y validar inputs.
@@ -95,16 +88,6 @@ const validarFormulario = (e) => {
         "alerta-identificativo"
       );
       break;
-    case "area":
-      validarCampo(
-        expresiones.area,
-        e.target,
-        "area",
-        "div-area",
-        "form_area",
-        "alerta-area"
-      );
-      break;
     case "clave":
       validarCampo(
         expresiones.clave,
@@ -135,6 +118,67 @@ const validarCampo = (expresion, input, campo, ideUno, ideDos, ideTres) => {
     campos[campo] = false;
   }
 };
+
+function validarSexo(ideUno, ideDos, ideTres) {
+  let divSexo = document.getElementById("form_sexo");
+  let sexo = divSexo.value;
+
+  if (sexo == "") {
+    //Si no se ha seleccionado opción de sexo.
+    document.getElementById(ideUno).classList.add("incorrecto");
+    document.getElementById(ideDos).classList.add("input-incorrecto");
+    document.getElementById(ideTres).classList.add("alerta-incorrecto");
+    //Se impide enviar datos por 2 segundos.
+    setTimeout(() => {
+      document.getElementById(ideUno).classList.remove("incorrecto");
+      document.getElementById(ideDos).classList.remove("input-incorrecto");
+      document.getElementById(ideTres).classList.remove("alerta-incorrecto");
+
+      document.getElementById("boton-registrar").disabled = false;
+      document
+        .getElementById("boton-registrar")
+        .classList.remove("deshabilitado");
+    }, 2000);
+    return false;
+  } else if (sexo == "F" || sexo == "M" || sexo == "I") {
+    //Si se ha seleccionado una opción.
+    document.getElementById(ideUno).classList.remove("incorrecto");
+    document.getElementById(ideDos).classList.remove("input-incorrecto");
+    document.getElementById(ideTres).classList.remove("alerta-incorrecto");
+    return true;
+  }
+}
+
+function validarArea(ideUno, ideDos, ideTres) {
+  let divArea = document.getElementById("form_area");
+  let area = divArea.value;
+  console.log(area);
+
+  if (area == "") {
+    //Si no se ha seleccionado opción de sexo.
+    document.getElementById(ideUno).classList.add("incorrecto");
+    document.getElementById(ideDos).classList.add("input-incorrecto");
+    document.getElementById(ideTres).classList.add("alerta-incorrecto");
+    //Se impide enviar datos por 2 segundos.
+    setTimeout(() => {
+      document.getElementById(ideUno).classList.remove("incorrecto");
+      document.getElementById(ideDos).classList.remove("input-incorrecto");
+      document.getElementById(ideTres).classList.remove("alerta-incorrecto");
+
+      document.getElementById("boton-registrar").disabled = false;
+      document
+        .getElementById("boton-registrar")
+        .classList.remove("deshabilitado");
+    }, 2000);
+    return false;
+  } else {
+    //Si se ha seleccionado una opción.
+    document.getElementById(ideUno).classList.remove("incorrecto");
+    document.getElementById(ideDos).classList.remove("input-incorrecto");
+    document.getElementById(ideTres).classList.remove("alerta-incorrecto");
+    return true;
+  }
+}
 
 const verificarEdad = (expresion, input, campo, ideUno, ideDos, ideTres) => {
   if (expresion.test(input.value)) {
@@ -209,15 +253,16 @@ inputs.forEach((input) => {
 });
 
 const analizarCampos = () => {
-  console.log("nombre " + campos.nombre);
-  console.log("edad " + campos.edad);
-  console.log("telefono " + campos.telefono);
-  console.log("correo " + campos.correo);
-  console.log("direccion " + campos.direccion);
-  console.log("identificativo " + campos.identificativo);
-  console.log("area " + campos.area);
-  console.log("clave " + campos.clave);
-  console.log("confirmar " + campos.confirmar);
+  /*console.log("nombre " + campos.nombre);
+    console.log("edad " +campos.edad);
+    console.log("telefono " +campos.telefono);
+    console.log("correo " +campos.correo);
+    console.log("direccion " +campos.direccion);
+    console.log("identificativo " +campos.identificativo);
+    console.log("area " +campos.area);
+    console.log("clave " +campos.clave);
+    console.log("confirmar " +campos.confirmar);*/
+  //validarSexo('sexo', 'div-sexo', 'form_sexo', 'alerta-sexo');
   if (
     campos.nombre &&
     campos.edad &&
@@ -225,7 +270,6 @@ const analizarCampos = () => {
     campos.correo &&
     campos.direccion &&
     campos.identificativo &&
-    campos.area &&
     campos.confirmar
   ) {
     document.getElementById("boton-registrar").disabled = false;
@@ -241,49 +285,65 @@ formulario.addEventListener("mouseout", (e) => {
 
 formulario.addEventListener("submit", (e) => {
   //Evento de botón.
-  console.log("nombre " + campos.nombre);
-  console.log("edad " + campos.edad);
-  console.log("telefono " + campos.telefono);
-  console.log("correo " + campos.correo);
-  console.log("direccion " + campos.direccion);
-  console.log("identificativo " + campos.identificativo);
-  console.log("area " + campos.area);
-  console.log("clave " + campos.clave);
-  console.log("confirmar " + campos.confirmar);
+  /*console.log("nombre " + campos.nombre);
+    console.log("edad " +campos.edad);
+    console.log("telefono " +campos.telefono);
+    console.log("correo " +campos.correo);
+    console.log("direccion " +campos.direccion);
+    console.log("identificativo " +campos.identificativo);
+    console.log("clave " +campos.clave);
+    console.log("confirmar " +campos.confirmar);*/
+
+  validarSexo("div-sexo", "form_sexo", "alerta-sexo"); //Verificar los Selects.
+  validarArea("div-area", "form_area", "alerta-area");
+
   if (
-    campos.nombre &&
-    campos.edad &&
-    campos.telefono &&
-    campos.correo &&
-    campos.direccion &&
-    campos.identificativo &&
-    campos.area &&
-    campos.confirmar
+    !validarSexo("div-sexo", "form_sexo", "alerta-sexo") ||
+    !validarArea("div-area", "form_area", "alerta-area")
   ) {
-    document.getElementById("mensaje").classList.add("mensaje-exito");
-    document
-      .getElementById("mensaje-texto2")
-      .classList.add("mensaje-texto-exito");
-    setTimeout(() => {
-      e.preventDefault();
-      document.getElementById("mensaje").classList.remove("mensaje-exito");
+    e.preventDefault();
+  }
+
+  var verificacion = grecaptcha.getResponse(); //Verificar ReCaptcha en lado de servidor.
+  if (verificacion != 0) {
+    if (
+      campos.nombre &&
+      campos.edad &&
+      campos.telefono &&
+      campos.correo &&
+      campos.direccion &&
+      campos.identificativo &&
+      campos.confirmar
+    ) {
+      document.getElementById("mensaje").classList.add("mensaje-exito");
       document
         .getElementById("mensaje-texto2")
-        .classList.remove("mensaje-texto-exito");
-    }, 5000);
-  } else {
-    document.getElementById("boton-registrar").classList.add("deshabilitado");
-    document.getElementById("boton-registrar").disabled = true;
-    document.getElementById("mensaje").classList.add("mensaje-error");
-    document
-      .getElementById("mensaje-texto1")
-      .classList.add("mensaje-texto-error");
-    setTimeout(() => {
-      document.getElementById("mensaje").classList.remove("mensaje-error");
+        .classList.add("mensaje-texto-exito");
+      setTimeout(() => {
+        e.preventDefault();
+        document.getElementById("mensaje").classList.remove("mensaje-exito");
+        document
+          .getElementById("mensaje-texto2")
+          .classList.remove("mensaje-texto-exito");
+      }, 5000);
+    } else {
+      document.getElementById("boton-registrar").classList.add("deshabilitado");
+      document.getElementById("boton-registrar").disabled = true;
+      document.getElementById("mensaje").classList.add("mensaje-error");
       document
         .getElementById("mensaje-texto1")
-        .classList.remove("mensaje-texto-error");
-    }, 5000);
+        .classList.add("mensaje-texto-error");
+      setTimeout(() => {
+        document.getElementById("mensaje").classList.remove("mensaje-error");
+        document
+          .getElementById("mensaje-texto1")
+          .classList.remove("mensaje-texto-error");
+      }, 5000);
+      e.preventDefault();
+    }
+  } else {
+    alert("Es necesario verificar el Captcha");
+    analizarCampos();
     e.preventDefault();
   }
 });

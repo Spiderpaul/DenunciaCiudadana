@@ -6,25 +6,75 @@ function tabla($dbh)
 
     if (isset($_POST['buscar'])) {
         $buscador = "%" . $_POST['buscar'] . "%";
+        if($buscador == "%%"){
+            $buscador = "";    
+        }
     } else {
         $buscador = "";
     }
 
+    if(isset($_POST['asesor'])){
+        $asesor = "%" . $_POST['asesor'] . "%";
+        if($asesor == "%%"){
+            $asesor = "";    
+        }
+    }else{
+        $asesor = "";
+    }
+
+    if(isset($_POST['estatus'])){
+        $estatus = "%" . $_POST['estatus'] . "%";
+        if($estatus == "%%"){
+            $estatus = "";    
+        }
+    }else{
+        $estatus = "";
+    }
+
+    if(isset($_POST['fecha'])){
+        $fecha = "%" . $_POST['fecha'] . "%";
+        if($fecha == "%%"){
+            $fecha = "";    
+        }
+    }else{
+        $fecha = "";
+    }
+
     try {
 
-        if ($buscador == "") {
+        if ($buscador == "" && $asesor == "" && $estatus == "" && $fecha == "") {
             $stmt = $dbh->prepare("SELECT * FROM `denuncia servidor publico` JOIN `estatus de denuncia` 
             WHERE `denuncia servidor publico`.id_denuncia = `estatus de denuncia`.id_denuncia_sp;");
             $stmt->execute();
-        } else {
+        } else if($buscador != ""){
             $stmt = $dbh->prepare("SELECT * FROM `denuncia servidor publico` JOIN `estatus de denuncia`
             WHERE `denuncia servidor publico`.id_denuncia = `estatus de denuncia`.id_denuncia_sp
             AND `denuncia servidor publico`.id_denuncia LIKE ?;");
-            /*Está pendiente arreglar la sentencia para que el usuario haga búsquedas por id de asesor
-            y algunas otras columnas*/
             $stmt->bindParam(1, $buscador);
-            //$stmt->bindParam(2,$buscador);
             $stmt->execute();
+
+        }else if($asesor != ""){
+            $stmt = $dbh->prepare("SELECT * FROM `denuncia servidor publico` JOIN `estatus de denuncia`
+            WHERE `denuncia servidor publico`.id_denuncia = `estatus de denuncia`.id_denuncia_sp
+            AND `estatus de denuncia`.id_asesor LIKE ?;");
+            $stmt->bindParam(1, $asesor);
+            $stmt->execute();
+
+        } else if ($estatus != ""){
+            $stmt = $dbh->prepare("SELECT * FROM `denuncia servidor publico` JOIN `estatus de denuncia`
+            WHERE `denuncia servidor publico`.id_denuncia = `estatus de denuncia`.id_denuncia_sp
+            AND `estatus de denuncia`.estatus LIKE ?;");
+            $stmt->bindParam(1, $estatus);
+            $stmt->execute();
+            
+        } else if($fecha != ""){
+            echo "fecha";
+            $stmt = $dbh->prepare("SELECT * FROM `denuncia servidor publico` JOIN `estatus de denuncia`
+            WHERE `denuncia servidor publico`.id_denuncia = `estatus de denuncia`.id_denuncia_sp
+            AND `denuncia servidor publico`.fecha LIKE ?;");
+            $stmt->bindParam(1, $fecha);
+            $stmt->execute();
+
         }
         while ($row = $stmt->fetch()) {
 ?>
@@ -73,9 +123,8 @@ function tabla($dbh)
                         </div>
                         ---->
                     </div>
-
-
                 </td>
+                <td><?php echo $row->fecha; ?></td>
             </tr>
 <?php
         }

@@ -6,7 +6,6 @@
     $nombreMinusculas = strtolower($nombreCapturado); //Para dar formato al nombre.
     $nombre = ucwords($nombreMinusculas);
 
-
     $edad = $_POST['edad'];
     $sexo = $_POST['sexo'];
     $telefono = $_POST['telefono'];
@@ -50,12 +49,11 @@
             //Si la contraseña contiene mayusculas, minusculas, numeros, caracteres especiales y minimo 8 digitos. 
             if((preg_match("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/", $clave))){
 
+                $claveEncriptada = password_hash($clave, PASSWORD_DEFAULT); //Encriptar contraseña.
+
                 if($dbh!=null){  //Si hay una conexión esté establecida.
                     
                     try{
-        
-                        $claveEncriptada = password_hash($clave, PASSWORD_DEFAULT); //Encriptar contraseña.
-
                         $stmt = $dbh->prepare("SELECT id_usuario FROM administrador WHERE id_usuario = ?");
                         $stmt->bindParam(1,$idUsuario);
                         $stmt->execute();
@@ -78,7 +76,9 @@
 
                                 if($cont == 0){ //Si no hay filas con el identificativo de usuario. 
                                     //Se realiza el registro con sentencias preparadas.
-                                    $stmt = $dbh-> prepare("INSERT INTO `servidor publico` (id_usuario, nombre, edad, sexo, telefono, correo, direccion, area, clave, rol_usuario) VALUES (?,?,?,?,?,?,?,?,?,?)");
+                                    $stmt = $dbh-> prepare("INSERT INTO `servidor publico` 
+                                    (id_usuario, nombre, edad, sexo, telefono, correo, direccion, area, clave, rol_usuario) 
+                                    VALUES (?,?,?,?,?,?,?,?,?,?)");
                                     $stmt->bindParam(1,$idUsuario);
                                     $stmt->bindParam(2,$nombre);
                                     $stmt->bindParam(3,$edad);

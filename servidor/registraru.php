@@ -75,7 +75,9 @@
 
                                 if($cont == 0){ //Si no hay filas con el identificativo de usuario. 
                                     //Se realiza el registro con sentencias preparadas.
-                                    $stmt = $dbh-> prepare("INSERT INTO `servidor publico` (id_usuario, nombre, edad, sexo, telefono, correo, direccion, area, clave, rol_usuario) VALUES (?,?,?,?,?,?,?,?,?,?)");
+                                    $stmt = $dbh-> prepare("INSERT INTO `servidor publico` 
+                                    (id_usuario, nombre, edad, sexo, telefono, correo, direccion, area, clave, rol_usuario) 
+                                    VALUES (?,?,?,?,?,?,?,?,?,?)");
                                     $stmt->bindParam(1,$idUsuario);
                                     $stmt->bindParam(2,$nombre);
                                     $stmt->bindParam(3,$edad);

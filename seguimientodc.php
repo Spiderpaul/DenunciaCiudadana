@@ -37,11 +37,13 @@
                 </li>
             </ul>
         </div>
+
         <div class="buscador">
             <form action="seguimientodc.php" method="post">
+                
                 <div class="buscador-hijo">
                     <div class="buscador-hijo-1">
-                        <input type="text" name="buscar" class="buscador-input">
+                        <input type="text" name="buscar" class="buscador-input" placeholder="Identificativo" value="">
                     </div>
 
                     <div class="buscador-hijo-2">
@@ -50,6 +52,50 @@
                         </button>
                     </div>
                 </div>
+                
+                <div class="buscador-hijo">
+                    <div class="buscador-hijo-1">
+                        <input type="text" name="asesor" class="buscador-input" placeholder="Asesor" value="">
+                    </div>
+
+                    <div class="buscador-hijo-2">
+                        <button>
+                            <i class="material-icons">search</i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="buscador-hijo">
+                    <div class="buscador-hijo-1">
+                        <select class="buscador-input" name="estatus" >
+                            <option selected="" value="">Estatus</option>
+                            <option value="En espera">En espera</option>
+                            <option value="En proceso">En proceso</option>
+                            <option value="Finalizado">Finalizado</option>
+                            <option value="Cancelado">Cancelado</option>
+                            <option value="No aplica">No aplica</option>
+                        </select>
+                    </div>
+
+                    <div class="buscador-hijo-2">
+                        <button>
+                            <i class="material-icons">search</i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="buscador-hijo">
+                    <div class="buscador-hijo-1">
+                        <input type="date" name="fecha" class="buscador-input" value="">
+                    </div>
+
+                    <div class="buscador-hijo-2">
+                        <button>
+                            <i class="material-icons">search</i>
+                        </button>
+                    </div>
+                </div>
+                
             </form>
         </div>
     </div>
