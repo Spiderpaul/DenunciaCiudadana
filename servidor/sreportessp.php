@@ -6,26 +6,41 @@ function tabla($dbh)
     // Para evitar errores por variables nulas.
     if (isset($_POST['id'])) {
         $idDenuncia = "%" . $_POST['id'] . "%";
+        if($idDenuncia == "%%"){
+            $idDenuncia = "";
+        }
     } else {
         $idDenuncia = "";
     }
 
-    if (isset($_POST['id_asesor'])) {
-        $asesor = "%" . $_POST['id_asesor'] . "%";
-        $administrador = "%" . $_POST['id_asesor'] . "%";
+    if (isset($_POST['asesor'])) {
+        $asesor = "%" . $_POST['asesor'] . "%";
+        // $administrador = "%" . $_POST['asesor'] . "%";
+        if($asesor == "%%"){
+            $asesor = "";
+        }
+        /* if($administrador == "%%"){
+            $administrador = "";
+        } */
     } else {
         $asesor = "";
-        $administrador = "";
+        // $administrador = "";
     }
 
     if (isset($_POST['tipo'])) {
         $tipo = "%" . $_POST['tipo'] . "%";
+        if($tipo == "%%"){
+            $tipo = "";
+        }
     } else {
         $tipo = "";
     }
 
     if (isset($_POST['estatus'])) {
         $estatus = "%" . $_POST['estatus'] . "%";
+        if($estatus == "%%"){
+            $estatus = "";
+        }
     } else {
         $estatus = "";
     }
@@ -68,31 +83,31 @@ function tabla($dbh)
             $sentencia = 'SELECT * FROM `denuncia servidor publico` JOIN `estatus de denuncia`
             WHERE `denuncia servidor publico`.id_denuncia = `estatus de denuncia`.id_denuncia_sp';
 
-            if ($idDenuncia != "%%" && $idDenuncia != "") {
+            if ($idDenuncia != "") {
                 $sentencia .= ' AND `denuncia servidor publico`.id_denuncia LIKE ?';
                 array_push($contador, $cont + 1);
                 $id = true;
             }
 
-            if ($asesor != "%%" && $asesor != "") {
+            if ($asesor != "") {
                 $sentencia .= ' AND `estatus de denuncia`.id_asesor LIKE ?';
                 array_push($contador, $cont + 1);
                 $as = true;
             }
 
-            if ($administrador != "%%" && $administrador != "") {
+            /* if ($administrador != "") {
                 $sentencia .= ' AND `estatus de denuncia`.id_administrador LIKE ?';
                 array_push($contador, $cont + 1);
                 $ad = true;
-            }
+            } */
 
-            if ($tipo != "%%" && $tipo != "") {
+            if ($tipo != "") {
                 $sentencia .= ' AND `denuncia servidor publico`.tipo_denuncia LIKE ?';
                 array_push($contador, $cont + 1);
                 $ti = true;
             }
 
-            if ($estatus != "%%" && $estatus != "") {
+            if ($estatus != "") {
                 $sentencia .= ' AND `estatus de denuncia`.estatus LIKE ?';
                 array_push($contador, $cont + 1);
                 $es = true;
@@ -128,10 +143,10 @@ function tabla($dbh)
                 } else if ($as == true) {
                     $stmt->bindParam($i, $asesor);
                     $as = false;
-                } else if ($ad == true) {
+                } /* else if ($ad == true) {
                     $stmt->bindParam($i, $administrador);
                     $ad = false;
-                } else if ($ti == true) {
+                } */ else if ($ti == true) {
                     $stmt->bindParam($i, $tipo);
                     $ti = false;
                 } else if ($es == true) {
