@@ -14,17 +14,12 @@ function tabla($dbh)
     }
 
     if (isset($_POST['asesor'])) {
-        $asesor = "%" . $_POST['asesor'] . "%";
-        // $administrador = "%" . $_POST['asesor'] . "%";
-        if($asesor == "%%"){
+        $asesor = $_POST['asesor'] . "%";
+        if($asesor == "%"){
             $asesor = "";
         }
-        /* if($administrador == "%%"){
-            $administrador = "";
-        } */
     } else {
         $asesor = "";
-        // $administrador = "";
     }
 
     if (isset($_POST['tipo'])) {
@@ -60,7 +55,6 @@ function tabla($dbh)
     //Variables booleanas para ayudar en la sentencia. 
     $id = false;
     $as = false;
-    //$ad = false;
     $ti = false;
     $es = false;
     $de = false;
@@ -88,17 +82,16 @@ function tabla($dbh)
             }
 
             if ($asesor != "") {
-                $sentencia .= ' AND `estatus de denuncia`.id_asesor LIKE ?';
-                array_push($contador, $cont + 1);
-                $as = true;
+                if(str_contains($asesor, 'Ad') == false){
+                    $sentencia .= ' AND `estatus de denuncia`.id_asesor LIKE ?';
+                    array_push($contador, $cont + 1);
+                    $as = true;
+                }else{
+                    $sentencia .= ' AND `estatus de denuncia`.id_administrador LIKE ?';
+                    array_push($contador, $cont + 1);
+                    $as = true;
+                }
             }
-
-            /* if ($administrador != "") {
-                $sentencia .= ' AND `estatus de denuncia`.id_administrador LIKE ?';
-                array_push($contador, $cont + 1);
-                $ad = true;
-                echo $administrador;
-            } */
 
             if ($tipo != "") {
                 $sentencia .= ' AND `denuncia anonima`.tipo_denuncia LIKE ?';
@@ -142,10 +135,7 @@ function tabla($dbh)
                 } else if ($as == true) {
                     $stmt->bindParam($i, $asesor);
                     $as = false;
-                } /* else if ($ad == true) {
-                    $stmt->bindParam($i, $administrador);
-                    $ad = false;
-                } */ else if ($ti == true) {
+                } else if ($ti == true) {
                     $stmt->bindParam($i, $tipo);
                     $ti = false;
                 } else if ($es == true) {
