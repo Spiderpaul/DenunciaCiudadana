@@ -172,16 +172,16 @@ function tabla($dbh)
         while ($row = $stmt->fetch()) {
 ?>
             <tr>
-                <td><?php echo $row->id_denuncia; ?></td>
-                <td><?php echo $row->asunto; ?></td>
-                <td><?php echo $row->tipo_denuncia; ?></td>
-                <td><?php echo $row->descripcion; ?></td>
-                <td>
+                <td data-label="Identificativo:"><?php echo $row->id_denuncia; ?></td>
+                <td data-label="Asunto:"><?php echo $row->asunto; ?></td>
+                <td data-label="Tipo denuncia:"><?php echo $row->tipo_denuncia; ?></td>
+                <td data-label="Descripción:"><?php echo $row->descripcion; ?></td>
+                <td data-label="Adjunto:">
                     <a class="evidencia" target="_blank" href="servidor publico/vista.php?id=<?php echo $row->id_denuncia; ?>">
                         <?php echo $row->nombre_evidencia; ?>
                     </a>
                 </td>
-                <td>
+                <td data-label="Asesor:">
                     <?php
                     if ($row->id_asesor != "") {
                         echo $row->id_asesor;
@@ -190,9 +190,9 @@ function tabla($dbh)
                     }
                     ?>
                 </td>
-                <td><?php echo $row->estatus; ?></td>
-                <td><?php echo $row->nota; ?></td>
-                <td><?php echo $row->fecha; ?></td>
+                <td data-label="Estatus:"><?php echo $row->estatus; ?></td>
+                <td data-label="Nota:"><?php echo $row->nota; ?></td>
+                <td data-label="Fecha:"><?php echo $row->fecha; ?></td>
             </tr>
 <?php
         }

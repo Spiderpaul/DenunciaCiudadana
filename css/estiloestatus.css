@@ -431,4 +431,16 @@
   .cabecera-estatus .buscador-hijo .buscador-hijo-2 {
     margin-right: 15px;
   }
+
+  .contenedor-principal{
+    width: 100%;
+    flex-direction: column;
+    margin: auto;
+  }
+
+  .contenedor-canvas-1,
+  .contenedor-canvas-2,
+  .contenedor-canvas-3{
+    width: 90%;
+  }
 }

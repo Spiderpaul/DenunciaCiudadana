@@ -34,16 +34,16 @@ function tablaUsuarios($dbh)
                 <!---
         <td class="tabla-checkbox"><input type="radio" name="seleccionar" value=""></td>
         --->
-                <td><?php echo $row->id_usuario; ?></td>
-                <td><?php echo $row->nombre; ?></td>
-                <td><?php echo $row->edad; ?></td>
-                <td><?php echo $row->sexo; ?></td>
-                <td><?php echo $row->telefono; ?></td>
-                <td><?php echo $row->correo; ?></td>
-                <td><?php echo $row->direccion; ?></td>
-                <td><?php echo $row->area; ?></td>
-                <td><?php echo $row->rol_usuario; ?></td>
-                <td>
+                <td data-label="Identificativo:"><?php echo $row->id_usuario; ?></td>
+                <td data-label="Nombre:"><?php echo $row->nombre; ?></td>
+                <td data-label="Edad:"><?php echo $row->edad; ?></td>
+                <td data-label="Sexo:"><?php echo $row->sexo; ?></td>
+                <td data-label="Teléfono:"><?php echo $row->telefono; ?></td>
+                <td data-label="Correo:"><?php echo $row->correo; ?></td>
+                <td data-label="Dirección:"><?php echo $row->direccion; ?></td>
+                <td data-label="Área:"><?php echo $row->area; ?></td>
+                <td data-label="Rol:"><?php echo $row->rol_usuario; ?></td>
+                <td data-label="Editar-Eliminar:">
                     <div class="acciones-btn">
                         <div class="editar-btn">
                             <a href="modificarusuario.php?id=<?php echo $row->id_usuario; ?>">

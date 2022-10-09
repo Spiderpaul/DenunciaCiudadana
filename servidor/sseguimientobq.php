@@ -26,10 +26,10 @@ function tabla($dbh)
         while ($row = $stmt->fetch()) {
 ?>
             <tr>
-                <td><?php echo $row->id_queja; ?></td>
-                <td><?php echo $row->asunto; ?></td>
-                <td><?php echo $row->descripcion; ?></td>
-                <td><?php echo $row->fecha; ?></td>
+                <td data-label="Identificativo:"><?php echo $row->id_queja; ?></td>
+                <td data-label="Asunto:"><?php echo $row->asunto; ?></td>
+                <td data-label="Descripción:"><?php echo $row->descripcion; ?></td>
+                <td data-label="Fecha:"><?php echo $row->fecha; ?></td>
             </tr>
 <?php
         }
