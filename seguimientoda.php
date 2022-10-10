@@ -3,6 +3,9 @@
 <?php include 'servidor/sseguimientoda.php'; ?>
 
 <div class="contenedor-tabla">
+    <div class="titulo-pagina">
+        <h3>Denuncia Anónima</h3>
+    </div>
     <div class="cabecera-tabla">
         <div class="herramientas">
 

@@ -3,6 +3,9 @@
 <?php include 'servidor/sseguimientosp.php'; ?>
 
 <div class="contenedor-tabla">
+    <div class="titulo-pagina">
+        <h3>Denuncia Servidor Público</h3>
+    </div>
     <div class="cabecera-tabla">
         <div class="herramientas">
 

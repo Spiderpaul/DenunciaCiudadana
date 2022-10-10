@@ -3,6 +3,9 @@
 <?php include 'servidor/sseguimientodc.php'; ?>
 
 <div class="contenedor-tabla">
+    <div class="titulo-pagina">
+        <h3>Denuncia Ciudadana</h3>
+    </div>
     <div class="cabecera-tabla">
         <div class="herramientas">
 

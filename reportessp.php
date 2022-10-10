@@ -3,6 +3,9 @@
 
 
 <div class="contenedor-tabla">
+    <div class="titulo-pagina">
+        <h3>Denuncia Servidor Público</h3>
+    </div>
     <div class="cabecera-tabla-reportes">
         <div class="div-modulos">
             <ul>
@@ -28,9 +31,6 @@
                     </a>
                 </li>
             </ul>
-        </div>
-        <div class="nombre-modulo">
-            <h3>Denuncia Anónima</h3>
         </div>
     </div>
     <div class="contenedor-form">

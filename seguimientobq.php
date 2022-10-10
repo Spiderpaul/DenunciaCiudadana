@@ -3,6 +3,9 @@
 <?php include 'servidor/sseguimientobq.php'; ?>
 
 <div class="contenedor-tabla">
+    <div class="titulo-pagina">
+        <h3>Buzón de quejas</h3>
+    </div>
     <div class="cabecera-tabla">
         <div class="herramientas">
 
