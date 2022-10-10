@@ -13,7 +13,7 @@ function tabla($dbh)
     }
 
     if(isset($_POST['asesor'])){
-        $asesor = "%" . $_POST['asesor'] . "%";
+        $asesor = $_POST['asesor'] . "%";
         if($asesor == "%%"){
             $asesor = "";    
         }
@@ -54,11 +54,19 @@ function tabla($dbh)
             $stmt->execute();
             
         } else if($asesor != ""){
-            $stmt = $dbh->prepare("SELECT * FROM `denuncia anonima` JOIN `estatus de denuncia`
-            WHERE `denuncia anonima`.id_denuncia = `estatus de denuncia`.id_denuncia_a
-            AND `estatus de denuncia`.id_asesor LIKE ?;");
-            $stmt->bindParam(1, $asesor);
-            $stmt->execute();
+            if(str_contains($asesor, 'Ad') == false){
+                $stmt = $dbh->prepare("SELECT * FROM `denuncia anonima` JOIN `estatus de denuncia`
+                WHERE `denuncia anonima`.id_denuncia = `estatus de denuncia`.id_denuncia_a
+                AND `estatus de denuncia`.id_asesor LIKE ?;");
+                $stmt->bindParam(1, $asesor);
+                $stmt->execute();
+            }else{
+                $stmt = $dbh->prepare("SELECT * FROM `denuncia anonima` JOIN `estatus de denuncia`
+                WHERE `denuncia anonima`.id_denuncia = `estatus de denuncia`.id_denuncia_a
+                AND `estatus de denuncia`.id_administrador LIKE ?;");
+                $stmt->bindParam(1, $asesor);
+                $stmt->execute();
+            }
 
         } else if ($estatus != ""){
             $stmt = $dbh->prepare("SELECT * FROM `denuncia anonima` JOIN `estatus de denuncia`

@@ -5,37 +5,37 @@ function tabla($dbh)
 {
     if (isset($_POST['buscar'])) {
         $buscador = "%" . $_POST['buscar'] . "%";
-        if($buscador == "%%"){
-            $buscador = "";    
+        if ($buscador == "%%") {
+            $buscador = "";
         }
     } else {
         $buscador = "";
     }
 
-    if(isset($_POST['asesor'])){
-        $asesor = "%" . $_POST['asesor'] . "%";
-        if($asesor == "%%"){
-            $asesor = "";    
+    if (isset($_POST['asesor'])) {
+        $asesor = $_POST['asesor'] . "%";
+        if ($asesor == "%%") {
+            $asesor = "";
         }
-    }else{
+    } else {
         $asesor = "";
     }
 
-    if(isset($_POST['estatus'])){
+    if (isset($_POST['estatus'])) {
         $estatus = "%" . $_POST['estatus'] . "%";
-        if($estatus == "%%"){
-            $estatus = "";    
+        if ($estatus == "%%") {
+            $estatus = "";
         }
-    }else{
+    } else {
         $estatus = "";
     }
 
-    if(isset($_POST['fecha'])){
+    if (isset($_POST['fecha'])) {
         $fecha = "%" . $_POST['fecha'] . "%";
-        if($fecha == "%%"){
-            $fecha = "";    
+        if ($fecha == "%%") {
+            $fecha = "";
         }
-    }else{
+    } else {
         $fecha = "";
     }
 
@@ -45,35 +45,39 @@ function tabla($dbh)
             $stmt = $dbh->prepare("SELECT * FROM `denuncia ciudadana` JOIN `estatus de denuncia` 
             WHERE `denuncia ciudadana`.id_denuncia = `estatus de denuncia`.id_denuncia_c;");
             $stmt->execute();
-        } else if($buscador != ""){
+        } else if ($buscador != "") {
             $stmt = $dbh->prepare("SELECT * FROM `denuncia ciudadana` JOIN `estatus de denuncia`
             WHERE `denuncia ciudadana`.id_denuncia = `estatus de denuncia`.id_denuncia_c
             AND `denuncia ciudadana`.id_denuncia LIKE ?;");
             $stmt->bindParam(1, $buscador);
             $stmt->execute();
-
-        }else if($asesor != ""){
-            $stmt = $dbh->prepare("SELECT * FROM `denuncia ciudadana` JOIN `estatus de denuncia`
-            WHERE `denuncia ciudadana`.id_denuncia = `estatus de denuncia`.id_denuncia_c
-            AND `estatus de denuncia`.id_asesor LIKE ?;");
-            $stmt->bindParam(1, $asesor);
-            $stmt->execute();
-
-        } else if ($estatus != ""){
+        } else if ($asesor != "") {
+            if (str_contains($asesor, 'Ad') == false) {
+                $stmt = $dbh->prepare("SELECT * FROM `denuncia ciudadana` JOIN `estatus de denuncia`
+                WHERE `denuncia ciudadana`.id_denuncia = `estatus de denuncia`.id_denuncia_c
+                AND `estatus de denuncia`.id_asesor LIKE ?;");
+                $stmt->bindParam(1, $asesor);
+                $stmt->execute();
+            }else{
+                $stmt = $dbh->prepare("SELECT * FROM `denuncia ciudadana` JOIN `estatus de denuncia`
+                WHERE `denuncia ciudadana`.id_denuncia = `estatus de denuncia`.id_denuncia_c
+                AND `estatus de denuncia`.id_administrador LIKE ?;");
+                $stmt->bindParam(1, $asesor);
+                $stmt->execute();
+            }
+        } else if ($estatus != "") {
             $stmt = $dbh->prepare("SELECT * FROM `denuncia ciudadana` JOIN `estatus de denuncia`
             WHERE `denuncia ciudadana`.id_denuncia = `estatus de denuncia`.id_denuncia_c
             AND `estatus de denuncia`.estatus LIKE ?;");
             $stmt->bindParam(1, $estatus);
             $stmt->execute();
-            
-        } else if($fecha != ""){
+        } else if ($fecha != "") {
             echo "fecha";
             $stmt = $dbh->prepare("SELECT * FROM `denuncia ciudadana` JOIN `estatus de denuncia`
             WHERE `denuncia ciudadana`.id_denuncia = `estatus de denuncia`.id_denuncia_c
             AND `denuncia ciudadana`.fecha LIKE ?;");
             $stmt->bindParam(1, $fecha);
             $stmt->execute();
-
         }
         while ($row = $stmt->fetch()) {
 ?>
@@ -101,7 +105,7 @@ function tabla($dbh)
                     <td data-label="Asesor:"> </td>
                 <?php
                 }
-                ?>                
+                ?>
                 <td data-label="Estatus:"><?php echo $row->estatus; ?></td>
                 <td data-label="Nota:"><?php echo $row->nota; ?></td>
                 <td data-label="Fecha:"><?php echo $row->fecha; ?></td>
