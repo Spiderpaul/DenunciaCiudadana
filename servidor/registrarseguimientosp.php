@@ -18,7 +18,7 @@
                 //Se realiza el registro con sentencias preparadas.
                 $stmt = $dbh-> prepare("UPDATE `estatus de denuncia` 
                 SET id_asesor = ?, id_administrador = ?, estatus = ?, nota = ? 
-                WHERE id_denuncia_sp = ?");
+                WHERE (id_denuncia_sp = ?)");
                 $stmt->bindParam(1,$sesionAsesor);
                 $stmt->bindParam(2,$cambioAsesor);
                 $stmt->bindParam(3,$estatus);
@@ -38,7 +38,7 @@
                 //Se realiza el registro con sentencias preparadas.
                 $stmt = $dbh-> prepare("UPDATE `estatus de denuncia` 
                 SET id_asesor = ?, id_administrador = ?, estatus = ?, nota = ? 
-                WHERE id_denuncia_sp = ?");
+                WHERE (id_denuncia_sp = ?)");
                 $stmt->bindParam(1,$cambioAsesor);
                 $stmt->bindParam(2,$sesionAsesor);
                 $stmt->bindParam(3,$estatus);
