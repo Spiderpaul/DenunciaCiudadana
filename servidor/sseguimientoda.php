@@ -54,7 +54,7 @@ function tabla($dbh)
             $stmt->execute();
             
         } else if($asesor != ""){
-            if(str_contains($asesor, 'Ad') == false){
+            if($asesor[1] != "d"){
                 $stmt = $dbh->prepare("SELECT * FROM `denuncia anonima` JOIN `estatus de denuncia`
                 WHERE `denuncia anonima`.id_denuncia = `estatus de denuncia`.id_denuncia_a
                 AND `estatus de denuncia`.id_asesor LIKE ?;");

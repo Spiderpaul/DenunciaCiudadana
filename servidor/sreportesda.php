@@ -82,7 +82,8 @@ function tabla($dbh)
             }
 
             if ($asesor != "") {
-                if(str_contains($asesor, 'Ad') == false){
+                // if(str_contains($asesor, 'Ad') == false){
+                if($asesor[1] != "d"){
                     $sentencia .= ' AND `estatus de denuncia`.id_asesor LIKE ?';
                     array_push($contador, $cont + 1);
                     $as = true;
