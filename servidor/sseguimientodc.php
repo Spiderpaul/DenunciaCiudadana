@@ -14,7 +14,7 @@ function tabla($dbh)
 
     if (isset($_POST['asesor'])) {
         $asesor = $_POST['asesor'] . "%";
-        if ($asesor == "%%") {
+        if ($asesor == "%") {
             $asesor = "";
         }
     } else {
@@ -22,10 +22,7 @@ function tabla($dbh)
     }
 
     if (isset($_POST['estatus'])) {
-        $estatus = "%" . $_POST['estatus'] . "%";
-        if ($estatus == "%%") {
-            $estatus = "";
-        }
+        $estatus = $_POST['estatus'];
     } else {
         $estatus = "";
     }

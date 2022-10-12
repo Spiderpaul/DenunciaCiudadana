@@ -105,6 +105,13 @@ const validarFormulario = (e) => {
   }
 };
 
+const btnCancelar = document.getElementById("boton-cancelar");
+
+btnCancelar.addEventListener("click", (e) => {
+  window.history.back();
+  e.preventDefault();
+});
+
 const validarCampo = (expresion, input, campo, ideUno, ideDos, ideTres) => {
   if (expresion.test(input.value)) {
     document.getElementById(ideUno).classList.remove("incorrecto");

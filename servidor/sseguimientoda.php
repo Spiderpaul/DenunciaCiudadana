@@ -14,7 +14,7 @@ function tabla($dbh)
 
     if(isset($_POST['asesor'])){
         $asesor = $_POST['asesor'] . "%";
-        if($asesor == "%%"){
+        if($asesor == "%"){
             $asesor = "";    
         }
     }else{
@@ -22,10 +22,7 @@ function tabla($dbh)
     }
 
     if(isset($_POST['estatus'])){
-        $estatus = "%" . $_POST['estatus'] . "%";
-        if($estatus == "%%"){
-            $estatus = "";    
-        }
+        $estatus = $_POST['estatus'];
     }else{
         $estatus = "";
     }
@@ -71,7 +68,7 @@ function tabla($dbh)
         } else if ($estatus != ""){
             $stmt = $dbh->prepare("SELECT * FROM `denuncia anonima` JOIN `estatus de denuncia`
             WHERE `denuncia anonima`.id_denuncia = `estatus de denuncia`.id_denuncia_a
-            AND `estatus de denuncia`.estatus LIKE ?;");
+            AND `estatus de denuncia`.estatus = ?;");
             $stmt->bindParam(1, $estatus);
             $stmt->execute();
             
