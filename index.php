@@ -7,7 +7,7 @@
             <h1>Qué SÍ es una denuncia ciudadana</h1>
             <h3>Hechos que tú consideres irregulares, como faltas <br>
                 administrativas, que involucren a:</h3>
-            <h4>1. Servidores públicos federales en ejercicio de sus funciones, o;</h4>
+            <h4>1. Funcionarios municipales en ejercicio de sus funciones, o;</h4>
             <h4>2. Personas físicas o morales que:</h4>
             <p>
                 · Manejen o apliquen recursos públicos federales. <br>
