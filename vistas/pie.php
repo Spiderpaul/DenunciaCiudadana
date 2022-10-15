@@ -7,7 +7,7 @@
             <span class="material-symbols-outlined">alternate_email</span>
         </div>
         <div class="correo2">
-            <p>presidencia@salvadoralvarado.gob.mx</p>
+            <p>denunciaciudadana@salvadoralvarado.gob.mx</p>
         </div>
     </div>
     <div class="telefono">

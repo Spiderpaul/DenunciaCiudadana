@@ -127,7 +127,7 @@ nav ul.derecho li a {
 .imagen-fondo {
   width: 100%;
   min-height: calc(100vh - 120px);
-  background-image: url(./img/raramuris.jpg);
+  background-image: url(./img/fondo.jpg);
   background-position: center center;
   display: flex;
   align-items: center;
