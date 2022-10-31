@@ -6,12 +6,11 @@ function cargarEstatus($dbh, $buscador)
     try {
 
         if ($buscador == "") {    //Si no hay texto
-            $stmt = $dbh->prepare("SELECT * FROM `denuncia anonima`;");
-            $stmt->execute();
+
         } else {                 //Si existe texto
             //Se buscan los datos en las tablas de denuncia anónima, estatus de denuncia y asesor
             $stmt = $dbh->prepare("SELECT * FROM `denuncia anonima` 
-            JOIN `estatus de denuncia` JOIN asesor 
+            JOIN `estatus de denuncia`
             WHERE id_denuncia = ? and id_denuncia_a = ?;");
 
             $stmt->bindParam(1, $buscador);
@@ -22,7 +21,7 @@ function cargarEstatus($dbh, $buscador)
             //Si no existe el id en denuncia anonima, entonces se busca en denuncia ciudadana
             if ($cont == 0) {
                 $stmt = $dbh->prepare("SELECT * FROM `denuncia ciudadana` 
-                JOIN `estatus de denuncia` JOIN asesor 
+                JOIN `estatus de denuncia`
                 WHERE id_denuncia = ? and id_denuncia_c = ?;");
 
                 $stmt->bindParam(1, $buscador);
@@ -33,7 +32,7 @@ function cargarEstatus($dbh, $buscador)
                 //Si no existe el id en denuncia ciudadana, entonces se busca en denuncia servidor público
             } else if ($cont == 0) {
                 $stmt = $dbh->prepare("SELECT * FROM `denuncia servidor publico` 
-                JOIN `estatus de denuncia` JOIN asesor 
+                JOIN `estatus de denuncia`
                 WHERE id_denuncia = ? and id_denuncia_sp = ?;");
 
                 $stmt->bindParam(1, $buscador);
@@ -58,15 +57,34 @@ function cargarEstatus($dbh, $buscador)
                         </div>
                         <div class="div-nombre-estatus">
                             <?php
-                            if ($row->id_asesor == "") {
-
+                            if ($row->estatus == "En espera") {
                             ?>
                                 <p> <?php echo ""; ?> </p>
-                            <?php
+                                <?php
                             } else {
-                            ?>
-                                <p> <?php echo $row->nombre; ?> </p>
+                                if ($row->id_asesor != null) {
+                                    $idAsesor = $row->id_asesor;
+                                    $stmt2 = $dbh->prepare("SELECT * FROM `asesor` 
+                                    WHERE id_asesor = ?;");
+                                    $stmt2->bindParam(1, $idAsesor);
+
+                                    $stmt2->execute();
+                                    $row2 = $stmt2->fetch();
+                                ?>
+                                    <p> <?php echo $row2->nombre; ?> </p>
+                                <?php
+                                } else {
+                                    $idAdminitrador = $row->id_administrador;
+                                    $stmt2 = $dbh->prepare("SELECT * FROM `administrador`
+                                    WHERE id_usuario = ?;");
+                                    $stmt2->bindParam(1, $idAdminitrador);
+
+                                    $stmt2->execute();
+                                    $row2 = $stmt2->fetch();
+                                ?>
+                                    <p> <?php echo $row2->nombre; ?> </p>
                             <?php
+                                }
                             }
                             ?>
                         </div>
