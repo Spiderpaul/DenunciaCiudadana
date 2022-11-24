@@ -91,7 +91,7 @@
                             <option value="Soborno para algún trámite o servicio">Soborno para algún trámite o servicio</option>
                             <option value="Incumplimiento o mal uso de un programa o acción social">Incumplimiento o mal uso de un programa o acción social</option>
                             <option value="Trato irrespetuoso y mala conducta">Trato irrespetuoso y mala conducta</option>
-                            <option value="Servidor público autorisa, solicita o realiza actos para su beneficio">Servidor público autorisa, solicita o realiza actos para su beneficio</option>
+                            <option value="Servidor público autoriza, solicita o realiza actos para su beneficio">Servidor público autorisa, solicita o realiza actos para su beneficio</option>
                             <option value="Solicitud de documentos o dinero adicional para la expedición de documentos">Solicitud de documentos o dinero adicional para la expedición de documentos</option>
                             <option value="Otro">Otro</option>
                         </select>

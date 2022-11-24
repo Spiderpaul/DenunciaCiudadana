@@ -701,7 +701,7 @@ div.contenido {
   min-width: 450px;
   min-height: 70vh;
   margin: 10px auto;
-  font-size: 12px;
+  font-size: 14px;
   display: flex;
   flex-direction: column;
 }
@@ -994,7 +994,7 @@ a:active {
 
 .contenedor-tabla .tabla-usuarios th {
   font-weight: bolder;
-  font-size: 14px;
+  font-size: 16px;
   text-align: left;
   border-bottom: solid 1px white;
 }
@@ -1009,7 +1009,7 @@ a:active {
 }
 
 .contenedor-tabla .tabla-usuarios tbody tr:hover {
-  background-color: #6a1c32;
+  background-color: #2b2b2b;
 }
 
 .contenedor-tabla .tabla-usuarios tbody tr td button {
