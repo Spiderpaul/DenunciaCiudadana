@@ -5,7 +5,7 @@ const textareas = document.querySelectorAll("#form-servidorp textarea"); //Acced
 const expresiones = {
   asunto: /^([A-Za-z0-9À-ÿ\_\-\.\,\#\s]){0,60}$/,
   //descripcion: /^([A-Za-z0-9À-ÿ\_\-\.\,\#\s]){0,1000}$/
-  descripcion: /^([\s\S]){0,1000}$/,
+  descripcion: /^([A-Za-z0-9À-ÿ\_\-\.\,\#\s]){0,1000}$/,
 };
 
 const campos = {
